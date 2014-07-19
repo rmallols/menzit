@@ -70,9 +70,11 @@ module.exports = function(grunt) {
                 options: { stdout: true }
             },
             startProtractor:{ command: '.\\node_modules\\.bin\\protractor .\\frontend\\build\\e2e\\customConf.js', options: { stdout: true } },
+            startMongo:     { command: '"' + grunt.option('path') + '"', options: { async: true, stdout: true }},
             githubAdd:      { command: 'git add .', options: { stdout: true } },
             githubCommit:   { command: 'git commit -m "#0 prod update"', options: { stdout: true } },
-            githubPush:     { command: 'git push', options: { stdout: true } }
+            githubPush:     { command: 'git push', options: { stdout: true } },
+            foo:            { command: 'echo ' + grunt.option('path'), options: { async: true, stdout: true } }
         },
         watch: {
             templates: {
@@ -98,6 +100,7 @@ module.exports = function(grunt) {
     grunt.registerTask('startKarma', ['karma:watch']);
     grunt.registerTask('startSelenium', ['shell:startSelenium']);
     grunt.registerTask('startProtractor', ['shell:startProtractor']);
+    grunt.registerTask('startMongo', ['shell:startMongo']);
     grunt.registerTask('generateTemplates', ['html2js']);
     grunt.registerTask('githubPush', ['shell:githubAdd', 'shell:githubCommit', 'shell:githubPush']);
     grunt.registerTask('dev', ['clean', 'jshint', 'bump', 'generateTemplates', 'githubPush']);

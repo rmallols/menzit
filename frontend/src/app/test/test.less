@@ -2,16 +2,63 @@
 
   .question {
     .padding;
+    .marginBottom;
     background-color: @blue;
     color: white;
     text-align: center;
   }
 
-  .answer {
-    .padding;
-    .centered;
-    cursor: pointer;
-    background-color: white;
-    height: 50%;
+  .answers-container {
+    height: 60%;
+    overflow: hidden;
+
+    .answer {
+      .padding;
+      cursor: pointer;
+      background-color: white;
+      height: 100%;
+      margin-top: 100%;
+
+      .title,
+      .explanation {
+        .transition(height @speed);
+        .centered;
+
+        height: 100%;
+      }
+
+      &.invalid-assert {
+
+        .title,
+        .explanation {
+          height: 50%;
+        }
+      }
+
+      -webkit-animation: show .5s;
+      animation: show .5s;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+
+      &:nth-of-type(2) {
+        -webkit-animation-delay: .5s;
+        animation-delay: .5s;
+      }
+
+      &:nth-of-type(3) {
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+      }
+
+      @-webkit-keyframes show {
+        from {margin-top: 100%;}
+        to {margin-top: 0;}
+      }
+
+      @keyframes show {
+        from {margin-top: 100%;}
+        to {margin-top: 0;}
+      }
+    }
   }
 }

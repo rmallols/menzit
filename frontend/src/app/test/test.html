@@ -1,7 +1,12 @@
 <div class="testView">
     <div class="question">{{test.question}}</div>
-    <div ng-repeat="answer in test.answers" class="answer l-{{test.answers.length}}"
-        ng-click="setAnswer(answer)">
-        {{answer.title}}</div>
+    <div class="answers-container">
+        <div ng-repeat="answer in test.answers" class="answer l-{{test.answers.length}}"
+             ng-class="{ 'invalid-assert': answer.invalidAssert }"
+             ng-click="setAnswer(answer)">
+            <div class="title">{{answer.title}}</div>
+            <div class="explanation">{{answer.explanation}}</div>
+        </div>
+    </div>
     <a ui-sref="home">Go to the home page</a>
 </div>
