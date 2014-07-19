@@ -1,0 +1,7 @@
+<div class="testView">
+    <div class="question">{{test.question}}</div>
+    <div ng-repeat="answer in test.answers" class="answer l-{{test.answers.length}}"
+        ng-click="setAnswer(answer)">
+        {{answer.title}}</div>
+    <a ui-sref="home">Go to the home page</a>
+</div>

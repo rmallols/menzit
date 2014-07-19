@@ -16,8 +16,8 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
             controller: 'HomeCtrl'
         })
         .state('details', {
-            url: "/details",
-            templateUrl: "src/app/details/details.html",
-            controller: 'DetailsCtrl'
+            url: "/test",
+            templateUrl: "src/app/test/test.html",
+            controller: 'TestCtrl'
         });
 });

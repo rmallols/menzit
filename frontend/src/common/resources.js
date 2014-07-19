@@ -22,14 +22,17 @@ var less;
     getStyleSheet(srcPath + '/common/main.less');
 
     //Business logic src resources
-    //Home
+    //Home page
     getScript(srcPath + '/app/home/HomeCtrl.js');
     getScript(srcPath + '/app/home/helloWorldDirective.js');
     getScript(srcPath + '/app/home/helloWorldService.js');
-    //Details
-    getScript(srcPath + '/app/details/DetailsCtrl.js');
+    //Test page
+    getScript(srcPath + '/app/test/TestCtrl.js');
 
     //Less vendor library (has to be loaded at the end of the stylesheet chain
-    less = { env: "production" }; //Set production environment to avoid log messages
+    less = {
+        env: "development",
+        logLevel: 0
+    };
     getScript(vendorPath + '/less/less.min.js');
 })();

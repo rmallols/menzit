@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
     goToIndex(res);
 });
 
-app.get('/details', function (req, res) {
+app.get('/test', function (req, res) {
     goToIndex(res);
 });
 
