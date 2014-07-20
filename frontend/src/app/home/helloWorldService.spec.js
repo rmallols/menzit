@@ -2,7 +2,7 @@ describe('hello world service', function () {
 
     var helloWorldService;
 
-    beforeEach(module('starterProject'));
+    beforeEach(module('menzit'));
     beforeEach(inject(['$controller', '$rootScope', '$compile', 'helloWorld',
         function ($controller, $rootScope, $compile, helloWorld_) {
 

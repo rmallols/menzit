@@ -9,16 +9,18 @@ app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({ secret: "ch0pSuey" }));
 
-app.get('/', function (req, res) {
+app.get(['/', '/test', '/categories', '/categories/:categoryId/runTest'], function (req, res) {
     goToIndex(res);
 });
 
-app.get('/test', function (req, res) {
-    goToIndex(res);
+app.get('/rest/categories', function (req, res) {
+    db.find('categories', {}, function (response) {
+        res.send(response);
+    });
 });
 
-app.get('/rest/test', function (req, res) {
-    db.findOne('tests', {}, function (response) {
+app.get('/rest/questions', function (req, res) {
+    db.findOne('questions', {}, function (response) {
         res.send(response);
     });
 });

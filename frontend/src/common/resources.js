@@ -26,6 +26,8 @@ var less;
     getScript(srcPath + '/app/home/HomeCtrl.js');
     getScript(srcPath + '/app/home/helloWorldDirective.js');
     getScript(srcPath + '/app/home/helloWorldService.js');
+    //Categories page
+    getScript(srcPath + '/app/categories/CategoriesCtrl.js');
     //Test page
     getScript(srcPath + '/app/test/TestCtrl.js');
 

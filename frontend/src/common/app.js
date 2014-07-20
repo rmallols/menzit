@@ -1,4 +1,4 @@
-var app = angular.module('starterProject', ['ui.router']);
+var app = angular.module('menzit', ['ui.router']);
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 
@@ -12,12 +12,17 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: "/",
-            templateUrl: "src/app/home/home.html",
+            templateUrl: "/src/app/home/home.html",
             controller: 'HomeCtrl'
         })
-        .state('details', {
-            url: "/test",
-            templateUrl: "src/app/test/test.html",
+        .state('categories', {
+            url: "/categories",
+            templateUrl: "/src/app/categories/categories.html",
+            controller: 'CategoriesCtrl'
+        })
+        .state('runTest', {
+            url: "/categories/:categoryId/runTest",
+            templateUrl: "/src/app/test/test.html",
             controller: 'TestCtrl'
         });
 });
