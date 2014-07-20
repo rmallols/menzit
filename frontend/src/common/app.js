@@ -22,7 +22,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('runTest', {
             url: "/categories/:categoryId/runTest",
-            templateUrl: "/src/app/test/test.html",
-            controller: 'TestCtrl'
+            templateUrl: "/src/app/question/question.html",
+            controller: 'QuestionCtrl'
         });
 });

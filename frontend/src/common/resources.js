@@ -28,8 +28,8 @@ var less;
     getScript(srcPath + '/app/home/helloWorldService.js');
     //Categories page
     getScript(srcPath + '/app/categories/CategoriesCtrl.js');
-    //Test page
-    getScript(srcPath + '/app/test/TestCtrl.js');
+    //Question page
+    getScript(srcPath + '/app/question/QuestionCtrl.js');
 
     //Less vendor library (has to be loaded at the end of the stylesheet chain
     less = {
