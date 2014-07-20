@@ -1,0 +1,8 @@
+<div class="menu">
+    <div class="action" ng-click="showLoginDialog()">Login</div>
+    <div dialog mz-if="showLogin">
+        <input class="user" ng-model="credentials.user" type="text" placeholder="Username" />
+        <input class="password" ng-model="credentials.password" type="password" placeholder="Password" />
+        <button class="important" ng-click="login()">Login</button>
+    </div>
+</div>

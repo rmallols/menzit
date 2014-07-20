@@ -1,0 +1,26 @@
+input,
+button {
+  .padding;
+  display: block;
+  width: 100%;
+}
+
+input {
+  color: @blue;
+  outline: none;
+  border: 1px solid @grey-2;
+
+  &:focus {
+    border-color: @blue;
+  }
+}
+
+button {
+  border: none;
+  cursor: pointer;
+
+  &.important {
+    background-color: @blue;
+    color: white;
+  }
+}

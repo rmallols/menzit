@@ -22,6 +22,10 @@ var less;
     getStyleSheet(srcPath + '/common/main.less');
 
     //Business logic src resources
+    //Menu
+    getScript(srcPath + '/app/menu/menu.js');
+    //Dialog
+    getScript(srcPath + '/app/dialog/dialog.js');
     //Home page
     getScript(srcPath + '/app/home/HomeCtrl.js');
     getScript(srcPath + '/app/home/helloWorldDirective.js');
