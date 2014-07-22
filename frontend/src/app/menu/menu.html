@@ -1,8 +1,14 @@
 <div class="menu">
-    <div class="action" ng-click="showLoginDialog()">Login</div>
+    <div class="action admin" ng-click="showAdminOptions()" ng-if="session">Admin</div>
+    <div class="action login" ng-click="showLoginDialog()" ng-if="!session">Login</div>
+    <div class="action logout" ng-click="logout()" ng-if="session">Logout</div>
     <div dialog mz-if="showLogin">
-        <input class="user" ng-model="credentials.user" type="text" placeholder="Username" />
-        <input class="password" ng-model="credentials.password" type="password" placeholder="Password" />
-        <button class="important" ng-click="login()">Login</button>
+        <form ng-submit="login()">
+            <input class="user" ng-model="credentials.userName" type="text"
+                   placeholder="Username" autofocus />
+            <input class="password" ng-model="credentials.password" type="password"
+                   placeholder="Password" />
+            <button class="important">Login</button>
+        </form>
     </div>
 </div>

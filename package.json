@@ -11,9 +11,10 @@
     "dbUser": "",
     "dbPassword": "",
     "dependencies": {
-    "express": "3.x",
-    "mongodb": "~1.4.7"
-  },
+        "express": "3.x",
+        "mongodb": "~1.4.7",
+        "bcrypt-nodejs": "~0.0.3"
+    },
     "devDependencies": {
         "supervisor": "~0.5.7",
         "karma": "~0.12.3",

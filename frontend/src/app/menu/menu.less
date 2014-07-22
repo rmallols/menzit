@@ -5,12 +5,17 @@
   .action {
     .padding;
     color: white;
-    float: right;
     background-color: @grey-4;
     cursor: pointer;
+    float: left;
 
     &:hover {
       background-color: @grey-5;
+    }
+
+    &.login,
+    &.logout {
+      float: right;
     }
   }
 

@@ -13,10 +13,10 @@
 
                 scope.hideDialog = function() {
                     scope.mzIf = false;
-                }
+                };
 
                 angular.element(document).bind("keyup", function(e) {
-                    if(e.keyCode == 27) {
+                    if(e.keyCode === 27) {
                         scope.hideDialog();
                         scope.$apply();
                     }

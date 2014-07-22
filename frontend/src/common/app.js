@@ -1,6 +1,8 @@
+'use strict';
+
 var app = angular.module('menzit', ['ui.router']);
 
-app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
+app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
     //Avoid using hashes on the URL, whenever the browser supports this feature
     $locationProvider.html5Mode(true);
