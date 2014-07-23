@@ -41,6 +41,8 @@ app.get('/rest/categories', function (req, res) {
     });
 });
 
+//TODO: All the following .get could be summarized en just one like /rest/:collection/:id
+
 app.get('/rest/categories/:categoryId', function (req, res) {
     var query = { _id: db.getNormalizedId(req.params.categoryId) };
     db.findOne('categories', { query: query }, function (response) {
@@ -51,6 +53,19 @@ app.get('/rest/categories/:categoryId', function (req, res) {
 app.get('/rest/questions/:questionId', function (req, res) {
     var query = { _id: db.getNormalizedId(req.params.questionId) };
     db.findOne('questions', { query: query }, function (response) {
+        res.send(response);
+    });
+});
+
+app.get('/rest/tenants/:tenantId', function (req, res) {
+    var query = { _id: db.getNormalizedId(req.params.tenantId) };
+    db.findOne('tenants', { query: query }, function (response) {
+        res.send(response);
+    });
+});
+
+app.put('/rest/tenants/:tenantId', function (req, res) {
+    db.update('tenants', req.params.tenantId, req.body, function (response) {
         res.send(response);
     });
 });

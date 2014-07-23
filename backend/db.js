@@ -8,7 +8,7 @@ module.exports = {
     _dbId: 'menzit',
 
     find: function(collection, options, callback) {
-        var options = this._normalizeFindOptions(options);
+        var options = this._getNormalizeFindOptions(options);
         this._connect(this._dbId, function(err, db) {
             db.collection(collection)
                 .find(options.query, options.projection)
@@ -23,12 +23,23 @@ module.exports = {
     },
 
     findOne: function(collection, options, callback) {
-        var options = this._normalizeFindOptions(options);
+        var options = this._getNormalizeFindOptions(options);
         this._connect(this._dbId, function(err, db) {
             db.collection(collection)
                 .findOne(options.query, options.projection, function (err, documents) {
                     callback(documents);
                 });
+        });
+    },
+
+    update : function (collection, id, data, callback) {
+        var self = this;
+        this._connect(this._dbId, function(err, db) {
+            db.collection(collection).update(   {_id: self.getNormalizedId(id)},
+                                                {$set: self._getNormalizedModel(data)},
+                                                function() {
+                                                    callback({});
+                                            });
         });
     },
 
@@ -54,12 +65,22 @@ module.exports = {
         return 'mongodb://' + credentials + endpoint;
     },
 
-    _normalizeFindOptions: function(options) {
+    _getNormalizeFindOptions: function(options) {
         if(!options.query)      { options.query = {}; }
         if(!options.projection) { options.projection = {}; }
         if(!options.sort)       { options.sort = {}; }
         if(!options.pageSize)   { options.pageSize = 10; }
         if(!options.skip)       { options.skip = 0; }
         return options;
+    },
+
+    _getNormalizedModel: function (model) {
+        var key, updatedModel = {};
+        for (key in model) {
+            if (key !== '_id') {
+                updatedModel[key] = model[key];
+            }
+        }
+        return updatedModel;
     }
 }
