@@ -26,5 +26,25 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             url: "/categories/:categoryId/runTest",
             templateUrl: "/src/app/question/question.html",
             controller: 'QuestionCtrl'
+        })
+        .state('admin', {
+            url: "/admin",
+            templateUrl: "/src/app/admin/admin.html",
+            controller: 'AdminCtrl'
+        })
+        .state('admin.tenant', {
+            url: "/tenant",
+            templateUrl: "/src/app/admin/tenant/tenant.html",
+            controller: 'TenantCtrl'
+        })
+        .state('admin.tests', {
+            url: "/tests",
+            templateUrl: "/src/app/admin/tests/tests.html",
+            controller: 'TestsCtrl'
+        })
+        .state('admin.users', {
+            url: "/users",
+            templateUrl: "/src/app/admin/users/users.html",
+            controller: 'UsersCtrl'
         });
 });

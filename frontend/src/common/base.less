@@ -16,8 +16,10 @@ body {
 
 [ui-view] {
   .padding;
+  height: 80%;
 }
 
+//ALIGNMENT
 .centered {
   display: flex;
   align-items: center;
@@ -25,11 +27,26 @@ body {
   text-align: center;
 }
 
-//SPACING
-.padding {
-  padding: 2% 4%;
+.float-left {
+  float: left;
 }
 
-.marginBottom {
+.float-right {
+  float: right;
+}
+
+//SPACING
+.padding {
+  padding: 15px;
+}
+
+.margin-bottom {
   margin-bottom: 2%;
+}
+
+//TITLES
+h1:first-child,
+h2:first-child,
+h3:first-child {
+  margin-top: 0;
 }

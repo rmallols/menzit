@@ -2,25 +2,21 @@ input,
 button {
   .padding;
   display: block;
-  width: 100%;
 }
 
 input {
   color: @blue;
   outline: none;
   border: 1px solid @grey-2;
+  font-size:120%;
+  width: 100%;
 
   &:focus {
     border-color: @blue;
   }
 }
 
-button {
-  border: none;
-  cursor: pointer;
-
-  &.important {
-    background-color: @blue;
-    color: white;
-  }
+.input-label {
+  text-align: right;
+  margin-top: 1.5%;
 }

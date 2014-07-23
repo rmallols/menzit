@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    app.directive('menu',['session', function (session) {
+    app.directive('menu',['$state', 'session', function ($state, session) {
         return  {
             replace: true,
             restrict: 'A',
@@ -12,7 +12,7 @@
                 });
 
                 scope.showAdminOptions = function() {
-                    alert('HERE ARE THE ADMIN OPTIONS')
+                    $state.go('admin.tenant');
                 };
 
                 scope.showLoginDialog = function() {

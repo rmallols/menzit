@@ -21,7 +21,7 @@ getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
 getScript(srcPath + '/common/app.js');
 getScript(srcPath + '/common/http.js');
 getScript(srcPath + '/common/session.js');
-getStyleSheet(srcPath + '/common/main.less');
+getStyleSheet(srcPath + '/common/loader.less');
 
 //Business logic src resources
 //Menu
@@ -36,6 +36,11 @@ getScript(srcPath + '/app/home/helloWorldService.js');
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
 //Question page
 getScript(srcPath + '/app/question/QuestionCtrl.js');
+//Admin pages
+getScript(srcPath + '/app/admin/AdminCtrl.js');
+getScript(srcPath + '/app/admin/tenant/TenantCtrl.js');
+getScript(srcPath + '/app/admin/tests/TestsCtrl.js');
+getScript(srcPath + '/app/admin/users/UsersCtrl.js');
 
 //Less vendor library (has to be loaded at the end of the stylesheet chain
 less = {

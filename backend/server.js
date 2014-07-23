@@ -11,10 +11,11 @@ app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({ secret: "ch0pSuey" }));
 
-app.get(['/', '/test', '/categories', '/categories/:categoryId/runTest'],
-function (req, res) {
-    goToIndex(res);
-});
+app.get(['/', '/test', '/categories', '/categories/:categoryId/runTest',
+        '/admin/tenant', '/admin/tests', '/admin/users'],
+        function (req, res) {
+            goToIndex(res);
+        });
 
 app.post('/rest/login', function (req, res) {
     session.login(req.body.user, req.body.password, req.session, function (user) {
@@ -52,6 +53,10 @@ app.get('/rest/questions/:questionId', function (req, res) {
     db.findOne('questions', { query: query }, function (response) {
         res.send(response);
     });
+});
+
+app.get('/admin', function (req, res) {
+    res.redirect('/admin/tenant');
 });
 
 app.use(express.static(__dirname + '/../frontend'));
