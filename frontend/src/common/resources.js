@@ -24,14 +24,12 @@ getScript(srcPath + '/common/session.js');
 getStyleSheet(srcPath + '/common/loader.less');
 
 //Business logic src resources
+//Home page
+getScript(srcPath + '/common/BaseCtrl.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
 //Dialog
 getScript(srcPath + '/app/dialog/dialog.js');
-//Home page
-getScript(srcPath + '/app/home/HomeCtrl.js');
-getScript(srcPath + '/app/home/helloWorldDirective.js');
-getScript(srcPath + '/app/home/helloWorldService.js');
 //Categories page
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
 //Question page

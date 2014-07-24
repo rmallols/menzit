@@ -1,6 +1,7 @@
 (function() {
     'use strict';
-    app.directive('menu',['$state', 'session', function ($state, session) {
+    app.directive('menu',['$rootScope', '$state', 'session',
+    function ($rootScope, $state, session) {
         return  {
             replace: true,
             restrict: 'A',
@@ -12,7 +13,7 @@
                 });
 
                 scope.showAdminOptions = function() {
-                    $state.go('admin.tenant');
+                    $state.go('mz.admin.tenant');
                 };
 
                 scope.showLoginDialog = function() {
@@ -25,6 +26,7 @@
                     var password = scope.credentials.password;
                     session.login(userName, password).then(function(session) {
                         if(session) {
+                            $rootScope.$emit('authenticatedUser', session);
                             scope.session = session;
                             scope.showLogin = false;
                         } else {

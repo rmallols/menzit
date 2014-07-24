@@ -3,48 +3,60 @@
 var app = angular.module('menzit', ['ui.router']);
 
 app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
-
-    //Avoid using hashes on the URL, whenever the browser supports this feature
     $locationProvider.html5Mode(true);
-
-    // For any unmatched url, redirect to the home page
     $urlRouterProvider.otherwise("/");
-
-    // Now set up the states
     $stateProvider
-        .state('home', {
-            url: "/",
-            templateUrl: "/src/app/home/home.html",
-            controller: 'HomeCtrl'
+        .state('mz', {
+            templateUrl: "/src/common/base.html",
+            controller: 'BaseCtrl',
+            resolve: {
+                session: ['http', function (http) {
+                    return http.get('/rest/getSession/');
+                }]
+            }
         })
-        .state('categories', {
+        .state('mz.categories', {
             url: "/categories",
             templateUrl: "/src/app/categories/categories.html",
             controller: 'CategoriesCtrl'
         })
-        .state('runTest', {
+        .state('mz.runTest', {
             url: "/categories/:categoryId/runTest",
             templateUrl: "/src/app/question/question.html",
             controller: 'QuestionCtrl'
         })
-        .state('admin', {
+        .state('mz.admin', {
             url: "/admin",
             templateUrl: "/src/app/admin/admin.html",
-            controller: 'AdminCtrl'
+            controller: 'AdminCtrl',
+            data: {
+                groupId: 'admin'
+            }
         })
-        .state('admin.tenant', {
+        .state('mz.admin.tenant', {
             url: "/tenant",
             templateUrl: "/src/app/admin/tenant/tenant.html",
-            controller: 'TenantCtrl'
+            controller: 'TenantCtrl',
+            data: {
+                groupId: 'admin'
+            }
         })
-        .state('admin.tests', {
+        .state('mz.admin.tests', {
             url: "/tests",
-            templateUrl: "/src/app/admin/tests/tests.html",
-            controller: 'TestsCtrl'
+            //templateUrl: "/src/app/admin/tests/tests.html",
+            //controller: 'TestsCtrl'
+            templateUrl: "/src/app/categories/categories.html",
+            controller: 'CategoriesCtrl',
+            data: {
+                groupId: 'admin'
+            }
         })
-        .state('admin.users', {
+        .state('mz.admin.users', {
             url: "/users",
             templateUrl: "/src/app/admin/users/users.html",
-            controller: 'UsersCtrl'
+            controller: 'UsersCtrl',
+            data: {
+                groupId: 'admin'
+            }
         });
 });

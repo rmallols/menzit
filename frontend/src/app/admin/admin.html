@@ -1,8 +1,9 @@
 <div class="admin-view">
     <div class="menu">
-        <a class="action" ui-sref="admin.tenant">Tenant</a>
-        <a class="action" ui-sref="admin.tests">Tests</a>
-        <a class="action" ui-sref="admin.users">Users</a>
+        <a ng-repeat="action in menuActions" ui-sref="{{action.uiSref}}"
+             class="action" ng-class="isActiveAction(action.uiSref)">
+            {{action.label}}
+        </a>
     </div>
     <div ui-view></div>
 </div>

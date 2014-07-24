@@ -9,6 +9,7 @@ module.exports = {
         var filter = { $and: [{ userName: userName }]};
         db.findOne('users', filter, function (dbUser) {
             if (dbUser && bcrypt.compareSync(password, dbUser.password)) {
+                delete dbUser.password;
                 session.user = dbUser;
                 callback(dbUser);
             } else {

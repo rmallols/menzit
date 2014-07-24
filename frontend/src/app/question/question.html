@@ -1,12 +1,10 @@
-<div class="question-view">
-    <div class="question">{{question.title}}</div>
-    <div class="answers-container">
-        <div ng-repeat="answer in question.answers" class="answer l-1-{{question.answers.length}}"
-             ng-class="{ 'invalid-assert': answer.invalidAssert }"
-             ng-click="setAnswer(answer)">
-            <div class="title">{{answer.title}}</div>
-            <div class="explanation">{{answer.explanation}}</div>
-        </div>
+<div class="question">{{question.title}}</div>
+<div class="answers-container">
+    <div ng-repeat="answer in question.answers" class="answer l-1-{{question.answers.length}}"
+         ng-class="{ 'invalid-assert': answer.invalidAssert }"
+         ng-click="setAnswer(answer)">
+        <div class="title">{{answer.title}}</div>
+        <div class="explanation">{{answer.explanation}}</div>
     </div>
-    <a ui-sref="categories">Back to categories</a>
 </div>
+<a ui-sref="mz.categories">Back to categories</a>
