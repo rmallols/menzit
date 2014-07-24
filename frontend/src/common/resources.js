@@ -32,6 +32,7 @@ getScript(srcPath + '/app/menu/menu.js');
 getScript(srcPath + '/app/dialog/dialog.js');
 //Categories page
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
+getScript(srcPath + '/app/categories/categories.js');
 //Question page
 getScript(srcPath + '/app/question/QuestionCtrl.js');
 //Admin pages
