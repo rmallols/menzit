@@ -49,8 +49,16 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
                 subGroupId: 'categories'
             }
         })
-        .state('mz.admin.category', {
-            url: "/categories/:categoryId",
+        .state('mz.admin.addCategory', {
+            url: "/categories/add",
+            templateUrl: "/src/app/admin/categories/categoryAdmin.html",
+            controller: 'CategoryAdminCtrl',
+            data: {
+                subGroupId: 'categories'
+            }
+        })
+        .state('mz.admin.editCategory', {
+            url: "/categories/edit/:categoryId",
             templateUrl: "/src/app/admin/categories/categoryAdmin.html",
             controller: 'CategoryAdminCtrl',
             data: {

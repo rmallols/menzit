@@ -11,7 +11,7 @@ function getStyleSheet(url) {
     document.write('<link type="text/css" href="' + url + '" rel="stylesheet' + rel + '" />');
 }
 
-var srcPath = '../../src', vendorPath = '../../vendor/';
+var srcPath = '/src', vendorPath = '/vendor/';
 
 //External libraries
 getScript(vendorPath + '/jQuery/jquery-2.1.1.min.js');

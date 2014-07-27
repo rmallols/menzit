@@ -3,15 +3,35 @@
 app.controller('CategoryAdminCtrl', ['$scope', '$state', 'http',
     function ($scope, $state, http) {
 
-        var categoryRestUrl = '/rest/categories/' + $state.params.categoryId;
+        setup();
 
-        http.get(categoryRestUrl).then(function (response) {
-            $scope.category = response;
-        });
+        function setup() {
+            if ($state.params.categoryId) {
+                editSetup();
+            } else {
+                addSetup();
+            }
+        }
 
-        $scope.submit = function () {
-            http.put(categoryRestUrl, $scope.category).then(function () {
-                $state.go('mz.admin.categories');
+        function editSetup() {
+            var categoryRestUrl = '/rest/categories/' + $state.params.categoryId;
+            $scope.title = 'Edit category';
+            http.get(categoryRestUrl).then(function (response) {
+                $scope.category = response;
             });
-        };
+            $scope.submit = function () {
+                http.put(categoryRestUrl, $scope.category).then(function () {
+                    $state.go('mz.admin.categories');
+                });
+            };
+        }
+
+        function addSetup() {
+            $scope.title = 'Add category';
+            $scope.submit = function () {
+                http.post('/rest/categories/add', $scope.category).then(function () {
+                    $state.go('mz.admin.categories');
+                });
+            };
+        }
     }]);

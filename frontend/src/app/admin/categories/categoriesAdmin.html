@@ -2,7 +2,7 @@
     <div class="cf">
         <h1 class="float-left">Manage categories</h1>
         <div class="float-right">
-            <button class="important">Add</button>
+            <button class="important" ng-click="add()">Add</button>
         </div>
     </div>
     <div class="category" ng-repeat="category in categories">
@@ -25,6 +25,6 @@
         <label class="warning">Warning</label><br/>
         The following category and all the tests attached to it will be deleted<br/><br/>
         <b>{{categoryToBeDeleted.title}}</b><br/><br/>
-        <button class="delete" ng-click="delete(categoryToBeDeleted)">Delete</button>
+        <button class="delete" ng-click="delete()">Delete</button>
     </div>
 </div>

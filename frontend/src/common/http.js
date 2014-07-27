@@ -32,9 +32,18 @@ app.service('http', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
     }
 
+    function remove(url) {
+        var deferred = $q.defer();
+        $http.delete(url).then(function (response) {
+            deferred.resolve(response.data);
+        });
+        return deferred.promise;
+    }
+
     return  {
         get: get,
         post: post,
-        put: put
+        put: put,
+        delete: remove
     };
 }]);

@@ -12,8 +12,8 @@ app.use(express.cookieParser());
 app.use(express.session({ secret: "ch0pSuey" }));
 
 app.get(['/', '/test', '/categories', '/categories/:categoryId/runTest',
-        '/admin/tenant', '/admin/categories', '/admin/categories/:categoryId',
-        '/admin/users'],
+        '/admin/tenant', '/admin/categories', '/admin/categories/add',
+        '/admin/categories/edit/:categoryId', '/admin/users'],
         function (req, res) {
             goToIndex(res);
         });
@@ -36,13 +36,19 @@ app.get('/rest/getSession', function (req, res) {
     });
 });
 
+//TODO: All the following .get could be summarized en just one like /rest/:collection/:id
+
 app.get('/rest/categories', function (req, res) {
     db.find('categories', {}, function (response) {
         res.send(response);
     });
 });
 
-//TODO: All the following .get could be summarized en just one like /rest/:collection/:id
+app.post('/rest/categories/add', function (req, res) {
+    db.create('categories', req.body, req.session, function (response) {
+        res.send(response);
+    });
+});
 
 app.get('/rest/categories/:categoryId', function (req, res) {
     var query = { _id: db.getNormalizedId(req.params.categoryId) };
@@ -53,6 +59,12 @@ app.get('/rest/categories/:categoryId', function (req, res) {
 
 app.put('/rest/categories/:categoryId', function (req, res) {
     db.update('categories', req.params.categoryId, req.body, function (response) {
+        res.send(response);
+    });
+});
+
+app.delete('/rest/categories/:categoryId', function (req, res) {
+    db.delete('categories', req.params.categoryId, function (response) {
         res.send(response);
     });
 });
