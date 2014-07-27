@@ -1,10 +1,44 @@
 .dialog {
 
   .box {
-    //.centered;
     .padding;
-    background-color: white;
+    .border-radius;
+    background-color: @grey-1;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+
+    .header {
+      .cf;
+      .border-bottom;
+      .margin-bottom;
+
+      .title {
+        .float-left;
+      }
+
+      button {
+        .float-right;
+      }
+    }
+
+    .content {
+
+      input,
+      button {
+        .margin-bottom;
+        width: 100%;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      button {
+        text-align: center;
+      }
+    }
   }
 
   .overlay {

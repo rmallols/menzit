@@ -12,7 +12,7 @@ app.use(express.cookieParser());
 app.use(express.session({ secret: "ch0pSuey" }));
 
 app.get(['/', '/test', '/categories', '/categories/:categoryId/runTest',
-        '/admin/tenant', '/admin/tests', '/admin/users'],
+        '/admin/tenant', '/admin/categories', '/admin/users'],
         function (req, res) {
             goToIndex(res);
         });

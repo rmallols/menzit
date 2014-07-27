@@ -1,14 +1,23 @@
+@font-face {
+  font-family: mz;
+  src: url('/src/common/mz.ttf');
+}
+
 * {
   box-sizing: border-box;
 }
+
 body {
   padding: 0;
   margin: 0;
-  color: @grey-3;
   background-color: @grey-1;
   font-family: Verdana;
-  font-size: 1.5rem;
+  font-size: 1rem;
   overflow: hidden;
+}
+
+body, a {
+  color: @font-color;
 }
 
 /* MICRO CLEARFIX HACK */
@@ -16,15 +25,20 @@ body {
 
 [ui-view].root {
   .padding;
-  height: 80%;
+  .offsettedHeight(-@menu-height);
 }
 
 //ALIGNMENT
-.centered {
+.v-centered {
+  justify-content: initial;
   display: flex;
   align-items: center;
-  justify-content: center;
   text-align: center;
+}
+
+.centered {
+  .v-centered;
+  justify-content: center;
 }
 
 .float-left {
@@ -37,16 +51,64 @@ body {
 
 //SPACING
 .padding {
-  padding: 15px;
+  padding: @gutter;
+}
+
+.rectangle-padding {
+  padding: @gutter * 0.7 @gutter;
 }
 
 .margin-bottom {
-  margin-bottom: 2%;
+  margin-bottom: @gutter;
 }
 
 //TITLES
+h1, h2, h3 {
+  font-weight: normal;
+}
+
 h1:first-child,
 h2:first-child,
 h3:first-child {
   margin-top: 0;
 }
+
+.warning {
+  display: block;
+  text-align: center;
+  color: @red;
+}
+
+//LIST ITEMS
+.list-item {
+  .cf;
+  .border-radius;
+  .margin-bottom;
+  height: 70px;
+  .padding;
+  background-color: white;
+
+  button {
+    background-color: @grey-1;
+
+    &:hover {
+      background-color: @grey-2;
+    }
+  }
+}
+
+//BORDER
+.border-radius {
+  border-radius: @border-radius;
+}
+
+.border-bottom {
+  border-bottom: 1px solid @grey-2;
+}
+
+//OFFSETTED DIMENSIONS
+.offsettedWidth(@offset: 0px, @width:100%){ width: -webkit-calc(@width+~"+"@offset) !important; }
+.offsettedHeight(@offset: 0px, @height:100%){ height: -moz-calc(@height + ~" + "@offset) !important; height: -o-calc(@height + ~" + "@offset) !important; height: calc(@height + ~" + "@offset) !important; height: -webkit-calc(@height + ~" + "@offset) !important; }
+.offsettedMaxHeight(@offset: 0px, @height:100%){ max-height: -moz-calc(@height + ~" + "@offset) !important; max-height: -o-calc(@height + ~" + "@offset) !important; max-height: calc(@height + ~" + "@offset) !important; max-height: -webkit-calc(@height + ~" + "@offset) !important; }
+.offsettedTop(@offset: 0px, @top:100%){ top: -moz-calc(@top + ~" + "@offset) !important; top: -o-calc(@top + ~" + "@offset) !important; top: calc(@top + ~" + "@offset) !important;top: -webkit-calc(@top + ~" + "@offset) !important; }
+.offsettedLeft(@offset: 0px, @left:100%){ left: -moz-calc(@left + ~" + "@offset) !important; left: -o-calc(@left + ~" + "@offset) !important; left: calc(@left + ~" + "@offset) !important; left: -webkit-calc(@left + ~" + "@offset) !important; }

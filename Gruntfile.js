@@ -5,7 +5,14 @@ module.exports = function(grunt) {
         srcFolder: 'frontend/src/',
         vendorFolder: 'frontend/vendor/',
         distFolder: 'frontend/dist/',
-        clean: ['<%= distFolder %>js.min.js'],
+        clean: {
+            jsMin: {
+                src: ['<%= distFolder %>js.min.js']
+            },
+            ttf: {
+                src: ['from']
+            }
+        },
         jshint: {
             all: ['<%= srcFolder %>/**/*.js'],
             options: {
@@ -83,19 +90,41 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false
                 }
+            },
+            ttf: {
+                files: ['<%= srcFolder %>/common/mz.svg'],
+                tasks: ['updateTtf'],
+                options: {
+                    spawn: false
+                }
             }
+        },
+        copy: {
+            ttf: {
+                src: 'from/mz.ttf',
+                dest: 'frontend/src/common/',
+                expand: true,
+                flatten: true,
+                filter: 'isFile'
+            }
+        },
+        svg2ttf: {
+            from: 'frontend/src/common/mz.svg'
         }
     });
 
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-svg2ttf');
 
+    grunt.registerTask('updateTtf', ['svg2ttf', 'copy:ttf', 'clean:ttf']);
     grunt.registerTask('runJshint', ['jshint']);
     grunt.registerTask('startKarma', ['karma:watch']);
     grunt.registerTask('startSelenium', ['shell:startSelenium']);
@@ -103,7 +132,7 @@ module.exports = function(grunt) {
     grunt.registerTask('startMongo', ['shell:startMongo']);
     grunt.registerTask('generateTemplates', ['html2js']);
     grunt.registerTask('githubPush', ['shell:githubAdd', 'shell:githubCommit', 'shell:githubPush']);
-    grunt.registerTask('dev', ['clean', 'jshint', 'bump', 'generateTemplates', 'githubPush']);
-    grunt.registerTask('prod', ['clean', 'jshint', 'startProtractor', 'karma:run', 'bump',
+    grunt.registerTask('dev', ['clean:jsMin', 'jshint', 'bump', 'generateTemplates', 'githubPush']);
+    grunt.registerTask('prod', ['clean:jsMin', 'jshint', 'startProtractor', 'karma:run', 'bump',
         'generateTemplates', 'concat', 'uglify', 'githubPush']);
 };

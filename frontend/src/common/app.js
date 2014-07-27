@@ -38,10 +38,10 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             templateUrl: "/src/app/admin/tenant/tenant.html",
             controller: 'TenantCtrl'
         })
-        .state('mz.admin.tests', {
-            url: "/tests",
-            templateUrl: "/src/app/admin/tests/tests.html",
-            controller: 'TestsCtrl'
+        .state('mz.admin.categories', {
+            url: "/categories",
+            templateUrl: "/src/app/admin/categories/categories.html",
+            controller: 'AdminCategoriesCtrl'
         })
         .state('mz.admin.users', {
             url: "/users",

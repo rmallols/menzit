@@ -40,6 +40,10 @@
                         scope.session = undefined;
                     });
                 };
+
+                scope.isActiveAction = function () {
+                    return { active: $state.current.data.groupId === 'admin' };
+                };
             }
         };
     }]);

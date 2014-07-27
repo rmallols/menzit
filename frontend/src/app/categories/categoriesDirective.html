@@ -1,0 +1,26 @@
+<div class="categories-view">
+    <!--<div class="category" ng-repeat="category in categories"-->
+         <!--ng-click="launchTest(category)">-->
+    <div class="category" ng-repeat="category in categories">
+        <div class="float-left v-centered">
+            {{category.title}}
+        </div>
+        <div class="float-right">
+            <button>
+                <icon class="up-icon"></icon>
+            </button>
+            <button>
+                <icon class="down-icon"></icon>
+            </button>
+            <button>Edit</button>
+            <button class="important">View tests</button>
+            <button class="delete" ng-click="confirmDelete(category)">Delete</button>
+        </div>
+    </div>
+    <div dialog mz-if="categoryToBeDeleted" title="Delete category">
+        <label class="warning">Warning</label><br/>
+        The following category and all the tests attached to it will be deleted<br/><br/>
+        <b>{{categoryToBeDeleted.title}}</b><br/><br/>
+        <button class="delete" ng-click="delete(categoryToBeDeleted)">Delete</button>
+    </div>
+</div>

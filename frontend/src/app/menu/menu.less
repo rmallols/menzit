@@ -1,34 +1,20 @@
 .menu-view {
   .cf;
-  background-color: @grey-3;
+  .padding;
+  .border-bottom;
+  height: @menu-height;
 
-  .action {
+  button {
     float: left;
+    background-color: @grey-2;
 
     &.login,
     &.logout {
       float: right;
     }
-  }
 
-  .dialog {
-
-    .box {
-      top: 30%;
-      left: 30%;
-      height: 40%;
-      width: 40%;
-    }
-
-    input, button {
-      height: 30%;
-      font-size: 160%;
-      width: 100%;
-    }
-
-    input.user,
-    input.password {
-      margin-bottom: 3%;
+    &:hover {
+      background-color: @grey-3;
     }
   }
 }

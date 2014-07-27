@@ -2,7 +2,8 @@
     <div class="menu">
         <a ng-repeat="action in menuActions" ui-sref="{{action.uiSref}}"
              class="action" ng-class="isActiveAction(action.uiSref)">
-            {{action.label}}
+            <icon class="{{action.icon}}"></icon>
+            <div>{{action.label}}</div>
         </a>
     </div>
     <div ui-view></div>
