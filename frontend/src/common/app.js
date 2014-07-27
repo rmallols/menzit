@@ -36,16 +36,33 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
         .state('mz.admin.tenant', {
             url: "/tenant",
             templateUrl: "/src/app/admin/tenant/tenant.html",
-            controller: 'TenantCtrl'
+            controller: 'TenantCtrl',
+            data: {
+                subGroupId: 'tenant'
+            }
         })
         .state('mz.admin.categories', {
             url: "/categories",
-            templateUrl: "/src/app/admin/categories/categories.html",
-            controller: 'AdminCategoriesCtrl'
+            templateUrl: "/src/app/admin/categories/categoriesAdmin.html",
+            controller: 'CategoriesAdminCtrl',
+            data: {
+                subGroupId: 'categories'
+            }
+        })
+        .state('mz.admin.category', {
+            url: "/categories/:categoryId",
+            templateUrl: "/src/app/admin/categories/categoryAdmin.html",
+            controller: 'CategoryAdminCtrl',
+            data: {
+                subGroupId: 'categories'
+            }
         })
         .state('mz.admin.users', {
             url: "/users",
             templateUrl: "/src/app/admin/users/users.html",
-            controller: 'UsersCtrl'
+            controller: 'UsersCtrl',
+            data: {
+                subGroupId: 'users'
+            }
         });
 });

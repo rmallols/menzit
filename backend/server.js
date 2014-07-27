@@ -12,7 +12,8 @@ app.use(express.cookieParser());
 app.use(express.session({ secret: "ch0pSuey" }));
 
 app.get(['/', '/test', '/categories', '/categories/:categoryId/runTest',
-        '/admin/tenant', '/admin/categories', '/admin/users'],
+        '/admin/tenant', '/admin/categories', '/admin/categories/:categoryId',
+        '/admin/users'],
         function (req, res) {
             goToIndex(res);
         });
@@ -46,6 +47,12 @@ app.get('/rest/categories', function (req, res) {
 app.get('/rest/categories/:categoryId', function (req, res) {
     var query = { _id: db.getNormalizedId(req.params.categoryId) };
     db.findOne('categories', { query: query }, function (response) {
+        res.send(response);
+    });
+});
+
+app.put('/rest/categories/:categoryId', function (req, res) {
+    db.update('categories', req.params.categoryId, req.body, function (response) {
         res.send(response);
     });
 });

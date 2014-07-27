@@ -1,1 +1,5 @@
-<div categories></div>
+<div class="categories-view">
+    <div class="category" ng-repeat="category in categories" ng-click="launchTest(category)">
+        {{category.title}}
+    </div>
+</div>

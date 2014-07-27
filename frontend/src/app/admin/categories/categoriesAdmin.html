@@ -1,6 +1,10 @@
 <div class="categories-view">
-    <!--<div class="category" ng-repeat="category in categories"-->
-         <!--ng-click="launchTest(category)">-->
+    <div class="cf">
+        <h1 class="float-left">Manage categories</h1>
+        <div class="float-right">
+            <button class="important">Add</button>
+        </div>
+    </div>
     <div class="category" ng-repeat="category in categories">
         <div class="float-left v-centered">
             {{category.title}}
@@ -12,7 +16,7 @@
             <button>
                 <icon class="down-icon"></icon>
             </button>
-            <button>Edit</button>
+            <button ng-click="edit(category)">Edit</button>
             <button class="important">View tests</button>
             <button class="delete" ng-click="confirmDelete(category)">Delete</button>
         </div>

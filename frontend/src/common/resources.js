@@ -33,13 +33,13 @@ getScript(srcPath + '/app/menu/menu.js');
 getScript(srcPath + '/app/dialog/dialog.js');
 //Categories page
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
-getScript(srcPath + '/app/categories/categoriesDirective.js');
 //Question page
 getScript(srcPath + '/app/question/QuestionCtrl.js');
 //Admin pages
 getScript(srcPath + '/app/admin/AdminCtrl.js');
 getScript(srcPath + '/app/admin/tenant/TenantCtrl.js');
-getScript(srcPath + '/app/admin/categories/CategoriesCtrl.js');
+getScript(srcPath + '/app/admin/categories/CategoriesAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/CategoryAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UsersCtrl.js');
 
 //Less vendor library (has to be loaded at the end of the stylesheet chain
