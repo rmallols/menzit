@@ -3,7 +3,7 @@
     <div class="box" centered ng-style="centerBox()">
         <div class="header">
             <h2 class="title">{{title}}</h2>
-            <button><icon class="close-icon"></icon></button>
+            <button ng-click="hideDialog()"><icon class="close-icon"></icon></button>
         </div>
         <div ng-transclude class="content"></div>
     </div>

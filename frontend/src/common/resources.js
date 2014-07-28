@@ -36,10 +36,12 @@ getScript(srcPath + '/app/categories/CategoriesCtrl.js');
 //Question page
 getScript(srcPath + '/app/question/QuestionCtrl.js');
 //Admin pages
+getScript(srcPath + '/app/admin/adminApp.js');
 getScript(srcPath + '/app/admin/AdminCtrl.js');
 getScript(srcPath + '/app/admin/tenant/TenantCtrl.js');
 getScript(srcPath + '/app/admin/categories/CategoriesAdminCtrl.js');
-getScript(srcPath + '/app/admin/categories/CategoryAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/CategoryAddAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/CategoryEditAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UsersCtrl.js');
 
 //Less vendor library (has to be loaded at the end of the stylesheet chain

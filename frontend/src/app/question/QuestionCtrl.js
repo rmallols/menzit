@@ -5,6 +5,7 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', function($scope, $st
     var runnedQuestions = [];
 
     http.get('/rest/categories/' + $state.params.categoryId).then(function (response) {
+        console.log('THIS IS GOING TO FAIL AS THE NEW CATEGORIES DOESNT HAVE QUESTION YET!!! (response.questions)');
         var questionId = getQuestionId(response.questions);
         runnedQuestions.push(questionId);
         http.get('/rest/questions/' + questionId).then(function (response) {

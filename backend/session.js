@@ -1,13 +1,16 @@
 'use strict';
 
 var bcrypt = require('bcrypt-nodejs'),
-    db = require('./db');
+    read = require('./crud/read');
 
 module.exports = {
 
     login: function (userName, password, session, callback) {
-        var filter = { $and: [{ userName: userName }]};
-        db.findOne('users', filter, function (dbUser) {
+        var dbUser, filter = { $and: [
+            { userName: userName }
+        ]};
+        read.find('users', filter, function (result) {
+            dbUser = result[0];
             if (dbUser && bcrypt.compareSync(password, dbUser.password)) {
                 delete dbUser.password;
                 session.user = dbUser;
@@ -18,7 +21,7 @@ module.exports = {
         });
     },
 
-    getSession: function(session, callback) {
+    getSession: function (session, callback) {
         callback(session.user);
     },
 

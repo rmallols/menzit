@@ -1,22 +1,28 @@
 'use strict';
 
 var express = require('express'),
-    fs      = require('fs'),
-    app     = express(),
-    server  = require('http').createServer(app),
-    db      = require('./db'),
+    fs = require('fs'),
+    app = express(),
+    server = require('http').createServer(app),
+    create = require('./crud/create'),
+    read = require('./crud/read'),
+    update = require('./crud/update'),
+    remove = require('./crud/delete'),
     session = require('./session');
 
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({ secret: "ch0pSuey" }));
+app.use(express.static(__dirname + '/../frontend'));
+app.use(app.router);
 
-app.get(['/', '/test', '/categories', '/categories/:categoryId/runTest',
-        '/admin/tenant', '/admin/categories', '/admin/categories/add',
-        '/admin/categories/edit/:categoryId', '/admin/users'],
-        function (req, res) {
-            goToIndex(res);
-        });
+var acceptedRoutes = ['/', '/test', '/categories', '/categories/:categoryId/runTest',
+    '/admin/tenant', '/admin/categories', '/admin/categories/add',
+    '/admin/categories/edit/:categoryId', '/admin/users'];
+
+app.get(acceptedRoutes, function (req, res) {
+    goToIndex(res);
+});
 
 app.post('/rest/login', function (req, res) {
     session.login(req.body.user, req.body.password, req.session, function (user) {
@@ -30,62 +36,9 @@ app.post('/rest/logout', function (req, res) {
     });
 });
 
-app.get('/rest/getSession', function (req, res) {
+app.get('/rest/session', function (req, res) {
     session.getSession(req.session, function (user) {
         res.send(user);
-    });
-});
-
-//TODO: All the following .get could be summarized en just one like /rest/:collection/:id
-
-app.get('/rest/categories', function (req, res) {
-    db.find('categories', {}, function (response) {
-        res.send(response);
-    });
-});
-
-app.post('/rest/categories/add', function (req, res) {
-    db.create('categories', req.body, req.session, function (response) {
-        res.send(response);
-    });
-});
-
-app.get('/rest/categories/:categoryId', function (req, res) {
-    var query = { _id: db.getNormalizedId(req.params.categoryId) };
-    db.findOne('categories', { query: query }, function (response) {
-        res.send(response);
-    });
-});
-
-app.put('/rest/categories/:categoryId', function (req, res) {
-    db.update('categories', req.params.categoryId, req.body, function (response) {
-        res.send(response);
-    });
-});
-
-app.delete('/rest/categories/:categoryId', function (req, res) {
-    db.delete('categories', req.params.categoryId, function (response) {
-        res.send(response);
-    });
-});
-
-app.get('/rest/questions/:questionId', function (req, res) {
-    var query = { _id: db.getNormalizedId(req.params.questionId) };
-    db.findOne('questions', { query: query }, function (response) {
-        res.send(response);
-    });
-});
-
-app.get('/rest/tenants/:tenantId', function (req, res) {
-    var query = { _id: db.getNormalizedId(req.params.tenantId) };
-    db.findOne('tenants', { query: query }, function (response) {
-        res.send(response);
-    });
-});
-
-app.put('/rest/tenants/:tenantId', function (req, res) {
-    db.update('tenants', req.params.tenantId, req.body, function (response) {
-        res.send(response);
     });
 });
 
@@ -93,10 +46,44 @@ app.get('/admin', function (req, res) {
     res.redirect('/admin/tenant');
 });
 
-app.use(express.static(__dirname + '/../frontend'));
+/* CRUD HANDLING */
+app.get('/rest/:collectionId', function (req, res) {
+    read.find(req.params.collectionId, {}, function (response) {
+        res.send(response);
+    });
+});
+
+app.get('/rest/:collectionId/:documentId', function (req, res) {
+    read.findOne(req.params.documentId, req.params.collectionId, function (response) {
+        res.send(response);
+    });
+});
+
+app.post('/rest/:collectionId', function (req, res) {
+    create.create(req.params.collectionId, req.body, req.session, function (response) {
+        res.send(response);
+    });
+});
+
+app.put('/rest/:collectionId/:documentId', function (req, res) {
+    update.update(req.params.documentId, req.params.collectionId, req.body, req.session, function (response) {
+        res.send(response);
+    });
+});
+
+app.delete('/rest/:collectionId/:documentId', function (req, res) {
+    remove.remove(req.params.documentId, req.params.collectionId, function (response) {
+        res.send(response);
+    });
+});
+/* END CRUD HANDLING */
+
+app.get('*', function (req, res) {
+    res.send('Page not found, go to <a href="/">index</a>', 404);
+});
 
 var port = process.env.PORT || 3000;
-server.listen(port, function() {
+server.listen(port, function () {
     console.log("listening on " + port);
 });
 

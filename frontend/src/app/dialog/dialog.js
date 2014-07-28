@@ -31,10 +31,12 @@
             restrict: 'A',
             link: function link(scope, element) {
 
+                var elementHeight = element.outerHeight(),
+                    elementWidth = element.outerWidth();
                 scope.centerBox = function () {
                     return {
-                        marginTop: -(element.outerHeight() / 2),
-                        marginLeft: -(element.outerWidth() / 2)
+                        marginTop: -(elementHeight / 2),
+                        marginLeft: -(elementWidth / 2)
                     };
                 };
             }

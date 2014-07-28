@@ -5,13 +5,14 @@ var app = angular.module('menzit', ['ui.router']);
 app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
+
     $stateProvider
         .state('mz', {
             templateUrl: "/src/common/base.html",
             controller: 'BaseCtrl',
             resolve: {
-                session: ['http', function (http) {
-                    return http.get('/rest/getSession/');
+                session: ['http', 'session', function (http, session) {
+                    return session.getSession();
                 }]
             }
         })
@@ -31,46 +32,6 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             controller: 'AdminCtrl',
             data: {
                 groupId: 'admin'
-            }
-        })
-        .state('mz.admin.tenant', {
-            url: "/tenant",
-            templateUrl: "/src/app/admin/tenant/tenant.html",
-            controller: 'TenantCtrl',
-            data: {
-                subGroupId: 'tenant'
-            }
-        })
-        .state('mz.admin.categories', {
-            url: "/categories",
-            templateUrl: "/src/app/admin/categories/categoriesAdmin.html",
-            controller: 'CategoriesAdminCtrl',
-            data: {
-                subGroupId: 'categories'
-            }
-        })
-        .state('mz.admin.addCategory', {
-            url: "/categories/add",
-            templateUrl: "/src/app/admin/categories/categoryAdmin.html",
-            controller: 'CategoryAdminCtrl',
-            data: {
-                subGroupId: 'categories'
-            }
-        })
-        .state('mz.admin.editCategory', {
-            url: "/categories/edit/:categoryId",
-            templateUrl: "/src/app/admin/categories/categoryAdmin.html",
-            controller: 'CategoryAdminCtrl',
-            data: {
-                subGroupId: 'categories'
-            }
-        })
-        .state('mz.admin.users', {
-            url: "/users",
-            templateUrl: "/src/app/admin/users/users.html",
-            controller: 'UsersCtrl',
-            data: {
-                subGroupId: 'users'
             }
         });
 });

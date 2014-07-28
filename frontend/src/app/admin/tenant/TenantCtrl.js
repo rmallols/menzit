@@ -18,7 +18,7 @@ app.controller('TenantCtrl', ['$rootScope', '$scope', '$state', 'http', 'session
         $scope.save = function () {
             var data = { name: $scope.tenant.name };
             http.put('/rest/tenants/' + session.tenantId, data).then(function () {
-                alert('YEA, GUARDADO');
+                console.log('YEA, GUARDADO');
             });
         };
 

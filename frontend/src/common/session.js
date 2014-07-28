@@ -12,7 +12,7 @@ app.service('session', ['http', function (http) {
     }
 
     function getSession() {
-        return http.get('/rest/getSession/');
+        return http.get('/rest/session/');
     }
 
     return  {
