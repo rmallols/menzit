@@ -17,8 +17,9 @@ app.use(express.static(__dirname + '/../frontend'));
 app.use(app.router);
 
 var acceptedRoutes = ['/', '/test', '/categories', '/categories/:categoryId/runTest',
-    '/admin/tenant', '/admin/categories', '/admin/categories/add',
-    '/admin/categories/edit/:categoryId', '/admin/users'];
+    '/admin/tenant',
+    '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
+    '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];
 
 app.get(acceptedRoutes, function (req, res) {
     goToIndex(res);

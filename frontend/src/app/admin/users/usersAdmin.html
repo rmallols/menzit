@@ -1,0 +1,29 @@
+<div class="users-view">
+    <div class="cf">
+        <h1 class="float-left">Manage users</h1>
+        <div class="float-right">
+            <button class="important" ng-click="add()">Add</button>
+        </div>
+    </div>
+    <div class="user" ng-repeat="user in users">
+        <div class="float-left v-centered">
+            {{user.userName}}
+        </div>
+        <div class="float-right">
+            <button>
+                <icon class="up-icon"></icon>
+            </button>
+            <button>
+                <icon class="down-icon"></icon>
+            </button>
+            <button ng-click="edit(user)">Edit</button>
+            <button class="delete" ng-click="confirmDelete(user)">Delete</button>
+        </div>
+    </div>
+    <div dialog mz-if="userToBeDeleted" title="Delete user">
+        <label class="warning">Warning</label><br/>
+        The following user will be deleted<br/><br/>
+        <b>{{userToBeDeleted.userName}}</b><br/><br/>
+        <button class="delete" ng-click="delete()">Delete</button>
+    </div>
+</div>
