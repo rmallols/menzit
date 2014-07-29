@@ -21,6 +21,10 @@ var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:catego
     '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
     '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];
 
+app.get('/', function (req, res) {
+    res.redirect('/home');
+});
+
 app.get(acceptedRoutes, function (req, res) {
     goToIndex(res);
 });
