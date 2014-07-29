@@ -3,7 +3,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider
-        .state('mz.admin.tenant', {
+        .state('app.admin.tenant', {
             url: "/tenant",
             templateUrl: "/src/app/admin/tenant/tenant.html",
             controller: 'TenantCtrl',
@@ -11,7 +11,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'tenant'
             }
         })
-        .state('mz.admin.categories', {
+        .state('app.admin.categories', {
             url: "/categories",
             templateUrl: "/src/app/admin/categories/categoriesAdmin.html",
             controller: 'CategoriesAdminCtrl',
@@ -19,7 +19,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'categories'
             }
         })
-        .state('mz.admin.addCategory', {
+        .state('app.admin.addCategory', {
             url: "/categories/add",
             templateUrl: "/src/app/admin/categories/categoryAdmin.html",
             controller: 'CategoryAddAdminCtrl',
@@ -27,7 +27,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'categories'
             }
         })
-        .state('mz.admin.editCategory', {
+        .state('app.admin.editCategory', {
             url: "/categories/edit/:categoryId",
             templateUrl: "/src/app/admin/categories/categoryAdmin.html",
             controller: 'CategoryEditAdminCtrl',
@@ -35,7 +35,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'categories'
             }
         })
-        .state('mz.admin.users', {
+        .state('app.admin.users', {
             url: "/users",
             templateUrl: "/src/app/admin/users/usersAdmin.html",
             controller: 'UsersAdminCtrl',
@@ -43,7 +43,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'users'
             }
         })
-        .state('mz.admin.addUser', {
+        .state('app.admin.addUser', {
             url: "/users/add",
             templateUrl: "/src/app/admin/users/userAdmin.html",
             controller: 'UserAddAdminCtrl',
@@ -51,7 +51,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'users'
             }
         })
-        .state('mz.admin.editUser', {
+        .state('app.admin.editUser', {
             url: "/users/edit/:userId",
             templateUrl: "/src/app/admin/users/userAdmin.html",
             controller: 'UserEditAdminCtrl',

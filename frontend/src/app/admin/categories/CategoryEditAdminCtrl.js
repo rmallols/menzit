@@ -9,7 +9,7 @@ app.controller('CategoryEditAdminCtrl', ['$scope', '$state', 'http',
         });
         $scope.submit = function () {
             http.put(categoryRestUrl, $scope.category).then(function () {
-                $state.go('mz.admin.categories');
+                $state.go('app.admin.categories');
             });
         };
     }]);

@@ -9,7 +9,7 @@ app.controller('UserEditAdminCtrl', ['$scope', '$state', 'http',
         });
         $scope.submit = function () {
             http.put(userRestUrl, $scope.user).then(function () {
-                $state.go('mz.admin.users');
+                $state.go('app.admin.users');
             });
         };
     }]);

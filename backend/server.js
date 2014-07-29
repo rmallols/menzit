@@ -16,7 +16,7 @@ app.use(express.session({ secret: "ch0pSuey" }));
 app.use(express.static(__dirname + '/../frontend'));
 app.use(app.router);
 
-var acceptedRoutes = ['/', '/test', '/categories', '/categories/:categoryId/runTest',
+var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:categoryId/runTest',
     '/admin/tenant',
     '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
     '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];

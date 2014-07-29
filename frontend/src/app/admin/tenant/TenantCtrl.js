@@ -12,7 +12,7 @@ app.controller('TenantCtrl', ['$rootScope', '$scope', '$state', 'http', 'session
         });
 
         $scope.cancel = function () {
-            $state.go('mz.categories');
+            $state.go('app.categories');
         };
 
         $scope.save = function () {

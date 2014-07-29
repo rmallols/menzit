@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('session', ['http', function (http) {
+menzit.service('session', ['http', function (http) {
 
     function login(userName, password) {
         var credentials = { userName: userName, password: password };

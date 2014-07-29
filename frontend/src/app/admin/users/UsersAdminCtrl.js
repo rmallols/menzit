@@ -6,11 +6,11 @@ app.controller('UsersAdminCtrl', ['$scope', '$state', 'http',
     loadUsers();
 
     $scope.add = function () {
-        $state.go('mz.admin.addUser');
+        $state.go('app.admin.addUser');
     };
 
     $scope.edit = function (user) {
-        $state.go('mz.admin.editUser', { userId: user._id });
+        $state.go('app.admin.editUser', { userId: user._id });
     };
 
     $scope.confirmDelete = function (user) {

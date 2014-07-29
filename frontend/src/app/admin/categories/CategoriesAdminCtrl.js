@@ -6,11 +6,11 @@ app.controller('CategoriesAdminCtrl', ['$scope', '$state', 'http',
         loadCategories();
 
         $scope.add = function () {
-            $state.go('mz.admin.addCategory');
+            $state.go('app.admin.addCategory');
         };
 
         $scope.edit = function (category) {
-            $state.go('mz.admin.editCategory', { categoryId: category._id });
+            $state.go('app.admin.editCategory', { categoryId: category._id });
         };
 
         $scope.confirmDelete = function (category) {

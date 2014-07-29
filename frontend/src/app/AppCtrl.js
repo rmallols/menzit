@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('BaseCtrl', ['$rootScope', '$scope', '$state',
+menzit.controller('AppCtrl', ['$rootScope', '$scope', '$state',
     function ($rootScope, $scope, $state) {
 
         var stateName, stateGroupId;

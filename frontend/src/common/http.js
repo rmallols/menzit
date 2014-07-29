@@ -6,7 +6,7 @@
     $httpProvider.defaults.cache = true;
 }]);*/
 
-app.service('http', ['$http', '$q', function ($http, $q) {
+menzit.service('http', ['$http', '$q', function ($http, $q) {
 
     function get(url) {
         var deferred = $q.defer();

@@ -19,14 +19,20 @@ getScript(vendorPath + '/angularJs/angular.min.js');
 getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
 
 //Common src resources
-getScript(srcPath + '/common/app.js');
+getScript(srcPath + '/common/index.js');
 getScript(srcPath + '/common/http.js');
 getScript(srcPath + '/common/session.js');
 getStyleSheet(srcPath + '/common/loader.less');
 
 //Business logic src resources
-//Home page
-getScript(srcPath + '/common/BaseCtrl.js');
+//PORTAL
+getScript(srcPath + '/portal/portal.js');
+getScript(srcPath + '/portal/PortalCtrl.js');
+//Home
+getScript(srcPath + '/portal/home/HomeCtrl.js');
+//APP
+getScript(srcPath + '/app/app.js');
+getScript(srcPath + '/app/AppCtrl.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
 //Dialog
@@ -45,10 +51,4 @@ getScript(srcPath + '/app/admin/categories/CategoryEditAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UsersAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserEditAdminCtrl.js');
-
-//Less vendor library (has to be loaded at the end of the stylesheet chain
-less = {
-    env: "development",
-    logLevel: 0
-};
 getScript(vendorPath + '/less/less.min.js');

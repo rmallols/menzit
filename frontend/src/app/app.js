@@ -1,32 +1,31 @@
 'use strict';
-
-var app = angular.module('menzit', ['ui.router']);
+var app = angular.module('app', []);
 
 app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise("/");
 
     $stateProvider
-        .state('mz', {
-            templateUrl: "/src/common/base.html",
-            controller: 'BaseCtrl',
+        .state('app', {
+            templateUrl: "/src/app/app.html",
+            controller: 'AppCtrl',
             resolve: {
                 session: ['http', 'session', function (http, session) {
                     return session.getSession();
                 }]
             }
         })
-        .state('mz.categories', {
+        .state('app.categories', {
             url: "/categories",
             templateUrl: "/src/app/categories/categories.html",
             controller: 'CategoriesCtrl'
         })
-        .state('mz.runTest', {
+        .state('app.runTest', {
             url: "/categories/:categoryId/runTest",
             templateUrl: "/src/app/question/question.html",
             controller: 'QuestionCtrl'
         })
-        .state('mz.admin', {
+        .state('app.admin', {
             url: "/admin",
             templateUrl: "/src/app/admin/admin.html",
             controller: 'AdminCtrl',
@@ -34,4 +33,6 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
                 groupId: 'admin'
             }
         });
+
+    $urlRouterProvider.otherwise("/");
 });
