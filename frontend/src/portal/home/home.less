@@ -1,0 +1,76 @@
+.home-view {
+  font-size: 150%;
+  @header-height: 70px;
+  font-family: balsamiq;
+
+  .header {
+    .padding;
+    height: @header-height;
+    background-color: @grey-1;
+
+    .logo {
+      height: 100%;
+    }
+  }
+
+  .content {
+    text-align: center;
+
+    .main {
+      padding: 3 * @gutter;
+      .offsettedHeight(-@header-height);
+      color: white;
+      background-color: @blue;
+
+      @title-height: 90px;
+      @action-height: 130px;
+      @button-height: 80px;
+
+      .title {
+        height: @title-height;
+
+        h1 {
+          font-size: 220%;
+          //padding: 40px;
+          margin: 0;
+        }
+      }
+
+      .media {
+        .offsettedHeight(-(@title-height + @action-height));
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      .action {
+        height: @action-height;
+        padding-top: @action-height - @button-height;
+
+        button {
+          display: inline;
+          float: none;
+          height: @button-height;
+          font-size: 130%;
+          padding: 1.5 * @gutter 2 * @gutter;
+          font-family: balsamiq;
+        }
+      }
+    }
+
+    .secondary {
+      .cf;
+      padding: 80px 3 * @gutter;
+      background-color: white;
+    }
+  }
+
+  .footer {
+    .padding;
+    background-color: white;
+    text-align: center;
+    font-size: 80%;
+  }
+}
