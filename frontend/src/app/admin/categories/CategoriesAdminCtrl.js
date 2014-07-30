@@ -13,6 +13,10 @@ app.controller('CategoriesAdminCtrl', ['$scope', '$state', 'http',
             $state.go('app.admin.editCategory', { categoryId: category._id });
         };
 
+        $scope.viewTests = function (category) {
+            $state.go('app.admin.tests', { categoryId: category._id });
+        };
+
         $scope.confirmDelete = function (category) {
             $scope.categoryToBeDeleted = category;
         };

@@ -31,6 +31,24 @@ app.config(function ($stateProvider) {
             url: "/categories/edit/:categoryId",
             templateUrl: "/src/app/admin/categories/categoryAdmin.html",
             controller: 'CategoryEditAdminCtrl',
+            resolve: {
+                category: ['$stateParams', 'http', function ($stateParams, http) {
+                    return http.get('/rest/categories/' + $stateParams.categoryId);
+                }]
+            },
+            data: {
+                subGroupId: 'categories'
+            }
+        })
+        .state('app.admin.tests', {
+            url: "/categories/:categoryId/tests",
+            templateUrl: "/src/app/admin/categories/tests/testsAdmin.html",
+            controller: 'TestsAdminCtrl',
+            resolve: {
+                category: ['$stateParams', 'http', function ($stateParams, http) {
+                    return http.get('/rest/categories/' + $stateParams.categoryId);
+                }]
+            },
             data: {
                 subGroupId: 'categories'
             }
