@@ -8,7 +8,9 @@ var express = require('express'),
     read = require('./crud/read'),
     update = require('./crud/update'),
     remove = require('./crud/delete'),
-    session = require('./session');
+    session = require('./session'),
+    decorator = require('./crud/decorator/decorator');
+
 
 app.use(express.bodyParser());
 app.use(express.cookieParser());
@@ -18,7 +20,8 @@ app.use(app.router);
 
 var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:categoryId/runTest',
     '/admin/tenant',
-    '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId', '/admin/categories/:categoryId/tests',
+    '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
+    '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add', '/admin/categories/:categoryId/tests/edit/:testId',
     '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];
 
 app.get('/', function (req, res) {
@@ -53,32 +56,47 @@ app.get('/admin', function (req, res) {
 
 /* CRUD HANDLING */
 app.get('/rest/:collectionId', function (req, res) {
-    read.find(req.params.collectionId, {}, function (response) {
-        res.send(response);
+    var collectionId = req.params.collectionId;
+    read.find(collectionId, {}, function (response) {
+        decorator.outDecorator(collectionId, 'get', response, function (decoratedResponse) {
+            res.send(decoratedResponse);
+        });
     });
 });
 
 app.get('/rest/:collectionId/:documentId', function (req, res) {
-    read.findOne(req.params.documentId, req.params.collectionId, function (response) {
-        res.send(response);
+    var collectionId = req.params.collectionId;
+    read.findOne(req.params.documentId, collectionId, function (response) {
+        decorator.outDecorator(collectionId, 'get', response, function (decoratedResponse) {
+            res.send(decoratedResponse);
+        });
     });
 });
 
 app.post('/rest/:collectionId', function (req, res) {
-    create.create(req.params.collectionId, req.body, req.session, function (response) {
-        res.send(response);
+    var collectionId = req.params.collectionId;
+    create.create(collectionId, req.body, req.session, function (response) {
+        decorator.outDecorator(collectionId, 'post', response, function (decoratedResponse) {
+            res.send(decoratedResponse);
+        });
     });
 });
 
 app.put('/rest/:collectionId/:documentId', function (req, res) {
-    update.update(req.params.documentId, req.params.collectionId, req.body, req.session, function (response) {
-        res.send(response);
+    var collectionId = req.params.collectionId;
+    update.update(req.params.documentId, collectionId, req.body, req.session, function (response) {
+        decorator.outDecorator(collectionId, 'put', response, function (decoratedResponse) {
+            res.send(decoratedResponse);
+        });
     });
 });
 
 app.delete('/rest/:collectionId/:documentId', function (req, res) {
-    remove.remove(req.params.documentId, req.params.collectionId, function (response) {
-        res.send(response);
+    var collectionId = req.params.collectionId;
+    remove.remove(req.params.documentId, collectionId, function (response) {
+        decorator.outDecorator(collectionId, 'delete', response, function (decoratedResponse) {
+            res.send(decoratedResponse);
+        });
     });
 });
 /* END CRUD HANDLING */

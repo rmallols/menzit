@@ -42,13 +42,18 @@ getScript(srcPath + '/app/categories/CategoriesCtrl.js');
 //Question page
 getScript(srcPath + '/app/question/QuestionCtrl.js');
 //Admin pages
-getScript(srcPath + '/app/admin/adminApp.js');
 getScript(srcPath + '/app/admin/AdminCtrl.js');
+getScript(srcPath + '/app/admin/tenant/tenantApp.js');
 getScript(srcPath + '/app/admin/tenant/TenantCtrl.js');
+getScript(srcPath + '/app/admin/categories/categoriesApp.js');
 getScript(srcPath + '/app/admin/categories/CategoriesAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/CategoryAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/CategoryEditAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/tests/testsApp.js');
 getScript(srcPath + '/app/admin/categories/tests/TestsAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/tests/TestAddAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/tests/TestEditAdminCtrl.js');
+getScript(srcPath + '/app/admin/users/usersApp.js');
 getScript(srcPath + '/app/admin/users/UsersAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserEditAdminCtrl.js');

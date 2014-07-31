@@ -1,15 +1,15 @@
 'use strict';
 
 var mongoDb = require('mongodb'),
-    pkg     = require('../package.json');
+    pkg = require('../package.json');
 
 module.exports = {
 
-    connect: function(callback) {
+    connect: function (callback) {
         var dbId = 'menzit',
-            mongoDbService  = mongoDb.MongoClient,
+            mongoDbService = mongoDb.MongoClient,
             connectionUrl = this._getConnectionUrl(dbId);
-        mongoDbService.connect(connectionUrl, function(err, db) {
+        mongoDbService.connect(connectionUrl, function (err, db) {
             callback(err, db);
         });
     },
@@ -18,7 +18,7 @@ module.exports = {
         return new mongoDb.ObjectID(_id);
     },
 
-    addSignature : function (event, data, session) {
+    addSignature: function (event, data, session) {
         var currentDate = new Date();
         //Right now, we're skipping storing 'time' metadata because of chart / reporting incompatibility problems
         //The point is that mongoJs (v0.6.4) is not supporting the 'keyf' grouping attribute, which is necessary
@@ -30,17 +30,13 @@ module.exports = {
         };
     },
 
-    isArray: function (item) {
-        return Object.prototype.toString.call( item ) === '[object Array]';
-    },
-
-    _getConnectionUrl: function(dbId) {
+    _getConnectionUrl: function (dbId) {
         //noinspection JSUnresolvedVariable
         var host = pkg.dbHost,
             port = pkg.dbPort,
             user = pkg.dbUser,
             password = pkg.dbPassword,
-            credentials = (user && password) ? user + ':' + password + '@': '',
+            credentials = (user && password) ? user + ':' + password + '@' : '',
             endpoint = host + ':' + port + '/' + dbId;
         return 'mongodb://' + credentials + endpoint;
     }

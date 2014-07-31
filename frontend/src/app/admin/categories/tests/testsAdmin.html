@@ -1,11 +1,15 @@
 <div class="tests-view">
     <div class="cf">
-        <h1 class="float-left">Test for category {{category.title}}</h1>
+        <h1 class="float-left">Tests for category {{category.title}}</h1>
         <div class="float-right">
             <button class="important" ng-click="add()">Add</button>
         </div>
     </div>
-    <div class="test" ng-repeat="test in tests">
+    <div ng-if="!tests" class="msg-info">
+        There aren't tests on this category yet.
+        Click on the 'Add' button to attach a new test to it.
+    </div>
+    <div class="test" ng-if="tests" ng-repeat="test in tests">
         <div class="float-left v-centered">
             {{test.title}}
         </div>

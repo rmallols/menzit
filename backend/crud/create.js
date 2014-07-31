@@ -1,11 +1,12 @@
 'use strict';
 
-var db = require('../db');
+var db = require('../db'),
+    array = require('../array');
 
 module.exports = {
 
     create: function (collectionId, data, session, callback) {
-        if (db.isArray(data)) {
+        if (array.isArray(data)) {
             this._createMultipleDocuments(collectionId, data, [], data.length, session, function (result) {
                 callback(result);
             });
@@ -40,7 +41,7 @@ module.exports = {
         });
     },
 
-    _addCreateSignature : function (data, session) {
+    _addCreateSignature: function (data, session) {
         db.addSignature('create', data, session);
     }
 };

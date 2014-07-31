@@ -14,7 +14,7 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', function($scope, $st
     });
 
     $scope.setAnswer = function(answer) {
-        answer.invalidAssert = (answer.invalidAssert) ? false :  !answer.correct;
+        answer.invalidAssert = (answer.invalidAssert) ? false :  !answer.isCorrect;
     };
 
     function getQuestionId(questions) {
