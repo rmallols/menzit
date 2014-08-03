@@ -15,6 +15,8 @@ var srcPath = '/src', vendorPath = '/vendor/';
 
 //External libraries
 getScript(vendorPath + '/jQuery/jquery-2.1.1.min.js');
+getScript(vendorPath + '/jQuery/powerTip/jquery.powertip.min.js');
+getScript(vendorPath + '/jQuery/dotdotdot/jquery.dotdotdot.min.js');
 getScript(vendorPath + '/angularJs/angular.min.js');
 getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
 
@@ -33,6 +35,8 @@ getScript(srcPath + '/portal/home/HomeCtrl.js');
 //APP
 getScript(srcPath + '/app/app.js');
 getScript(srcPath + '/app/AppCtrl.js');
+getScript(srcPath + '/app/common/title.js');
+getScript(srcPath + '/app/common/truncate.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
 //Dialog

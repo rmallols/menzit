@@ -2,10 +2,10 @@
 
 module.exports = {
 
-    post: {
-        out: function(params, response, callback) {
-            console.log('TESTS POST OUT DECORATOR', params);
-            callback(response);
+    get: {
+        filter: function (request, callback) {
+            var filter = { query: { categoryId: request.query.categoryId }};
+            callback(filter);
         }
     }
 };

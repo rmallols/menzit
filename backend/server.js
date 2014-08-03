@@ -57,9 +57,11 @@ app.get('/admin', function (req, res) {
 /* CRUD HANDLING */
 app.get('/rest/:collectionId', function (req, res) {
     var collectionId = req.params.collectionId;
-    read.find(collectionId, {}, function (response) {
-        decorator.outDecorator(collectionId, 'get', response, function (decoratedResponse) {
-            res.send(decoratedResponse);
+    decorator.inDecorator(collectionId, 'get', req, function (query) {
+        read.find(collectionId, query, function (response) {
+            decorator.outDecorator(collectionId, 'get', response, function (decoratedResponse) {
+                res.send(decoratedResponse);
+            });
         });
     });
 });

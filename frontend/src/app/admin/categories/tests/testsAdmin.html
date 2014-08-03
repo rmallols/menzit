@@ -1,17 +1,27 @@
 <div class="tests-view">
     <div class="cf">
         <h1 class="float-left">Tests for category {{category.title}}</h1>
+
         <div class="float-right">
             <button class="important" ng-click="add()">Add</button>
         </div>
     </div>
-    <div ng-if="!tests" class="msg-info">
+    <div ng-if="!tests.length" class="msg-info">
         There aren't tests on this category yet.
         Click on the 'Add' button to attach a new test to it.
     </div>
-    <div class="test" ng-if="tests" ng-repeat="test in tests">
-        <div class="float-left v-centered">
-            {{test.title}}
+    <div class="test" ng-if="tests.length" ng-repeat="test in tests">
+        <div class="text float-left">
+            <div class="l-1-2" truncate>
+                {{test.question}}
+            </div>
+            <div class="l-1-2">
+                <div ng-repeat="answer in test.answers" truncate title="{{answer.title}}"
+                     ng-class="{ correct: answer.isCorrect }"
+                     class="answer l-1-{{test.answers.length}} t{{$index}}">
+                    {{answer.title}}
+                </div>
+            </div>
         </div>
         <div class="float-right">
             <button>
@@ -21,14 +31,13 @@
                 <icon class="down-icon"></icon>
             </button>
             <button ng-click="edit(test)">Edit</button>
-            <button class="important" ng-click="viewTests(test)">View tests</button>
             <button class="delete" ng-click="confirmDelete(test)">Delete</button>
         </div>
     </div>
     <div dialog mz-if="testToBeDeleted" title="Delete test">
         <label class="warning">Warning</label><br/>
-        The following test and all the tests attached to it will be deleted<br/><br/>
-        <b>{{testToBeDeleted.title}}</b><br/><br/>
+        The following test will be deleted<br/><br/>
+        <b>{{testToBeDeleted.question}}</b><br/><br/>
         <button class="delete" ng-click="delete()">Delete</button>
     </div>
 </div>
