@@ -1,0 +1,10 @@
+<div class="upload-view">
+    <input type="file" />
+    <button class="addImage" ng-click="addImage()">Select</button>
+    <div class="output" ng-if="ngModel">
+        <button class="deleteImage" ng-click="delete()">
+            <icon class="close-icon"></icon>
+        </button>
+        <img src="{{ngModel}}" />
+    </div>
+</div>

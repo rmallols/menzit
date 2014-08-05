@@ -35,12 +35,13 @@ getScript(srcPath + '/portal/home/HomeCtrl.js');
 //APP
 getScript(srcPath + '/app/app.js');
 getScript(srcPath + '/app/AppCtrl.js');
-getScript(srcPath + '/app/common/title.js');
-getScript(srcPath + '/app/common/truncate.js');
+getScript(srcPath + '/app/common/upload/upload.js');
+getScript(srcPath + '/app/common/title/title.js');
+getScript(srcPath + '/app/common/truncate/truncate.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
 //Dialog
-getScript(srcPath + '/app/dialog/dialog.js');
+getScript(srcPath + '/app/common/dialog/dialog.js');
 //Categories page
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
 //Question page

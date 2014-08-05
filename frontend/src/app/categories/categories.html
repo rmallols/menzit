@@ -1,6 +1,10 @@
 <div class="categories-view">
-    <div class="category" ng-repeat="category in categories" truncate
+    <h1>Select category</h1>
+    <div class="category l-1-3" ng-repeat="category in categories" truncate
          ng-click="launchTest(category)">
-        {{category.title}}
+        <div class="image">
+            <img src="{{category.image}}" />
+        </div>
+        <div class="title">{{category.title}}</div>
     </div>
 </div>

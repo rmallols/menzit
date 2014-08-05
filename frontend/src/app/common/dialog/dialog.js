@@ -9,7 +9,7 @@
                 title: '@',
                 mzIf: '='
             },
-            templateUrl: '/src/app/dialog/dialog.html',
+            templateUrl: '/src/app/common/dialog/dialog.html',
             link: function link(scope) {
 
                 scope.hideDialog = function () {
