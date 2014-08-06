@@ -1,4 +1,9 @@
-<div class="question">{{question.title}}</div>
+<div class="question">{{question.question}}</div>
+<div class="counter">{{score}}</div>
+<button ng-if="isCorrectAnswer && !isTestComplete" ng-click="getNextTest()">
+    Go to next test
+</button>
+<div ng-if="isTestComplete">FINISH!!!</div>
 <div class="answers-container">
     <div ng-repeat="answer in question.answers" class="answer l-1-{{question.answers.length}}"
          ng-class="{ 'invalid-assert': answer.invalidAssert }"

@@ -14,6 +14,7 @@ function getStyleSheet(url) {
 var srcPath = '/src', vendorPath = '/vendor/';
 
 //External libraries
+getScript(vendorPath + '/pubSub/pubSub.js');
 getScript(vendorPath + '/jQuery/jquery-2.1.1.min.js');
 getScript(vendorPath + '/jQuery/powerTip/jquery.powertip.min.js');
 getScript(vendorPath + '/jQuery/dotdotdot/jquery.dotdotdot.min.js');
@@ -24,6 +25,7 @@ getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
 getScript(srcPath + '/common/index.js');
 getScript(srcPath + '/common/http.js');
 getScript(srcPath + '/common/session.js');
+getScript(srcPath + '/common/pubSub.js');
 getStyleSheet(srcPath + '/common/loader.less');
 
 //Business logic src resources

@@ -3,6 +3,7 @@
             ng-class="isActiveAction()">
         Admin
     </button>
+    -{{ejemplo}}-
     <button class="login" ng-click="showLoginDialog()" ng-if="!session">Login</button>
     <button class="logout" ng-click="logout()" ng-if="session">Logout</button>
     <div dialog title="Login" mz-if="showLogin">

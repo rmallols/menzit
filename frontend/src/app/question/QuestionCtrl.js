@@ -1,27 +1,68 @@
 'use strict';
 
-app.controller('QuestionCtrl', ['$scope', '$state', 'http', function($scope, $state, http) {
+app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
+    function ($scope, $state, http, pubSub) {
 
-    var runnedQuestions = [];
+        var availableQuestions = [], runnedQuestions = [], failedAnswers;
 
-    http.get('/rest/categories/' + $state.params.categoryId).then(function (response) {
-        console.log('THIS IS GOING TO FAIL AS THE NEW CATEGORIES DOESNT HAVE QUESTION YET!!! (response.questions)');
-        var questionId = getQuestionId(response.questions);
-        runnedQuestions.push(questionId);
-        http.get('/rest/questions/' + questionId).then(function (response) {
-            $scope.question = response;
+        $scope.score = 0;
+
+        http.get('/rest/tests?categoryId=' + $state.params.categoryId).then(function (questions) {
+            availableQuestions = questions;
+            setCurrentTest();
         });
-    });
 
-    $scope.setAnswer = function(answer) {
-        answer.invalidAssert = (answer.invalidAssert) ? false :  !answer.isCorrect;
-    };
+        $scope.setAnswer = function (answer) {
+            if (answer.isCorrect) {
+                setCorrectAnswer();
+            } else {
+                setIncorrectAnswer(answer);
+            }
+        };
 
-    function getQuestionId(questions) {
-        var proposedQuestionIndex;
-        do {
-            proposedQuestionIndex = parseInt(Math.random() * questions.length);
-        } while(runnedQuestions.indexOf(questions[proposedQuestionIndex]) >= 0);
-        return questions[proposedQuestionIndex];
-    }
-}]);
+        $scope.getNextTest = function () {
+            setCurrentTest();
+            $scope.isCorrectAnswer = false;
+        };
+
+        function setCorrectAnswer() {
+            $scope.isCorrectAnswer = true;
+            updateScore();
+            if (isLastQuestion()) {
+                $scope.isTestComplete = true;
+            }
+            pubSub.publish('scoreUpdated', { foo: 'bar'});
+        }
+
+        function setIncorrectAnswer(answer) {
+            answer.invalidAssert = (answer.invalidAssert) ? false : !answer.isCorrect;
+            if (failedAnswers < $scope.question.answers.length - 1) {
+                failedAnswers++;
+            }
+        }
+
+        function setCurrentTest() {
+            var questionId = getQuestionId();
+            runnedQuestions.push(questionId);
+            failedAnswers = 0;
+            $scope.question = availableQuestions[questionId];
+        }
+
+        function getQuestionId() {
+            var proposedQuestionIndex;
+            do {
+                proposedQuestionIndex = parseInt(Math.random() * availableQuestions.length);
+            } while (runnedQuestions.indexOf(availableQuestions[proposedQuestionIndex]) >= 0);
+            return proposedQuestionIndex;
+        }
+
+        function isLastQuestion() {
+            return runnedQuestions.length === availableQuestions.length;
+        }
+
+        function updateScore() {
+            var maxQuestionScore = 100;
+            $scope.score += maxQuestionScore -
+                (failedAnswers * (maxQuestionScore / ($scope.question.answers.length - 1)));
+        }
+    }]);

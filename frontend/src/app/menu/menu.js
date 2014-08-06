@@ -1,12 +1,14 @@
 (function () {
     'use strict';
-    app.directive('menu', ['$rootScope', '$state', 'session',
-        function ($rootScope, $state, session) {
+    app.directive('menu', ['$rootScope', '$state', 'session', 'pubSub',
+        function ($rootScope, $state, session, pubSub) {
             return  {
                 replace: true,
                 restrict: 'A',
                 templateUrl: '/src/app/menu/menu.html',
                 link: function link(scope) {
+
+                    var scoreUpdatedSub;
 
                     session.getSession().then(function (session) {
                         scope.session = session;
@@ -45,6 +47,15 @@
                         var stateData = $state.current.data;
                         return { active: stateData && stateData.groupId === 'admin' };
                     };
+
+                    scoreUpdatedSub = pubSub.subscribe('scoreUpdated', function (msg, data) {
+                        scope.ejemplo = data;
+                        scope.$apply();
+                    });
+
+                    scope.$on('$destroy', function() {
+                        pubSub.unsubscribe( scoreUpdatedSub );
+                    });
                 }
             };
         }]);
