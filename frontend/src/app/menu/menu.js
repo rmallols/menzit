@@ -48,13 +48,24 @@
                         return { active: stateData && stateData.groupId === 'admin' };
                     };
 
+                    scope.setProgressWidth = function () {
+                        if(!scope.score) {
+                            return null;
+                        }
+                        return {
+                            width: ((scope.score.runnedQuestions /
+                                    scope.score.totalQuestions) * 100) + '%'
+                        };
+                    };
+
                     scoreUpdatedSub = pubSub.subscribe('scoreUpdated', function (msg, data) {
-                        scope.ejemplo = data;
+                        scope.score = data;
+                        console.log(scope.score)
                         scope.$apply();
                     });
 
-                    scope.$on('$destroy', function() {
-                        pubSub.unsubscribe( scoreUpdatedSub );
+                    scope.$on('$destroy', function () {
+                        pubSub.unsubscribe(scoreUpdatedSub);
                     });
                 }
             };

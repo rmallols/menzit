@@ -5,10 +5,9 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
 
         var availableQuestions = [], runnedQuestions = [], failedAnswers;
 
-        $scope.score = 0;
-
         http.get('/rest/tests?categoryId=' + $state.params.categoryId).then(function (questions) {
             availableQuestions = questions;
+            setScore();
             setCurrentTest();
         });
 
@@ -27,11 +26,10 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
 
         function setCorrectAnswer() {
             $scope.isCorrectAnswer = true;
-            updateScore();
+            setScore();
             if (isLastQuestion()) {
                 $scope.isTestComplete = true;
             }
-            pubSub.publish('scoreUpdated', { foo: 'bar'});
         }
 
         function setIncorrectAnswer(answer) {
@@ -60,9 +58,22 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
             return runnedQuestions.length === availableQuestions.length;
         }
 
-        function updateScore() {
+        function setScore() {
             var maxQuestionScore = 100;
-            $scope.score += maxQuestionScore -
-                (failedAnswers * (maxQuestionScore / ($scope.question.answers.length - 1)));
+            if($scope.score === undefined) {
+                $scope.score = 0;
+            } else {
+                $scope.score += maxQuestionScore -
+                    (failedAnswers * (maxQuestionScore / ($scope.question.answers.length - 1)));
+            }
+            sendScoreEvent();
+        }
+
+        function sendScoreEvent() {
+            pubSub.publish('scoreUpdated', {
+                score: $scope.score,
+                runnedQuestions: runnedQuestions.length,
+                totalQuestions: availableQuestions.length
+            });
         }
     }]);
