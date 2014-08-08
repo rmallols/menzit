@@ -1,0 +1,15 @@
+<div class="test-data-view">
+    <div class="metadata question">
+        <div class="title">Question</div>
+        <div class="value">
+            {{testData.runnedQuestions + 1}} / {{testData.totalQuestions}}
+        </div>
+    </div>
+    <div class="total-progress">
+        <div class="runned-progress" ng-style="setProgressWidth()"></div>
+    </div>
+    <div class="metadata score">
+        <div class="title">Score</div>
+        <div class="value">{{testData.score || 0}}</div>
+    </div>
+</div>

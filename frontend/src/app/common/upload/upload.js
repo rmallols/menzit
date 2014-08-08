@@ -12,7 +12,6 @@ app.directive('upload', [function () {
 
             function handleFileSelect(evt) {
                 var reader, file = evt.target.files[0];
-console.log('file type is', file.type)
                 if (file.type.match('image.*')) {
                     reader = new FileReader();
                     reader.onload = (function () {

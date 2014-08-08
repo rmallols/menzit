@@ -1,0 +1,49 @@
+.test-data-view {
+  float: left;
+  width: 70%;
+  height: @button-height;
+  margin-left: 15%;
+  @metadata-question-width: 120px;
+  @metadata-score-width: 90px;
+
+  .metadata {
+    color: @grey-4;
+    float: left;
+    text-align: center;
+    padding: 0 @gutter;
+
+    &.question {
+      width: @metadata-question-width;
+    }
+    &.score {
+      width: @metadata-score-width;
+    }
+
+    .title {
+      font-size: 90%;
+      line-height: 0.95;
+    }
+    .value {
+      font-size: 150%;
+    }
+  }
+
+  .total-progress {
+    .border-radius;
+    .offsettedWidth(-(@metadata-question-width + @metadata-score-width));
+    height: 100%;
+    border: 1px solid @grey-4;
+    position: relative;
+    float: left;
+
+    .runned-progress {
+      .border-radius;
+      position: absolute;
+      width: 0;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: @grey-4;
+    }
+  }
+}

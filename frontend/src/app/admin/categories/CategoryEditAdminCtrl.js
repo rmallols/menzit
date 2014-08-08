@@ -10,9 +10,4 @@ app.controller('CategoryEditAdminCtrl', ['$scope', '$state', 'http', 'category',
                 $state.go('app.admin.categories');
             });
         };
-
-
-
-
-
     }]);

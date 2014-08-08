@@ -1,14 +1,12 @@
 (function () {
     'use strict';
-    app.directive('menu', ['$rootScope', '$state', 'session', 'pubSub',
-        function ($rootScope, $state, session, pubSub) {
+    app.directive('menu', ['$rootScope', '$state', 'session',
+        function ($rootScope, $state, session) {
             return  {
                 replace: true,
                 restrict: 'A',
                 templateUrl: '/src/app/menu/menu.html',
                 link: function link(scope) {
-
-                    var scoreUpdatedSub;
 
                     session.getSession().then(function (session) {
                         scope.session = session;
@@ -32,7 +30,7 @@
                                 scope.session = session;
                                 scope.showLogin = false;
                             } else {
-                                alert('LOGIN INCORRECTO');
+                                window.alert('LOGIN INCORRECTO');
                             }
                         });
                     };
@@ -47,26 +45,6 @@
                         var stateData = $state.current.data;
                         return { active: stateData && stateData.groupId === 'admin' };
                     };
-
-                    scope.setProgressWidth = function () {
-                        if(!scope.score) {
-                            return null;
-                        }
-                        return {
-                            width: ((scope.score.runnedQuestions /
-                                    scope.score.totalQuestions) * 100) + '%'
-                        };
-                    };
-
-                    scoreUpdatedSub = pubSub.subscribe('scoreUpdated', function (msg, data) {
-                        scope.score = data;
-                        console.log(scope.score)
-                        scope.$apply();
-                    });
-
-                    scope.$on('$destroy', function () {
-                        pubSub.unsubscribe(scoreUpdatedSub);
-                    });
                 }
             };
         }]);

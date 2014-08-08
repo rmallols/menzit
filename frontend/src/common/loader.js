@@ -42,6 +42,7 @@ getScript(srcPath + '/app/common/title/title.js');
 getScript(srcPath + '/app/common/truncate/truncate.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
+getScript(srcPath + '/app/menu/testData/testData.js');
 //Dialog
 getScript(srcPath + '/app/common/dialog/dialog.js');
 //Categories page
