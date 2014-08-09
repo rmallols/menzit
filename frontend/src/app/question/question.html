@@ -1,14 +1,14 @@
 <div class="question">{{question.question}}</div>
-<button ng-if="isCorrectAnswer && !isTestComplete" ng-click="getNextTest()">
-    Go to next test
-</button>
 <div ng-if="isTestComplete">FINISH!!!</div>
 <div class="answers-container">
-    <div ng-repeat="answer in question.answers" class="answer l-1-{{question.answers.length}}"
-         ng-class="{ 'invalid-assert': answer.invalidAssert }"
+    <div ng-repeat="answer in question.answers"
+         class="answer l-1-{{question.answers.length}}"
+         ng-class="{ 'valid-assert': answer.validAssert, 'invalid-assert': answer.invalidAssert }"
          ng-click="setAnswer(answer)">
+        <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark">
+            <icon ng-class="{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }"></icon>
+        </div>
         <div class="title">{{answer.title}}</div>
         <div class="explanation">{{answer.explanation}}</div>
     </div>
 </div>
-<a ui-sref="mz.categories">Back to categories</a>

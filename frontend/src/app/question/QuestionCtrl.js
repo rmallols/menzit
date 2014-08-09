@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
-    function ($scope, $state, http, pubSub) {
+app.controller('QuestionCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub',
+    function ($scope, $timeout, $state, http, pubSub) {
 
         var availableQuestions = [], runnedQuestions = [], failedAnswers;
 
@@ -13,7 +13,7 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
 
         $scope.setAnswer = function (answer) {
             if (answer.isCorrect) {
-                setCorrectAnswer();
+                setCorrectAnswer(answer);
             } else {
                 setIncorrectAnswer(answer);
             }
@@ -24,11 +24,17 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
             $scope.isCorrectAnswer = false;
         };
 
-        function setCorrectAnswer() {
+        function setCorrectAnswer(answer) {
             $scope.isCorrectAnswer = true;
+            answer.validAssert = true;
             setScore();
             if (isLastQuestion()) {
                 $scope.isTestComplete = true;
+            } else {
+                $timeout(function() {
+                    console.log('trying to get next');
+                    $scope.getNextTest();
+                }, 1000);
             }
         }
 
@@ -44,6 +50,7 @@ app.controller('QuestionCtrl', ['$scope', '$state', 'http', 'pubSub',
             runnedQuestions.push(questionId);
             failedAnswers = 0;
             $scope.question = availableQuestions[questionId];
+            console.log('current is, NUNCA IGUAL QUE EL ANTERIOR!!!', questionId, $scope.question);
         }
 
         function getQuestionId() {
