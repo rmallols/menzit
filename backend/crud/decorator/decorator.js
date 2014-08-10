@@ -26,10 +26,10 @@ module.exports = {
     },
 
     _decorateMultipleResponse: function(decoratorFn, response, callback) {
-        var pendingInstances = response.length;
+        var pendingInstances = response.length, self = this;
         if(response.length) {
             response.forEach(function(responseItem) {
-                this._decorateSingleResponse(decoratorFn, responseItem, function(decoratedResponse) {
+                self._decorateSingleResponse(decoratorFn, responseItem, function(decoratedResponse) {
                     pendingInstances--;
                     response[pendingInstances] = decoratedResponse;
                     if(!pendingInstances) {

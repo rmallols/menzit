@@ -26,7 +26,7 @@ module.exports = {
         currentDate.setHours(0, 0, 0, 0);
         data[event] = {
             date: currentDate,
-            authorId: session._id
+            authorId: (session.user) ? session.user._id : null
         };
     },
 
