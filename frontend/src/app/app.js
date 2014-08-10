@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('app', []);
+var app = angular.module('app', ['ngAnimate']);
 
 app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
@@ -20,10 +20,10 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             templateUrl: "/src/app/categories/categories.html",
             controller: 'CategoriesCtrl'
         })
-        .state('app.runTest', {
+        .state('app.test', {
             url: "/categories/:categoryId/test",
-            templateUrl: "/src/app/question/question.html",
-            controller: 'QuestionCtrl'
+            templateUrl: "/src/app/test/test.html",
+            controller: 'TestCtrl'
         })
         .state('app.admin', {
             url: "/admin",

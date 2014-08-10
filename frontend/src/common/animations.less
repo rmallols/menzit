@@ -1,0 +1,28 @@
+.fade-animation {
+  -webkit-animation: animation-in @speed;
+  animation: animation-in @speed;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  @-webkit-keyframes animation-in { .animation-in; }
+  @keyframes animation-in { .animation-in; }
+
+  &.ng-hide,
+  &.ng-leave.ng-leave-active {
+    -webkit-animation: animation-out @speed;
+    animation: animation-out @speed;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    @-webkit-keyframes animation-out { .animation-out; }
+    @keyframes animation-out { .animation-out; }
+  }
+
+  .animation-in {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+
+  .animation-out {
+    from { opacity: 1;}
+    to { opacity: 0;}
+  }
+}

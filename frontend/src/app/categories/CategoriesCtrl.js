@@ -7,6 +7,6 @@ app.controller('CategoriesCtrl', ['$scope', '$state', 'http', function($scope, $
     });
 
     $scope.launchTest = function (category) {
-        $state.go('app.runTest', { categoryId: category._id });
+        $state.go('app.test', { categoryId: category._id });
     };
 }]);

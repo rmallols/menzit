@@ -20,6 +20,7 @@ getScript(vendorPath + '/jQuery/powerTip/jquery.powertip.min.js');
 getScript(vendorPath + '/jQuery/dotdotdot/jquery.dotdotdot.min.js');
 getScript(vendorPath + '/angularJs/angular.min.js');
 getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
+getScript(vendorPath + '/angularJs/angular-animate.min.js');
 
 //Common src resources
 getScript(srcPath + '/common/index.js');
@@ -47,8 +48,10 @@ getScript(srcPath + '/app/menu/testData/testData.js');
 getScript(srcPath + '/app/common/dialog/dialog.js');
 //Categories page
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
-//Question page
-getScript(srcPath + '/app/question/QuestionCtrl.js');
+//Test page
+getScript(srcPath + '/app/test/TestCtrl.js');
+getScript(srcPath + '/app/test/questions/QuestionsCtrl.js');
+getScript(srcPath + '/app/test/results/ResultsCtrl.js');
 //Admin pages
 getScript(srcPath + '/app/admin/AdminCtrl.js');
 getScript(srcPath + '/app/admin/tenant/tenantApp.js');

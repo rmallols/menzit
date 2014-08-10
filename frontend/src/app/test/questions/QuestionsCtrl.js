@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('QuestionCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub',
+app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub',
     function ($scope, $timeout, $state, http, pubSub) {
 
         var availableQuestions = [], runnedQuestions = [], failedAnswers;

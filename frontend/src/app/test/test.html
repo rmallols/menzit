@@ -1,0 +1,6 @@
+<div class="test-view">
+    <div class="fade-animation" ng-if="isTestInProgress" ng-controller="QuestionsCtrl"
+         ng-include="'/src/app/test/questions/questions.html'" ng-animate></div>
+    <div class="fade-animation" ng-if="isTestFinished" ng-controller="ResultsCtrl"
+         ng-include="'/src/app/test/results/results.html'" ng-animate></div>
+</div>
