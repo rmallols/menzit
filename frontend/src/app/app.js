@@ -21,7 +21,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             controller: 'CategoriesCtrl'
         })
         .state('app.runTest', {
-            url: "/categories/:categoryId/runTest",
+            url: "/categories/:categoryId/test",
             templateUrl: "/src/app/question/question.html",
             controller: 'QuestionCtrl'
         })

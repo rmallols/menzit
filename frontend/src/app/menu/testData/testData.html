@@ -1,8 +1,8 @@
-<div class="test-data-view">
+<div class="test-data-view" ng-if="testData">
     <div class="metadata question">
         <div class="title">Question</div>
         <div class="value">
-            {{testData.runnedQuestions + 1}} / {{testData.totalQuestions}}
+            {{getCurrentQuestion()}} / {{testData.totalQuestions}}
         </div>
     </div>
     <div class="total-progress">
@@ -10,6 +10,6 @@
     </div>
     <div class="metadata score">
         <div class="title">Score</div>
-        <div class="value">{{testData.score || 0}}</div>
+        <div class="value">{{score}}</div>
     </div>
 </div>

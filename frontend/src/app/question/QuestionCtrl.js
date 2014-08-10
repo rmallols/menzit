@@ -31,8 +31,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub'
             if (isLastQuestion()) {
                 $scope.isTestComplete = true;
             } else {
-                $timeout(function() {
-                    console.log('trying to get next');
+                $timeout(function () {
                     $scope.getNextTest();
                 }, 1000);
             }
@@ -50,14 +49,13 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub'
             runnedQuestions.push(questionId);
             failedAnswers = 0;
             $scope.question = availableQuestions[questionId];
-            console.log('current is, NUNCA IGUAL QUE EL ANTERIOR!!!', questionId, $scope.question);
         }
 
         function getQuestionId() {
             var proposedQuestionIndex;
             do {
                 proposedQuestionIndex = parseInt(Math.random() * availableQuestions.length);
-            } while (runnedQuestions.indexOf(availableQuestions[proposedQuestionIndex]) >= 0);
+            } while (runnedQuestions.indexOf(proposedQuestionIndex) >= 0);
             return proposedQuestionIndex;
         }
 
@@ -67,7 +65,7 @@ app.controller('QuestionCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub'
 
         function setScore() {
             var maxQuestionScore = 100;
-            if($scope.score === undefined) {
+            if ($scope.score === undefined) {
                 $scope.score = 0;
             } else {
                 $scope.score += maxQuestionScore -

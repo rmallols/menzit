@@ -3,7 +3,7 @@
     <div class="category l-1-3" ng-repeat="category in categories" truncate
          ng-click="launchTest(category)">
         <div class="image">
-            <img src="{{category.image}}" />
+            <img ng-src="{{category.image}}" />
         </div>
         <div class="title">{{category.title}}</div>
     </div>
