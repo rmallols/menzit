@@ -4,6 +4,8 @@
         <div class="value">{{score}}</div>
     </div>
     <div class="best-results">
-        <div class="best-result" ng-repeat="bestResult in bestResults"></div>
+        <div class="best-result" ng-repeat="bestResult in bestResults">
+            {{bestResult.score}} - {{bestResult.user.userName}}
+        </div>
     </div>
 </div>

@@ -17,8 +17,7 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', 'htt
 
         function finishTest(score) {
             displayResult(score);
-            saveScore(score);
-            loadBestResults();
+            saveScore(score).then(loadBestResults);
         }
 
         function loadBestResults() {
@@ -43,6 +42,9 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', 'htt
         }
 
         function saveScore(score) {
-            http.post('/rest/scores/', { score: score, categoryId: $state.params.categoryId });
+            return http.post('/rest/scores/', {
+                score: score,
+                categoryId: $state.params.categoryId
+            });
         }
     }]);

@@ -16,35 +16,35 @@ module.exports = {
         try {
             var decoratorFn = require('./' + collectionId)[requestType][decoratorType];
             if(array.isArray(data)) {
-                this._decorateMultipleResponse(decoratorFn, data, callback);
+                this._decorateMultipleObject(decoratorFn, data, callback);
             } else {
-                this._decorateSingleResponse(decoratorFn, data, callback);
+                this._decorateSingleObject(decoratorFn, data, callback);
             }
         } catch (ex) {
             callback(data || {});
         }
     },
 
-    _decorateMultipleResponse: function(decoratorFn, response, callback) {
-        var pendingInstances = response.length, self = this;
-        if(response.length) {
-            response.forEach(function(responseItem) {
-                self._decorateSingleResponse(decoratorFn, responseItem, function(decoratedResponse) {
+    _decorateMultipleObject: function(decoratorFn, data, callback) {
+        var pendingInstances = data.length, self = this;
+        if(data.length) {
+            data.forEach(function(responseItem) {
+                self._decorateSingleObject(decoratorFn, responseItem, function(decoratedData) {
                     pendingInstances--;
-                    response[pendingInstances] = decoratedResponse;
+                    data[pendingInstances] = decoratedData;
                     if(!pendingInstances) {
-                        callback(response);
+                        callback(data);
                     }
                 });
             });
         } else {
-            callback(response);
+            callback(data);
         }
     },
 
-    _decorateSingleResponse: function(decoratorFn, response, callback) {
-        decoratorFn(response, function (decoratedResponse) {
-            callback(decoratedResponse);
+    _decorateSingleObject: function(decoratorFn, data, callback) {
+        decoratorFn(data, function (decoratedData) {
+            callback(decoratedData);
         });
     }
 };

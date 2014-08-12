@@ -6,6 +6,7 @@ module.exports = {
 
     find: function (collectionId, data, callback) {
         var options = this._getNormalizeFindOptions(data);
+        console.log('GETTING', options)
         db.connect(function (err, dbCon) {
             dbCon.collection(collectionId)
                 .find(options.query, options.projection)
@@ -41,7 +42,7 @@ module.exports = {
             options.sort = {};
         }
         if (!options.pageSize) {
-            options.pageSize = 10;
+            options.pageSize = 0;
         }
         if (!options.skip) {
             options.skip = 0;
