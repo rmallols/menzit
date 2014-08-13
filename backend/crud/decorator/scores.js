@@ -2,6 +2,20 @@
 
 var read = require('../read');
 
+function _decorateExistingUser(response, callback) {
+    read.findOne(response.create.authorId, 'users', function (user) {
+        response.user = user;
+        delete response.create.authorId;
+        callback(response);
+    });
+}
+
+function _decorateAnonymousUser(response, callback) {
+    response.user = { userName: 'Anonymous' };
+    delete response.create.authorId;
+    callback(response);
+}
+
 module.exports = {
 
     get: {
@@ -14,15 +28,10 @@ module.exports = {
         },
 
         response: function (response, callback) {
-            console.log('normalizing response, AQUI YA ESTA MAL...', response)
-            if(response.create.authorId) {
-                read.findOne(response.create.authorId, 'users', function (user) {
-                    response.user = user;
-                    delete response.create.authorId;
-                    callback(response);
-                });
+            if (response.create.authorId) {
+                _decorateExistingUser(response, callback);
             } else {
-                callback(response);
+                _decorateAnonymousUser(response, callback);
             }
         }
     }

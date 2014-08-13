@@ -6,7 +6,6 @@ module.exports = {
 
     find: function (collectionId, data, callback) {
         var options = this._getNormalizeFindOptions(data);
-        console.log('GETTING', options)
         db.connect(function (err, dbCon) {
             dbCon.collection(collectionId)
                 .find(options.query, options.projection)

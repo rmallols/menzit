@@ -21,7 +21,7 @@ module.exports = {
         this._addCreateSignature(document, session);
         db.connect(function (err, dbCon) {
             dbCon.collection(collectionId).save(document, function (err, newContent) {
-                callback(err, newContent);
+                callback(newContent);
             });
         });
     },

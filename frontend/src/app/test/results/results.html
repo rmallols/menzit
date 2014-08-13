@@ -1,11 +1,14 @@
 <div class="results-view">
-    <div class="score">
+    <div class="current-score">
         <div class="title">Your score is</div>
         <div class="value">{{score}}</div>
     </div>
-    <div class="best-results">
+    <div class="best-results" ng-if="showBestResults">
+        <h2>Best results on this test</h2>
         <div class="best-result" ng-repeat="bestResult in bestResults">
-            {{bestResult.score}} - {{bestResult.user.userName}}
+            <div class="position">{{$index + 1}}</div>
+            <div class="userName">{{bestResult.user.userName}}</div>
+            <div class="score">{{bestResult.score}}</div>
         </div>
     </div>
 </div>

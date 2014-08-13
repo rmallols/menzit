@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', 'http', 'pubSub',
-    function ($scope, $state, $timeout, $interval, http, pubSub) {
+app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q', 'http', 'pubSub',
+    function ($scope, $state, $timeout, $interval, $q, http, pubSub) {
 
         var scoreUpdatedSub, updateScoreIntervalFn;
 
@@ -20,10 +20,9 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', 'htt
             saveScore(score).then(loadBestResults);
         }
 
-        function loadBestResults() {
+        function loadBestResults(e, i) {
             http.get('/rest/scores?categoryId=' + $state.params.categoryId)
                 .then(function (bestResults) {
-                    console.log('CH', bestResults)
                     $scope.bestResults = bestResults;
                 });
         }
@@ -35,6 +34,7 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', 'htt
                     if ($scope.score < score) {
                         $scope.score += 5;
                     } else {
+                        $scope.showBestResults = true;
                         $interval.cancel(updateScoreIntervalFn);
                     }
                 }, 20);
@@ -42,9 +42,16 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', 'htt
         }
 
         function saveScore(score) {
-            return http.post('/rest/scores/', {
+            var deferred = $q.defer();
+            http.post('/rest/scores/', {
                 score: score,
                 categoryId: $state.params.categoryId
+            }).then(function(savedScore) {
+                console.log('the saved score is', savedScore);
+                deferred.resolve(savedScore);
             });
+            return deferred.promise;
         }
+
+        loadBestResults();
     }]);

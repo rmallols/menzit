@@ -1,7 +1,7 @@
 .results-view {
   height: 100%;
 
-  .score {
+  .current-score {
     .centered;
     flex-direction: column;
     width: 100%;
@@ -18,8 +18,8 @@
     animation: move-score .6s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    -webkit-animation-delay: 3s;
-    animation-delay: 3s;
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
     @-webkit-keyframes move-score { .move-score; }
     @keyframes move-score { .move-score; }
 
@@ -31,5 +31,41 @@
 
   .best-results {
     float: left;
+    width: 50%;
+
+    .best-result {
+      .list-item;
+      .v-centered;
+      .fade-animation;
+      padding: 0;
+      height: auto;
+      display: block;
+
+      .position {
+        .border-radius;
+        .padding;
+        float: left;
+        padding: @gutter;
+        background-color: @grey-5;
+        color: white;
+        width: 40px;
+      }
+
+      .userName {
+        .padding;
+        float: left;
+        padding: @gutter;
+      }
+
+      .score {
+        .border-radius;
+        float: right;
+        padding: @gutter;
+        background-color: @grey-5;
+        color: white;
+        width: 60px;
+      }
+    }
+
   }
 }
