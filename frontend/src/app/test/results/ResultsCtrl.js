@@ -1,9 +1,10 @@
 'use strict';
 
-app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q', 'http', 'pubSub',
-    function ($scope, $state, $timeout, $interval, $q, http, pubSub) {
+app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q',
+    '$stateParams', 'http', 'pubSub',
+    function ($scope, $state, $timeout, $interval, $q, $stateParams, http, pubSub) {
 
-        var scoreUpdatedSub, updateScoreIntervalFn;
+        var scoreUpdatedSub, updateScoreIntervalFn, currentResult;
 
         scoreUpdatedSub = pubSub.subscribe('scoreUpdated', function (msg, data) {
             if (data.runnedQuestions === data.totalQuestions) {
@@ -15,12 +16,28 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q'
             pubSub.unsubscribe(scoreUpdatedSub);
         });
 
+        $scope.isCurrentBestResult = function (bestResult) {
+            return bestResult._id === currentResult._id;
+        };
+
+        $scope.repeatTest = function () {
+            $state.transitionTo($state.current, $stateParams, {
+                reload: true,
+                inherit: false,
+                notify: true
+            });
+        };
+
+        $scope.goToHome = function () {
+            $state.go('app.categories');
+        };
+
         function finishTest(score) {
             displayResult(score);
             saveScore(score).then(loadBestResults);
         }
 
-        function loadBestResults(e, i) {
+        function loadBestResults() {
             http.get('/rest/scores?categoryId=' + $state.params.categoryId)
                 .then(function (bestResults) {
                     $scope.bestResults = bestResults;
@@ -34,8 +51,10 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q'
                     if ($scope.score < score) {
                         $scope.score += 5;
                     } else {
-                        $scope.showBestResults = true;
                         $interval.cancel(updateScoreIntervalFn);
+                        $timeout(function () {
+                            $scope.showBestResults = true;
+                        }, 3000);
                     }
                 }, 20);
             }, 3500);
@@ -43,15 +62,11 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q'
 
         function saveScore(score) {
             var deferred = $q.defer();
-            http.post('/rest/scores/', {
-                score: score,
-                categoryId: $state.params.categoryId
-            }).then(function(savedScore) {
-                console.log('the saved score is', savedScore);
-                deferred.resolve(savedScore);
-            });
+            http.post('/rest/scores/', { score: score, categoryId: $state.params.categoryId }
+            ).then(function (savedScore) {
+                    currentResult = savedScore;
+                    deferred.resolve(savedScore);
+                });
             return deferred.promise;
         }
-
-        loadBestResults();
     }]);
