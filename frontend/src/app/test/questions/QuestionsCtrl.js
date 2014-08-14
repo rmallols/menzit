@@ -24,6 +24,13 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
             $scope.isCorrectAnswer = false;
         };
 
+        $scope.getLayoutStyleClass = function() {
+            var columns = ($scope.question.answers.length === 4) ?
+                            2 :
+                            $scope.question.answers.length;
+            return 'l-1-' + columns;
+        };
+
         function setCorrectAnswer(answer) {
             $scope.isCorrectAnswer = true;
             answer.validAssert = true;
@@ -69,7 +76,7 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
                 $scope.score = 0;
             } else {
                 $scope.score += maxQuestionScore -
-                    (failedAnswers * (maxQuestionScore / ($scope.question.answers.length - 1)));
+                    (failedAnswers * Math.ceil(maxQuestionScore / ($scope.question.answers.length)));
             }
             sendScoreEvent();
         }

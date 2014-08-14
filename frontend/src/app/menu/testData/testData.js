@@ -24,11 +24,11 @@
 
                 updateScoreIntervalFn = $interval(function () {
                     if ($scope.score < $scope.testData.score) {
-                        $scope.score += 5;
+                        $scope.score += 1;
                     } else {
                         $interval.cancel(updateScoreIntervalFn);
                     }
-                }, 20);
+                }, 5);
             });
 
             $scope.getCurrentQuestion = function () {

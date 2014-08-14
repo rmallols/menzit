@@ -124,3 +124,5 @@ h3:first-child {
 .offsettedMaxHeight(@offset: 0px, @height:100%){ max-height: -moz-calc(@height + ~" + "@offset) !important; max-height: -o-calc(@height + ~" + "@offset) !important; max-height: calc(@height + ~" + "@offset) !important; max-height: -webkit-calc(@height + ~" + "@offset) !important; }
 .offsettedTop(@offset: 0px, @top:100%){ top: -moz-calc(@top + ~" + "@offset) !important; top: -o-calc(@top + ~" + "@offset) !important; top: calc(@top + ~" + "@offset) !important;top: -webkit-calc(@top + ~" + "@offset) !important; }
 .offsettedLeft(@offset: 0px, @left:100%){ left: -moz-calc(@left + ~" + "@offset) !important; left: -o-calc(@left + ~" + "@offset) !important; left: calc(@left + ~" + "@offset) !important; left: -webkit-calc(@left + ~" + "@offset) !important; }
+.offsettedHalfWidth(@offset: 0px, @width:50%){ width: -webkit-calc(@width+~"+"@offset) !important; }
+.offsettedHalfHeight(@offset: 0px, @height:50%){ height: -moz-calc(@height + ~" + "@offset) !important; height: -o-calc(@height + ~" + "@offset) !important; height: calc(@height + ~" + "@offset) !important; height: -webkit-calc(@height + ~" + "@offset) !important; }

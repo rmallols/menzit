@@ -49,14 +49,14 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q'
                 $scope.score = 0;
                 updateScoreIntervalFn = $interval(function () {
                     if ($scope.score < score) {
-                        $scope.score += 5;
+                        $scope.score += 1;
                     } else {
                         $interval.cancel(updateScoreIntervalFn);
                         $timeout(function () {
                             $scope.showBestResults = true;
                         }, 3000);
                     }
-                }, 20);
+                }, 5);
             }, 3500);
         }
 

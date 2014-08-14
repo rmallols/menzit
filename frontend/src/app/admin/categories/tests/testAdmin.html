@@ -12,7 +12,7 @@
             <div class="l-2-3"><input type="text" ng-model="test.question"/></div>
         </div>
         <div class="cf" ng-repeat="answer in test.answers">
-            <div class="l-1-4 input-label">Answer {{$index}}</div>
+            <div class="l-1-4 input-label">Answer {{$index + 1}}</div>
             <div class="l-1-4"><input type="text" ng-model="answer.title"/></div>
             <div class="l-1-4">
                 Correct?

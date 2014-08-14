@@ -1,15 +1,19 @@
 [ui-view].app-test {
+  @question-height: 50px;
+  @question-margin-bottom: @gutter;
 
   .question {
-    .padding;
+    .centered;
     .border-radius;
-    .margin-bottom;
+    height: @question-height;
+    margin-bottom: @question-margin-bottom;
     background-color: @green;
     color: white;
     text-align: center;
   }
 
   .answers-container {
+    .offsettedHeight(-(@question-height + @question-margin-bottom));
     overflow: hidden;
 
     .answer {
@@ -18,8 +22,20 @@
       position: relative;
       cursor: pointer;
       background-color: white;
-      height: 100%;
       margin-top: 100%;
+
+      &:not(.l-1-2) {
+        height: 100%;
+      }
+
+      &.l-1-2 {
+        .offsettedHalfHeight(-(@gutter / 2));
+      }
+
+      &.l-1-2:nth-of-type(1),
+      &.l-1-2:nth-of-type(2) {
+        margin-bottom: @gutter;
+      }
 
       .assert-mark {
         position: absolute;
@@ -31,12 +47,20 @@
         animation: show-assert-mark .1s;
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
-        @-webkit-keyframes show-assert-mark { .show-assert-mark; }
-        @keyframes show-assert-mark { .show-assert-mark; }
+        @-webkit-keyframes show-assert-mark {
+          .show-assert-mark;
+        }
+        @keyframes show-assert-mark {
+          .show-assert-mark;
+        }
 
         .show-assert-mark {
-          from { font-size: 100%;}
-          to { font-size: 600%;}
+          from {
+            font-size: 100%;
+          }
+          to {
+            font-size: 600%;
+          }
         }
       }
 
@@ -49,7 +73,7 @@
         .transition(bottom @speed);
         .centered;
         position: absolute;
-        bottom:-100%;
+        bottom: -100%;
         width: 100%;
         height: 40%;
       }
@@ -60,12 +84,22 @@
         animation: highlight-valid-assert .6s;
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
-        @-webkit-keyframes highlight-valid-assert { .highlight-valid-assert; }
-        @keyframes highlight-valid-assert { .highlight-valid-assert; }
+        @-webkit-keyframes highlight-valid-assert {
+          .highlight-valid-assert;
+        }
+        @keyframes highlight-valid-assert {
+          .highlight-valid-assert;
+        }
 
         .highlight-valid-assert {
-          from { color: white; background-color: @green;}
-          to { color: @green; background-color: white;}
+          from {
+            color: white;
+            background-color: @green;
+          }
+          to {
+            color: @green;
+            background-color: white;
+          }
         }
       }
 
@@ -77,12 +111,22 @@
         animation-fill-mode: forwards;
         -webkit-animation-delay: 0s !important;
         animation-delay: 0s !important;
-        @-webkit-keyframes highlight-invalid-assert { .highlight-invalid-assert; }
-        @keyframes highlight-invalid-assert { .highlight-invalid-assert; }
+        @-webkit-keyframes highlight-invalid-assert {
+          .highlight-invalid-assert;
+        }
+        @keyframes highlight-invalid-assert {
+          .highlight-invalid-assert;
+        }
 
         .highlight-invalid-assert {
-          from { color: white; background-color: @red;}
-          to { color: @red; background-color: white;}
+          from {
+            color: white;
+            background-color: @red;
+          }
+          to {
+            color: @red;
+            background-color: white;
+          }
         }
 
         .explanation {

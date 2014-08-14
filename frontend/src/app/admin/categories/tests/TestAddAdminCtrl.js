@@ -8,7 +8,7 @@ app.controller('TestAddAdminCtrl', ['$scope', '$state', 'http',
         $scope.correctOptionIndex = 0;
         $scope.test = {
             categoryId: $state.params.categoryId,
-            answers: [{}, {}, {}]
+            answers: [{}, {}, {}, {}]
         };
 
         $scope.submit = function () {

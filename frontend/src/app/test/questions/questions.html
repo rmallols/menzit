@@ -2,7 +2,7 @@
 <div ng-if="isTestComplete">FINISH!!!</div>
 <div class="answers-container">
     <div ng-repeat="answer in question.answers"
-         class="answer l-1-{{question.answers.length}}"
+         class="answer {{getLayoutStyleClass()}}"
          ng-class="{ 'valid-assert': answer.validAssert, 'invalid-assert': answer.invalidAssert }"
          ng-click="setAnswer(answer)">
         <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark">
