@@ -21,12 +21,14 @@ getScript(vendorPath + '/jQuery/dotdotdot/jquery.dotdotdot.min.js');
 getScript(vendorPath + '/angularJs/angular.min.js');
 getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
 getScript(vendorPath + '/angularJs/angular-animate.min.js');
+getScript(vendorPath + '/NProgress/nprogress.js');
 
 //Common src resources
 getScript(srcPath + '/common/index.js');
 getScript(srcPath + '/common/http.js');
 getScript(srcPath + '/common/session.js');
 getScript(srcPath + '/common/pubSub.js');
+getScript(srcPath + '/common/loading.js');
 getStyleSheet(srcPath + '/common/loader.less');
 
 //Business logic src resources

@@ -31,11 +31,11 @@ module.exports = {
     },
 
     _getConnectionUrl: function (dbId) {
-        //noinspection JSUnresolvedVariable
-        var host = pkg.dbHost,
-            port = pkg.dbPort,
-            user = pkg.dbUser,
-            password = pkg.dbPassword,
+        var db = pkg.db[pkg.env],
+            host = db.host,
+            port = db.port,
+            user = db.user,
+            password = db.password,
             credentials = (user && password) ? user + ':' + password + '@' : '',
             endpoint = host + ':' + port + '/' + dbId;
         return 'mongodb://' + credentials + endpoint;
