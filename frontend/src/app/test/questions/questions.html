@@ -5,6 +5,7 @@
          class="answer {{getLayoutStyleClass()}}"
          ng-class="{ 'valid-assert': answer.validAssert, 'invalid-assert': answer.invalidAssert }"
          ng-click="setAnswer(answer)">
+        <div class="option"><div class="text">{{answerCodes[$index]}}</div></div>
         <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark">
             <icon ng-class="{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }"></icon>
         </div>

@@ -23,6 +23,40 @@
       cursor: pointer;
       background-color: white;
       margin-top: 100%;
+      overflow: hidden;
+
+      .option {
+        @option-height: 30%;
+        font-size: 300%;
+        position: absolute;
+        width: 100%;
+        height: @option-height;
+        top: -(@option-height / 2);
+        left: 0;
+        background-color: @grey-1;
+        border-radius: 100%;
+        opacity: .2;
+
+        .text {
+          .centered;
+          position: absolute;
+          width: 100%;
+          height: 50%;
+          text-align: center;
+          top: 50%;
+        }
+      }
+
+      &.l-1-2 .option {
+        top: -50%;
+        height: 200%;
+        left: -80%;
+
+        .text {
+          top: 25%;
+          left: 40%;
+        }
+      }
 
       &:not(.l-1-2) {
         height: 100%;

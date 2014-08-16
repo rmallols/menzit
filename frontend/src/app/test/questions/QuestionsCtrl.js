@@ -11,6 +11,8 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
             setCurrentTest();
         });
 
+        $scope.answerCodes = ['A', 'B', 'C', 'D'];
+
         $scope.setAnswer = function (answer) {
             if (answer.isCorrect) {
                 setCorrectAnswer(answer);
