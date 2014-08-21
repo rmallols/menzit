@@ -81,7 +81,8 @@ module.exports = function(grunt) {
             githubAdd:      { command: 'git add .', options: { stdout: true } },
             githubCommit:   { command: 'git commit -m "#0 prod update"', options: { stdout: true } },
             githubPush:     { command: 'git push', options: { stdout: true } },
-            foo:            { command: 'echo ' + grunt.option('path'), options: { async: true, stdout: true } }
+            herokuPush:     { command: 'git push heroku master', options: { stdout: true } },
+            herokuLog:      { command: 'heroku logs --tail', options: { stdout: true } }
         },
         watch: {
             templates: {
@@ -110,6 +111,17 @@ module.exports = function(grunt) {
         },
         svg2ttf: {
             from: 'frontend/src/common/mz.svg'
+        },
+        bumpup: {
+            setters: {
+                env: function (old, releaseType, options, env) {
+                    return env;
+                },
+                timestamp: function () {
+                    return +new Date();
+                }
+            },
+            file: 'package.json'
         }
     });
 
@@ -123,6 +135,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-svg2ttf');
+    grunt.loadNpmTasks('grunt-bumpup');
 
     grunt.registerTask('updateTtf', ['svg2ttf', 'copy:ttf', 'clean:ttf']);
     grunt.registerTask('runJshint', ['jshint']);
@@ -130,9 +143,14 @@ module.exports = function(grunt) {
     grunt.registerTask('startSelenium', ['shell:startSelenium']);
     grunt.registerTask('startProtractor', ['shell:startProtractor']);
     grunt.registerTask('startMongo', ['shell:startMongo']);
+    grunt.registerTask('devDb', ['bumpup:build:dev']);
+    grunt.registerTask('testDb', ['bumpup:build:test']);
+
     grunt.registerTask('generateTemplates', ['html2js']);
     grunt.registerTask('githubPush', ['shell:githubAdd', 'shell:githubCommit', 'shell:githubPush']);
-    grunt.registerTask('dev', ['clean:jsMin', 'jshint', 'bump', 'generateTemplates', 'githubPush']);
-    grunt.registerTask('prod', ['clean:jsMin', 'jshint', 'startProtractor', 'karma:run', 'bump',
-        'generateTemplates', 'concat', 'uglify', 'githubPush']);
+    grunt.registerTask('herokuLog', ['shell:herokuLog']);
+    grunt.registerTask('herokuPush', ['shell:herokuPush']);
+
+    grunt.registerTask('dev', ['devDb']);
+    grunt.registerTask('prod', ['testDb', 'githubPush', 'herokuPush']);
 };
