@@ -114,6 +114,9 @@ module.exports = function(grunt) {
         },
         bumpup: {
             setters: {
+                version: function () {
+                    return 'proprietary version';
+                },
                 env: function (old, releaseType, options, env) {
                     return env;
                 },
@@ -152,5 +155,5 @@ module.exports = function(grunt) {
     grunt.registerTask('herokuPush', ['shell:herokuPush']);
 
     grunt.registerTask('dev', ['devDb']);
-    grunt.registerTask('prod', ['testDb', 'githubPush', 'herokuPush']);
+    grunt.registerTask('test', ['testDb', 'githubPush', 'herokuPush']);
 };
