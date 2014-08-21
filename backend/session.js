@@ -21,7 +21,7 @@ module.exports = {
         });
     },
 
-    getSession: function (session, callback) {
+    getUserSession: function (session, callback) {
         callback(session.user);
     },
 

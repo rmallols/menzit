@@ -18,11 +18,12 @@ app.use(express.session({ secret: "ch0pSuey" }));
 app.use(express.static(__dirname + '/../frontend'));
 app.use(app.router);
 
-var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:categoryId/test',
-    '/admin/tenant',
-    '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
-    '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add', '/admin/categories/:categoryId/tests/edit/:testId',
-    '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];
+var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:categoryId/test'],
+    acceptedAdminRoutes = [
+        '/admin/tenant',
+        '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
+        '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add', '/admin/categories/:categoryId/tests/edit/:testId',
+        '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];
 
 app.get('/', function (req, res) {
     res.redirect('/home');
@@ -30,6 +31,16 @@ app.get('/', function (req, res) {
 
 app.get(acceptedRoutes, function (req, res) {
     goToIndex(res);
+});
+
+app.get(acceptedAdminRoutes, function (req, res) {
+    session.getUserSession(req.session, function (userSession) {
+        if(userSession) {
+            goToIndex(res);
+        } else {
+            res.send('You don\'t have privileges to acces to this page, go to <a href="/">index</a>', 200);
+        }
+    });
 });
 
 app.post('/rest/login', function (req, res) {
@@ -45,8 +56,8 @@ app.post('/rest/logout', function (req, res) {
 });
 
 app.get('/rest/session', function (req, res) {
-    session.getSession(req.session, function (user) {
-        res.send(user);
+    session.getUserSession(req.session, function (userSession) {
+        res.send(userSession);
     });
 });
 

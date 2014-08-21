@@ -38,6 +38,7 @@
                     scope.logout = function () {
                         session.logout().then(function () {
                             scope.session = undefined;
+                            $state.go('app.categories');
                         });
                     };
 
