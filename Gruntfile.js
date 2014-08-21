@@ -115,7 +115,7 @@ module.exports = function(grunt) {
         bumpup: {
             setters: {
                 version: function () {
-                    return 'proprietary version';
+                    return '0.0.1';
                 },
                 env: function (old, releaseType, options, env) {
                     return env;

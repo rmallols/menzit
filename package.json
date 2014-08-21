@@ -1,12 +1,12 @@
 {
     "name": "menzit",
     "author": "Ricardo Mallols",
-    "version": "proprietary version",
+    "version": "0.0.1",
     "engines": {
         "node": "0.10.26",
         "npm": "1.4.3"
     },
-    "timestamp": 1408651563992,
+    "timestamp": 1408651665226,
     "env": "test",
     "db": {
         "dev": {
