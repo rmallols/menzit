@@ -84,7 +84,7 @@ module.exports = function (grunt) {
             },
             main: {
                 src: ['<%= srcFolder %>/**/*.html'],
-                dest: '<%= jsFolder %>templates.js'
+                dest: '<%= srcFolder %>/common/templates.js'
             }
         },
         shell: {

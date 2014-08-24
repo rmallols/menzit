@@ -5,7 +5,7 @@
             return  {
                 replace: true,
                 restrict: 'A',
-                templateUrl: '/src/app/menu/menu.html',
+                templateUrl: 'menu.html',
                 link: function link(scope) {
 
                     session.getSession().then(function (session) {

@@ -5,7 +5,7 @@ app.config(function ($stateProvider) {
     $stateProvider
         .state('app.admin.tests', {
             url: "/categories/:categoryId/tests",
-            templateUrl: "/src/app/admin/categories/tests/testsAdmin.html",
+            templateUrl: "testsAdmin.html",
             controller: 'TestsAdminCtrl',
             resolve: {
                 category: ['$stateParams', 'http', function ($stateParams, http) {
@@ -18,7 +18,7 @@ app.config(function ($stateProvider) {
         })
         .state('app.admin.addTest', {
             url: "/categories/:categoryId/tests/add",
-            templateUrl: "/src/app/admin/categories/tests/testAdmin.html",
+            templateUrl: "testAdmin.html",
             controller: 'TestAddAdminCtrl',
             data: {
                 subGroupId: 'categories'
@@ -26,7 +26,7 @@ app.config(function ($stateProvider) {
         })
         .state('app.admin.editTest', {
             url: "/categories/:categoryId/tests/edit/:testId",
-            templateUrl: "/src/app/admin/categories/tests/testAdmin.html",
+            templateUrl: "testAdmin.html",
             controller: 'TestEditAdminCtrl',
             resolve: {
                 test: ['$stateParams', 'http', function ($stateParams, http) {

@@ -4,7 +4,7 @@ app.directive('upload', [function () {
     return  {
         replace: true,
         restrict: 'A',
-        templateUrl: '/src/app/common/upload/upload.html',
+        templateUrl: 'upload.html',
         scope: {
             ngModel: '='
         },

@@ -7,7 +7,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('app', {
-            templateUrl: "/src/app/app.html",
+            templateUrl: "app.html",
             controller: 'AppCtrl',
             resolve: {
                 session: ['http', 'session', function (http, session) {
@@ -17,17 +17,17 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
         })
         .state('app.categories', {
             url: "/categories",
-            templateUrl: "/src/app/categories/categories.html",
+            templateUrl: "categories.html",
             controller: 'CategoriesCtrl'
         })
         .state('app.test', {
             url: "/categories/:categoryId/test",
-            templateUrl: "/src/app/test/test.html",
+            templateUrl: "test.html",
             controller: 'TestCtrl'
         })
         .state('app.admin', {
             url: "/admin",
-            templateUrl: "/src/app/admin/admin.html",
+            templateUrl: "admin.html",
             controller: 'AdminCtrl',
             data: {
                 groupId: 'admin'

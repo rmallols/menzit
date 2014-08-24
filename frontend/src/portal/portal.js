@@ -7,12 +7,12 @@ portal.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('portal', {
-            templateUrl: "/src/portal/portal.html",
+            templateUrl: "portal.html",
             controller: 'PortalCtrl'
         })
         .state('portal.home', {
             url: "/home",
-            templateUrl: "/src/portal/home/home.html",
+            templateUrl: "home.html",
             controller: 'HomeCtrl'
         });
 

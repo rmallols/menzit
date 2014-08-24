@@ -5,7 +5,7 @@ app.config(function ($stateProvider) {
     $stateProvider
         .state('app.admin.categories', {
             url: "/categories",
-            templateUrl: "/src/app/admin/categories/categoriesAdmin.html",
+            templateUrl: "categoriesAdmin.html",
             controller: 'CategoriesAdminCtrl',
             data: {
                 subGroupId: 'categories'
@@ -13,7 +13,7 @@ app.config(function ($stateProvider) {
         })
         .state('app.admin.addCategory', {
             url: "/categories/add",
-            templateUrl: "/src/app/admin/categories/categoryAdmin.html",
+            templateUrl: "categoryAdmin.html",
             controller: 'CategoryAddAdminCtrl',
             data: {
                 subGroupId: 'categories'
@@ -21,7 +21,7 @@ app.config(function ($stateProvider) {
         })
         .state('app.admin.editCategory', {
             url: "/categories/edit/:categoryId",
-            templateUrl: "/src/app/admin/categories/categoryAdmin.html",
+            templateUrl: "categoryAdmin.html",
             controller: 'CategoryEditAdminCtrl',
             resolve: {
                 category: ['$stateParams', 'http', function ($stateParams, http) {

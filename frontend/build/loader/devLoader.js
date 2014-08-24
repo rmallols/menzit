@@ -26,6 +26,7 @@ getScript(vendorPath + '/NProgress/nprogress.js');
 //Common src resources
 getStyleSheet(srcPath + '/loader.less');
 getScript(srcPath + '/common/index.js');
+getScript(srcPath + '/common/templates.js');
 getScript(srcPath + '/common/http.js');
 getScript(srcPath + '/common/session.js');
 getScript(srcPath + '/common/pubSub.js');
