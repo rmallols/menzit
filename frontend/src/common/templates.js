@@ -288,7 +288,7 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
     "            ng-class=\"isActiveAction()\">\n" +
     "        Admin\n" +
     "    </button>\n" +
-    "    <div ng-include=\"'/src/app/menu/testData/testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
+    "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
     "    <button class=\"login\" ng-click=\"showLoginDialog()\" ng-if=\"!session\">Login</button>\n" +
     "    <button class=\"logout\" ng-click=\"logout()\" ng-if=\"session\">Logout</button>\n" +
     "    <div dialog title=\"Login\" mz-if=\"showLogin\">\n" +
@@ -371,9 +371,9 @@ angular.module("test.html", []).run(["$templateCache", function($templateCache) 
   $templateCache.put("test.html",
     "<div class=\"test-view\">\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestInProgress\" ng-controller=\"QuestionsCtrl\"\n" +
-    "         ng-include=\"'/src/app/test/questions/questions.html'\" ng-animate></div>\n" +
+    "         ng-include=\"'questions.html'\" ng-animate></div>\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestFinished\" ng-controller=\"ResultsCtrl\"\n" +
-    "         ng-include=\"'/src/app/test/results/results.html'\" ng-animate></div>\n" +
+    "         ng-include=\"'results.html'\" ng-animate></div>\n" +
     "</div>");
 }]);
 
@@ -401,7 +401,7 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "    <div class=\"content\">\n" +
     "        <div class=\"main\">\n" +
     "            <div class=\"title\">\n" +
-    "                <h1>Learn never have been so easy</h1>\n" +
+    "                <h1>Learn never have been so easy.</h1>\n" +
     "            </div>\n" +
     "            <div class=\"media\">\n" +
     "                <img src=\"/src/portal/home/main.png\" />\n" +
