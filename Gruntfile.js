@@ -61,7 +61,7 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                mangle: true, //reduce names of local variables to (usually) single-letters.
+                mangle: false, //reduce names of local variables to (usually) single-letters.
                 report: 'min',
                 banner: '/* Minified js files! <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
@@ -196,5 +196,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',
-        'compileLess'/*, 'githubPush', 'herokuPush'*/]);
+        'compileLess', 'githubPush', 'herokuPush']);
 };
