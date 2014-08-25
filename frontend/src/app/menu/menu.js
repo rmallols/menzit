@@ -13,7 +13,7 @@
                     });
 
                     scope.showAdminOptions = function () {
-                        $state.go('app.admin.tenant');
+                        $state.go('app.admin.tenants');
                     };
 
                     scope.showLoginDialog = function () {

@@ -1,0 +1,18 @@
+<div class="tenant-view">
+    <div class="cf">
+        <h1 class="float-left">{{title}}</h1>
+        <div class="float-right">
+            <button ng-click="submit()" class="important">Save</button>
+        </div>
+    </div>
+    <div class="cf">
+        <div class="l-1-3 input-label">Name</div>
+        <div class="l-2-3"><input type="text" ng-model="tenant.name"/></div>
+    </div>
+    <div class="cf">
+        <div class="l-1-3 input-label">Image</div>
+        <div class="l-2-3">
+            <input ng-model="tenant.image" upload />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="tenants-view">
+    <div class="cf">
+        <h1 class="float-left">Manage tenants</h1>
+        <div class="float-right">
+            <button class="important" ng-click="add()">Add</button>
+        </div>
+    </div>
+    <div class="tenant" ng-repeat="tenant in tenants">
+        <div class="float-left">
+            {{tenant.name}}
+        </div>
+        <div class="float-right">
+            <button>
+                <icon class="up-icon"></icon>
+            </button>
+            <button>
+                <icon class="down-icon"></icon>
+            </button>
+            <button ng-click="edit(tenant)">Edit</button>
+            <button class="delete" ng-click="confirmDelete(tenant)">Delete</button>
+        </div>
+    </div>
+    <div dialog mz-if="tenantToBeDeleted" title="Delete tenant">
+        <label class="warning">Warning</label><br/>
+        The following tenants will be deleted<br/><br/>
+        <b>{{tenantToBeDeleted.title}}</b><br/><br/>
+        <button class="delete" ng-click="delete()">Delete</button>
+    </div>
+</div>

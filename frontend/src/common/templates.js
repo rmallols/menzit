@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -158,27 +158,56 @@ angular.module("tenant.html", []).run(["$templateCache", function($templateCache
   $templateCache.put("tenant.html",
     "<div class=\"tenant-view\">\n" +
     "    <div class=\"cf\">\n" +
-    "        <h1 class=\"float-left\">Tenant information</h1>\n" +
+    "        <h1 class=\"float-left\">{{title}}</h1>\n" +
     "        <div class=\"float-right\">\n" +
-    "            <button ng-click=\"save()\" class=\"important\">Save</button>\n" +
-    "            <button ng-click=\"cancel()\">Cancel</button>\n" +
+    "            <button ng-click=\"submit()\" class=\"important\">Save</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div>\n" +
-    "        <div class=\"l-1-3 input-label\">\n" +
-    "            Tenant name\n" +
-    "        </div>\n" +
+    "    <div class=\"cf\">\n" +
+    "        <div class=\"l-1-3 input-label\">Name</div>\n" +
+    "        <div class=\"l-2-3\"><input type=\"text\" ng-model=\"tenant.name\"/></div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
+    "        <div class=\"l-1-3 input-label\">Image</div>\n" +
     "        <div class=\"l-2-3\">\n" +
-    "            <input type=\"text\" ng-model=\"tenant.name\" />\n" +
-    "        </div>\n" +
-    "        <div class=\"l-1-3 input-label\">\n" +
-    "            Tenant logo\n" +
-    "        </div>\n" +
-    "        <div class=\"l-2-3\">\n" +
-    "            <input type=\"text\" ng-model=\"tenant.logo\" upload />\n" +
+    "            <input ng-model=\"tenant.image\" upload />\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
+}]);
+
+angular.module("tenants.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("tenants.html",
+    "<div class=\"tenants-view\">\n" +
+    "    <div class=\"cf\">\n" +
+    "        <h1 class=\"float-left\">Manage tenants</h1>\n" +
+    "        <div class=\"float-right\">\n" +
+    "            <button class=\"important\" ng-click=\"add()\">Add</button>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"tenant\" ng-repeat=\"tenant in tenants\">\n" +
+    "        <div class=\"float-left\">\n" +
+    "            {{tenant.name}}\n" +
+    "        </div>\n" +
+    "        <div class=\"float-right\">\n" +
+    "            <button>\n" +
+    "                <icon class=\"up-icon\"></icon>\n" +
+    "            </button>\n" +
+    "            <button>\n" +
+    "                <icon class=\"down-icon\"></icon>\n" +
+    "            </button>\n" +
+    "            <button ng-click=\"edit(tenant)\">Edit</button>\n" +
+    "            <button class=\"delete\" ng-click=\"confirmDelete(tenant)\">Delete</button>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div dialog mz-if=\"tenantToBeDeleted\" title=\"Delete tenant\">\n" +
+    "        <label class=\"warning\">Warning</label><br/>\n" +
+    "        The following tenants will be deleted<br/><br/>\n" +
+    "        <b>{{tenantToBeDeleted.title}}</b><br/><br/>\n" +
+    "        <button class=\"delete\" ng-click=\"delete()\">Delete</button>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("userAdmin.html", []).run(["$templateCache", function($templateCache) {
