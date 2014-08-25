@@ -196,5 +196,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',
-        'compileLess', 'githubPush', 'herokuPush']);
+        'compileLess', 'githubPush', 'herokuPush', 'dev']);
 };

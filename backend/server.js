@@ -20,9 +20,10 @@ app.use(app.router);
 
 var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:categoryId/test'],
     acceptedAdminRoutes = [
-        '/admin/tenants',
+        '/admin/tenants/:tenantId',
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
-        '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add', '/admin/categories/:categoryId/tests/edit/:testId',
+        '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
+        '/admin/categories/:categoryId/tests/edit/:testId',
         '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];
 
 app.get('/', function (req, res) {
@@ -33,8 +34,20 @@ app.get(acceptedRoutes, function (req, res) {
     goToIndex(res);
 });
 
+app.get('/admin/tenants/', function (req, res) {
+    console.log('OUT')
+    session.isSuperAdminUser(req.session, function (isSuperAdminUser) {
+        if(isSuperAdminUser) {
+            goToIndex(res);
+        } else {
+            res.redirect('/categories');
+        }
+        goToIndex(res);
+    });
+});
+
 app.get(acceptedAdminRoutes, function (req, res) {
-    session.getUserSession(req.session, function (userSession) {
+    session.isLoggedUser(req.session, function (userSession) {
         if(userSession) {
             goToIndex(res);
         } else {
@@ -56,7 +69,7 @@ app.post('/rest/logout', function (req, res) {
 });
 
 app.get('/rest/session', function (req, res) {
-    session.getUserSession(req.session, function (userSession) {
+    session.isLoggedUser(req.session, function (userSession) {
         res.send(userSession);
     });
 });

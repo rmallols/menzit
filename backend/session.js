@@ -21,8 +21,20 @@ module.exports = {
         });
     },
 
-    getUserSession: function (session, callback) {
+    isLoggedUser: function (session, callback) {
         callback(session.user);
+    },
+
+    isSuperAdminUser: function(session, callback) {
+        callback(session.user.role === 2);
+    },
+
+    isAdminUser: function(session, callback) {
+        callback(session.user.role === 1);
+    },
+
+    isPlainUser: function(session, callback) {
+        callback(!this.isSuperAdminUser && !this.isAdminUser);
     },
 
     logout: function (session, callback) {
