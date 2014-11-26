@@ -168,6 +168,18 @@ angular.module("tenant.html", []).run(["$templateCache", function($templateCache
     "        <div class=\"l-2-3\"><input type=\"text\" ng-model=\"tenant.name\"/></div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
+    "        <div class=\"l-1-3 input-label\">Categories</div>\n" +
+    "        <div class=\"l-2-3\">\n" +
+    "            {{tags}}\n" +
+    "            <tags-input ng-model=\"tags\">\n" +
+    "                <auto-complete source=\"loadCategories()\"\n" +
+    "                               min-length=\"1\"\n" +
+    "                               load-on-down-arrow=\"true\">\n" +
+    "                </auto-complete>\n" +
+    "            </tags-input>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-3 input-label\">Image</div>\n" +
     "        <div class=\"l-2-3\">\n" +
     "            <input ng-model=\"tenant.image\" upload />\n" +

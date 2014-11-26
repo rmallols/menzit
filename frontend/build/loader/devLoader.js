@@ -22,6 +22,7 @@ getScript(vendorPath + '/angularJs/angular.min.js');
 getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
 getScript(vendorPath + '/angularJs/angular-animate.min.js');
 getScript(vendorPath + '/NProgress/nprogress.js');
+getScript(vendorPath + '/ngTagsInput/ng-tags-input.min.js');
 
 //Common src resources
 getStyleSheet(srcPath + '/loader.less');
@@ -57,8 +58,10 @@ getScript(srcPath + '/app/test/questions/QuestionsCtrl.js');
 getScript(srcPath + '/app/test/results/ResultsCtrl.js');
 //Admin pages
 getScript(srcPath + '/app/admin/AdminCtrl.js');
-getScript(srcPath + '/app/admin/tenant/tenantApp.js');
-getScript(srcPath + '/app/admin/tenant/TenantCtrl.js');
+getScript(srcPath + '/app/admin/tenants/tenantsApp.js');
+getScript(srcPath + '/app/admin/tenants/TenantsCtrl.js');
+getScript(srcPath + '/app/admin/tenants/TenantAddCtrl.js');
+getScript(srcPath + '/app/admin/tenants/TenantEditCtrl.js');
 getScript(srcPath + '/app/admin/categories/categoriesApp.js');
 getScript(srcPath + '/app/admin/categories/CategoriesAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/CategoryAddAdminCtrl.js');

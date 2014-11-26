@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('app', ['ngAnimate']);
+var app = angular.module('app', ['ngAnimate', 'ngTagsInput']);
 
 app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
