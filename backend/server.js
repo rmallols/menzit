@@ -35,7 +35,6 @@ app.get(acceptedRoutes, function (req, res) {
 });
 
 app.get('/admin/tenants/', function (req, res) {
-    console.log('OUT')
     session.isSuperAdminUser(req.session, function (isSuperAdminUser) {
         if (isSuperAdminUser) {
             goToIndex(res);

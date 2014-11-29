@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'autoComplete.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -170,13 +170,11 @@ angular.module("tenant.html", []).run(["$templateCache", function($templateCache
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-3 input-label\">Categories</div>\n" +
     "        <div class=\"l-2-3\">\n" +
-    "            {{tags}}\n" +
-    "            <tags-input ng-model=\"tags\">\n" +
-    "                <auto-complete source=\"loadCategories()\"\n" +
-    "                               min-length=\"1\"\n" +
-    "                               load-on-down-arrow=\"true\">\n" +
-    "                </auto-complete>\n" +
-    "            </tags-input>\n" +
+    "            <div auto-complete\n" +
+    "                 ng-model=\"tenant.categories\"\n" +
+    "                 endpoint=\"/rest/categories\"\n" +
+    "                 display-property=\"title\">\n" +
+    "             </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
@@ -292,6 +290,13 @@ angular.module("categories.html", []).run(["$templateCache", function($templateC
     "        <div class=\"title\">{{category.title}}</div>\n" +
     "    </div>\n" +
     "</div>");
+}]);
+
+angular.module("autoComplete.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("autoComplete.html",
+    "<tags-input ng-model=\"tags\" display-property=\"{{displayProperty}}\">\n" +
+    "    <auto-complete source=\"source($query)\" min-length=\"1\" load-on-down-arrow=\"true\"></auto-complete>\n" +
+    "</tags-input>");
 }]);
 
 angular.module("dialog.html", []).run(["$templateCache", function($templateCache) {

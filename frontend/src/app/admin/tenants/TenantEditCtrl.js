@@ -10,15 +10,4 @@ app.controller('TenantEditCtrl', ['$scope', '$state', '$q', 'http', 'tenant',
                 $state.go('app.admin.tenants');
             });
         };
-
-        $scope.tags = [{"text":"Tag1"},{"text":"Tag3"}];
-
-
-console.log('out')
-
-        $scope.loadCategories = function () {
-            var deferred = $q.defer();
-            deferred.resolve(['Tag1', 'Tag2', 'Tag3', 'Tag4', 'Tag5']);
-            return deferred.promise;
-        };
     }]);

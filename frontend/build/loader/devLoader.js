@@ -45,6 +45,7 @@ getScript(srcPath + '/app/AppCtrl.js');
 getScript(srcPath + '/app/common/upload/upload.js');
 getScript(srcPath + '/app/common/title/title.js');
 getScript(srcPath + '/app/common/truncate/truncate.js');
+getScript(srcPath + '/app/common/autoComplete/autoComplete.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
 getScript(srcPath + '/app/menu/testData/testData.js');
