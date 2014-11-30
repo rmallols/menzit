@@ -56,7 +56,7 @@ app.get(acceptedAdminRoutes, function (req, res) {
 });
 
 app.post('/rest/login', function (req, res) {
-    session.login(req.body.user, req.body.password, req.session, function (user) {
+    session.login(req.body.userName, req.body.password, req.session, function (user) {
         res.send(user);
     });
 });

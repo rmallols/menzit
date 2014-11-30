@@ -6,9 +6,9 @@ var bcrypt = require('bcrypt-nodejs'),
 module.exports = {
 
     login: function (userName, password, session, callback) {
-        var dbUser, filter = { $and: [
+        var dbUser, filter = { query: { $and: [
             { userName: userName }
-        ]};
+        ]}};
         read.find('users', filter, function (result) {
             dbUser = result[0];
             if (dbUser && bcrypt.compareSync(password, dbUser.password)) {
@@ -25,15 +25,15 @@ module.exports = {
         callback(session.user);
     },
 
-    isSuperAdminUser: function(session, callback) {
+    isSuperAdminUser: function (session, callback) {
         callback(session.user.role === 2);
     },
 
-    isAdminUser: function(session, callback) {
+    isAdminUser: function (session, callback) {
         callback(session.user.role === 1);
     },
 
-    isPlainUser: function(session, callback) {
+    isPlainUser: function (session, callback) {
         callback(!this.isSuperAdminUser && !this.isAdminUser);
     },
 
