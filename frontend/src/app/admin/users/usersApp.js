@@ -25,6 +25,11 @@ app.config(function ($stateProvider) {
             controller: 'UserEditAdminCtrl',
             data: {
                 subGroupId: 'users'
+            },
+            resolve: {
+                user: ['$stateParams', 'http', function ($stateParams, http) {
+                    return http.get('/rest/users/' + $stateParams.userId);
+                }]
             }
         });
 });

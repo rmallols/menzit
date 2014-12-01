@@ -1,14 +1,11 @@
 'use strict';
 
-app.controller('UserEditAdminCtrl', ['$scope', '$state', 'http',
-    function ($scope, $state, http) {
-        var userRestUrl = '/rest/users/' + $state.params.userId;
+app.controller('UserEditAdminCtrl', ['$scope', '$state', 'http', 'user',
+    function ($scope, $state, http, user) {
         $scope.title = 'Edit user';
-        http.get(userRestUrl).then(function (response) {
-            $scope.user = response;
-        });
+        $scope.user = user;
         $scope.submit = function () {
-            http.put(userRestUrl, $scope.user).then(function () {
+            http.put('/rest/users/' + $state.params.userId, $scope.user).then(function () {
                 $state.go('app.admin.users');
             });
         };

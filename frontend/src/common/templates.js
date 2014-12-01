@@ -225,7 +225,6 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "<div class=\"user-view\">\n" +
     "    <div class=\"cf\">\n" +
     "        <h1 class=\"float-left\">{{title}}</h1>\n" +
-    "\n" +
     "        <div class=\"float-right\">\n" +
     "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
     "        </div>\n" +
@@ -233,6 +232,17 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-3 input-label\">Name</div>\n" +
     "        <div class=\"l-2-3\"><input type=\"text\" ng-model=\"user.userName\"/></div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
+    "        <div class=\"l-1-3 input-label\">Tenant</div>\n" +
+    "        <div class=\"l-2-3\">\n" +
+    "            <div auto-complete\n" +
+    "                 ng-model=\"user.tenant\"\n" +
+    "                 endpoint=\"/rest/tenants\"\n" +
+    "                 display-property=\"name\"\n" +
+    "                 single-selection=\"true\">\n" +
+    "            </div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -294,8 +304,18 @@ angular.module("categories.html", []).run(["$templateCache", function($templateC
 
 angular.module("autoComplete.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("autoComplete.html",
-    "<tags-input ng-model=\"tags\" display-property=\"{{displayProperty}}\">\n" +
-    "    <auto-complete source=\"source($query)\" min-length=\"1\" load-on-down-arrow=\"true\"></auto-complete>\n" +
+    "<tags-input\n" +
+    "        ng-model=\"tags\"\n" +
+    "        display-property=\"{{displayProperty}}\"\n" +
+    "        max-tags=\"{{maxTags}}\"\n" +
+    "        on-tag-added=\"onTagAdded($tag)\"\n" +
+    "        placeholder=\"{{placeholder}}\"\n" +
+    "        ng-class=\"{ 'single-selection': singleSelection }\">\n" +
+    "    <auto-complete\n" +
+    "        source=\"source($query)\"\n" +
+    "        min-length=\"1\"\n" +
+    "        load-on-down-arrow=\"true\">\n" +
+    "    </auto-complete>\n" +
     "</tags-input>");
 }]);
 

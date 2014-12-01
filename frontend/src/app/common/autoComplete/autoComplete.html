@@ -1,3 +1,13 @@
-<tags-input ng-model="tags" display-property="{{displayProperty}}">
-    <auto-complete source="source($query)" min-length="1" load-on-down-arrow="true"></auto-complete>
+<tags-input
+        ng-model="tags"
+        display-property="{{displayProperty}}"
+        max-tags="{{maxTags}}"
+        on-tag-added="onTagAdded($tag)"
+        placeholder="{{placeholder}}"
+        ng-class="{ 'single-selection': singleSelection }">
+    <auto-complete
+        source="source($query)"
+        min-length="1"
+        load-on-down-arrow="true">
+    </auto-complete>
 </tags-input>
