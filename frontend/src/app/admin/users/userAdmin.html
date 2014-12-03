@@ -22,6 +22,12 @@
         </div>
     </div>
     <div class="cf">
+        <div class="l-1-3 input-label">Role</div>
+        <div class="l-2-3">
+            <select ng-model="user.role" ng-options="role._id as role.name for role in roles"></select>
+        </div>
+    </div>
+    <div class="cf">
         <div class="l-1-3 input-label">Tenant</div>
         <div class="l-2-3">
             <div auto-complete

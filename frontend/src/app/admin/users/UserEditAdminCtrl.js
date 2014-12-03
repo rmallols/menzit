@@ -1,9 +1,11 @@
 'use strict';
 
-app.controller('UserEditAdminCtrl', ['$scope', '$state', 'http', 'user',
-    function ($scope, $state, http, user) {
+app.controller('UserEditAdminCtrl', ['$scope', '$state', 'http', 'user', 'constants',
+    function ($scope, $state, http, user, constants) {
+
         $scope.title = 'Edit user';
         $scope.user = user;
+        $scope.roles = constants.roles;
         $scope.showForceChangePasswordLink = true;
 
         $scope.submit = function () {

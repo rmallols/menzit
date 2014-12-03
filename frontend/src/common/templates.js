@@ -246,6 +246,12 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
+    "        <div class=\"l-1-3 input-label\">Role</div>\n" +
+    "        <div class=\"l-2-3\">\n" +
+    "            <select ng-model=\"user.role\" ng-options=\"role._id as role.name for role in roles\"></select>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-3 input-label\">Tenant</div>\n" +
     "        <div class=\"l-2-3\">\n" +
     "            <div auto-complete\n" +
