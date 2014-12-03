@@ -230,8 +230,20 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
-    "        <div class=\"l-1-3 input-label\">Name</div>\n" +
+    "        <div class=\"l-1-3 input-label\">Username</div>\n" +
     "        <div class=\"l-2-3\"><input type=\"text\" ng-model=\"user.userName\"/></div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
+    "        <div class=\"l-1-3 input-label\">Password</div>\n" +
+    "        <div class=\"l-2-3\">\n" +
+    "            <a href=\"#\"\n" +
+    "               ng-if=\"showForceChangePasswordLink\"\n" +
+    "               ng-click=\"forceChangePassword()\"\n" +
+    "               class=\"input-label text-align-left display-inline-block\">\n" +
+    "                Change\n" +
+    "            </a>\n" +
+    "            <input type=\"password\" ng-if=\"!showForceChangePasswordLink\" ng-model=\"user.password\"/>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-3 input-label\">Tenant</div>\n" +

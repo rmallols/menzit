@@ -48,7 +48,7 @@ app.get('/admin/tenants/', function (req, res) {
 app.get(acceptedAdminRoutes, function (req, res) {
     session.isLoggedUser(req.session, function (userSession) {
 //        if (userSession) {
-            goToIndex(res);
+        goToIndex(res);
 //        } else {
 //            res.send('You don\'t have privileges to acces to this page, go to <a href="/">index</a>', 200);
 //        }
@@ -100,18 +100,22 @@ app.get('/rest/:collectionId/:documentId', function (req, res) {
 
 app.post('/rest/:collectionId', function (req, res) {
     var collectionId = req.params.collectionId;
-    create.create(collectionId, req.body, req.session, function (response) {
-        decorator.outDecorator(collectionId, 'post', response, function (decoratedResponse) {
-            res.send(decoratedResponse);
+    decorator.inDecorator(collectionId, 'post', req, function (req) {
+        create.create(collectionId, req.body, req.session, function (response) {
+            decorator.outDecorator(collectionId, 'post', response, function (decoratedResponse) {
+                res.send(decoratedResponse);
+            });
         });
     });
 });
 
 app.put('/rest/:collectionId/:documentId', function (req, res) {
     var collectionId = req.params.collectionId;
-    update.update(req.params.documentId, collectionId, req.body, req.session, function (response) {
-        decorator.outDecorator(collectionId, 'put', response, function (decoratedResponse) {
-            res.send(decoratedResponse);
+    decorator.inDecorator(collectionId, 'put', req, function (req) {
+        update.update(req.params.documentId, collectionId, req.body, req.session, function (response) {
+            decorator.outDecorator(collectionId, 'put', response, function (decoratedResponse) {
+                res.send(decoratedResponse);
+            });
         });
     });
 });
