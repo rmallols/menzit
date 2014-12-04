@@ -1,5 +1,5 @@
 <div class="menu-view">
-    <button class="admin" ng-click="showAdminOptions()" ng-if="session"
+    <button class="admin" ng-click="showAdminOptions()" ng-if="hasAdminRole()"
             ng-class="isActiveAction()">
         Admin
     </button>

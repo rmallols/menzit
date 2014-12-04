@@ -368,7 +368,7 @@ angular.module("upload.html", []).run(["$templateCache", function($templateCache
 angular.module("menu.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("menu.html",
     "<div class=\"menu-view\">\n" +
-    "    <button class=\"admin\" ng-click=\"showAdminOptions()\" ng-if=\"session\"\n" +
+    "    <button class=\"admin\" ng-click=\"showAdminOptions()\" ng-if=\"hasAdminRole()\"\n" +
     "            ng-class=\"isActiveAction()\">\n" +
     "        Admin\n" +
     "    </button>\n" +

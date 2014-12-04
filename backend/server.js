@@ -35,24 +35,20 @@ app.get(acceptedRoutes, function (req, res) {
 });
 
 app.get('/admin/tenants/', function (req, res) {
-    session.isSuperAdminUser(req.session, function (isSuperAdminUser) {
-        if (isSuperAdminUser) {
-            goToIndex(res);
-        } else {
-            res.redirect('/categories');
-        }
+    if (session.isSuperAdminUser(req.session)) {
         goToIndex(res);
-    });
+    } else {
+        res.redirect('/categories');
+    }
+    goToIndex(res);
 });
 
 app.get(acceptedAdminRoutes, function (req, res) {
-    session.isLoggedUser(req.session, function (userSession) {
-//        if (userSession) {
-        goToIndex(res);
+//        if (session.isLoggedUser(req.session)) {
+    goToIndex(res);
 //        } else {
 //            res.send('You don\'t have privileges to acces to this page, go to <a href="/">index</a>', 200);
 //        }
-    });
 });
 
 app.post('/rest/login', function (req, res) {
@@ -68,9 +64,7 @@ app.post('/rest/logout', function (req, res) {
 });
 
 app.get('/rest/session', function (req, res) {
-    session.isLoggedUser(req.session, function (userSession) {
-        res.send(userSession);
-    });
+    res.send(session.isLoggedUser(req.session));
 });
 
 app.get('/admin', function (req, res) {

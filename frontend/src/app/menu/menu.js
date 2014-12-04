@@ -12,6 +12,10 @@
                         scope.session = session;
                     });
 
+                    scope.hasAdminRole = function () {
+                        return session.hasAdminRole();
+                    };
+
                     scope.showAdminOptions = function () {
                         $state.go('app.admin.tenants');
                     };

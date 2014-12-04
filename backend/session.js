@@ -21,20 +21,26 @@ module.exports = {
         });
     },
 
-    isLoggedUser: function (session, callback) {
-        callback(session.user);
+    isLoggedUser: function (session) {
+        return session.user;
     },
 
-    isSuperAdminUser: function (session, callback) {
-        callback(session.user.role === 2);
+    isSuperAdminUser: function (session) {
+        return session.user.role === 2;
     },
 
-    isAdminUser: function (session, callback) {
-        callback(session.user.role === 1);
+    isAdminUser: function (session) {
+        return session.user.role === 1;
     },
 
-    isPlainUser: function (session, callback) {
-        callback(!this.isSuperAdminUser && !this.isAdminUser);
+    isPlainUser: function (session) {
+        return this.isLoggedUser(session) &&
+            !this.isSuperAdminUser(session) &&
+            !this.isAdminUser(session);
+    },
+
+    hasAdminRole: function (session) {
+        return this.isSuperAdminUser(session) || this.isAdminUser(session);
     },
 
     logout: function (session, callback) {

@@ -10,7 +10,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             templateUrl: "app.html",
             controller: 'AppCtrl',
             resolve: {
-                session: ['http', 'session', function (http, session) {
+                userSession: ['http', 'session', function (http, session) {
                     return session.getSession();
                 }]
             }
