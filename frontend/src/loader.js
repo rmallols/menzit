@@ -72,6 +72,7 @@ getScript(srcPath + '/app/admin/categories/tests/testsApp.js');
 getScript(srcPath + '/app/admin/categories/tests/TestsAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/tests/TestAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/tests/TestEditAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/tests/testAdmin.js');
 getScript(srcPath + '/app/admin/users/usersApp.js');
 getScript(srcPath + '/app/admin/users/UsersAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserAddAdminCtrl.js');

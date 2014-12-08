@@ -26,13 +26,6 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
             $scope.isCorrectAnswer = false;
         };
 
-        $scope.getLayoutStyleClass = function() {
-            var columns = ($scope.question.answers.length === 4) ?
-                            2 :
-                            $scope.question.answers.length;
-            return 'l-1-' + columns;
-        };
-
         function setCorrectAnswer(answer) {
             $scope.isCorrectAnswer = true;
             answer.validAssert = true;

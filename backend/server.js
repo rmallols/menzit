@@ -35,7 +35,7 @@ app.get(acceptedRoutes, function (req, res) {
 });
 
 app.get('/admin/tenants/', function (req, res) {
-    if (session.isSuperAdminUser(req.session)) {
+    if (session.isSuperAdminUser(req)) {
         goToIndex(res);
     } else {
         res.redirect('/categories');
@@ -52,19 +52,19 @@ app.get(acceptedAdminRoutes, function (req, res) {
 });
 
 app.post('/rest/login', function (req, res) {
-    session.login(req.body.userName, req.body.password, req.session, function (user) {
+    session.login(req.body.userName, req.body.password, req, function (user) {
         res.send(user);
     });
 });
 
 app.post('/rest/logout', function (req, res) {
-    session.logout(req.session, function () {
+    session.logout(req, function () {
         res.send({});
     });
 });
 
 app.get('/rest/session', function (req, res) {
-    res.send(session.isLoggedUser(req.session));
+    res.send(session.isLoggedUser(req));
 });
 
 app.get('/admin', function (req, res) {

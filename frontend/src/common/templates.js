@@ -255,7 +255,7 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "        <div class=\"l-1-3 input-label\">Tenant</div>\n" +
     "        <div class=\"l-2-3\">\n" +
     "            <div auto-complete\n" +
-    "                 ng-model=\"user.tenant\"\n" +
+    "                 ng-model=\"user.tenantId\"\n" +
     "                 endpoint=\"/rest/tenants\"\n" +
     "                 display-property=\"name\"\n" +
     "                 single-selection=\"true\">\n" +
@@ -413,7 +413,7 @@ angular.module("questions.html", []).run(["$templateCache", function($templateCa
     "<div ng-if=\"isTestComplete\">FINISH!!!</div>\n" +
     "<div class=\"answers-container\">\n" +
     "    <div ng-repeat=\"answer in question.answers\"\n" +
-    "         class=\"answer {{getLayoutStyleClass()}}\"\n" +
+    "         class=\"answer l-answer-{{question.answers.length}}\"\n" +
     "         ng-class=\"{ 'valid-assert': answer.validAssert, 'invalid-assert': answer.invalidAssert }\"\n" +
     "         ng-click=\"setAnswer(answer)\">\n" +
     "        <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +

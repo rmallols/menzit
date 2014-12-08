@@ -47,29 +47,41 @@
         }
       }
 
-      &.l-1-2 .option {
-        top: -50%;
-        height: 200%;
-        left: -80%;
+      &.l-answer-2 {
+        .l-1-2;
 
-        .text {
-          top: 25%;
-          left: 40%;
+        &:nth-of-type(1) {
+          margin-left: 0;
+        }
+
+        &:nth-of-type(2) {
+          margin-right: 0;
         }
       }
 
-      &:not(.l-1-2) {
-        height: 100%;
-      }
-
-      &.l-1-2 {
-        .offsettedHalfHeight(-(@gutter / 2));
-      }
-
-      &.l-1-2:nth-of-type(1),
-      &.l-1-2:nth-of-type(2) {
-        margin-bottom: @gutter;
-      }
+//      &.l-1-2 .option {
+//        top: -50%;
+//        height: 200%;
+//        left: -80%;
+//
+//        .text {
+//          top: 25%;
+//          left: 40%;
+//        }
+//      }
+//
+//      &:not(.l-1-2) {
+//        height: 100%;
+//      }
+//
+//      &.l-1-2 {
+//        .offsettedHalfHeight(-(@gutter / 2));
+//      }
+//
+//      &.l-1-2:nth-of-type(1),
+//      &.l-1-2:nth-of-type(2) {
+//        margin-bottom: @gutter;
+//      }
 
       .assert-mark {
         position: absolute;

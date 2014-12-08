@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('TestAddAdminCtrl', ['$scope', '$state', 'http',
-    function ($scope, $state, http) {
+app.controller('TestAddAdminCtrl', ['$scope', '$state', 'http', 'testAdmin',
+    function ($scope, $state, http, testAdmin) {
         console.log('ALL THE TEST STUFF SHOULD BE RENAMED TO QUESTION')
 
         $scope.title = 'Add test';
@@ -12,6 +12,7 @@ app.controller('TestAddAdminCtrl', ['$scope', '$state', 'http',
         };
 
         $scope.submit = function () {
+            $scope.test.answers = testAdmin.getNormalizedOutputAnswers($scope.test.answers);
             angular.forEach($scope.test.answers, function(answer, $index) {
                 answer.isCorrect = $index === Number($scope.correctOptionIndex);
             });

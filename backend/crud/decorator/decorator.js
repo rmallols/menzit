@@ -22,6 +22,7 @@ module.exports = {
                 this._decorateError(data, null, callback);
             }
         } catch (ex) {
+            console.info('[INFO] Unable to find the decorator', ex);
             this._decorateError(data, (decoratorFn) ? ex : null, callback);
         }
     },
