@@ -20,7 +20,7 @@ app.use(app.router);
 
 var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:categoryId/test'],
     acceptedAdminRoutes = [
-        '/admin/tenants', '/admin/tenants/:tenantId/add', '/admin/tenants/edit/:tenantId',
+        '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId',
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
         '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
         '/admin/categories/:categoryId/tests/edit/:testId',

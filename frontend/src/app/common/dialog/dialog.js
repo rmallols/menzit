@@ -2,7 +2,7 @@
     'use strict';
     app.directive('dialog', [function () {
         return  {
-            replace: true,
+            replace: false,
             restrict: 'A',
             transclude: true,
             scope: {
@@ -30,7 +30,6 @@
         return  {
             restrict: 'A',
             link: function link(scope, element) {
-
                 var elementHeight = element.outerHeight(),
                     elementWidth = element.outerWidth();
                 scope.centerBox = function () {

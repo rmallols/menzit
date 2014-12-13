@@ -4,20 +4,25 @@
 @grey-3: darken(@grey-2, 5%);
 @grey-4: darken(@grey-3, 5%);
 @grey-5: darken(@grey-4, 5%);
-@font-color: #888;
+@font-color: @grey-5;
 @blue: #00aaef;
 @green: #6adf5f;
 @red: #ff5c5c;
+@dark: #393939;
+@darken: darken(#393939, 5%);
+@input-color: lighten(@dark, 20%);
+@mobile-width-detection: 480px;
 
 //PADDINGS AND MARGINS
 @gutter: 15px;
+@big-gutter: 3 * @gutter;
 
 //ANIMATIONS AND TRANSITIONS SPEED
 @speed: 300;
 
 //HEIGHTS
 @button-height: 40px;
-@menu-height: 70px;
+@menu-height: 80px;
 @list-item-height: 70px;
 
 //BORDER RADIUS

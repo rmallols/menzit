@@ -15,7 +15,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: @grey-1;
+  background-color: @dark;
   font-family: Verdana;
   font-size: 1rem;
   overflow: hidden;
@@ -29,8 +29,14 @@ body, a {
 .cf { zoom:1; &:after {clear:both; content:"";display:table;} &:before {content:"";display:table;}}
 
 [ui-view].root {
-  .padding;
   .offsettedHeight(-@menu-height);
+  .big-padding;
+}
+
+@media only screen and (max-width: @mobile-width-detection) {
+  [ui-view].root {
+    .padding;
+  }
 }
 
 //ALIGNMENT
@@ -76,6 +82,10 @@ body, a {
   padding: @gutter;
 }
 
+.big-padding {
+  padding: @big-gutter;
+}
+
 .rectangle-padding {
   padding: @gutter * 0.7 @gutter;
 }
@@ -110,20 +120,23 @@ h3:first-child {
 
 //LIST ITEMS
 .list-item {
+  .darken-theme;
   .cf;
   .border-radius;
   .margin-bottom;
-  height: @list-item-height;
   .padding;
-  background-color: white;
+  height: @list-item-height;
+}
 
-  button {
-    background-color: @grey-1;
+//SETS
+.dark-theme {
+  background-color: @dark;
+  color: @grey-5;
+}
 
-    &:hover {
-      background-color: @grey-2;
-    }
-  }
+.darken-theme {
+  background-color: @darken;
+  color: @grey-5;
 }
 
 //BORDER

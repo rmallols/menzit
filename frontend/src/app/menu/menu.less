@@ -1,20 +1,21 @@
 .menu-view {
+  .darken-theme;
   .cf;
-  .padding;
-  .border-bottom;
+  padding: 1.5 * @gutter  @big-gutter;
   height: @menu-height;
 
   button {
     float: left;
-    background-color: @grey-2;
 
     &.login,
     &.logout {
       float: right;
     }
+  }
+}
 
-    &:hover {
-      background-color: @grey-3;
-    }
+@media only screen and (max-width: @mobile-width-detection) {
+  .menu-view {
+    .padding;
   }
 }

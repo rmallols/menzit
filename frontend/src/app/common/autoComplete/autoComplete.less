@@ -10,45 +10,55 @@ tags-input {
     height: auto;
     padding: 0;
     border: none;
+    background-color: transparent;
 
     &, &.focused {
       box-shadow: none;
     }
 
     .tag-item {
-      background: @grey-1;
-      color: @blue;
+      background: lighten(@dark, 10%);
+      color: white;
       border: none;
       line-height: 26px;
       padding-left: 10px;
       padding-right: 10px;
 
       &.selected {
-        background: @grey-1;
+        background: @dark;
 
         &, & a {
           color: @red;
         }
+      }
+
+      .remove-button {
+        color: white;
       }
     }
   }
 
   .autocomplete {
     box-shadow: none;
-    left: -1;
-    box-sizing: initial;
-    margin-top: -2px;
+    box-sizing: border-box;
+    left: 0;
+    margin-top: 1px;
     border-top: none;
-    border-color: @grey-2;
+    border: none;
     padding-bottom: 0;
+    background-color: @input-color;
 
     .suggestion-item {
-      color: @font-color;
+      background-color: @input-color;
       padding: 10px;
 
       &.selected {
-        background-color: @grey-1;
-        color: @blue;
+        background-color: lighten(@dark, 10%);
+        color: white;
+      }
+
+      em {
+        background-color: @blue;
       }
     }
   }

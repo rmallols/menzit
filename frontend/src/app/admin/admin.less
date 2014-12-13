@@ -1,20 +1,13 @@
 [ui-view].admin {
-
-  @menu-width: 120px;
-
   .cf;
-  padding: 0;
-
-  [ui-view] {
-    .padding;
-  }
+  @menu-width: 120px;
 
   .menu {
     float: left;
     width: @menu-width;
 
     a {
-      .padding;
+      padding: 0 @big-gutter @gutter 0;
       text-align: center;
       display: block;
       width: 100%;
