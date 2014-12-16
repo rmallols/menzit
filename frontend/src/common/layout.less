@@ -49,3 +49,57 @@
 .l-1-4:nth-child(4n+4) {
   margin-right: 0;
 }
+
+.l-1-6 {
+  float: left;
+  width: 15%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.l-1-6:nth-of-type(6n+1) {
+  margin-left: 0;
+}
+
+.l-1-6:nth-child(6n+6) {
+  margin-right: 0;
+}
+
+.l-1-8 {
+  float: left;
+  width: 15%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.l-1-8:nth-of-type(8n+1) {
+  margin-left: 0;
+}
+
+.l-1-8:nth-child(8n+8) {
+  margin-right: 0;
+}
+
+
+.set-row-slots(2);
+.set-row-slots(4);
+.set-row-slots(6);
+.set-row-slots(8);
+
+.set-row-slots(@row-slots) {
+
+  .l-1-@{row-slots} {
+    float: left;
+    width: percentage((((100 / @row-slots) - 1) - (2 / @row-slots)) / 100);
+    margin-left: 1%;
+    margin-right: 1%;
+
+    &:nth-of-type(@{row-slots}n+1) {
+      margin-left: 0;
+    }
+
+    &:nth-child(@{row-slots}n+@{row-slots}) {
+      margin-right: 0;
+    }
+  }
+}

@@ -13,7 +13,7 @@
     <div class="test" ng-if="tests.length" ng-repeat="test in tests">
         <div class="text float-left">
             <div class="l-1-2" truncate>
-                {{test.question}}
+                {{test.question.text}}
             </div>
             <div class="l-1-2">
                 <div ng-repeat="answer in test.answers" truncate title="{{answer.title}}"
@@ -37,7 +37,7 @@
     <div dialog mz-if="testToBeDeleted" title="Delete test">
         <label class="warning">Warning</label><br/>
         The following test will be deleted<br/><br/>
-        <b>{{testToBeDeleted.question}}</b><br/><br/>
+        <b>{{testToBeDeleted.question.text}}</b><br/><br/>
         <button class="delete" ng-click="delete()">Delete</button>
     </div>
 </div>

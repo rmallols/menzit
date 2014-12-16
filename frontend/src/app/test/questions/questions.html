@@ -1,9 +1,14 @@
-<div class="question">{{question.question}}</div>
+<div class="question"
+     ng-class="getQuestionStyleClasses(question.question)"
+     ng-style="getBackgroundImageStyle(question.question.image)">
+    {{question.question.text}}
+</div>
 <div ng-if="isTestComplete">FINISH!!!</div>
 <div class="answers-container">
     <div ng-repeat="answer in question.answers"
          class="answer l-answer-{{question.answers.length}}"
-         ng-class="{ 'valid-assert': answer.validAssert, 'invalid-assert': answer.invalidAssert }"
+         ng-class="getAnswerStyleClasses(answer)"
+         ng-style="getBackgroundImageStyle(answer.image)"
          ng-click="setAnswer(answer)">
         <div class="option"><div class="text">{{answerCodes[$index]}}</div></div>
         <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark">

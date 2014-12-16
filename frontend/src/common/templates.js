@@ -85,8 +85,9 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
     "        <div class=\"cf\">\n" +
-    "            <div class=\"l-1-3 input-label\">Question</div>\n" +
-    "            <div class=\"l-2-3\"><input type=\"text\" ng-model=\"test.question\"/></div>\n" +
+    "            <div class=\"l-1-4 input-label\">Question</div>\n" +
+    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"test.question.text\"/></div>\n" +
+    "            <div class=\"l-1-4\"><input ng-model=\"test.question.image\" upload /></div>\n" +
     "        </div>\n" +
     "        <div class=\"cf\" ng-repeat=\"answer in test.answers\">\n" +
     "            <div class=\"l-1-4 input-label\">Answer {{$index + 1}}</div>\n" +
@@ -100,6 +101,7 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "                <input type=\"text\" ng-model=\"answer.explanation\"\n" +
     "                       ng-disabled=\"$index == $parent.correctOptionIndex\"/>\n" +
     "            </div>\n" +
+    "            <div class=\"l-1-4\"><input ng-model=\"answer.image\" upload /></div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -123,7 +125,7 @@ angular.module("testsAdmin.html", []).run(["$templateCache", function($templateC
     "    <div class=\"test\" ng-if=\"tests.length\" ng-repeat=\"test in tests\">\n" +
     "        <div class=\"text float-left\">\n" +
     "            <div class=\"l-1-2\" truncate>\n" +
-    "                {{test.question}}\n" +
+    "                {{test.question.text}}\n" +
     "            </div>\n" +
     "            <div class=\"l-1-2\">\n" +
     "                <div ng-repeat=\"answer in test.answers\" truncate title=\"{{answer.title}}\"\n" +
@@ -147,7 +149,7 @@ angular.module("testsAdmin.html", []).run(["$templateCache", function($templateC
     "    <div dialog mz-if=\"testToBeDeleted\" title=\"Delete test\">\n" +
     "        <label class=\"warning\">Warning</label><br/>\n" +
     "        The following test will be deleted<br/><br/>\n" +
-    "        <b>{{testToBeDeleted.question}}</b><br/><br/>\n" +
+    "        <b>{{testToBeDeleted.question.text}}</b><br/><br/>\n" +
     "        <button class=\"delete\" ng-click=\"delete()\">Delete</button>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -409,12 +411,17 @@ angular.module("testData.html", []).run(["$templateCache", function($templateCac
 
 angular.module("questions.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("questions.html",
-    "<div class=\"question\">{{question.question}}</div>\n" +
+    "<div class=\"question\"\n" +
+    "     ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
+    "     ng-style=\"getBackgroundImageStyle(question.question.image)\">\n" +
+    "    {{question.question.text}}\n" +
+    "</div>\n" +
     "<div ng-if=\"isTestComplete\">FINISH!!!</div>\n" +
     "<div class=\"answers-container\">\n" +
     "    <div ng-repeat=\"answer in question.answers\"\n" +
     "         class=\"answer l-answer-{{question.answers.length}}\"\n" +
-    "         ng-class=\"{ 'valid-assert': answer.validAssert, 'invalid-assert': answer.invalidAssert }\"\n" +
+    "         ng-class=\"getAnswerStyleClasses(answer)\"\n" +
+    "         ng-style=\"getBackgroundImageStyle(answer.image)\"\n" +
     "         ng-click=\"setAnswer(answer)\">\n" +
     "        <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
     "        <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\">\n" +

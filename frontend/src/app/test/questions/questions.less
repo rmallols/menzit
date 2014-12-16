@@ -8,11 +8,17 @@
     .big-padding;
     height: @question-height;
     margin-bottom: @question-margin-bottom;
-    background-color: @darken;
     color: @blue;
     text-align: center;
     font-size: 250%;
     width: 100%;
+    padding-left: 10%;
+    background-color: @darken;
+
+    &.has-background-image {
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+    }
   }
 
   @media only screen and (max-width: @mobile-width-detection) {
@@ -37,6 +43,28 @@
 
       &:hover {
         color: @green;
+      }
+
+      &.has-background-image {
+
+        background-repeat: no-repeat;
+
+        &.has-text {
+          background-size: auto 50%;
+          background-position: 10% 50%;
+
+          .option {
+            padding-left: 25%;
+          }
+
+          .title {
+            padding-left: 50%;
+          }
+        }
+
+        &:not(.has-text) {
+          background-size: cover;
+        }
       }
 
       .option {

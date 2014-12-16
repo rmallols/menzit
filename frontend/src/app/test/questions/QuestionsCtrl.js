@@ -26,6 +26,25 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
             $scope.isCorrectAnswer = false;
         };
 
+        $scope.getBackgroundImageStyle = function (image) {
+            return (image) ? { 'background-image' : 'url(' + image + ')' } : {};
+        };
+
+        $scope.getQuestionStyleClasses = function (question) {
+            return {
+                'has-background-image': question && question.image
+            };
+        };
+
+        $scope.getAnswerStyleClasses = function (answer) {
+            return {
+                'valid-assert': answer.validAssert,
+                'invalid-assert': answer.invalidAssert,
+                'has-text' : answer.title,
+                'has-background-image': answer.image
+            };
+        };
+
         function setCorrectAnswer(answer) {
             $scope.isCorrectAnswer = true;
             answer.validAssert = true;
@@ -71,7 +90,7 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
                 $scope.score = 0;
             } else {
                 $scope.score += maxQuestionScore -
-                    (failedAnswers * Math.ceil(maxQuestionScore / ($scope.question.answers.length)));
+                (failedAnswers * Math.ceil(maxQuestionScore / ($scope.question.answers.length)));
             }
             sendScoreEvent();
         }
