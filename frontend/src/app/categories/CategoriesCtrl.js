@@ -9,4 +9,9 @@ app.controller('CategoriesCtrl', ['$scope', '$state', 'http', function($scope, $
     $scope.launchTest = function (category) {
         $state.go('app.test', { categoryId: category._id });
     };
+
+    $scope.getBackgroundImageStyle = function (category) {
+        var backgroundImage = category.imageUrl || category.image;
+        return (backgroundImage) ? { 'background-image' : 'url(' + backgroundImage + ')' } : {};
+    };
 }]);

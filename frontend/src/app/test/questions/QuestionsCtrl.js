@@ -26,13 +26,14 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
             $scope.isCorrectAnswer = false;
         };
 
-        $scope.getBackgroundImageStyle = function (image) {
-            return (image) ? { 'background-image' : 'url(' + image + ')' } : {};
+        $scope.getBackgroundImageStyle = function (answer) {
+            var backgroundImage = answer && (answer.imageUrl || answer.image);
+            return (backgroundImage) ? { 'background-image' : 'url(' + backgroundImage + ')' } : {};
         };
 
         $scope.getQuestionStyleClasses = function (question) {
             return {
-                'has-background-image': question && question.image
+                'has-background-image': question && (question.imageUrl || question.image)
             };
         };
 
@@ -41,7 +42,7 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
                 'valid-assert': answer.validAssert,
                 'invalid-assert': answer.invalidAssert,
                 'has-text' : answer.title,
-                'has-background-image': answer.image
+                'has-background-image': answer.image || answer.imageUrl
             };
         };
 

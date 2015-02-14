@@ -9,8 +9,9 @@
     <div class="cf">
         <div class="cf">
             <div class="l-1-4 input-label">Question</div>
-            <div class="l-1-2"><input type="text" ng-model="test.question.text"/></div>
+            <div class="l-1-4"><input type="text" ng-model="test.question.text"/></div>
             <div class="l-1-4"><input ng-model="test.question.image" upload /></div>
+            <div class="l-1-4"><input type="text" ng-model="test.question.imageUrl" /></div>
         </div>
         <div class="cf" ng-repeat="answer in test.answers">
             <div class="l-1-4 input-label">Answer {{$index + 1}}</div>
@@ -24,6 +25,7 @@
                 <input type="text" ng-model="answer.explanation"
                        ng-disabled="$index == $parent.correctOptionIndex"/>
             </div>
+            <div class="l-1-4"><input type="text" ng-model="answer.imageUrl" /></div>
             <div class="l-1-4"><input ng-model="answer.image" upload /></div>
         </div>
     </div>

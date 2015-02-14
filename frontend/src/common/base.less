@@ -148,6 +148,11 @@ h3:first-child {
   border-bottom: 1px solid @grey-2;
 }
 
+.text-border(@color: @blue, @width: 2px) {
+  @half-width: @width / 2;
+  text-shadow: @width 0 0 @color, -@width 0 0 @color, 0 @width 0 @color, 0 -@width 0 @color, 1px 1px @color, -@half-width -@half-width 0 @color, @half-width -@half-width 0 @color, -@half-width @half-width 0 @color;
+}
+
 //OFFSETTED DIMENSIONS
 .offsettedWidth(@offset: 0px, @width:100%){ width: -webkit-calc(@width+~"+"@offset) !important; }
 .offsettedHeight(@offset: 0px, @height:100%){ height: -moz-calc(@height + ~" + "@offset) !important; height: -o-calc(@height + ~" + "@offset) !important; height: calc(@height + ~" + "@offset) !important; height: -webkit-calc(@height + ~" + "@offset) !important; }

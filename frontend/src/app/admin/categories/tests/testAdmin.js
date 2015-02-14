@@ -13,7 +13,7 @@ app.factory('testAdmin', [function () {
     function getNormalizedOutputAnswers(answers) {
         var normalizedAnswers = [];
         angular.forEach(answers, function(answer) {
-           if(answer.title || answer.image) {
+           if(answer.title || answer.image || answer.imageUrl) {
                normalizedAnswers.push(answer);
            }
         });

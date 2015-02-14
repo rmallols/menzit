@@ -8,7 +8,7 @@
     <div ng-repeat="answer in question.answers"
          class="answer l-answer-{{question.answers.length}}"
          ng-class="getAnswerStyleClasses(answer)"
-         ng-style="getBackgroundImageStyle(answer.image)"
+         ng-style="getBackgroundImageStyle(answer)"
          ng-click="setAnswer(answer)">
         <div class="option"><div class="text">{{answerCodes[$index]}}</div></div>
         <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark">

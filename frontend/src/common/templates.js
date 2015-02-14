@@ -64,8 +64,11 @@ angular.module("categoryAdmin.html", []).run(["$templateCache", function($templa
     "        <div class=\"l-2-3\"><input type=\"text\" ng-model=\"category.title\"/></div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
-    "        <div class=\"l-1-3 input-label\">Image</div>\n" +
-    "        <div class=\"l-2-3\">\n" +
+    "        <div class=\"l-1-2 input-label\">Image</div>\n" +
+    "        <div class=\"l-1-4\">\n" +
+    "            <input type=\"text\" ng-model=\"category.imageUrl\" />\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-4\">\n" +
     "            <input ng-model=\"category.image\" upload />\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -86,8 +89,9 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "    <div class=\"cf\">\n" +
     "        <div class=\"cf\">\n" +
     "            <div class=\"l-1-4 input-label\">Question</div>\n" +
-    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"test.question.text\"/></div>\n" +
+    "            <div class=\"l-1-4\"><input type=\"text\" ng-model=\"test.question.text\"/></div>\n" +
     "            <div class=\"l-1-4\"><input ng-model=\"test.question.image\" upload /></div>\n" +
+    "            <div class=\"l-1-4\"><input type=\"text\" ng-model=\"test.question.imageUrl\" /></div>\n" +
     "        </div>\n" +
     "        <div class=\"cf\" ng-repeat=\"answer in test.answers\">\n" +
     "            <div class=\"l-1-4 input-label\">Answer {{$index + 1}}</div>\n" +
@@ -101,6 +105,7 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "                <input type=\"text\" ng-model=\"answer.explanation\"\n" +
     "                       ng-disabled=\"$index == $parent.correctOptionIndex\"/>\n" +
     "            </div>\n" +
+    "            <div class=\"l-1-4\"><input type=\"text\" ng-model=\"answer.imageUrl\" /></div>\n" +
     "            <div class=\"l-1-4\"><input ng-model=\"answer.image\" upload /></div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -313,10 +318,8 @@ angular.module("categories.html", []).run(["$templateCache", function($templateC
     "<div class=\"categories-view\">\n" +
     "    <h1>Select category</h1>\n" +
     "    <div class=\"category l-1-3\" ng-repeat=\"category in categories\" truncate\n" +
-    "         ng-click=\"launchTest(category)\">\n" +
-    "        <div class=\"image\">\n" +
-    "            <img ng-src=\"{{category.image}}\" />\n" +
-    "        </div>\n" +
+    "         ng-click=\"launchTest(category)\"\n" +
+    "         ng-style=\"getBackgroundImageStyle(category)\">\n" +
     "        <div class=\"title\">{{category.title}}</div>\n" +
     "    </div>\n" +
     "</div>");
@@ -421,7 +424,7 @@ angular.module("questions.html", []).run(["$templateCache", function($templateCa
     "    <div ng-repeat=\"answer in question.answers\"\n" +
     "         class=\"answer l-answer-{{question.answers.length}}\"\n" +
     "         ng-class=\"getAnswerStyleClasses(answer)\"\n" +
-    "         ng-style=\"getBackgroundImageStyle(answer.image)\"\n" +
+    "         ng-style=\"getBackgroundImageStyle(answer)\"\n" +
     "         ng-click=\"setAnswer(answer)\">\n" +
     "        <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
     "        <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\">\n" +
