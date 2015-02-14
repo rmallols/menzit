@@ -1,0 +1,9 @@
+<div class="audio">
+    <button ng-click="play()" class="big audio-button">
+        <icon class="mic-icon"></icon>
+    </button>
+    <audio controls class="audio-player" ng-if="audio">
+        <source ng-src="{{getAudioSrc(audio)}}" type="audio/ogg">
+        <!--<source src="http://translate.google.com/translate_tts?ie=utf-8&tl=en&q={{audio}}" type="audio/ogg">-->
+    </audio>
+</div>

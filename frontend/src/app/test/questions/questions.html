@@ -2,6 +2,7 @@
      ng-class="getQuestionStyleClasses(question.question)"
      ng-style="getBackgroundImageStyle(question.question.image)">
     {{question.question.text}}
+    <div audio="question.question.text"></div>
 </div>
 <div ng-if="isTestComplete">FINISH!!!</div>
 <div class="answers-container">

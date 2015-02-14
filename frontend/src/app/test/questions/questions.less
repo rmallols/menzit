@@ -1,5 +1,5 @@
 [ui-view].app-test {
-  @question-height: 150px;
+  @question-height: 120px;
   @question-margin-bottom: @gutter;
 
   .question {
@@ -14,10 +14,24 @@
     width: 100%;
     padding-left: 10%;
     background-color: @darken;
+    position: relative;
 
     &.has-background-image {
       background-repeat: no-repeat;
       background-size: auto 100%;
+    }
+
+    .audio {
+      height: @question-height / 2;
+      position: absolute;
+      top: @question-height / 4;
+      right: @question-height / 4;
+
+      .audio-button {
+        .dark-theme;
+        height: 100%;
+        font-size: 80%;
+      }
     }
   }
 

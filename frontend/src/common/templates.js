@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'autoComplete.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -325,6 +325,19 @@ angular.module("categories.html", []).run(["$templateCache", function($templateC
     "</div>");
 }]);
 
+angular.module("audio.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("audio.html",
+    "<div class=\"audio\">\n" +
+    "    <button ng-click=\"play()\" class=\"big audio-button\">\n" +
+    "        <icon class=\"mic-icon\"></icon>\n" +
+    "    </button>\n" +
+    "    <audio controls class=\"audio-player\" ng-if=\"audio\">\n" +
+    "        <source ng-src=\"{{getAudioSrc(audio)}}\" type=\"audio/ogg\">\n" +
+    "        <!--<source src=\"http://translate.google.com/translate_tts?ie=utf-8&tl=en&q={{audio}}\" type=\"audio/ogg\">-->\n" +
+    "    </audio>\n" +
+    "</div>");
+}]);
+
 angular.module("autoComplete.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("autoComplete.html",
     "<tags-input\n" +
@@ -418,6 +431,7 @@ angular.module("questions.html", []).run(["$templateCache", function($templateCa
     "     ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
     "     ng-style=\"getBackgroundImageStyle(question.question.image)\">\n" +
     "    {{question.question.text}}\n" +
+    "    <div audio=\"question.question.text\"></div>\n" +
     "</div>\n" +
     "<div ng-if=\"isTestComplete\">FINISH!!!</div>\n" +
     "<div class=\"answers-container\">\n" +

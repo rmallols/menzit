@@ -20,6 +20,7 @@ getScript(vendorPath + '/jQuery/powerTip/jquery.powertip.min.js');
 getScript(vendorPath + '/jQuery/dotdotdot/jquery.dotdotdot.min.js');
 getScript(vendorPath + '/angularJs/angular.min.js');
 getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
+getScript(vendorPath + '/angularJs/angular-sanitize.min.js');
 getScript(vendorPath + '/angularJs/angular-animate.min.js');
 getScript(vendorPath + '/NProgress/nprogress.js');
 getScript(vendorPath + '/ngTagsInput/ng-tags-input.min.js');
@@ -46,6 +47,7 @@ getScript(srcPath + '/app/AppCtrl.js');
 getScript(srcPath + '/app/common/upload/upload.js');
 getScript(srcPath + '/app/common/title/title.js');
 getScript(srcPath + '/app/common/truncate/truncate.js');
+getScript(srcPath + '/app/common/audio/audio.js');
 getScript(srcPath + '/app/common/autoComplete/autoComplete.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');

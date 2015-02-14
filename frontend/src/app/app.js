@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('app', ['ngAnimate', 'ngTagsInput']);
+var app = angular.module('app', ['ngAnimate', 'ngTagsInput', 'ngSanitize']);
 
 app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
