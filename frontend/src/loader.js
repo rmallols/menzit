@@ -56,6 +56,9 @@ getScript(srcPath + '/app/menu/testData/testData.js');
 getScript(srcPath + '/app/common/dialog/dialog.js');
 //Categories page
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
+//Review page
+getScript(srcPath + '/app/review/ReviewCtrl.js');
+getScript(srcPath + '/app/review/question/ReviewQuestionCtrl.js');
 //Test page
 getScript(srcPath + '/app/test/TestCtrl.js');
 getScript(srcPath + '/app/test/questions/QuestionsCtrl.js');

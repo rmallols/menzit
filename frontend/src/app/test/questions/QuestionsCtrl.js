@@ -13,12 +13,16 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
 
         $scope.answerCodes = ['A', 'B', 'C', 'D'];
 
-        $scope.setAnswer = function (answer) {
-            if (answer.isCorrect) {
-                setCorrectAnswer(answer);
-            } else {
-                setIncorrectAnswer(answer);
-            }
+        $scope.setAnswer = function (question, answerIndex) {
+            var isCorrectEndpoint = '/rest/tests/' + question._id + '/isCorrect/' + answerIndex,
+                answer = question.answers[answerIndex];
+            http.get(isCorrectEndpoint).then(function (response) {
+                if (response.isCorrect) {
+                    setCorrectAnswer(answer);
+                } else {
+                    setIncorrectAnswer(answer, question._id);
+                }
+            });
         };
 
         $scope.getNextTest = function () {
@@ -59,11 +63,12 @@ app.controller('QuestionsCtrl', ['$scope', '$timeout', '$state', 'http', 'pubSub
             }
         }
 
-        function setIncorrectAnswer(answer) {
+        function setIncorrectAnswer(answer, questionId) {
             answer.invalidAssert = (answer.invalidAssert) ? false : !answer.isCorrect;
             if (failedAnswers < $scope.question.answers.length - 1) {
                 failedAnswers++;
             }
+            http.post('/rest/incorrectAnswers/' + questionId);
         }
 
         function setCurrentTest() {

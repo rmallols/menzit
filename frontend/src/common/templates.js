@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'reviewQuestion.html', 'review.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -333,7 +333,6 @@ angular.module("audio.html", []).run(["$templateCache", function($templateCache)
     "    </button>\n" +
     "    <audio controls class=\"audio-player\" ng-if=\"audio\">\n" +
     "        <source ng-src=\"{{getAudioSrc(audio)}}\" type=\"audio/ogg\">\n" +
-    "        <!--<source src=\"http://translate.google.com/translate_tts?ie=utf-8&tl=en&q={{audio}}\" type=\"audio/ogg\">-->\n" +
     "    </audio>\n" +
     "</div>");
 }]);
@@ -425,6 +424,31 @@ angular.module("testData.html", []).run(["$templateCache", function($templateCac
     "</div>");
 }]);
 
+angular.module("reviewQuestion.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("reviewQuestion.html",
+    "<div class=\"review-question-view\">\n" +
+    "    Hello review question!\n" +
+    "</div>");
+}]);
+
+angular.module("review.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("review.html",
+    "<div class=\"review-view\">\n" +
+    "    <div class=\"incorrect-answer\" ng-repeat=\"incorrectAnswer in incorrectAnswers\"\n" +
+    "        ng-click=\"reviewQuestion(incorrectAnswer.question._id)\">\n" +
+    "        <div class=\"l-1-6\">\n" +
+    "            {{incorrectAnswer.question.question.text}}\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-6 incorrect-answer-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
+    "            ng-style=\"getBackgroundImageStyle(incorrectAnswer.question.answers[index])\">\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-6\">\n" +
+    "            {{incorrectAnswer.totalIncorrectAnswers}} fails\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
+}]);
+
 angular.module("questions.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("questions.html",
     "<div class=\"question\"\n" +
@@ -439,7 +463,7 @@ angular.module("questions.html", []).run(["$templateCache", function($templateCa
     "         class=\"answer l-answer-{{question.answers.length}}\"\n" +
     "         ng-class=\"getAnswerStyleClasses(answer)\"\n" +
     "         ng-style=\"getBackgroundImageStyle(answer)\"\n" +
-    "         ng-click=\"setAnswer(answer)\">\n" +
+    "         ng-click=\"setAnswer(question, $index)\">\n" +
     "        <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
     "        <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\">\n" +
     "            <icon ng-class=\"{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }\"></icon>\n" +

@@ -3,6 +3,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider
+
         .state('app.admin.categories', {
             url: "/categories",
             templateUrl: "categoriesAdmin.html",
@@ -11,6 +12,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'categories'
             }
         })
+
         .state('app.admin.addCategory', {
             url: "/categories/add",
             templateUrl: "categoryAdmin.html",
@@ -19,6 +21,7 @@ app.config(function ($stateProvider) {
                 subGroupId: 'categories'
             }
         })
+
         .state('app.admin.editCategory', {
             url: "/categories/edit/:categoryId",
             templateUrl: "categoryAdmin.html",

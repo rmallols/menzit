@@ -19,7 +19,8 @@ app.use(express.static(__dirname + '/../frontend'));
 app.use(app.router);
 
 var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:categoryId/test'],
-    acceptedAdminRoutes = [
+    acceptedLoggedRoutes = [
+        '/review', '/review/:questionId',
         '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId',
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
         '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
@@ -43,12 +44,12 @@ app.get('/admin/tenants/', function (req, res) {
     goToIndex(res);
 });
 
-app.get(acceptedAdminRoutes, function (req, res) {
-//        if (session.isLoggedUser(req.session)) {
-    goToIndex(res);
-//        } else {
-//            res.send('You don\'t have privileges to acces to this page, go to <a href="/">index</a>', 200);
-//        }
+app.get(acceptedLoggedRoutes, function (req, res) {
+    //if (session.isLoggedUser(req)) {
+        goToIndex(res);
+    //} else {
+    //    res.send('You don\'t have privileges to acces to this page, go to <a href="/">index</a>', 200);
+    //}
 });
 
 app.post('/rest/login', function (req, res) {
@@ -65,6 +66,41 @@ app.post('/rest/logout', function (req, res) {
 
 app.get('/rest/session', function (req, res) {
     res.send(session.isLoggedUser(req));
+});
+
+app.get('/rest/tests/:testId/isCorrect/:answerId', function (req, res) {
+    read.findOne(req.params.testId, 'tests', function (response) {
+        res.send({ isCorrect: response.answers[req.params.answerId].isCorrect === true });
+    });
+});
+
+app.post('/rest/incorrectAnswers/:questionId', function (req, res) {
+    var filter, collectionId, userSession;
+    userSession = session.getSession(req);
+    if(userSession) {
+        filter = { query: {
+            'questionId': req.params.questionId,
+            'create.authorId': userSession._id
+        }};
+        collectionId = 'incorrectAnswers';
+        read.find(collectionId, filter, function (response) {
+            var incorrectAnswerCollection = response.length && response[0];
+            if(incorrectAnswerCollection) {
+                incorrectAnswerCollection.totalIncorrectAnswers++;
+                update.update(incorrectAnswerCollection._id, collectionId, incorrectAnswerCollection, req.session, function (response) {
+                    res.send(response);
+                });
+            } else {
+                incorrectAnswerCollection = {
+                    questionId: req.params.questionId,
+                    totalIncorrectAnswers: 1
+                };
+                create.create(collectionId, incorrectAnswerCollection, req.session, function (response) {
+                    res.send(response);
+                });
+            }
+        });
+    }
 });
 
 app.get('/admin', function (req, res) {

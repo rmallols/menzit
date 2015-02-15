@@ -10,8 +10,6 @@ app.directive('audio', ['$sce', function ($sce) {
         },
         link: function (scope, element) {
 
-
-
             scope.play = function () {
                 element.find('audio')[0].play();
             };

@@ -10,7 +10,7 @@
          class="answer l-answer-{{question.answers.length}}"
          ng-class="getAnswerStyleClasses(answer)"
          ng-style="getBackgroundImageStyle(answer)"
-         ng-click="setAnswer(answer)">
+         ng-click="setAnswer(question, $index)">
         <div class="option"><div class="text">{{answerCodes[$index]}}</div></div>
         <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark">
             <icon ng-class="{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }"></icon>

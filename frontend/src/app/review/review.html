@@ -1,0 +1,14 @@
+<div class="review-view">
+    <div class="incorrect-answer" ng-repeat="incorrectAnswer in incorrectAnswers"
+        ng-click="reviewQuestion(incorrectAnswer.question._id)">
+        <div class="l-1-6">
+            {{incorrectAnswer.question.question.text}}
+        </div>
+        <div class="l-1-6 incorrect-answer-image" ng-repeat="index in [0,1,2,3]"
+            ng-style="getBackgroundImageStyle(incorrectAnswer.question.answers[index])">
+        </div>
+        <div class="l-1-6">
+            {{incorrectAnswer.totalIncorrectAnswers}} fails
+        </div>
+    </div>
+</div>
