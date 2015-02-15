@@ -4,8 +4,16 @@
         Admin
     </button>
     <div ng-include="'testData.html'" ng-controller="TestDataCtrl"></div>
+
     <button class="login" ng-click="showLoginDialog()" ng-if="!session">Login</button>
-    <button class="logout" ng-click="logout()" ng-if="session">Logout</button>
+    <!--<button class="logout" ng-click="logout()" ng-if="session">Logout</button>-->
+
+    <button ng-click="toggleActiveMenuPanel()">
+        <icon class="menu-icon"></icon>
+    </button>
+
+    <menu-panel is-active="isPanelActive"></menu-panel>
+
     <div dialog title="Login" mz-if="showLogin">
         <form ng-submit="login()">
             <input class="user" ng-model="credentials.userName" type="text"

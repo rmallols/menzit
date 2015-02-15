@@ -1,0 +1,55 @@
+.menu-panel {
+  @menu-panel-width: 250px;
+  .darken-theme;
+  .offsettedHeight(-@menu-height);
+  .transition(left @speed);
+  position: absolute;
+  width: @menu-panel-width;
+  left: -@menu-panel-width;
+  bottom: 0;
+  z-index: 1;
+}
+
+.menu-panel.is-active {
+  left: 0;
+}
+
+.menu-panel-item {
+  padding: @gutter  @big-gutter;
+  display: block;
+  text-decoration: none;
+}
+
+.menu-panel-header {
+  margin: 10px 0;
+  padding: 0 @big-gutter;
+  font-weight: normal;
+}
+
+.menu-panel-item:hover {
+  .dark-theme;
+}
+
+.menu-panel-overlay {
+  .offsettedHeight(-@menu-height);
+  top: @menu-height;
+}
+
+.menu-panel-separator {
+  border-color: @dark;
+  margin: 0;
+}
+
+.menu-panel-item-title {
+  display: block;
+  float: left;
+  margin: 7px 0px;
+  font-weight: normal;
+}
+
+.menu-panel-item-icon {
+  font-size: 200%;
+  display: block;
+  float: left;
+  margin-right: 20px;
+}

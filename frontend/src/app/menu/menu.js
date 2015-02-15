@@ -50,6 +50,10 @@
                         var stateData = $state.current.data;
                         return { active: stateData && stateData.groupId === 'admin' };
                     };
+
+                    scope.toggleActiveMenuPanel = function () {
+                        scope.isPanelActive = (scope.isPanelActive !== true);
+                    };
                 }
             };
         }]);

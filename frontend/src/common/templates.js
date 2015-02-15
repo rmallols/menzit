@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -417,8 +417,16 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
     "        Admin\n" +
     "    </button>\n" +
     "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
+    "\n" +
     "    <button class=\"login\" ng-click=\"showLoginDialog()\" ng-if=\"!session\">Login</button>\n" +
-    "    <button class=\"logout\" ng-click=\"logout()\" ng-if=\"session\">Logout</button>\n" +
+    "    <!--<button class=\"logout\" ng-click=\"logout()\" ng-if=\"session\">Logout</button>-->\n" +
+    "\n" +
+    "    <button ng-click=\"toggleActiveMenuPanel()\">\n" +
+    "        <icon class=\"menu-icon\"></icon>\n" +
+    "    </button>\n" +
+    "\n" +
+    "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
+    "\n" +
     "    <div dialog title=\"Login\" mz-if=\"showLogin\">\n" +
     "        <form ng-submit=\"login()\">\n" +
     "            <input class=\"user\" ng-model=\"credentials.userName\" type=\"text\"\n" +
@@ -430,6 +438,42 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
     "    </div>\n" +
     "</div>\n" +
     "");
+}]);
+
+angular.module("menuPanel.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("menuPanel.html",
+    "<div>\n" +
+    "    <div class=\"overlay menu-panel-overlay\" ng-click=\"hideMenuPanel()\" ng-show=\"isActive\"></div>\n" +
+    "    <div class=\"menu-panel\" ng-class=\"{ 'is-active': isActive }\">\n" +
+    "        <a ui-sref=\"app.review\" class=\"menu-panel-item cf\">\n" +
+    "            <icon class=\"play-icon menu-panel-item-icon\"></icon>\n" +
+    "            <h4 class=\"menu-panel-item-title\">Play</h4>\n" +
+    "        </a>\n" +
+    "        <a ui-sref=\"app.review\" class=\"menu-panel-item cf\">\n" +
+    "            <icon class=\"review-icon menu-panel-item-icon\"></icon>\n" +
+    "            <h4 class=\"menu-panel-item-title\">Review</h4>\n" +
+    "        </a>\n" +
+    "        <hr class=\"menu-panel-separator\"/>\n" +
+    "        <h5 class=\"menu-panel-header\">Admin</h5>\n" +
+    "        <a ui-sref=\"app.admin.tenants\" class=\"menu-panel-item cf\">\n" +
+    "            <icon class=\"settings-general-icon menu-panel-item-icon\"></icon>\n" +
+    "            <h4 class=\"menu-panel-item-title\">General</h4>\n" +
+    "        </a>\n" +
+    "        <a ui-sref=\"app.admin.categories\" class=\"menu-panel-item cf\">\n" +
+    "            <icon class=\"settings-tests-icon menu-panel-item-icon\"></icon>\n" +
+    "            <h4 class=\"menu-panel-item-title\">Tests</h4>\n" +
+    "        </a>\n" +
+    "        <a ui-sref=\"app.users\" class=\"menu-panel-item cf\">\n" +
+    "            <icon class=\"settings-users-icon menu-panel-item-icon\"></icon>\n" +
+    "            <h4 class=\"menu-panel-item-title\">Users</h4>\n" +
+    "        </a>\n" +
+    "        <hr class=\"menu-panel-separator\"/>\n" +
+    "        <a ui-sref=\"app.review\" class=\"menu-panel-item cf\">\n" +
+    "            <icon class=\"sign-out-icon menu-panel-item-icon\"></icon>\n" +
+    "            <h4 class=\"menu-panel-item-title\">Sign out</h4>\n" +
+    "        </a>\n" +
+    "    </div>\n" +
+    "</div>");
 }]);
 
 angular.module("testData.html", []).run(["$templateCache", function($templateCache) {

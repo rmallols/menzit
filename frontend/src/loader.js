@@ -52,6 +52,7 @@ getScript(srcPath + '/app/common/audio/audio.js');
 getScript(srcPath + '/app/common/autoComplete/autoComplete.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
+getScript(srcPath + '/app/menu/panel/menuPanel.js');
 getScript(srcPath + '/app/menu/testData/testData.js');
 //Dialog
 getScript(srcPath + '/app/common/dialog/dialog.js');
