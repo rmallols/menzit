@@ -42,7 +42,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
         .state('app.reviewQuestion', {
             url: "/review/:questionId",
-            templateUrl: "reviewQuestion.html",
+            templateUrl: "question.html",
             controller: 'ReviewQuestionCtrl',
             resolve: {
                 question: ['$stateParams', 'http', function ($stateParams, http) {

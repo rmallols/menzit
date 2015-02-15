@@ -4,10 +4,8 @@ app.controller('TestCtrl', ['$scope', '$timeout', 'pubSub', function ($scope, $t
 
     $scope.isTestInProgress = true;
 
-    var scoreUpdatedSub = pubSub.subscribe('scoreUpdated', function (msg, data) {
-        if (data.runnedQuestions === data.totalQuestions) {
-            finishTest();
-        }
+    var scoreUpdatedSub = pubSub.subscribe('testFinished', function (msg, data) {
+        finishTest();
     });
 
     $scope.$on('$destroy', function () {

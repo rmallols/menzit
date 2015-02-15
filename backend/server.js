@@ -74,6 +74,17 @@ app.get('/rest/tests/:testId/isCorrect/:answerId', function (req, res) {
     });
 });
 
+app.get('/rest/incorrectAnswers/first', function (req, res) {
+    var collectionId = 'incorrectAnswers';
+    decorator.inDecorator(collectionId, 'get', req, function (filter) {
+        read.find(collectionId, filter, function (response) {
+            decorator.outDecorator(collectionId, 'get', response, function (decoratedResponse) {
+                res.send(decoratedResponse[0]);
+            });
+        });
+    });
+});
+
 app.post('/rest/incorrectAnswers/:questionId', function (req, res) {
     var filter, collectionId, userSession;
     userSession = session.getSession(req);
@@ -96,6 +107,35 @@ app.post('/rest/incorrectAnswers/:questionId', function (req, res) {
                     totalIncorrectAnswers: 1
                 };
                 create.create(collectionId, incorrectAnswerCollection, req.session, function (response) {
+                    res.send(response);
+                });
+            }
+        });
+    }
+});
+
+app.post('/rest/incorrectAnswers/:questionId/addCorrect', function (req, res) {
+    var filter, collectionId, userSession;
+    userSession = session.getSession(req);
+    if(userSession) {
+        filter = { query: {
+            'questionId': req.params.questionId,
+            'create.authorId': userSession._id
+        }};
+        collectionId = 'incorrectAnswers';
+        read.find(collectionId, filter, function (response) {
+            var incorrectAnswerCollection = response.length && response[0];
+            if(incorrectAnswerCollection.totalIncorrectAnswers) {
+                incorrectAnswerCollection.totalIncorrectAnswers--;
+                update.update(incorrectAnswerCollection._id, collectionId, incorrectAnswerCollection, req.session, function (response) {
+                    res.send(response);
+                });
+            } else {
+                incorrectAnswerCollection = {
+                    questionId: req.params.questionId,
+                    totalIncorrectAnswers: 1
+                };
+                remove.remove(incorrectAnswerCollection._id, collectionId, function (response) {
                     res.send(response);
                 });
             }

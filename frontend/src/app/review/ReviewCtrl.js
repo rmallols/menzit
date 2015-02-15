@@ -1,8 +1,8 @@
 'use strict';
 
-app.controller('ReviewCtrl', ['$scope', '$state', 'questions', function ($scope, $state, incorrectAnswers) {
+app.controller('ReviewCtrl', ['$scope', '$state', 'questions', function ($scope, $state, questions) {
 
-    $scope.incorrectAnswers = incorrectAnswers;
+    $scope.questions = questions;
 
     $scope.getBackgroundImageStyle = function (answer) {
         return {

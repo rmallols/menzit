@@ -44,6 +44,7 @@ getScript(srcPath + '/portal/home/HomeCtrl.js');
 //APP
 getScript(srcPath + '/app/app.js');
 getScript(srcPath + '/app/AppCtrl.js');
+getScript(srcPath + '/app/common/question/BaseQuestionCtrl.js');
 getScript(srcPath + '/app/common/upload/upload.js');
 getScript(srcPath + '/app/common/title/title.js');
 getScript(srcPath + '/app/common/truncate/truncate.js');

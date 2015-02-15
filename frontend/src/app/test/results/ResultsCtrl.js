@@ -6,10 +6,8 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q'
 
         var scoreUpdatedSub, updateScoreIntervalFn, currentResult;
 
-        scoreUpdatedSub = pubSub.subscribe('scoreUpdated', function (msg, data) {
-            if (data.runnedQuestions === data.totalQuestions) {
-                finishTest(data.score);
-            }
+        scoreUpdatedSub = pubSub.subscribe('testFinished', function (msg, data) {
+            finishTest(data.score);
         });
 
         $scope.$on('$destroy', function () {

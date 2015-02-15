@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'upload.html', 'menu.html', 'testData.html', 'reviewQuestion.html', 'review.html', 'questions.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -368,6 +368,33 @@ angular.module("dialog.html", []).run(["$templateCache", function($templateCache
     "</div>");
 }]);
 
+angular.module("question.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("question.html",
+    "<div class=\"question-view\">\n" +
+    "    <div class=\"question\"\n" +
+    "         ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
+    "         ng-style=\"getBackgroundImageStyle(question.question.image)\">\n" +
+    "        {{question.question.text}}\n" +
+    "        <div audio=\"question.question.text\"></div>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"isTestComplete\">FINISH!!!</div>\n" +
+    "    <div class=\"answers-container\">\n" +
+    "        <div ng-repeat=\"answer in question.answers\"\n" +
+    "             class=\"answer l-answer-{{question.answers.length}}\"\n" +
+    "             ng-class=\"getAnswerStyleClasses(answer)\"\n" +
+    "             ng-style=\"getBackgroundImageStyle(answer)\"\n" +
+    "             ng-click=\"setAnswer(question, $index)\">\n" +
+    "            <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
+    "            <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\">\n" +
+    "                <icon ng-class=\"{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }\"></icon>\n" +
+    "            </div>\n" +
+    "            <div class=\"title\">{{answer.title}}</div>\n" +
+    "            <div class=\"explanation\">{{answer.explanation}}</div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
+}]);
+
 angular.module("upload.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("upload.html",
     "<div class=\"upload-view\">\n" +
@@ -424,52 +451,24 @@ angular.module("testData.html", []).run(["$templateCache", function($templateCac
     "</div>");
 }]);
 
-angular.module("reviewQuestion.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("reviewQuestion.html",
-    "<div class=\"review-question-view\">\n" +
-    "    Hello review question!\n" +
-    "</div>");
-}]);
-
 angular.module("review.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("review.html",
     "<div class=\"review-view\">\n" +
-    "    <div class=\"incorrect-answer\" ng-repeat=\"incorrectAnswer in incorrectAnswers\"\n" +
-    "        ng-click=\"reviewQuestion(incorrectAnswer.question._id)\">\n" +
+    "    <h1>Questions to review</h1>\n" +
+    "    <div ng-if=\"!questions.length\" class=\"msg-info\">\n" +
+    "        There aren't more questions to review\n" +
+    "    </div>\n" +
+    "    <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
+    "        ng-click=\"reviewQuestion(question.question._id)\">\n" +
     "        <div class=\"l-1-6\">\n" +
-    "            {{incorrectAnswer.question.question.text}}\n" +
+    "            {{question.question.question.text}}\n" +
     "        </div>\n" +
     "        <div class=\"l-1-6 incorrect-answer-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
-    "            ng-style=\"getBackgroundImageStyle(incorrectAnswer.question.answers[index])\">\n" +
+    "            ng-style=\"getBackgroundImageStyle(question.question.answers[index])\">\n" +
     "        </div>\n" +
     "        <div class=\"l-1-6\">\n" +
-    "            {{incorrectAnswer.totalIncorrectAnswers}} fails\n" +
+    "            {{question.totalIncorrectAnswers}} fails\n" +
     "        </div>\n" +
-    "    </div>\n" +
-    "</div>");
-}]);
-
-angular.module("questions.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("questions.html",
-    "<div class=\"question\"\n" +
-    "     ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
-    "     ng-style=\"getBackgroundImageStyle(question.question.image)\">\n" +
-    "    {{question.question.text}}\n" +
-    "    <div audio=\"question.question.text\"></div>\n" +
-    "</div>\n" +
-    "<div ng-if=\"isTestComplete\">FINISH!!!</div>\n" +
-    "<div class=\"answers-container\">\n" +
-    "    <div ng-repeat=\"answer in question.answers\"\n" +
-    "         class=\"answer l-answer-{{question.answers.length}}\"\n" +
-    "         ng-class=\"getAnswerStyleClasses(answer)\"\n" +
-    "         ng-style=\"getBackgroundImageStyle(answer)\"\n" +
-    "         ng-click=\"setAnswer(question, $index)\">\n" +
-    "        <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
-    "        <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\">\n" +
-    "            <icon ng-class=\"{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }\"></icon>\n" +
-    "        </div>\n" +
-    "        <div class=\"title\">{{answer.title}}</div>\n" +
-    "        <div class=\"explanation\">{{answer.explanation}}</div>\n" +
     "    </div>\n" +
     "</div>");
 }]);
@@ -503,7 +502,7 @@ angular.module("test.html", []).run(["$templateCache", function($templateCache) 
   $templateCache.put("test.html",
     "<div class=\"test-view\">\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestInProgress\" ng-controller=\"QuestionsCtrl\"\n" +
-    "         ng-include=\"'questions.html'\" ng-animate></div>\n" +
+    "         ng-include=\"'question.html'\" ng-animate></div>\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestFinished\" ng-controller=\"ResultsCtrl\"\n" +
     "         ng-include=\"'results.html'\" ng-animate></div>\n" +
     "</div>");
