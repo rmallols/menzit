@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    app.directive('menu', ['$rootScope', '$state', 'session',
-        function ($rootScope, $state, session) {
+    app.directive('menu', ['$rootScope', '$state', 'session', 'pubSub',
+        function ($rootScope, $state, session, pubSub) {
             return  {
                 replace: true,
                 restrict: 'A',
@@ -39,13 +39,6 @@
                         });
                     };
 
-                    scope.logout = function () {
-                        session.logout().then(function () {
-                            scope.session = undefined;
-                            $state.go('app.categories');
-                        });
-                    };
-
                     scope.isActiveAction = function () {
                         var stateData = $state.current.data;
                         return { active: stateData && stateData.groupId === 'admin' };
@@ -54,6 +47,10 @@
                     scope.toggleActiveMenuPanel = function () {
                         scope.isPanelActive = (scope.isPanelActive !== true);
                     };
+
+                    pubSub.subscribe('logout', function () {
+                        scope.session = null;
+                    });
                 }
             };
         }]);

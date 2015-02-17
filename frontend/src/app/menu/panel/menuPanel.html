@@ -1,30 +1,30 @@
 <div>
     <div class="overlay menu-panel-overlay" ng-click="hideMenuPanel()" ng-show="isActive"></div>
     <div class="menu-panel" ng-class="{ 'is-active': isActive }">
-        <a ui-sref="app.review" class="menu-panel-item cf">
+        <a ui-sref="app.categories" class="menu-panel-item cf" ng-class="isActiveItem('categories')">
             <icon class="play-icon menu-panel-item-icon"></icon>
             <h4 class="menu-panel-item-title">Play</h4>
         </a>
-        <a ui-sref="app.review" class="menu-panel-item cf">
+        <a ui-sref="app.review" class="menu-panel-item cf" ng-class="isActiveItem('review')">
             <icon class="review-icon menu-panel-item-icon"></icon>
             <h4 class="menu-panel-item-title">Review</h4>
         </a>
         <hr class="menu-panel-separator"/>
         <h5 class="menu-panel-header">Admin</h5>
-        <a ui-sref="app.admin.tenants" class="menu-panel-item cf">
+        <a ui-sref="app.admin.tenants" class="menu-panel-item cf" ng-class="isActiveItem('adminTenants')">
             <icon class="settings-general-icon menu-panel-item-icon"></icon>
             <h4 class="menu-panel-item-title">General</h4>
         </a>
-        <a ui-sref="app.admin.categories" class="menu-panel-item cf">
+        <a ui-sref="app.admin.categories" class="menu-panel-item cf" ng-class="isActiveItem('adminTests')">
             <icon class="settings-tests-icon menu-panel-item-icon"></icon>
             <h4 class="menu-panel-item-title">Tests</h4>
         </a>
-        <a ui-sref="app.users" class="menu-panel-item cf">
+        <a ui-sref="app.admin.users" class="menu-panel-item cf" ng-class="isActiveItem('adminUsers')">
             <icon class="settings-users-icon menu-panel-item-icon"></icon>
             <h4 class="menu-panel-item-title">Users</h4>
         </a>
         <hr class="menu-panel-separator"/>
-        <a ui-sref="app.review" class="menu-panel-item cf">
+        <a href="#" ng-click="logout()" class="menu-panel-item cf">
             <icon class="sign-out-icon menu-panel-item-icon"></icon>
             <h4 class="menu-panel-item-title">Sign out</h4>
         </a>

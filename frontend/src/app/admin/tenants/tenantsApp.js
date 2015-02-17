@@ -8,14 +8,14 @@ app.config(function ($stateProvider) {
             templateUrl: "tenants.html",
             controller: 'TenantsCtrl',
             data: {
-                subGroupId: 'tenants'
+                groupId: 'adminTenants'
             }
         }).state('app.admin.addTenant', {
             url: "/tenants/add",
             templateUrl: "tenant.html",
             controller: 'TenantAddCtrl',
             data: {
-                subGroupId: 'tenants'
+                groupId: 'adminTenants'
             }
         }).state('app.admin.editTenant', {
             url: "/tenants/edit/:tenantId",
@@ -27,7 +27,7 @@ app.config(function ($stateProvider) {
                 }]
             },
             data: {
-                subGroupId: 'tenants'
+                groupId: 'adminTenants'
             }
         });
 });

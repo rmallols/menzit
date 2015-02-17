@@ -8,7 +8,7 @@ app.config(function ($stateProvider) {
             templateUrl: "usersAdmin.html",
             controller: 'UsersAdminCtrl',
             data: {
-                subGroupId: 'users'
+                groupId: 'adminUsers'
             }
         })
         .state('app.admin.addUser', {
@@ -16,7 +16,7 @@ app.config(function ($stateProvider) {
             templateUrl: "userAdmin.html",
             controller: 'UserAddAdminCtrl',
             data: {
-                subGroupId: 'users'
+                groupId: 'adminUsers'
             }
         })
         .state('app.admin.editUser', {
@@ -24,7 +24,7 @@ app.config(function ($stateProvider) {
             templateUrl: "userAdmin.html",
             controller: 'UserEditAdminCtrl',
             data: {
-                subGroupId: 'users'
+                groupId: 'adminUsers'
             },
             resolve: {
                 user: ['$stateParams', 'http', function ($stateParams, http) {

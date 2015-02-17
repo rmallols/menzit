@@ -13,7 +13,7 @@ app.config(function ($stateProvider) {
                 }]
             },
             data: {
-                subGroupId: 'categories'
+                groupId: 'adminTests'
             }
         })
         .state('app.admin.addTest', {
@@ -21,7 +21,7 @@ app.config(function ($stateProvider) {
             templateUrl: "testAdmin.html",
             controller: 'TestAddAdminCtrl',
             data: {
-                subGroupId: 'categories'
+                groupId: 'adminTests'
             }
         })
         .state('app.admin.editTest', {
@@ -34,7 +34,7 @@ app.config(function ($stateProvider) {
                 }]
             },
             data: {
-                subGroupId: 'categories'
+                groupId: 'adminTests'
             }
         });
 });

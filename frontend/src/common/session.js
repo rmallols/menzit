@@ -1,6 +1,6 @@
 'use strict';
 
-menzit.service('session', ['$q', 'http', function ($q, http) {
+menzit.service('session', ['$q', 'http', 'pubSub', function ($q, http, pubSub) {
 
     var session;
 
@@ -17,7 +17,8 @@ menzit.service('session', ['$q', 'http', function ($q, http) {
     function logout() {
         var deferred = $q.defer();
         http.post('/rest/logout').then(function () {
-            session = undefined
+            session = undefined;
+            pubSub.publish('logout');
             deferred.resolve();
         });
         return deferred.promise;

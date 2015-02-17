@@ -9,7 +9,7 @@ app.config(function ($stateProvider) {
             templateUrl: "categoriesAdmin.html",
             controller: 'CategoriesAdminCtrl',
             data: {
-                subGroupId: 'categories'
+                groupId: 'adminTests'
             }
         })
 
@@ -18,7 +18,7 @@ app.config(function ($stateProvider) {
             templateUrl: "categoryAdmin.html",
             controller: 'CategoryAddAdminCtrl',
             data: {
-                subGroupId: 'categories'
+                groupId: 'adminTests'
             }
         })
 
@@ -32,7 +32,7 @@ app.config(function ($stateProvider) {
                 }]
             },
             data: {
-                subGroupId: 'categories'
+                groupId: 'adminTests'
             }
         });
 });

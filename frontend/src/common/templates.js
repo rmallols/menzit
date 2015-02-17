@@ -3,13 +3,6 @@ angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categor
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
     "<div class=\"admin-view\">\n" +
-    "    <div class=\"menu\">\n" +
-    "        <a ng-repeat=\"action in menuActions\" ui-sref=\"{{action.uiSref}}\"\n" +
-    "             class=\"action\" ng-class=\"isActiveAction(action.subGroupId)\">\n" +
-    "            <icon class=\"{{action.icon}}\"></icon>\n" +
-    "            <div>{{action.label}}</div>\n" +
-    "        </a>\n" +
-    "    </div>\n" +
     "    <div ui-view></div>\n" +
     "</div>");
 }]);
@@ -412,18 +405,14 @@ angular.module("upload.html", []).run(["$templateCache", function($templateCache
 angular.module("menu.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("menu.html",
     "<div class=\"menu-view\">\n" +
-    "    <button class=\"admin\" ng-click=\"showAdminOptions()\" ng-if=\"hasAdminRole()\"\n" +
-    "            ng-class=\"isActiveAction()\">\n" +
-    "        Admin\n" +
-    "    </button>\n" +
-    "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
     "\n" +
     "    <button class=\"login\" ng-click=\"showLoginDialog()\" ng-if=\"!session\">Login</button>\n" +
-    "    <!--<button class=\"logout\" ng-click=\"logout()\" ng-if=\"session\">Logout</button>-->\n" +
     "\n" +
-    "    <button ng-click=\"toggleActiveMenuPanel()\">\n" +
+    "    <button ng-click=\"toggleActiveMenuPanel()\" ng-if=\"session\">\n" +
     "        <icon class=\"menu-icon\"></icon>\n" +
     "    </button>\n" +
+    "\n" +
+    "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
     "\n" +
     "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
     "\n" +
@@ -445,30 +434,30 @@ angular.module("menuPanel.html", []).run(["$templateCache", function($templateCa
     "<div>\n" +
     "    <div class=\"overlay menu-panel-overlay\" ng-click=\"hideMenuPanel()\" ng-show=\"isActive\"></div>\n" +
     "    <div class=\"menu-panel\" ng-class=\"{ 'is-active': isActive }\">\n" +
-    "        <a ui-sref=\"app.review\" class=\"menu-panel-item cf\">\n" +
+    "        <a ui-sref=\"app.categories\" class=\"menu-panel-item cf\" ng-class=\"isActiveItem('categories')\">\n" +
     "            <icon class=\"play-icon menu-panel-item-icon\"></icon>\n" +
     "            <h4 class=\"menu-panel-item-title\">Play</h4>\n" +
     "        </a>\n" +
-    "        <a ui-sref=\"app.review\" class=\"menu-panel-item cf\">\n" +
+    "        <a ui-sref=\"app.review\" class=\"menu-panel-item cf\" ng-class=\"isActiveItem('review')\">\n" +
     "            <icon class=\"review-icon menu-panel-item-icon\"></icon>\n" +
     "            <h4 class=\"menu-panel-item-title\">Review</h4>\n" +
     "        </a>\n" +
     "        <hr class=\"menu-panel-separator\"/>\n" +
     "        <h5 class=\"menu-panel-header\">Admin</h5>\n" +
-    "        <a ui-sref=\"app.admin.tenants\" class=\"menu-panel-item cf\">\n" +
+    "        <a ui-sref=\"app.admin.tenants\" class=\"menu-panel-item cf\" ng-class=\"isActiveItem('adminTenants')\">\n" +
     "            <icon class=\"settings-general-icon menu-panel-item-icon\"></icon>\n" +
     "            <h4 class=\"menu-panel-item-title\">General</h4>\n" +
     "        </a>\n" +
-    "        <a ui-sref=\"app.admin.categories\" class=\"menu-panel-item cf\">\n" +
+    "        <a ui-sref=\"app.admin.categories\" class=\"menu-panel-item cf\" ng-class=\"isActiveItem('adminTests')\">\n" +
     "            <icon class=\"settings-tests-icon menu-panel-item-icon\"></icon>\n" +
     "            <h4 class=\"menu-panel-item-title\">Tests</h4>\n" +
     "        </a>\n" +
-    "        <a ui-sref=\"app.users\" class=\"menu-panel-item cf\">\n" +
+    "        <a ui-sref=\"app.admin.users\" class=\"menu-panel-item cf\" ng-class=\"isActiveItem('adminUsers')\">\n" +
     "            <icon class=\"settings-users-icon menu-panel-item-icon\"></icon>\n" +
     "            <h4 class=\"menu-panel-item-title\">Users</h4>\n" +
     "        </a>\n" +
     "        <hr class=\"menu-panel-separator\"/>\n" +
-    "        <a ui-sref=\"app.review\" class=\"menu-panel-item cf\">\n" +
+    "        <a href=\"#\" ng-click=\"logout()\" class=\"menu-panel-item cf\">\n" +
     "            <icon class=\"sign-out-icon menu-panel-item-icon\"></icon>\n" +
     "            <h4 class=\"menu-panel-item-title\">Sign out</h4>\n" +
     "        </a>\n" +

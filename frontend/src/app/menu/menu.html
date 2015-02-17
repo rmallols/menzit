@@ -1,16 +1,12 @@
 <div class="menu-view">
-    <button class="admin" ng-click="showAdminOptions()" ng-if="hasAdminRole()"
-            ng-class="isActiveAction()">
-        Admin
-    </button>
-    <div ng-include="'testData.html'" ng-controller="TestDataCtrl"></div>
 
     <button class="login" ng-click="showLoginDialog()" ng-if="!session">Login</button>
-    <!--<button class="logout" ng-click="logout()" ng-if="session">Logout</button>-->
 
-    <button ng-click="toggleActiveMenuPanel()">
+    <button ng-click="toggleActiveMenuPanel()" ng-if="session">
         <icon class="menu-icon"></icon>
     </button>
+
+    <div ng-include="'testData.html'" ng-controller="TestDataCtrl"></div>
 
     <menu-panel is-active="isPanelActive"></menu-panel>
 

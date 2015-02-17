@@ -20,13 +20,19 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
         .state('app.categories', {
             url: "/categories",
             templateUrl: "categories.html",
-            controller: 'CategoriesCtrl'
+            controller: 'CategoriesCtrl',
+            data: {
+                groupId: 'categories'
+            }
         })
 
         .state('app.test', {
             url: "/categories/:categoryId/test",
             templateUrl: "test.html",
-            controller: 'TestCtrl'
+            controller: 'TestCtrl',
+            data: {
+                groupId: 'categories'
+            }
         })
 
         .state('app.review', {
@@ -37,6 +43,9 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
                 questions: ['http', function (http) {
                     return http.get('/rest/incorrectAnswers');
                 }]
+            },
+            data: {
+                groupId: 'review'
             }
         })
 
@@ -48,16 +57,16 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
                 question: ['$stateParams', 'http', function ($stateParams, http) {
                     return http.get('/rest/tests/' + $stateParams.questionId);
                 }]
+            },
+            data: {
+                groupId: 'review'
             }
         })
 
         .state('app.admin', {
             url: "/admin",
             templateUrl: "admin.html",
-            controller: 'AdminCtrl',
-            data: {
-                groupId: 'admin'
-            }
+            controller: 'AdminCtrl'
         });
 
     $urlRouterProvider.otherwise("/");
