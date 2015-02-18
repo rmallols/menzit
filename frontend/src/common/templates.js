@@ -349,7 +349,7 @@ angular.module("audio.html", []).run(["$templateCache", function($templateCache)
     "        <icon class=\"mic-icon\"></icon>\n" +
     "    </button>\n" +
     "    <audio controls class=\"audio-player\" ng-if=\"audio\">\n" +
-    "        <source ng-src=\"{{getAudioSrc(audio)}}\" type=\"audio/ogg\">\n" +
+    "        <source ng-src=\"{{getAudioSrc(audio)}}\" type=\"audio/mp3\">\n" +
     "    </audio>\n" +
     "</div>");
 }]);
