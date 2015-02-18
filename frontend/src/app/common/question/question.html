@@ -5,7 +5,6 @@
         {{question.question.text}}
         <div audio="question.question.text"></div>
     </div>
-    <div ng-if="isTestComplete">FINISH!!!</div>
     <div class="answers-container">
         <div ng-repeat="answer in question.answers"
              class="answer l-answer-{{question.answers.length}}"

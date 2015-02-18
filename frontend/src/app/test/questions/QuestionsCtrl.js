@@ -23,7 +23,6 @@ app.controller('QuestionsCtrl', ['$scope', '$controller', '$timeout', '$state', 
             answer.validAssert = true;
             setScore();
             if (isLastQuestion()) {
-                $scope.isTestComplete = true;
                 pubSub.publish('testFinished', { score: $scope.score });
             } else {
                 $timeout(function () {

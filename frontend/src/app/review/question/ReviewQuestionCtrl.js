@@ -29,7 +29,6 @@ function ($scope, $controller, $timeout, $state, $q, http, question) {
                 if(nextQuestion) {
                     setCurrentQuestion(nextQuestion);
                 } else {
-                    $scope.isTestComplete = true;
                     $state.go('app.review');
                 }
             }, 1000);

@@ -378,7 +378,6 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
     "        {{question.question.text}}\n" +
     "        <div audio=\"question.question.text\"></div>\n" +
     "    </div>\n" +
-    "    <div ng-if=\"isTestComplete\">FINISH!!!</div>\n" +
     "    <div class=\"answers-container\">\n" +
     "        <div ng-repeat=\"answer in question.answers\"\n" +
     "             class=\"answer l-answer-{{question.answers.length}}\"\n" +
