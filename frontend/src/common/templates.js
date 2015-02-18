@@ -58,10 +58,7 @@ angular.module("categoryAdmin.html", []).run(["$templateCache", function($templa
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-2 input-label\">Image</div>\n" +
-    "        <div class=\"l-1-4\">\n" +
-    "            <input type=\"text\" ng-model=\"category.imageUrl\" />\n" +
-    "        </div>\n" +
-    "        <div class=\"l-1-4\">\n" +
+    "        <div class=\"l-1-2\">\n" +
     "            <input ng-model=\"category.image\" upload />\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -74,32 +71,43 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "<div class=\"test-view\">\n" +
     "    <div class=\"cf\">\n" +
     "        <h1 class=\"float-left\">{{title}}</h1>\n" +
-    "\n" +
     "        <div class=\"float-right\">\n" +
     "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
-    "        <div class=\"cf\">\n" +
-    "            <div class=\"l-1-4 input-label\">Question</div>\n" +
-    "            <div class=\"l-1-4\"><input type=\"text\" ng-model=\"test.question.text\"/></div>\n" +
-    "            <div class=\"l-1-4\"><input ng-model=\"test.question.image\" upload /></div>\n" +
-    "            <div class=\"l-1-4\"><input type=\"text\" ng-model=\"test.question.imageUrl\" /></div>\n" +
+    "        <div class=\"test-question cf\">\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <div class=\"l-1-4 input-label\">Question</div>\n" +
+    "                <div class=\"l-3-4\"><input type=\"text\" ng-model=\"test.question.text\"/></div>\n" +
+    "            </div>\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <div class=\"l-1-4 input-label\">Image</div>\n" +
+    "                <div class=\"l-3-4\"><input ng-model=\"test.question.image\" upload /></div>\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "        <div class=\"cf\" ng-repeat=\"answer in test.answers\">\n" +
-    "            <div class=\"l-1-4 input-label\">Answer {{$index + 1}}</div>\n" +
-    "            <div class=\"l-1-4\"><input type=\"text\" ng-model=\"answer.title\"/></div>\n" +
-    "            <div class=\"l-1-4\">\n" +
-    "                Correct?\n" +
-    "                <input type=\"radio\" ng-model=\"$parent.correctOptionIndex\" value=\"{{$index}}\"/>\n" +
+    "        <div>\n" +
+    "            <div class=\"test-answer l-1-2 cf\" ng-repeat=\"answer in test.answers\"\n" +
+    "                 ng-class=\"{ 'correct-option': $parent.correctOptionIndex === $index }\">\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <div class=\"l-1-4 input-label\">Answer {{$index + 1}}</div>\n" +
+    "                    <div class=\"l-3-4\"><input type=\"text\" ng-model=\"answer.title\"/></div>\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <div class=\"l-1-4 input-label\">Explanation</div>\n" +
+    "                    <div class=\"l-3-4\">\n" +
+    "                        <input type=\"text\" ng-model=\"answer.explanation\"\n" +
+    "                               ng-disabled=\"$index == $parent.correctOptionIndex\"/>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <div class=\"l-1-4 input-label\">Image</div>\n" +
+    "                    <div class=\"l-3-4\"><input ng-model=\"answer.image\" upload /></div>\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row select-correct\">\n" +
+    "                    <button ng-click=\"$parent.correctOptionIndex = $index\">Mark as correct answer</button>\n" +
+    "                </div>\n" +
     "            </div>\n" +
-    "            <div class=\"l-1-4\">\n" +
-    "                Explanation\n" +
-    "                <input type=\"text\" ng-model=\"answer.explanation\"\n" +
-    "                       ng-disabled=\"$index == $parent.correctOptionIndex\"/>\n" +
-    "            </div>\n" +
-    "            <div class=\"l-1-4\"><input type=\"text\" ng-model=\"answer.imageUrl\" /></div>\n" +
-    "            <div class=\"l-1-4\"><input ng-model=\"answer.image\" upload /></div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -390,14 +398,22 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
 
 angular.module("upload.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("upload.html",
-    "<div class=\"upload-view\">\n" +
+    "<div class=\"upload-view cf\">\n" +
     "    <input type=\"file\" />\n" +
-    "    <button class=\"addImage\" ng-click=\"addImage()\">Select</button>\n" +
-    "    <div class=\"output\" ng-if=\"ngModel\">\n" +
-    "        <button class=\"deleteImage\" ng-click=\"delete()\">\n" +
-    "            <icon class=\"close-icon\"></icon>\n" +
-    "        </button>\n" +
-    "        <img ng-src=\"{{ngModel}}\" />\n" +
+    "    <div class=\"upload-button cf\">\n" +
+    "        <button class=\"add-image\" ng-click=\"addImage()\">Select</button>\n" +
+    "        <div class=\"upload-button-output\" ng-if=\"hasBeenUpload\">\n" +
+    "            <button class=\"deleteImage\" ng-click=\"delete()\">\n" +
+    "                <icon class=\"close-icon\"></icon>\n" +
+    "            </button>\n" +
+    "            <img ng-src=\"{{ngModel}}\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"upload-url cf\">\n" +
+    "        <input ng-model=\"uploadUrl\" ng-change=\"setUploadUrl()\" placeholder=\"Please enter the image URL\" />\n" +
+    "        <div class=\"upload-url-output\" ng-if=\"uploadUrl\">\n" +
+    "            <img ng-src=\"{{uploadUrl}}\" />\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>");
 }]);

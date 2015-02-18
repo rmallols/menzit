@@ -1,0 +1,33 @@
+.test-view {
+
+  .test-question,
+  .test-answer {
+    .dark-theme;
+    .list-item;
+    height: auto;
+
+    &.correct-option {
+      color: @green;
+
+      .select-correct {
+
+        button {
+          background-color: @green;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .select-correct {
+    float: right;
+
+    button {
+      .dark-theme;
+    }
+  }
+
+  button.add-image {
+    width: 100%;
+  }
+}

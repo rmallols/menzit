@@ -3,6 +3,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider
+
         .state('app.admin.tests', {
             url: "/categories/:categoryId/tests",
             templateUrl: "testsAdmin.html",
@@ -16,6 +17,7 @@ app.config(function ($stateProvider) {
                 groupId: 'adminTests'
             }
         })
+
         .state('app.admin.addTest', {
             url: "/categories/:categoryId/tests/add",
             templateUrl: "testAdmin.html",
@@ -24,6 +26,7 @@ app.config(function ($stateProvider) {
                 groupId: 'adminTests'
             }
         })
+
         .state('app.admin.editTest', {
             url: "/categories/:categoryId/tests/edit/:testId",
             templateUrl: "testAdmin.html",

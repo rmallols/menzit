@@ -6,7 +6,7 @@ app.controller('ReviewCtrl', ['$scope', '$state', 'questions', function ($scope,
 
     $scope.getBackgroundImageStyle = function (answer) {
         return {
-            backgroundImage: 'url(' + (answer.imageUrl || answer.image) + ')'
+            backgroundImage: 'url(' + answer.image + ')'
         };
     };
 

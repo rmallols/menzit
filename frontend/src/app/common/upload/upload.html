@@ -1,10 +1,18 @@
-<div class="upload-view">
+<div class="upload-view cf">
     <input type="file" />
-    <button class="addImage" ng-click="addImage()">Select</button>
-    <div class="output" ng-if="ngModel">
-        <button class="deleteImage" ng-click="delete()">
-            <icon class="close-icon"></icon>
-        </button>
-        <img ng-src="{{ngModel}}" />
+    <div class="upload-button cf">
+        <button class="add-image" ng-click="addImage()">Select</button>
+        <div class="upload-button-output" ng-if="hasBeenUpload">
+            <button class="deleteImage" ng-click="delete()">
+                <icon class="close-icon"></icon>
+            </button>
+            <img ng-src="{{ngModel}}" />
+        </div>
+    </div>
+    <div class="upload-url cf">
+        <input ng-model="uploadUrl" ng-change="setUploadUrl()" placeholder="Please enter the image URL" />
+        <div class="upload-url-output" ng-if="uploadUrl">
+            <img ng-src="{{uploadUrl}}" />
+        </div>
     </div>
 </div>

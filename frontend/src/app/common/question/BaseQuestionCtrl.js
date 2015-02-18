@@ -5,13 +5,13 @@ app.controller('BaseQuestionCtrl', ['$scope', 'http', function ($scope, http) {
     $scope.answerCodes = ['A', 'B', 'C', 'D'];
 
     $scope.getBackgroundImageStyle = function (answer) {
-        var backgroundImage = answer && (answer.imageUrl || answer.image);
+        var backgroundImage = answer && answer.image;
         return (backgroundImage) ? { 'background-image' : 'url(' + backgroundImage + ')' } : {};
     };
 
     $scope.getQuestionStyleClasses = function (question) {
         return {
-            'has-background-image': question && (question.imageUrl || question.image)
+            'has-background-image': question && question.image
         };
     };
 
@@ -20,7 +20,7 @@ app.controller('BaseQuestionCtrl', ['$scope', 'http', function ($scope, http) {
             'valid-assert': answer.validAssert,
             'invalid-assert': answer.invalidAssert,
             'has-text' : answer.title,
-            'has-background-image': answer.image || answer.imageUrl
+            'has-background-image': answer.image
         };
     };
 

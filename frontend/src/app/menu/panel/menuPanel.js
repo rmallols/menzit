@@ -23,6 +23,10 @@ app.directive('menuPanel', ['$rootScope', '$state', 'session', function ($rootSc
                 });
             };
 
+            scope.hideMenuPanel = function () {
+                scope.isActive = false;
+            };
+
             $rootScope.$on('$stateChangeSuccess', function () {
                 scope.isActive = false;
             });
