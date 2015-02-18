@@ -8,7 +8,8 @@ menzit.service('session', ['$q', 'http', 'pubSub', function ($q, http, pubSub) {
         var deferred = $q.defer(),
             credentials = { userName: userName, password: password };
         http.post('/rest/login', credentials).then(function (retrievedSession) {
-            session = retrievedSession
+            session = retrievedSession;
+            pubSub.publish('login');
             deferred.resolve(retrievedSession);
         });
         return deferred.promise;

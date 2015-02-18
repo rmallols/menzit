@@ -20,7 +20,7 @@ app.config(function ($stateProvider) {
             }
         })
         .state('app.admin.editUser', {
-            url: "/users/edit/:userId",
+            url: "/users/edit/:userId/{current}",
             templateUrl: "userAdmin.html",
             controller: 'UserEditAdminCtrl',
             data: {

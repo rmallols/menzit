@@ -14,10 +14,12 @@
   right: 0;
 }
 
-.menu-panel-item {
-  padding: @gutter  @big-gutter;
-  display: block;
-  text-decoration: none;
+.menu-current-user {
+  text-align: center;
+}
+
+.menu-current-user-icon {
+  width: 100%;
 }
 
 .menu-panel-header {
@@ -26,11 +28,17 @@
   font-weight: normal;
 }
 
-.menu-panel-item:hover {
-  .dark-theme;
+.menu-panel-item {
+  padding: @gutter  @big-gutter;
+  display: block;
+  text-decoration: none;
+  border-left: 3px solid transparent;
 }
 
-.menu-panel-item.active {
+.menu-panel-item.active,
+.menu-panel-item:hover {
+  .dark-theme;
+  border-color: @blue;
   color: @blue;
 }
 

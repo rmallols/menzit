@@ -231,43 +231,59 @@ angular.module("tenants.html", []).run(["$templateCache", function($templateCach
 angular.module("userAdmin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("userAdmin.html",
     "<div class=\"user-view\">\n" +
-    "    <div class=\"cf\">\n" +
+    "    <div class=\"l-row\">\n" +
     "        <h1 class=\"float-left\">{{title}}</h1>\n" +
     "        <div class=\"float-right\">\n" +
     "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"cf\">\n" +
-    "        <div class=\"l-1-3 input-label\">Username</div>\n" +
-    "        <div class=\"l-2-3\"><input type=\"text\" ng-model=\"user.userName\"/></div>\n" +
-    "    </div>\n" +
-    "    <div class=\"cf\">\n" +
-    "        <div class=\"l-1-3 input-label\">Password</div>\n" +
-    "        <div class=\"l-2-3\">\n" +
-    "            <a href=\"#\"\n" +
-    "               ng-if=\"showForceChangePasswordLink\"\n" +
-    "               ng-click=\"forceChangePassword()\"\n" +
-    "               class=\"input-label text-align-left display-inline-block\">\n" +
-    "                Change\n" +
-    "            </a>\n" +
-    "            <input type=\"password\" ng-if=\"!showForceChangePasswordLink\" ng-model=\"user.password\"/>\n" +
+    "    <div class=\"l-1-2\">\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">First name</div>\n" +
+    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.firstName\"/></div>\n" +
     "        </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"cf\">\n" +
-    "        <div class=\"l-1-3 input-label\">Role</div>\n" +
-    "        <div class=\"l-2-3\">\n" +
-    "            <select ng-model=\"user.role\" ng-options=\"role._id as role.name for role in roles\"></select>\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">Last name</div>\n" +
+    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.lastName\"/></div>\n" +
     "        </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"cf\">\n" +
-    "        <div class=\"l-1-3 input-label\">Tenant</div>\n" +
-    "        <div class=\"l-2-3\">\n" +
-    "            <div auto-complete\n" +
-    "                 ng-model=\"user.tenantId\"\n" +
-    "                 endpoint=\"/rest/tenants\"\n" +
-    "                 display-property=\"name\"\n" +
-    "                 single-selection=\"true\">\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">Username</div>\n" +
+    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.userName\"/></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">Password</div>\n" +
+    "            <div class=\"l-1-2\">\n" +
+    "                <a href=\"#\"\n" +
+    "                   ng-show=\"showForceChangePasswordLink\"\n" +
+    "                   ng-click=\"forceChangePassword()\"\n" +
+    "                   class=\"input-label text-align-left display-inline-block\">\n" +
+    "                    Change\n" +
+    "                </a>\n" +
+    "                <input type=\"password\" ng-show=\"!showForceChangePasswordLink\" ng-model=\"user.password\"/>\n" +
     "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">Role</div>\n" +
+    "            <div class=\"l-1-2\">\n" +
+    "                <select ng-model=\"user.role\" ng-options=\"role._id as role.name for role in roles\"></select>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">Tenant</div>\n" +
+    "            <div class=\"l-1-2\">\n" +
+    "                <div auto-complete\n" +
+    "                     ng-model=\"user.tenantId\"\n" +
+    "                     endpoint=\"/rest/tenants\"\n" +
+    "                     display-property=\"name\"\n" +
+    "                     single-selection=\"true\">\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-1-2\">\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">Image</div>\n" +
+    "            <div class=\"l-1-2\"><input ng-model=\"user.image\" upload /></div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -402,7 +418,7 @@ angular.module("upload.html", []).run(["$templateCache", function($templateCache
     "    <div class=\"upload-button cf\">\n" +
     "        <button class=\"add-image\" ng-click=\"addImage()\">Select</button>\n" +
     "        <div class=\"upload-button-output\" ng-if=\"hasBeenUpload\">\n" +
-    "            <button class=\"deleteImage\" ng-click=\"delete()\">\n" +
+    "            <button class=\"delete-image\" ng-click=\"delete()\">\n" +
     "                <icon class=\"close-icon\"></icon>\n" +
     "            </button>\n" +
     "            <img ng-src=\"{{ngModel}}\" />\n" +
@@ -447,6 +463,12 @@ angular.module("menuPanel.html", []).run(["$templateCache", function($templateCa
     "<div>\n" +
     "    <div class=\"overlay menu-panel-overlay\" ng-click=\"hideMenuPanel()\" ng-show=\"isActive\"></div>\n" +
     "    <div class=\"menu-panel\" ng-class=\"{ 'is-active': isActive }\">\n" +
+    "        <a ui-sref=\"app.admin.editUser({ userId: session._id, current: 'current' })\" class=\"menu-panel-item menu-current-user cf\"\n" +
+    "           ng-class=\"isActiveItem('current')\">\n" +
+    "            <img class=\"menu-current-user-icon menu-panel-item-icon\" ng-src=\"{{session.image}}\" />\n" +
+    "            <h4 class=\"menu-panel-item-title\">{{getUserName(session)}}</h4>\n" +
+    "        </a>\n" +
+    "        <hr class=\"menu-panel-separator\"/>\n" +
     "        <a ui-sref=\"app.categories\" class=\"menu-panel-item cf\" ng-class=\"isActiveItem('categories')\">\n" +
     "            <icon class=\"play-icon menu-panel-item-icon\"></icon>\n" +
     "            <h4 class=\"menu-panel-item-title\">Play</h4>\n" +

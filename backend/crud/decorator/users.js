@@ -3,7 +3,9 @@
 var bcrypt = require('bcrypt-nodejs');
 
 function hashPassword(request, callback) {
-    request.body.password = bcrypt.hashSync(request.body.password);
+    if(request.body.password) {
+        request.body.password = bcrypt.hashSync(request.body.password);
+    }
     callback(request);
 }
 

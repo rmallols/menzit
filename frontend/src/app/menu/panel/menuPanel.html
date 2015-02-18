@@ -1,6 +1,12 @@
 <div>
     <div class="overlay menu-panel-overlay" ng-click="hideMenuPanel()" ng-show="isActive"></div>
     <div class="menu-panel" ng-class="{ 'is-active': isActive }">
+        <a ui-sref="app.admin.editUser({ userId: session._id, current: 'current' })" class="menu-panel-item menu-current-user cf"
+           ng-class="isActiveItem('current')">
+            <img class="menu-current-user-icon menu-panel-item-icon" ng-src="{{session.image}}" />
+            <h4 class="menu-panel-item-title">{{getUserName(session)}}</h4>
+        </a>
+        <hr class="menu-panel-separator"/>
         <a ui-sref="app.categories" class="menu-panel-item cf" ng-class="isActiveItem('categories')">
             <icon class="play-icon menu-panel-item-icon"></icon>
             <h4 class="menu-panel-item-title">Play</h4>

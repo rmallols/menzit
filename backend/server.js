@@ -25,7 +25,7 @@ var acceptedRoutes = ['/', '/home', '/test', '/categories', '/categories/:catego
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
         '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
         '/admin/categories/:categoryId/tests/edit/:testId',
-        '/admin/users', '/admin/users/add', '/admin/users/edit/:userId'];
+        '/admin/users', '/admin/users/add', '/admin/users/edit/:userId', '/admin/users/edit/:userId/current'];
 
 app.get('/', function (req, res) {
     res.redirect('/home');
