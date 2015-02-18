@@ -421,17 +421,15 @@ angular.module("upload.html", []).run(["$templateCache", function($templateCache
 angular.module("menu.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("menu.html",
     "<div class=\"menu-view\">\n" +
-    "\n" +
-    "    <button class=\"login\" ng-click=\"showLoginDialog()\" ng-if=\"!session\">Login</button>\n" +
-    "\n" +
+    "    <div class=\"menu-tenant\">\n" +
+    "        <img class=\"menu-tenant-logo\" ng-if=\"session\" ng-src=\"{{session.tenant.image}}\" />\n" +
+    "    </div>\n" +
+    "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
+    "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
+    "    <button ng-click=\"showLoginDialog()\" ng-if=\"!session\">Login</button>\n" +
     "    <button ng-click=\"toggleActiveMenuPanel()\" ng-if=\"session\">\n" +
     "        <icon class=\"menu-icon\"></icon>\n" +
     "    </button>\n" +
-    "\n" +
-    "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
-    "\n" +
-    "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
-    "\n" +
     "    <div dialog title=\"Login\" mz-if=\"showLogin\">\n" +
     "        <form ng-submit=\"login()\">\n" +
     "            <input class=\"user\" ng-model=\"credentials.userName\" type=\"text\"\n" +

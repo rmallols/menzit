@@ -2,16 +2,16 @@
   @menu-panel-width: 250px;
   .darken-theme;
   .offsettedHeight(-@menu-height);
-  .transition(left @speed);
+  .transition(right @speed);
   position: absolute;
   width: @menu-panel-width;
-  left: -@menu-panel-width;
+  right: -@menu-panel-width;
   bottom: 0;
   z-index: 1;
 }
 
 .menu-panel.is-active {
-  left: 0;
+  right: 0;
 }
 
 .menu-panel-item {

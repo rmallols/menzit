@@ -50,6 +50,7 @@
 
                     pubSub.subscribe('logout', function () {
                         scope.session = null;
+                        scope.$apply();
                     });
                 }
             };
