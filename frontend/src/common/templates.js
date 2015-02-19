@@ -581,6 +581,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "<html ng-app=\"menzit\">\n" +
     "\n" +
     "    <head>\n" +
+    "        <title ng-bind=\"pageTitle\"></title>\n" +
     "        <meta name=\"viewport\" content=\"width=device-width\" />\n" +
     "        <script src=\"/src/loader.js\" type=\"text/javascript\"></script>\n" +
     "    </head>\n" +

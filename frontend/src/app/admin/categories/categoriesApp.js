@@ -8,6 +8,7 @@ app.config(function ($stateProvider) {
             url: "/categories",
             templateUrl: "categoriesAdmin.html",
             controller: 'CategoriesAdminCtrl',
+            pageTitle: 'Admin categories',
             data: {
                 groupId: 'adminTests'
             }
@@ -17,6 +18,7 @@ app.config(function ($stateProvider) {
             url: "/categories/add",
             templateUrl: "categoryAdmin.html",
             controller: 'CategoryAddAdminCtrl',
+            pageTitle: 'Add a category',
             data: {
                 groupId: 'adminTests'
             }
@@ -26,6 +28,7 @@ app.config(function ($stateProvider) {
             url: "/categories/edit/:categoryId",
             templateUrl: "categoryAdmin.html",
             controller: 'CategoryEditAdminCtrl',
+            pageTitle: 'Edit category',
             resolve: {
                 category: ['$stateParams', 'http', function ($stateParams, http) {
                     return http.get('/rest/categories/' + $stateParams.categoryId);

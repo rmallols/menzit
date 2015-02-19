@@ -7,6 +7,7 @@ app.config(function ($stateProvider) {
             url: "/tenants",
             templateUrl: "tenants.html",
             controller: 'TenantsCtrl',
+            pageTitle: 'Admin tenants',
             data: {
                 groupId: 'adminTenants'
             }
@@ -14,6 +15,7 @@ app.config(function ($stateProvider) {
             url: "/tenants/add",
             templateUrl: "tenant.html",
             controller: 'TenantAddCtrl',
+            pageTitle: 'Add a tenant',
             data: {
                 groupId: 'adminTenants'
             }
@@ -21,6 +23,7 @@ app.config(function ($stateProvider) {
             url: "/tenants/edit/:tenantId",
             templateUrl: "tenant.html",
             controller: 'TenantEditCtrl',
+            pageTitle: 'Edit tenant',
             resolve: {
                 tenant: ['$stateParams', 'http', function ($stateParams, http) {
                     return http.get('/rest/tenants/' + $stateParams.tenantId);

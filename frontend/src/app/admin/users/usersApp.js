@@ -7,6 +7,7 @@ app.config(function ($stateProvider) {
             url: "/users",
             templateUrl: "usersAdmin.html",
             controller: 'UsersAdminCtrl',
+            pageTitle: 'Admin users',
             data: {
                 groupId: 'adminUsers'
             }
@@ -15,6 +16,7 @@ app.config(function ($stateProvider) {
             url: "/users/add",
             templateUrl: "userAdmin.html",
             controller: 'UserAddAdminCtrl',
+            pageTitle: 'Add a user',
             data: {
                 groupId: 'adminUsers'
             }
@@ -23,6 +25,7 @@ app.config(function ($stateProvider) {
             url: "/users/edit/:userId/{current}",
             templateUrl: "userAdmin.html",
             controller: 'UserEditAdminCtrl',
+            pageTitle: 'Edit user',
             data: {
                 groupId: 'adminUsers'
             },

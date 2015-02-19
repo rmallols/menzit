@@ -1,7 +1,8 @@
 'use strict';
 var app = angular.module('app', ['ngAnimate', 'ngTagsInput', 'ngSanitize']);
 
-app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
+    function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
     $locationProvider.html5Mode(true);
 
@@ -21,6 +22,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             url: "/categories",
             templateUrl: "categories.html",
             controller: 'CategoriesCtrl',
+            pageTitle: 'Select a category',
             data: {
                 groupId: 'categories'
             }
@@ -30,6 +32,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             url: "/categories/:categoryId/test",
             templateUrl: "test.html",
             controller: 'TestCtrl',
+            pageTitle: 'Running a test',
             data: {
                 groupId: 'categories'
             }
@@ -39,6 +42,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             url: "/review",
             templateUrl: "review.html",
             controller: 'ReviewCtrl',
+            pageTitle: 'Review tests',
             resolve: {
                 questions: ['http', function (http) {
                     return http.get('/rest/incorrectAnswers');
@@ -53,6 +57,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             url: "/review/:questionId",
             templateUrl: "question.html",
             controller: 'ReviewQuestionCtrl',
+            pageTitle: 'Review a test',
             resolve: {
                 question: ['$stateParams', 'http', function ($stateParams, http) {
                     return http.get('/rest/tests/' + $stateParams.questionId);
@@ -70,4 +75,11 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
         });
 
     $urlRouterProvider.otherwise("/");
-});
+}]);
+
+app.run(['$rootScope', function ($rootScope) {
+
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {
+        $rootScope.pageTitle = toState.pageTitle + ' | menzit';
+    });
+}]);
