@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'index.html', 'home.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -593,41 +593,67 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "</html>");
 }]);
 
+angular.module("contact.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("contact.html",
+    "<div class=\"contact-view\">\n" +
+    "    Hello contact\n" +
+    "</div>");
+}]);
+
 angular.module("home.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("home.html",
     "<div class=\"home-view\">\n" +
-    "    <div class=\"header\">\n" +
-    "        <img class=\"logo\" src=\"/src/portal/logo.svg\" />\n" +
-    "    </div>\n" +
     "    <div class=\"content\">\n" +
     "        <div class=\"main\">\n" +
     "            <div class=\"title\">\n" +
     "                <h1>Learn never have been so easy...</h1>\n" +
     "            </div>\n" +
     "            <div class=\"media\">\n" +
-    "                <img src=\"/src/portal/home/main.png\" />\n" +
+    "                <img src=\"/src/portal/home/main.svg\" />\n" +
     "            </div>\n" +
     "            <div class=\"action\">\n" +
-    "                <button class=\"important\" ui-sref=\"app.categories\">Play!</button>\n" +
+    "                <button ui-sref=\"app.categories\">Play!</button>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"secondary\">\n" +
-    "            <div class=\"l-1-2\">\n" +
+    "            <div class=\"l-1-2 secondary-column secondary-learn\">\n" +
     "                <h1>Learn</h1>\n" +
+    "                <img class=\"secondary-column-image\" src=\"/src/portal/home/learn.svg\" />\n" +
     "                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut orci a nunc convallis pretium at nec eros.\n" +
     "            </div>\n" +
-    "            <div class=\"l-1-2\">\n" +
+    "            <div class=\"l-1-2 secondary-column secondary-play\">\n" +
     "                <h1>Play!</h1>\n" +
+    "                <img class=\"secondary-column-image\" src=\"/src/portal/home/play.svg\" />\n" +
     "                Ut ac arcu dui. Ut cursus tempus eros in aliquet. Morbi vitae adipiscing mauris. Sed gravida accumsan suscipit.\n" +
     "                http://www.shutterstock.com/g/00nl/sets/143661-characters-color-spots?page=1\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"footer\">Copyright © 2015 menzit. All rights reserved.</div>\n" +
+    "</div>");
+}]);
+
+angular.module("howItWorks.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("howItWorks.html",
+    "<div class=\"how-it-works-view\">\n" +
+    "    Hello how it works\n" +
     "</div>");
 }]);
 
 angular.module("portal.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("portal.html",
-    "<div ui-view></div>");
+    "<div class=\"portal\">\n" +
+    "    <div class=\"header\">\n" +
+    "        <div class=\"header-logo\">\n" +
+    "            <img src=\"/src/portal/logo.svg\" />\n" +
+    "        </div>\n" +
+    "        <div class=\"header-menu\">\n" +
+    "            <a class=\"header-menu-link\" ui-sref=\"portal.home\" ng-class=\"getActiveClass('portal.home')\">Home</a>\n" +
+    "            <a class=\"header-menu-link\" ui-sref=\"portal.howItWorks\" ng-class=\"getActiveClass('portal.howItWorks')\">How it works</a>\n" +
+    "            <a class=\"header-menu-link\" ui-sref=\"portal.contact\" ng-class=\"getActiveClass('portal.contact')\">Contact</a>\n" +
+    "            <a class=\"header-menu-link\" href=\"#\">Sign in</a>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div ui-view></div>\n" +
+    "    <div class=\"footer\">Copyright © 2015 menzit. All rights reserved.</div>\n" +
+    "</div>");
 }]);

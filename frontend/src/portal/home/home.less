@@ -1,16 +1,7 @@
 .home-view {
-  font-size: 150%;
-  @header-height: 70px;
-  font-family: balsamiq;
 
-  .header {
-    .padding;
-    height: @header-height;
-    background-color: @grey-1;
-
-    .logo {
-      height: 100%;
-    }
+  button {
+    background-color: @blue;
   }
 
   .content {
@@ -18,16 +9,15 @@
 
     .main {
       .big-padding;
-      .offsettedHeight(-@header-height);
-      color: white;
-      background-color: @blue;
+      .dark-theme;
 
       @title-height: 90px;
       @action-height: 130px;
       @button-height: 80px;
 
       .title {
-        height: @title-height;
+        color: @blue;
+        margin-bottom: @big-gutter;
 
         h1 {
           font-size: 220%;
@@ -36,11 +26,9 @@
       }
 
       .media {
-        .offsettedHeight(-(@title-height + @action-height));
 
         img {
-          max-width: 100%;
-          max-height: 100%;
+          width: 100%;
         }
       }
 
@@ -64,12 +52,20 @@
       padding: 80px @gutter;
       background-color: white;
     }
-  }
 
-  .footer {
-    .padding;
-    background-color: white;
-    text-align: center;
-    font-size: 80%;
+    .secondary-column:first-child {
+      padding-left:  2 * @big-gutter;
+      padding-right: @big-gutter;
+    }
+
+    .secondary-column:last-child {
+      padding-left: @big-gutter;
+      padding-right:  2 * @big-gutter;
+    }
+
+    .secondary-column-image {
+      width: 100%;
+      margin-bottom: @big-gutter;
+    }
   }
 }

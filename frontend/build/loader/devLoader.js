@@ -41,6 +41,8 @@ getScript(srcPath + '/portal/portal.js');
 getScript(srcPath + '/portal/PortalCtrl.js');
 //Home
 getScript(srcPath + '/portal/home/HomeCtrl.js');
+getScript(srcPath + '/portal/howItWorks/HowItWorksCtrl.js');
+getScript(srcPath + '/portal/contact/ContactCtrl.js');
 //APP
 getScript(srcPath + '/app/app.js');
 getScript(srcPath + '/app/AppCtrl.js');

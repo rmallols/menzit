@@ -1,0 +1,43 @@
+.portal {
+  font-size: 150%;
+  font-family: balsamiq;
+}
+
+.header {
+  @header-height: 100px;
+  padding: 0 2 * @big-gutter;
+  height: @header-height;
+  background-color:white;
+}
+
+.header-logo {
+  height: 100%;
+  padding: 1.5 * @gutter 0;
+  float: left;
+
+  img {
+    height: 100%;
+  }
+}
+
+.header-menu {
+  float: right;
+}
+
+.header-menu-link {
+  display: block;
+  float: left;
+  padding: 2.5 * @gutter @gutter;
+  text-decoration: none;
+}
+
+.header-menu-link.active {
+  color: @blue;
+}
+
+.footer {
+  .padding;
+  background-color: white;
+  text-align: center;
+  font-size: 80%;
+}
