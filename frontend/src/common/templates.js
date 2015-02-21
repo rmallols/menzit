@@ -124,7 +124,7 @@ angular.module("testsAdmin.html", []).run(["$templateCache", function($templateC
     "            <button class=\"important\" ng-click=\"add()\">Add</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div ng-if=\"!tests.length\" class=\"msg-info\">\n" +
+    "    <div ng-if=\"!tests.length\" class=\"msg msg-info\">\n" +
     "        There aren't tests on this category yet.\n" +
     "        Click on the 'Add' button to attach a new test to it.\n" +
     "    </div>\n" +
@@ -523,7 +523,7 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
   $templateCache.put("review.html",
     "<div class=\"review-view\">\n" +
     "    <h1>Questions to review</h1>\n" +
-    "    <div ng-if=\"!questions.length\" class=\"msg-info\">\n" +
+    "    <div ng-if=\"!questions.length\" class=\"msg msg-info\">\n" +
     "        There aren't more questions to review\n" +
     "    </div>\n" +
     "    <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
@@ -596,7 +596,41 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
 angular.module("contact.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("contact.html",
     "<div class=\"contact-view\">\n" +
-    "    Hello contact\n" +
+    "   <div class=\"l-1-3\">\n" +
+    "       <h2>Contact by email</h2>\n" +
+    "       You can contact us on the following email address:\n" +
+    "       <h2><a href=\"mailto:hi@menzit.com\">hi@menzit.com</a></h2>\n" +
+    "   </div>\n" +
+    "    <div class=\"l-1-3\">\n" +
+    "        <h2>Contact form</h2>\n" +
+    "        <form name=\"contact\">\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <input type=\"email\" ng-model=\"contact.email\" placeholder=\"Your email\" required />\n" +
+    "            </div>\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <input type=\"text\" ng-model=\"contact.topic\" placeholder=\"What do you need help with?\" required />\n" +
+    "            </div>\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <textarea ng-model=\"contact.text\" placeholder=\"Additional info\" ></textarea>\n" +
+    "            </div>\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <button ng-click=\"contact.$valid && submitContact()\" class=\"contact-submit\">Submit</button>\n" +
+    "            </div>\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <div class=\"msg msg-success\" ng-show=\"success\">\n" +
+    "                    Thanks for contacting us!<br/>\n" +
+    "                    We'll come back to you ASAP.\n" +
+    "                </div>\n" +
+    "                <div class=\"msg msg-error\" ng-show=\"!error\">\n" +
+    "                    Ooops...sorry, something went wrong :(<br/>\n" +
+    "                    Plase contact us on <a href=\"mailto:hi@menzit.com\">hi@menzit.com</a>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </form>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-1-3\">\n" +
+    "\n" +
+    "    </div>\n" +
     "</div>");
 }]);
 
@@ -625,7 +659,6 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "                <h1>Play!</h1>\n" +
     "                <img class=\"secondary-column-image\" src=\"/src/portal/home/play.svg\" />\n" +
     "                Ut ac arcu dui. Ut cursus tempus eros in aliquet. Morbi vitae adipiscing mauris. Sed gravida accumsan suscipit.\n" +
-    "                http://www.shutterstock.com/g/00nl/sets/143661-characters-color-spots?page=1\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +

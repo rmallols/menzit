@@ -9,6 +9,7 @@ var express = require('express'),
     update = require('./crud/update'),
     remove = require('./crud/delete'),
     session = require('./session'),
+    communication = require('./communication'),
     decorator = require('./crud/decorator/decorator');
 
 
@@ -147,6 +148,12 @@ app.post('/rest/incorrectAnswers/:questionId/addCorrect', function (req, res) {
 
 app.get('/admin', function (req, res) {
     res.redirect('/admin/tenants');
+});
+
+app.post('/rest/contact', function (req, res) {
+    communication.contact(req, function () {
+        res.send({});
+    });
 });
 
 /* CRUD HANDLING */

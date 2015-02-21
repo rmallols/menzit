@@ -8,16 +8,15 @@
     text-align: center;
 
     .main {
-      .big-padding;
-      .dark-theme;
-
+      .portal-padding;
+      .offsettedHeight(-@header-height);
       @title-height: 90px;
       @action-height: 130px;
       @button-height: 80px;
 
       .title {
         color: @blue;
-        margin-bottom: @big-gutter;
+        margin-bottom: @gutter;
 
         h1 {
           font-size: 220%;
@@ -28,7 +27,8 @@
       .media {
 
         img {
-          width: 100%;
+          height: 70%;
+          max-width: 100%;
         }
       }
 
@@ -49,22 +49,22 @@
 
     .secondary {
       .cf;
-      padding: 80px @gutter;
+      .portal-padding;
+      color: @blue;
       background-color: white;
     }
 
     .secondary-column:first-child {
-      padding-left:  2 * @big-gutter;
       padding-right: @big-gutter;
     }
 
     .secondary-column:last-child {
       padding-left: @big-gutter;
-      padding-right:  2 * @big-gutter;
     }
 
     .secondary-column-image {
       width: 100%;
+      height: 20%;
       margin-bottom: @big-gutter;
     }
   }

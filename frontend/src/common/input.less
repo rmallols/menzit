@@ -1,4 +1,4 @@
-input, select, .input {
+input, select, textarea, .input {
   .rectangle-padding;
   .border-radius;
   display: block;
@@ -7,10 +7,25 @@ input, select, .input {
   outline: none;
   border: none;
   width: 100%;
+  font-family: arial;
   background-color: @input-color;
+}
+
+textarea {
+  min-height: 100px;
 }
 
 .input-label {
   text-align: right;
   margin-top: 10px;
+}
+
+::-webkit-input-placeholder { .placeholder; }
+:-moz-placeholder { .placeholder; }
+::-moz-placeholder { .placeholder; }
+:-ms-input-placeholder { .placeholder; }
+
+.placeholder {
+  font-family: arial;
+  color: @grey-2;
 }

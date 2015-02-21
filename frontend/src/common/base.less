@@ -116,11 +116,28 @@ h3:first-child {
 }
 
 //MESSAGING
-.msg-info {
+.msg {
   .padding;
   .border-radius;
+}
+
+.msg-info {
   color: white;
   background-color: @blue;
+}
+
+.msg-success {
+  color: white;
+  background-color: @green;
+}
+
+.msg-error {
+  color: white;
+  background-color: @red;
+
+  a {
+    color: white !important;
+  }
 }
 
 //LIST ITEMS
@@ -174,6 +191,7 @@ h3:first-child {
 //OFFSETTED DIMENSIONS
 .offsettedWidth(@offset: 0px, @width:100%){ width: -webkit-calc(@width+~"+"@offset) !important; }
 .offsettedHeight(@offset: 0px, @height:100%){ height: -moz-calc(@height + ~" + "@offset) !important; height: -o-calc(@height + ~" + "@offset) !important; height: calc(@height + ~" + "@offset) !important; height: -webkit-calc(@height + ~" + "@offset) !important; }
+.offsettedMinHeight(@offset: 0px, @height:100%){ min-height: -moz-calc(@height + ~" + "@offset) !important; min-height: -o-calc(@height + ~" + "@offset) !important; min-height: calc(@height + ~" + "@offset) !important; min-height: -webkit-calc(@height + ~" + "@offset) !important; }
 .offsettedMaxHeight(@offset: 0px, @height:100%){ max-height: -moz-calc(@height + ~" + "@offset) !important; max-height: -o-calc(@height + ~" + "@offset) !important; max-height: calc(@height + ~" + "@offset) !important; max-height: -webkit-calc(@height + ~" + "@offset) !important; }
 .offsettedTop(@offset: 0px, @top:100%){ top: -moz-calc(@top + ~" + "@offset) !important; top: -o-calc(@top + ~" + "@offset) !important; top: calc(@top + ~" + "@offset) !important;top: -webkit-calc(@top + ~" + "@offset) !important; }
 .offsettedLeft(@offset: 0px, @left:100%){ left: -moz-calc(@left + ~" + "@offset) !important; left: -o-calc(@left + ~" + "@offset) !important; left: calc(@left + ~" + "@offset) !important; left: -webkit-calc(@left + ~" + "@offset) !important; }
