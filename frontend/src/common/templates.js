@@ -597,41 +597,43 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
 angular.module("contact.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("contact.html",
     "<div class=\"contact-view\">\n" +
-    "   <div class=\"l-1-3\">\n" +
-    "       <h2>Contact by email</h2>\n" +
-    "       You can contact us on the following email address:\n" +
-    "       <h2><a href=\"mailto:hi@menzit.com\">hi@menzit.com</a></h2>\n" +
-    "   </div>\n" +
-    "    <div class=\"l-1-3\">\n" +
-    "        <h2>Contact form</h2>\n" +
-    "        <form name=\"contactForm\">\n" +
-    "            <div class=\"l-row\">\n" +
-    "                <input type=\"email\" ng-model=\"contactData.email\" placeholder=\"Your email\" required />\n" +
-    "            </div>\n" +
-    "            <div class=\"l-row\">\n" +
-    "                <input type=\"text\" ng-model=\"contactData.subject\" placeholder=\"What do you need help with?\" required />\n" +
-    "            </div>\n" +
-    "            <div class=\"l-row\">\n" +
-    "                <textarea ng-model=\"contactData.text\" placeholder=\"Additional info\" ></textarea>\n" +
-    "            </div>\n" +
-    "            <div class=\"l-row\">\n" +
-    "                <button ng-click=\"contactForm.$valid && submitContact()\" class=\"contact-submit\">Submit</button>\n" +
-    "            </div>\n" +
-    "            <div class=\"l-row\">\n" +
-    "                <div class=\"msg msg-success\" ng-show=\"success\">\n" +
-    "                    Thanks for contacting us!<br/>\n" +
-    "                    We'll come back to you ASAP.\n" +
+    "    <div class=\"l-row\">\n" +
+    "       <div class=\"l-1-2\">\n" +
+    "           <h2>Contact by email</h2>\n" +
+    "           You can contact us on the following email address:\n" +
+    "           <h2><a href=\"mailto:hi@menzit.com\">hi@menzit.com</a></h2>\n" +
+    "       </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>Contact form</h2>\n" +
+    "            <form name=\"contactForm\">\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <input type=\"email\" ng-model=\"contactData.email\" placeholder=\"Your email\" required />\n" +
     "                </div>\n" +
-    "                <div class=\"msg msg-error\" ng-show=\"error\">\n" +
-    "                    Ooops...sorry, something went wrong :(<br/>\n" +
-    "                    Plase contact us on <a href=\"mailto:hi@menzit.com\">hi@menzit.com</a>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <input type=\"text\" ng-model=\"contactData.subject\" placeholder=\"What do you need help with?\" required />\n" +
     "                </div>\n" +
-    "            </div>\n" +
-    "        </form>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <textarea ng-model=\"contactData.text\" placeholder=\"Additional info\" ></textarea>\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <button ng-click=\"contactForm.$valid && submitContact()\" class=\"contact-submit\">Submit</button>\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <div class=\"msg msg-success\" ng-show=\"success\">\n" +
+    "                        Thanks for contacting us!<br/>\n" +
+    "                        We'll come back to you ASAP.\n" +
+    "                    </div>\n" +
+    "                    <div class=\"msg msg-error\" ng-show=\"error\">\n" +
+    "                        Ooops...sorry, something went wrong :(<br/>\n" +
+    "                        Plase contact us on <a href=\"mailto:hi@menzit.com\">hi@menzit.com</a>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </form>\n" +
+    "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"l-1-3\">\n" +
-    "\n" +
-    "    </div>\n" +
+    "    <!--<div class=\"l-row\">-->\n" +
+    "        <!--<img class=\"contact-image\" src=\"/src/portal/contact/contact.svg\" />-->\n" +
+    "    <!--</div>-->\n" +
     "</div>");
 }]);
 
@@ -689,7 +691,7 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "            <a class=\"header-menu-link\" href=\"#\">Sign in</a>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div ui-view></div>\n" +
+    "    <div ui-view ng-class=\"getPageStyleClass()\"></div>\n" +
     "    <div class=\"footer\">Copyright © 2015 menzit. All rights reserved.</div>\n" +
     "</div>");
 }]);

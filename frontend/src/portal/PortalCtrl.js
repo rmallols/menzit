@@ -7,4 +7,10 @@ menzit.controller('PortalCtrl', ['$scope', '$state', function ($scope, $state) {
             active: $state.current.name === targetState
         };
     };
+
+    $scope.getPageStyleClass = function () {
+        var pageStyleClass = {};
+        pageStyleClass[$state.current.name.replace(/\./, '-')] = true;
+        return pageStyleClass;
+    };
 }]);
