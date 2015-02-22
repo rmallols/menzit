@@ -583,6 +583,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "    <head>\n" +
     "        <title ng-bind=\"pageTitle\"></title>\n" +
     "        <meta name=\"viewport\" content=\"width=device-width\" />\n" +
+    "        <link rel=\"icon\" type=\"image/png\" href=\"/src/common/favicon.png\">\n" +
     "        <script src=\"/src/loader.js\" type=\"text/javascript\"></script>\n" +
     "    </head>\n" +
     "\n" +
@@ -603,25 +604,25 @@ angular.module("contact.html", []).run(["$templateCache", function($templateCach
     "   </div>\n" +
     "    <div class=\"l-1-3\">\n" +
     "        <h2>Contact form</h2>\n" +
-    "        <form name=\"contact\">\n" +
+    "        <form name=\"contactForm\">\n" +
     "            <div class=\"l-row\">\n" +
-    "                <input type=\"email\" ng-model=\"contact.email\" placeholder=\"Your email\" required />\n" +
+    "                <input type=\"email\" ng-model=\"contactData.email\" placeholder=\"Your email\" required />\n" +
     "            </div>\n" +
     "            <div class=\"l-row\">\n" +
-    "                <input type=\"text\" ng-model=\"contact.topic\" placeholder=\"What do you need help with?\" required />\n" +
+    "                <input type=\"text\" ng-model=\"contactData.subject\" placeholder=\"What do you need help with?\" required />\n" +
     "            </div>\n" +
     "            <div class=\"l-row\">\n" +
-    "                <textarea ng-model=\"contact.text\" placeholder=\"Additional info\" ></textarea>\n" +
+    "                <textarea ng-model=\"contactData.text\" placeholder=\"Additional info\" ></textarea>\n" +
     "            </div>\n" +
     "            <div class=\"l-row\">\n" +
-    "                <button ng-click=\"contact.$valid && submitContact()\" class=\"contact-submit\">Submit</button>\n" +
+    "                <button ng-click=\"contactForm.$valid && submitContact()\" class=\"contact-submit\">Submit</button>\n" +
     "            </div>\n" +
     "            <div class=\"l-row\">\n" +
     "                <div class=\"msg msg-success\" ng-show=\"success\">\n" +
     "                    Thanks for contacting us!<br/>\n" +
     "                    We'll come back to you ASAP.\n" +
     "                </div>\n" +
-    "                <div class=\"msg msg-error\" ng-show=\"!error\">\n" +
+    "                <div class=\"msg msg-error\" ng-show=\"error\">\n" +
     "                    Ooops...sorry, something went wrong :(<br/>\n" +
     "                    Plase contact us on <a href=\"mailto:hi@menzit.com\">hi@menzit.com</a>\n" +
     "                </div>\n" +
@@ -677,7 +678,9 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "<div class=\"portal\">\n" +
     "    <div class=\"header\">\n" +
     "        <div class=\"header-logo\">\n" +
-    "            <img src=\"/src/portal/logo.svg\" />\n" +
+    "            <a ui-sref=\"portal.home\">\n" +
+    "                <img src=\"/src/portal/logo.svg\" />\n" +
+    "            </a>\n" +
     "        </div>\n" +
     "        <div class=\"header-menu\">\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.home\" ng-class=\"getActiveClass('portal.home')\">Home</a>\n" +

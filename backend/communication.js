@@ -1,22 +1,40 @@
 'use strict';
 
-var email = require('email'),
-    server  = email.server.connect({
-      user:    "username",
-      password:"password",
-      host:    "smtp.your-email.com",
-      ssl:     true
-});
+var email = require('emailjs'),
+    read = require('./crud/read');
 
-function contact(req) {
-    server.send({
-      text:    "i hope this works",
-      from:    "you <username@your-email.com>",
-      to:      "someone <someone@your-email.com>, another <another@your-email.com>",
-      cc:      "else <else@your-email.com>",
-      subject: "testing emailjs"
-    }, function(err, message) {
-      console.log(err || message);
+function getServer(user, password, host) {
+    return email.server.connect({
+        user:       user,
+        password:   password,
+        host:       host,
+        ssl:        true
+    });
+}
+
+function sendEmail(emailSetup, server, callback) {
+    server.send(emailSetup, function(err, message) {
+        callback(err, message);
+    });
+}
+
+function getContactSetup(from, to, subject, text) {
+    return {
+        text:       text,
+        from:       from,
+        to:         to.title + ' <' + to.email + '>',
+        subject:    subject
+    };
+}
+
+function contact(req, callback) {
+    read.findOne(null, 'settings', function (response) {
+        var fromSetup = response.email.from,
+            toSetup = response.email.to,
+            server  = getServer(fromSetup.user, fromSetup.password, fromSetup.host),
+            contact = req.body,
+            contactSetup = getContactSetup(contact.email, toSetup, contact.subject, contact.text);
+        sendEmail(contactSetup, server, callback);
     });
 }
 

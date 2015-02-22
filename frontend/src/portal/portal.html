@@ -1,7 +1,9 @@
 <div class="portal">
     <div class="header">
         <div class="header-logo">
-            <img src="/src/portal/logo.svg" />
+            <a ui-sref="portal.home">
+                <img src="/src/portal/logo.svg" />
+            </a>
         </div>
         <div class="header-menu">
             <a class="header-menu-link" ui-sref="portal.home" ng-class="getActiveClass('portal.home')">Home</a>

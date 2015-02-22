@@ -6,25 +6,25 @@
    </div>
     <div class="l-1-3">
         <h2>Contact form</h2>
-        <form name="contact">
+        <form name="contactForm">
             <div class="l-row">
-                <input type="email" ng-model="contact.email" placeholder="Your email" required />
+                <input type="email" ng-model="contactData.email" placeholder="Your email" required />
             </div>
             <div class="l-row">
-                <input type="text" ng-model="contact.topic" placeholder="What do you need help with?" required />
+                <input type="text" ng-model="contactData.subject" placeholder="What do you need help with?" required />
             </div>
             <div class="l-row">
-                <textarea ng-model="contact.text" placeholder="Additional info" ></textarea>
+                <textarea ng-model="contactData.text" placeholder="Additional info" ></textarea>
             </div>
             <div class="l-row">
-                <button ng-click="contact.$valid && submitContact()" class="contact-submit">Submit</button>
+                <button ng-click="contactForm.$valid && submitContact()" class="contact-submit">Submit</button>
             </div>
             <div class="l-row">
                 <div class="msg msg-success" ng-show="success">
                     Thanks for contacting us!<br/>
                     We'll come back to you ASAP.
                 </div>
-                <div class="msg msg-error" ng-show="!error">
+                <div class="msg msg-error" ng-show="error">
                     Ooops...sorry, something went wrong :(<br/>
                     Plase contact us on <a href="mailto:hi@menzit.com">hi@menzit.com</a>
                 </div>

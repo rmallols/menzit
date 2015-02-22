@@ -19,6 +19,14 @@ app.use(express.session({ secret: "ch0pSuey" }));
 app.use(express.static(__dirname + '/../frontend'));
 app.use(app.router);
 
+function responseWithErrorControl(res, err, data) {
+    if(err) {
+        res.send(500, err);
+    } else {
+        res.send(data);
+    }
+}
+
 var acceptedRoutes = [
         '/', '/home', '/how-it-works', '/contact',
         '/test', '/categories', '/categories/:categoryId/test'],
@@ -151,8 +159,8 @@ app.get('/admin', function (req, res) {
 });
 
 app.post('/rest/contact', function (req, res) {
-    communication.contact(req, function () {
-        res.send({});
+    communication.contact(req, function (err, data) {
+        responseWithErrorControl(res, err, data);
     });
 });
 
