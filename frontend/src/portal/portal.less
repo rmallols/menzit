@@ -3,11 +3,13 @@
 
 .portal-padding {
   padding: @big-gutter 2 * @big-gutter;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .portal {
+  .darken-theme;
   font-size: 150%;
-  font-family: balsamiq;
 
   a {
     color: @blue;
@@ -20,16 +22,16 @@
 
   [ui-view] {
     .offsettedMinHeight(-@header-height - @footer-height);
-    background-color: @light-blue;
+    .dark-theme;
   }
 }
 
 .header {
   .portal-padding;
+  .darken-theme;
   padding-top: 0;
   padding-bottom: 0;
   height: @header-height;
-  background-color:white;
 }
 
 .header-logo {
@@ -58,13 +60,13 @@
 }
 
 .header-menu-link:not(.active) {
-  color: @font-color;
+  color: white;
 }
 
 .footer {
+  .darken-theme;
   .padding;
   height: @footer-height;
-  background-color: white;
   text-align: center;
   font-size: 80%;
 }

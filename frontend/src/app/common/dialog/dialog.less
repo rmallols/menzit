@@ -1,59 +1,56 @@
-.dialog {
+.dialog-box {
+  .border-radius;
+  .dark-theme;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  width: 350px;
+  border: 3px solid @darken;
+  -webkit-animation: show-dialog .3s;
+  animation: show-dialog .3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 
-  .box {
-    .border-radius;
-    .dark-theme;
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    width: 350px;
-    border: 3px solid @darken;
+  @-webkit-keyframes show-dialog { .show-dialog; }
+  @keyframes show-dialog { .show-dialog; }
 
-    .header {
-      .darken-theme;
-      .cf;
-      padding: @gutter @big-gutter;
 
-      .title {
-        .float-left;
-        margin: 6px 0 0 0;
-      }
+  .show-dialog {
+    from {top: 0%;}
+    to {top: 50%;}
+  }
+}
 
-      button {
-        .float-right;
-      }
+.dialog-box-header {
+  .darken-theme;
+  .cf;
+  padding: @gutter @big-gutter;
+
+  .dialog-box-title {
+    .float-left;
+    margin: 6px 0 0 0;
+  }
+
+  button {
+    .float-right;
+  }
+}
+
+.dialog-box-content {
+  .cf;
+  .big-padding;
+
+  input,
+  button {
+    .margin-bottom;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
     }
+  }
 
-    .content {
-      .cf;
-      .big-padding;
-
-      input,
-      button {
-        .margin-bottom;
-        width: 100%;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      button {
-        text-align: center;
-      }
-    }
-
-    -webkit-animation: show-dialog .3s;
-    animation: show-dialog .3s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-
-    @-webkit-keyframes show-dialog { .show-dialog; }
-    @keyframes show-dialog { .show-dialog; }
-
-    .show-dialog {
-      from {top: 0%;}
-      to {top: 50%;}
-    }
+  button {
+    text-align: center;
   }
 }

@@ -64,13 +64,13 @@ app.get(acceptedLoggedRoutes, function (req, res) {
 });
 
 app.post('/rest/login', function (req, res) {
-    session.login(req.body.userName, req.body.password, req, function (user) {
+    session.login(req.body.userName, req.body.password, req.body.remember, req, res, function (user) {
         res.send(user);
     });
 });
 
 app.post('/rest/logout', function (req, res) {
-    session.logout(req, function () {
+    session.logout(req, res, function () {
         res.send({});
     });
 });

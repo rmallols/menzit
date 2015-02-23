@@ -5,15 +5,19 @@ var bcrypt = require('bcrypt-nodejs'),
 
 module.exports = {
 
-    login: function (userName, password, request, callback) {
+    login: function (userName, password, remember, request, response, callback) {
         var dbUser, filter = { query: { $and: [
             { userName: userName }
         ]}};
         read.find('users', filter, function (users) {
+            var hour = 60 * 60 * 1000;
             dbUser = users[0];
             if (dbUser && bcrypt.compareSync(password, dbUser.password)) {
                 delete dbUser.password;
                 request.session.user = dbUser;
+                if (remember) {
+                    response.cookie('remember', 1, { maxAge: hour });
+                }
                 if(request.session.user.tenantId) {
                     read.findOne(dbUser.tenantId, 'tenants', function (tenant) {
                         delete request.session.user.tenantId;
@@ -55,9 +59,11 @@ module.exports = {
         return this.isSuperAdminUser(request) || this.isAdminUser(request);
     },
 
-    logout: function (request, callback) {
+    logout: function (request, response, callback) {
         if (request.session) {
             request.session.destroy();
+            response.clearCookie('connect.sid');
+            response.clearCookie('remember');
         }
         callback();
     }

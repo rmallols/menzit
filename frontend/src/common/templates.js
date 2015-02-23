@@ -375,12 +375,12 @@ angular.module("dialog.html", []).run(["$templateCache", function($templateCache
   $templateCache.put("dialog.html",
     "<div class=\"dialog\" ng-if=\"mzIf\">\n" +
     "    <div class=\"overlay\" ng-click=\"hideDialog()\"></div>\n" +
-    "    <div class=\"box\" centered ng-style=\"centerBox()\">\n" +
-    "        <div class=\"header\">\n" +
-    "            <h2 class=\"title\">{{title}}</h2>\n" +
+    "    <div class=\"dialog-box\" centered ng-style=\"centerBox()\">\n" +
+    "        <div class=\"dialog-box-header\">\n" +
+    "            <h2 class=\"dialog-box-title\">{{title}}</h2>\n" +
     "            <button ng-click=\"hideDialog()\"><icon class=\"close-icon\"></icon></button>\n" +
     "        </div>\n" +
-    "        <div ng-transclude class=\"content\"></div>\n" +
+    "        <div ng-transclude class=\"dialog-box-content\"></div>\n" +
     "    </div>\n" +
     "</div>");
 }]);
@@ -437,7 +437,7 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
   $templateCache.put("menu.html",
     "<div class=\"menu-view\">\n" +
     "    <div class=\"menu-tenant\">\n" +
-    "        <img class=\"menu-tenant-logo\" ng-if=\"session\" ng-src=\"{{session.tenant.image}}\" />\n" +
+    "        <img class=\"menu-tenant-logo\" ng-src=\"{{getTenantLogo()}}\" />\n" +
     "    </div>\n" +
     "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
     "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
@@ -451,6 +451,8 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
     "                   placeholder=\"Username\" autofocus/>\n" +
     "            <input class=\"password\" ng-model=\"credentials.password\" type=\"password\"\n" +
     "                   placeholder=\"Password\"/>\n" +
+    "            Remember?\n" +
+    "            <input class=\"remember\" ng-model=\"credentials.remember\" type=\"checkbox\" />\n" +
     "            <button class=\"important\">Login</button>\n" +
     "        </form>\n" +
     "    </div>\n" +
@@ -650,15 +652,17 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"secondary\">\n" +
-    "            <div class=\"l-1-2 secondary-column secondary-learn\">\n" +
-    "                <h1>Learn</h1>\n" +
-    "                <img class=\"secondary-column-image\" src=\"/src/portal/home/learn.svg\" />\n" +
-    "                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut orci a nunc convallis pretium at nec eros.\n" +
-    "            </div>\n" +
-    "            <div class=\"l-1-2 secondary-column secondary-play\">\n" +
-    "                <h1>Play!</h1>\n" +
-    "                <img class=\"secondary-column-image\" src=\"/src/portal/home/play.svg\" />\n" +
-    "                Ut ac arcu dui. Ut cursus tempus eros in aliquet. Morbi vitae adipiscing mauris. Sed gravida accumsan suscipit.\n" +
+    "            <div class=\"secondary-content cf\">\n" +
+    "                <div class=\"l-1-2 secondary-column secondary-learn\">\n" +
+    "                    <h1>Learn</h1>\n" +
+    "                    <img class=\"secondary-column-image\" src=\"/src/portal/home/learn.svg\" />\n" +
+    "                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut orci a nunc convallis pretium at nec eros.\n" +
+    "                </div>\n" +
+    "                <div class=\"l-1-2 secondary-column secondary-play\">\n" +
+    "                    <h1>Play!</h1>\n" +
+    "                    <img class=\"secondary-column-image\" src=\"/src/portal/home/play.svg\" />\n" +
+    "                    Ut ac arcu dui. Ut cursus tempus eros in aliquet. Morbi vitae adipiscing mauris. Sed gravida accumsan suscipit.\n" +
+    "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -670,9 +674,9 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
     "<div class=\"how-it-works-view\">\n" +
     "    <div class=\"l-row how-it-works-concept\">\n" +
     "        <div class=\"l-1-2\">\n" +
-    "            <h2>1. Select a category<br/><br/>\n" +
+    "            <h2>1. Select a category</h2>\n" +
     "            Choose a topic of your motivation.<br/><br/>\n" +
-    "            We have lots of different subjects to allow you to concentrate on your interests.</h2>\n" +
+    "            We have lots of different subjects to allow you to concentrate on your interests.\n" +
     "        </div>\n" +
     "        <div class=\"l-1-2\">\n" +
     "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/category.svg\" />\n" +
@@ -683,9 +687,9 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
     "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/play.svg\" />\n" +
     "        </div>\n" +
     "        <div class=\"l-1-2\">\n" +
-    "            <h2>2. Learn while playing\n" +
+    "            <h2>2. Learn while playing</h2>\n" +
     "            Improve your skills in a funny way<br/><br/>\n" +
-    "            Answer questions related to the topic you selected.</h2>\n" +
+    "            Answer questions related to the topic you selected.\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"l-row how-it-works-concept\">\n" +
@@ -711,6 +715,7 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "        </div>\n" +
     "        <div class=\"header-menu\">\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.home\" ng-class=\"getActiveClass('portal.home')\">Home</a>\n" +
+    "            <a class=\"header-menu-link\" ui-sref=\"app.categories\" target=\"_blank\">Play!</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.howItWorks\" ng-class=\"getActiveClass('portal.howItWorks')\">How it works</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.contact\" ng-class=\"getActiveClass('portal.contact')\">Contact</a>\n" +
     "            <a class=\"header-menu-link\" href=\"#\">Sign in</a>\n" +

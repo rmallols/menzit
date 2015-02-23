@@ -1,10 +1,10 @@
 <div class="dialog" ng-if="mzIf">
     <div class="overlay" ng-click="hideDialog()"></div>
-    <div class="box" centered ng-style="centerBox()">
-        <div class="header">
-            <h2 class="title">{{title}}</h2>
+    <div class="dialog-box" centered ng-style="centerBox()">
+        <div class="dialog-box-header">
+            <h2 class="dialog-box-title">{{title}}</h2>
             <button ng-click="hideDialog()"><icon class="close-icon"></icon></button>
         </div>
-        <div ng-transclude class="content"></div>
+        <div ng-transclude class="dialog-box-content"></div>
     </div>
 </div>
