@@ -631,9 +631,6 @@ angular.module("contact.html", []).run(["$templateCache", function($templateCach
     "            </form>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <!--<div class=\"l-row\">-->\n" +
-    "        <!--<img class=\"contact-image\" src=\"/src/portal/contact/contact.svg\" />-->\n" +
-    "    <!--</div>-->\n" +
     "</div>");
 }]);
 
@@ -671,7 +668,35 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
 angular.module("howItWorks.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("howItWorks.html",
     "<div class=\"how-it-works-view\">\n" +
-    "    Hello how it works\n" +
+    "    <div class=\"l-row how-it-works-concept\">\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>1. Select a category<br/><br/>\n" +
+    "            Choose a topic of your motivation.<br/><br/>\n" +
+    "            We have lots of different subjects to allow you to concentrate on your interests.</h2>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/category.svg\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-row how-it-works-concept\">\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/play.svg\" />\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>2. Learn while playing\n" +
+    "            Improve your skills in a funny way<br/><br/>\n" +
+    "            Answer questions related to the topic you selected.</h2>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-row how-it-works-concept\">\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>3. Compare with friends and improve</h2>\n" +
+    "            Check your score\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/improve.svg\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
     "</div>");
 }]);
 
