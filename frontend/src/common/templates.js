@@ -124,7 +124,7 @@ angular.module("testsAdmin.html", []).run(["$templateCache", function($templateC
     "            <button class=\"important\" ng-click=\"add()\">Add</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div ng-if=\"!tests.length\" class=\"msg-info\">\n" +
+    "    <div ng-if=\"!tests.length\" class=\"msg msg-info\">\n" +
     "        There aren't tests on this category yet.\n" +
     "        Click on the 'Add' button to attach a new test to it.\n" +
     "    </div>\n" +
@@ -375,12 +375,12 @@ angular.module("dialog.html", []).run(["$templateCache", function($templateCache
   $templateCache.put("dialog.html",
     "<div class=\"dialog\" ng-if=\"mzIf\">\n" +
     "    <div class=\"overlay\" ng-click=\"hideDialog()\"></div>\n" +
-    "    <div class=\"box\" centered ng-style=\"centerBox()\">\n" +
-    "        <div class=\"header\">\n" +
-    "            <h2 class=\"title\">{{title}}</h2>\n" +
+    "    <div class=\"dialog-box\" centered ng-style=\"centerBox()\">\n" +
+    "        <div class=\"dialog-box-header\">\n" +
+    "            <h2 class=\"dialog-box-title\">{{title}}</h2>\n" +
     "            <button ng-click=\"hideDialog()\"><icon class=\"close-icon\"></icon></button>\n" +
     "        </div>\n" +
-    "        <div ng-transclude class=\"content\"></div>\n" +
+    "        <div ng-transclude class=\"dialog-box-content\"></div>\n" +
     "    </div>\n" +
     "</div>");
 }]);
@@ -437,7 +437,7 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
   $templateCache.put("menu.html",
     "<div class=\"menu-view\">\n" +
     "    <div class=\"menu-tenant\">\n" +
-    "        <img class=\"menu-tenant-logo\" ng-if=\"session\" ng-src=\"{{session.tenant.image}}\" />\n" +
+    "        <img class=\"menu-tenant-logo\" ng-src=\"{{getTenantLogo()}}\" />\n" +
     "    </div>\n" +
     "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
     "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
@@ -451,6 +451,8 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
     "                   placeholder=\"Username\" autofocus/>\n" +
     "            <input class=\"password\" ng-model=\"credentials.password\" type=\"password\"\n" +
     "                   placeholder=\"Password\"/>\n" +
+    "            Remember?\n" +
+    "            <input class=\"remember\" ng-model=\"credentials.remember\" type=\"checkbox\" />\n" +
     "            <button class=\"important\">Login</button>\n" +
     "        </form>\n" +
     "    </div>\n" +
@@ -523,7 +525,7 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
   $templateCache.put("review.html",
     "<div class=\"review-view\">\n" +
     "    <h1>Questions to review</h1>\n" +
-    "    <div ng-if=\"!questions.length\" class=\"msg-info\">\n" +
+    "    <div ng-if=\"!questions.length\" class=\"msg msg-info\">\n" +
     "        There aren't more questions to review\n" +
     "    </div>\n" +
     "    <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
@@ -583,6 +585,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "    <head>\n" +
     "        <title ng-bind=\"pageTitle\"></title>\n" +
     "        <meta name=\"viewport\" content=\"width=device-width\" />\n" +
+    "        <link rel=\"icon\" type=\"image/png\" href=\"/src/common/favicon.png\">\n" +
     "        <script src=\"/src/loader.js\" type=\"text/javascript\"></script>\n" +
     "    </head>\n" +
     "\n" +
@@ -596,7 +599,40 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
 angular.module("contact.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("contact.html",
     "<div class=\"contact-view\">\n" +
-    "    Hello contact\n" +
+    "    <div class=\"l-row\">\n" +
+    "       <div class=\"l-1-2\">\n" +
+    "           <h2>Contact by email</h2>\n" +
+    "           You can contact us on the following email address:\n" +
+    "           <h2><a href=\"mailto:hi@menzit.com\">hi@menzit.com</a></h2>\n" +
+    "       </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>Contact form</h2>\n" +
+    "            <form name=\"contactForm\">\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <input type=\"email\" ng-model=\"contactData.email\" placeholder=\"Your email\" required />\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <input type=\"text\" ng-model=\"contactData.subject\" placeholder=\"What do you need help with?\" required />\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <textarea ng-model=\"contactData.text\" placeholder=\"Additional info\" ></textarea>\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <button ng-click=\"contactForm.$valid && submitContact()\" class=\"contact-submit\">Submit</button>\n" +
+    "                </div>\n" +
+    "                <div class=\"l-row\">\n" +
+    "                    <div class=\"msg msg-success\" ng-show=\"success\">\n" +
+    "                        Thanks for contacting us!<br/>\n" +
+    "                        We'll come back to you ASAP.\n" +
+    "                    </div>\n" +
+    "                    <div class=\"msg msg-error\" ng-show=\"error\">\n" +
+    "                        Ooops...sorry, something went wrong :(<br/>\n" +
+    "                        Plase contact us on <a href=\"mailto:hi@menzit.com\">hi@menzit.com</a>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </form>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
     "</div>");
 }]);
 
@@ -616,16 +652,17 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"secondary\">\n" +
-    "            <div class=\"l-1-2 secondary-column secondary-learn\">\n" +
-    "                <h1>Learn</h1>\n" +
-    "                <img class=\"secondary-column-image\" src=\"/src/portal/home/learn.svg\" />\n" +
-    "                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut orci a nunc convallis pretium at nec eros.\n" +
-    "            </div>\n" +
-    "            <div class=\"l-1-2 secondary-column secondary-play\">\n" +
-    "                <h1>Play!</h1>\n" +
-    "                <img class=\"secondary-column-image\" src=\"/src/portal/home/play.svg\" />\n" +
-    "                Ut ac arcu dui. Ut cursus tempus eros in aliquet. Morbi vitae adipiscing mauris. Sed gravida accumsan suscipit.\n" +
-    "                http://www.shutterstock.com/g/00nl/sets/143661-characters-color-spots?page=1\n" +
+    "            <div class=\"secondary-content cf\">\n" +
+    "                <div class=\"l-1-2 secondary-column secondary-learn\">\n" +
+    "                    <h1>Learn</h1>\n" +
+    "                    <img class=\"secondary-column-image\" src=\"/src/portal/home/learn.svg\" />\n" +
+    "                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut orci a nunc convallis pretium at nec eros.\n" +
+    "                </div>\n" +
+    "                <div class=\"l-1-2 secondary-column secondary-play\">\n" +
+    "                    <h1>Play!</h1>\n" +
+    "                    <img class=\"secondary-column-image\" src=\"/src/portal/home/play.svg\" />\n" +
+    "                    Ut ac arcu dui. Ut cursus tempus eros in aliquet. Morbi vitae adipiscing mauris. Sed gravida accumsan suscipit.\n" +
+    "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -635,7 +672,35 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
 angular.module("howItWorks.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("howItWorks.html",
     "<div class=\"how-it-works-view\">\n" +
-    "    Hello how it works\n" +
+    "    <div class=\"l-row how-it-works-concept\">\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>1. Select a category</h2>\n" +
+    "            Choose a topic of your motivation.<br/><br/>\n" +
+    "            We have lots of different subjects to allow you to concentrate on your interests.\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/category.svg\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-row how-it-works-concept\">\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/play.svg\" />\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>2. Learn while playing</h2>\n" +
+    "            Improve your skills in a funny way<br/><br/>\n" +
+    "            Answer questions related to the topic you selected.\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-row how-it-works-concept\">\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <h2>3. Compare with friends and improve</h2>\n" +
+    "            Check your score\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-2\">\n" +
+    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/improve.svg\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
     "</div>");
 }]);
 
@@ -644,16 +709,19 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "<div class=\"portal\">\n" +
     "    <div class=\"header\">\n" +
     "        <div class=\"header-logo\">\n" +
-    "            <img src=\"/src/portal/logo.svg\" />\n" +
+    "            <a ui-sref=\"portal.home\">\n" +
+    "                <img src=\"/src/portal/logo.svg\" />\n" +
+    "            </a>\n" +
     "        </div>\n" +
     "        <div class=\"header-menu\">\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.home\" ng-class=\"getActiveClass('portal.home')\">Home</a>\n" +
+    "            <a class=\"header-menu-link\" ui-sref=\"app.categories\" target=\"_blank\">Play!</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.howItWorks\" ng-class=\"getActiveClass('portal.howItWorks')\">How it works</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.contact\" ng-class=\"getActiveClass('portal.contact')\">Contact</a>\n" +
     "            <a class=\"header-menu-link\" href=\"#\">Sign in</a>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div ui-view></div>\n" +
+    "    <div ui-view ng-class=\"getPageStyleClass()\"></div>\n" +
     "    <div class=\"footer\">Copyright © 2015 menzit. All rights reserved.</div>\n" +
     "</div>");
 }]);

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    app.directive('menu', ['$rootScope', '$state', 'session', 'pubSub',
-        function ($rootScope, $state, session, pubSub) {
+    app.directive('menu', ['$rootScope', '$state', 'session', 'pubSub', 'constants',
+        function ($rootScope, $state, session, pubSub, constants) {
             return  {
                 replace: true,
                 restrict: 'A',
@@ -26,15 +26,16 @@
                     };
 
                     scope.login = function () {
-                        var userName = scope.credentials.userName;
-                        var password = scope.credentials.password;
-                        session.login(userName, password).then(function (session) {
+                        var userName = scope.credentials.userName,
+                            password = scope.credentials.password,
+                            remember = scope.credentials.remember;
+                        session.login(userName, password, remember).then(function (session) {
                             if (session) {
                                 $rootScope.$emit('authenticatedUser', session);
                                 scope.session = session;
                                 scope.showLogin = false;
                             } else {
-                                window.alert('LOGIN INCORRECTO');
+                                window.alert('Incorrect login');
                             }
                         });
                     };
@@ -46,6 +47,10 @@
 
                     scope.toggleActiveMenuPanel = function () {
                         scope.isPanelActive = (scope.isPanelActive !== true);
+                    };
+
+                    scope.getTenantLogo = function () {
+                        return (scope.session && session.tenant.image) || constants.logoPath;
                     };
 
                     pubSub.subscribe('logout', function () {

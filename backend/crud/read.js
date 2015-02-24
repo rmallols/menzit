@@ -20,7 +20,7 @@ module.exports = {
     },
 
     findOne: function (documentId, collectionId, callback) {
-        var query = { query: { _id: db.getNormalizedId(documentId) }},
+        var query = (documentId) ? { query: { _id: db.getNormalizedId(documentId) }} : {},
             options = this._getNormalizeFindOptions(query);
         db.connect(function (err, dbCon) {
             dbCon.collection(collectionId)

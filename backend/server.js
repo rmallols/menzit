@@ -9,6 +9,7 @@ var express = require('express'),
     update = require('./crud/update'),
     remove = require('./crud/delete'),
     session = require('./session'),
+    communication = require('./communication'),
     decorator = require('./crud/decorator/decorator');
 
 
@@ -17,6 +18,14 @@ app.use(express.cookieParser());
 app.use(express.session({ secret: "ch0pSuey" }));
 app.use(express.static(__dirname + '/../frontend'));
 app.use(app.router);
+
+function responseWithErrorControl(res, err, data) {
+    if(err) {
+        res.send(500, err);
+    } else {
+        res.send(data);
+    }
+}
 
 var acceptedRoutes = [
         '/', '/home', '/how-it-works', '/contact',
@@ -55,13 +64,13 @@ app.get(acceptedLoggedRoutes, function (req, res) {
 });
 
 app.post('/rest/login', function (req, res) {
-    session.login(req.body.userName, req.body.password, req, function (user) {
+    session.login(req.body.userName, req.body.password, req.body.remember, req, res, function (user) {
         res.send(user);
     });
 });
 
 app.post('/rest/logout', function (req, res) {
-    session.logout(req, function () {
+    session.logout(req, res, function () {
         res.send({});
     });
 });
@@ -147,6 +156,12 @@ app.post('/rest/incorrectAnswers/:questionId/addCorrect', function (req, res) {
 
 app.get('/admin', function (req, res) {
     res.redirect('/admin/tenants');
+});
+
+app.post('/rest/contact', function (req, res) {
+    communication.contact(req, function (err, data) {
+        responseWithErrorControl(res, err, data);
+    });
 });
 
 /* CRUD HANDLING */

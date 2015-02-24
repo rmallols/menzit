@@ -1,13 +1,37 @@
+@header-height: 100px;
+@footer-height: 54px;
+
+.portal-padding {
+  padding: @big-gutter 2 * @big-gutter;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
 .portal {
+  .darken-theme;
   font-size: 150%;
-  font-family: balsamiq;
+
+  a {
+    color: @blue;
+  }
+
+  input, textarea {
+    background-color: white;
+    color: @font-color;
+  }
+
+  [ui-view] {
+    .offsettedMinHeight(-@header-height - @footer-height);
+    .dark-theme;
+  }
 }
 
 .header {
-  @header-height: 100px;
-  padding: 0 2 * @big-gutter;
+  .portal-padding;
+  .darken-theme;
+  padding-top: 0;
+  padding-bottom: 0;
   height: @header-height;
-  background-color:white;
 }
 
 .header-logo {
@@ -35,9 +59,14 @@
   color: @blue;
 }
 
+.header-menu-link:not(.active) {
+  color: white;
+}
+
 .footer {
+  .darken-theme;
   .padding;
-  background-color: white;
+  height: @footer-height;
   text-align: center;
   font-size: 80%;
 }

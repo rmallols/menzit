@@ -4,9 +4,9 @@ menzit.service('session', ['$q', 'http', 'pubSub', function ($q, http, pubSub) {
 
     var session;
 
-    function login(userName, password) {
+    function login(userName, password, remember) {
         var deferred = $q.defer(),
-            credentials = { userName: userName, password: password };
+            credentials = { userName: userName, password: password, remember: remember };
         http.post('/rest/login', credentials).then(function (retrievedSession) {
             session = retrievedSession;
             pubSub.publish('login');
