@@ -5,12 +5,17 @@
                 <img src="/src/portal/logo.svg" />
             </a>
         </div>
-        <div class="header-menu">
+        <div class="header-menu" ng-class="{ 'header-menu-mobile-visible': visibleMobileMenu }">
             <a class="header-menu-link" ui-sref="portal.home" ng-class="getActiveClass('portal.home')">Home</a>
             <a class="header-menu-link" ui-sref="app.categories" target="_blank">Play!</a>
             <a class="header-menu-link" ui-sref="portal.howItWorks" ng-class="getActiveClass('portal.howItWorks')">How it works</a>
             <a class="header-menu-link" ui-sref="portal.contact" ng-class="getActiveClass('portal.contact')">Contact</a>
             <a class="header-menu-link" href="#">Sign in</a>
+        </div>
+        <div class="header-menu-mobile-toggle">
+            <button class="dark-theme" ng-click="visibleMobileMenu = ( visibleMobileMenu !== true )">
+                <icon class="menu-icon"></icon>
+            </button>
         </div>
     </div>
     <div ui-view ng-class="getPageStyleClass()"></div>

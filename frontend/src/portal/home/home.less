@@ -8,30 +8,35 @@
   .main {
     .portal-padding;
     .offsettedHeight(-@header-height);
-    @title-height: 90px;
+    @title-height: 120px;
     @action-height: 130px;
     @button-height: 80px;
 
     .title {
-      margin-bottom: @gutter;
+      .v-centered;
+      height: @title-height;
 
       h1 {
-        font-size: 220%;
+        font-size: 200%;
         margin: 0;
+
+        @media only screen and (max-width: @mobile-width-detection) {
+          font-size: 120%;
+        }
       }
     }
 
     .media {
 
       img {
-        height: 70%;
+        .offsettedHeight(-(@title-height + @action-height));
         max-width: 100%;
       }
     }
 
     .action {
       height: @action-height;
-      padding-top: @action-height - @button-height;
+      padding-top: 2 * @gutter;
 
       button {
         display: inline;
@@ -54,15 +59,28 @@
 
   .secondary-column:first-child {
     padding-right: @big-gutter;
+
+    @media only screen and (max-width: @mobile-width-detection) {
+      padding: 0;
+    }
   }
 
   .secondary-column:last-child {
     padding-left: @big-gutter;
+
+    @media only screen and (max-width: @mobile-width-detection) {
+      padding: 0;
+      margin-top: @big-gutter;
+    }
   }
 
   .secondary-column-image {
     width: 100%;
     height: 20%;
     margin-bottom: @big-gutter;
+
+    @media only screen and (max-width: @mobile-width-detection) {
+      margin-bottom: @gutter;
+    }
   }
 }
