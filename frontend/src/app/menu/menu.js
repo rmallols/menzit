@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    app.directive('menu', ['$rootScope', '$state', 'session', 'pubSub', 'constants',
-        function ($rootScope, $state, session, pubSub, constants) {
+    app.directive('menu', ['$state', 'session', 'pubSub', 'constants',
+        function ($state, session, pubSub, constants) {
             return  {
                 replace: true,
                 restrict: 'A',
@@ -21,23 +21,7 @@
                     };
 
                     scope.showLoginDialog = function () {
-                        scope.credentials = {};
-                        scope.showLogin = true;
-                    };
-
-                    scope.login = function () {
-                        var userName = scope.credentials.userName,
-                            password = scope.credentials.password,
-                            remember = scope.credentials.remember;
-                        session.login(userName, password, remember).then(function (session) {
-                            if (session) {
-                                $rootScope.$emit('authenticatedUser', session);
-                                scope.session = session;
-                                scope.showLogin = false;
-                            } else {
-                                window.alert('Incorrect login');
-                            }
-                        });
+                        scope.isLoginVisible = true;
                     };
 
                     scope.isActiveAction = function () {
@@ -50,13 +34,24 @@
                     };
 
                     scope.getTenantLogo = function () {
-                        return (scope.session && session.tenant.image) || constants.logoPath;
+                        return (scope.session && session.tenant && session.tenant.image) ||
+                                constants.logoPath;
                     };
+
+                    pubSub.subscribe('login', function () {
+                        setUserSession();
+                    });
 
                     pubSub.subscribe('logout', function () {
                         scope.session = null;
                         scope.$apply();
                     });
+
+                    function setUserSession() {
+                        session.getSession().then(function (session) {
+                            scope.session = session;
+                        });
+                    }
                 }
             };
         }]);

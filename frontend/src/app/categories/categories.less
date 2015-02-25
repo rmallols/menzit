@@ -1,4 +1,4 @@
-.categories-view {
+.state-categories {
 
   .category {
     .border-radius;
@@ -6,8 +6,9 @@
     cursor: pointer;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 25%;
+    height: 35%;
     position: relative;
+    margin-bottom: @gutter;
 
     .title {
       .centered;
@@ -19,6 +20,12 @@
       opacity: .7;
       font-size: 200%;
       color: white;
+    }
+  }
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    .menu-tenant {
+      display: none;
     }
   }
 }

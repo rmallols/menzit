@@ -8,15 +8,5 @@
     <button ng-click="toggleActiveMenuPanel()" ng-if="session">
         <icon class="menu-icon"></icon>
     </button>
-    <div dialog title="Login" mz-if="showLogin">
-        <form ng-submit="login()">
-            <input class="user" ng-model="credentials.userName" type="text"
-                   placeholder="Username" autofocus/>
-            <input class="password" ng-model="credentials.password" type="password"
-                   placeholder="Password"/>
-            Remember?
-            <input class="remember" ng-model="credentials.remember" type="checkbox" />
-            <button class="important">Login</button>
-        </form>
-    </div>
+    <login visible="isLoginVisible"></login>
 </div>

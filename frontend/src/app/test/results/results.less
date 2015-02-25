@@ -1,6 +1,7 @@
 .results-view {
   height: 100%;
   @actions-height: 100px;
+  @score-height-mobile: 150px;
 
   .current-score {
     .centered;
@@ -28,6 +29,16 @@
     .move-score {
       from { width: 100%; }
       to { width: 50%; }
+    }
+
+    @media only screen and (max-width: @mobile-width-detection) {
+      @-webkit-keyframes move-score { .move-score-mobile; }
+      @keyframes move-score { .move-score-mobile; }
+
+      .move-score-mobile {
+        from { width: 100%; .offsettedHeight(-@actions-height); }
+        to { width: 100%;  height: @score-height-mobile; }
+      }
     }
   }
 
@@ -90,6 +101,11 @@
         color: white;
         width: 60px;
       }
+    }
+
+    @media only screen and (max-width: @mobile-width-detection) {
+      .offsettedHeight(-(@actions-height + @score-height-mobile));
+      width: 100%;
     }
   }
 

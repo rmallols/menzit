@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Start MongoDb" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="node_modules/grunt-cli/bin/grunt" application-parameters="startMongo --path=&quot;C:\Program Files\MongoDB 2.6 Standard\bin\mongod.exe&quot;" working-dir="$PROJECT_DIR$">
+    <RunnerSettings RunnerId="NodeJS.run" />
+    <ConfigurationWrapper RunnerId="NodeJS.run" />
+    <method />
+  </configuration>
+</component>

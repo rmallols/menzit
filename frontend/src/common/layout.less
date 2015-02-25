@@ -36,7 +36,7 @@
 
 .l-2-3 {
   float: left;
-  width: 67%;
+  width: 66%;
   margin-left: 0%;
   margin-right: 0%;
 }
@@ -102,11 +102,11 @@
 }
 
 @media only screen and (max-width: @mobile-width-detection) {
-  .l-1-2,
-  .l-1-3, .l-2-3,
-  .l-1-4, .l-3-4,
-  .l-1-6,
-  .l-1-8 {
+  .l-1-2:not(.l-fixed),
+  .l-1-3:not(.l-fixed), .l-2-3:not(.l-fixed),
+  .l-1-4:not(.l-fixed), .l-3-4:not(.l-fixed),
+  .l-1-6:not(.l-fixed),
+  .l-1-8:not(.l-fixed) {
     width: 100%;
     margin: 0;
   }

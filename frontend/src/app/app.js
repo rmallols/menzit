@@ -19,7 +19,7 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
         })
 
         .state('app.categories', {
-            url: "/categories",
+            url: "/play",
             templateUrl: "categories.html",
             controller: 'CategoriesCtrl',
             pageTitle: 'Select a category',
@@ -29,7 +29,7 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
         })
 
         .state('app.test', {
-            url: "/categories/:categoryId/test",
+            url: "/play/:categoryId/test",
             templateUrl: "test.html",
             controller: 'TestCtrl',
             pageTitle: 'Running a test',

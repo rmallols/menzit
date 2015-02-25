@@ -12,7 +12,8 @@
              ng-style="getBackgroundImageStyle(answer)"
              ng-click="setAnswer(question, $index)">
             <div class="option"><div class="text">{{answerCodes[$index]}}</div></div>
-            <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark">
+            <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark"
+                ng-class="{ 'has-explanation': answer.explanation }">
                 <icon ng-class="{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }"></icon>
             </div>
             <div class="title">{{answer.title}}</div>

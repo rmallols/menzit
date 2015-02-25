@@ -101,7 +101,13 @@ module.exports = function (grunt) {
             githubCommit: { command: 'git commit -m "#0 prod update"', options: { stdout: true } },
             githubPush: { command: 'git push', options: { stdout: true } },
             herokuPush: { command: 'git push heroku master', options: { stdout: true } },
-            herokuLog: { command: 'heroku logs --tail', options: { stdout: true } }
+            herokuLog: { command: 'heroku logs --tail', options: { stdout: true } },
+            optimizeSvg: {
+                command:    'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal && ' +
+                            'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/home && ' +
+                            'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/howItWorks && ' +
+                            'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/contact',
+                options: { stdout: true }}
         },
         watch: {
             templates: {
@@ -195,6 +201,7 @@ module.exports = function (grunt) {
     grunt.registerTask('setDevLoader', ['copy:devLoader']);
     grunt.registerTask('setProdLoader', ['copy:prodLoader']);
     grunt.registerTask('optimizeJs', ['concat', 'uglify']);
+    grunt.registerTask('optimizeSvg', ['shell:optimizeSvg']);
 
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',
