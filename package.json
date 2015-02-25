@@ -6,7 +6,7 @@
     "node": "0.10.26",
     "npm": "1.4.3"
   },
-  "timestamp": 1424555877297,
+  "timestamp": 1424889995358,
   "env": "dev",
   "db": {
     "dev": {
@@ -48,6 +48,7 @@
     "karma-chrome-launcher": "^0.1.3",
     "karma-jasmine": "^0.1.5",
     "protractor": "^0.13.0",
-    "supervisor": "^0.5.7"
+    "supervisor": "^0.5.7",
+    "svgo": "^0.5.0"
   }
 }
