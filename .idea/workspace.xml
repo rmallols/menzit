@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1339a3d6-bff5-481c-a57c-27809f034a88" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/login/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/login/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/login/login.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/AppCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/app/AppCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/PortalCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/portal/PortalCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/app.html" afterPath="$PROJECT_DIR$/frontend/src/app/app.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/base.less" afterPath="$PROJECT_DIR$/frontend/src/common/base.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/button.less" afterPath="$PROJECT_DIR$/frontend/src/common/button.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/constants.less" afterPath="$PROJECT_DIR$/frontend/src/common/constants.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" afterPath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/dialog/dialog.less" afterPath="$PROJECT_DIR$/frontend/src/app/common/dialog/dialog.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/input.less" afterPath="$PROJECT_DIR$/frontend/src/common/input.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/layout.less" afterPath="$PROJECT_DIR$/frontend/src/common/layout.less" />
+      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\css.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\src.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\vendor.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/loader.js" afterPath="$PROJECT_DIR$/frontend/src/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/loader.less" afterPath="$PROJECT_DIR$/frontend/src/loader.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.html" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.js" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/portal.html" afterPath="$PROJECT_DIR$/frontend/src/portal/portal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/portal.less" afterPath="$PROJECT_DIR$/frontend/src/portal/portal.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/templates.js" afterPath="$PROJECT_DIR$/frontend/src/common/templates.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dev.iws" />
@@ -59,21 +43,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PortalCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/portal/PortalCtrl.js">
+      <file leaf-file-name="portal.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/portal/portal.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.857142" vertical-offset="178" max-vertical-offset="1054">
-              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+            <state vertical-scroll-proportion="-10.333333" vertical-offset="1326" max-vertical-offset="2244">
+              <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="portal.less" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/portal/portal.less">
+      <file leaf-file-name="loader.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/loader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8378378" vertical-offset="1326" max-vertical-offset="2244">
-              <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.2898773" vertical-offset="423" max-vertical-offset="1615">
+              <caret line="36" column="34" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -167,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/categoriesApp.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/tenants/tenantsApp.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/users/usersApp.js" />
         <option value="$PROJECT_DIR$/frontend/src/portal/howItWorks/HowItWorksCtrl.js" />
@@ -218,6 +201,7 @@
         <option value="$PROJECT_DIR$/frontend/src/common/layout.less" />
         <option value="$PROJECT_DIR$/frontend/src/common/login/login.html" />
         <option value="$PROJECT_DIR$/frontend/src/portal/portal.less" />
+        <option value="$PROJECT_DIR$/frontend/src/loader.js" />
       </list>
     </option>
   </component>
@@ -616,17 +600,17 @@
       <method />
     </configuration>
     <list size="11">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.Start MongoDb" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.Check code quality" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.Start node.js server" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.Start unit tests" />
-      <item index="5" class="java.lang.String" itemvalue="Node.js.Watch font changes" />
-      <item index="6" class="java.lang.String" itemvalue="Node.js.Heroku log" />
-      <item index="7" class="java.lang.String" itemvalue="Node.js.[DEV]" />
-      <item index="8" class="java.lang.String" itemvalue="Node.js.[TEST]" />
-      <item index="9" class="java.lang.String" itemvalue="Node.js.Watch template changes" />
-      <item index="10" class="java.lang.String" itemvalue="Node.js.Optimize SVG" />
+      <item index="0" class="java.lang.String" itemvalue="Node.js.Start MongoDb" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.Check code quality" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.Start node.js server" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.Start unit tests" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.Watch font changes" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.Heroku log" />
+      <item index="6" class="java.lang.String" itemvalue="Node.js.[DEV]" />
+      <item index="7" class="java.lang.String" itemvalue="Node.js.[TEST]" />
+      <item index="8" class="java.lang.String" itemvalue="Node.js.Watch template changes" />
+      <item index="9" class="java.lang.String" itemvalue="Node.js.Optimize SVG" />
+      <item index="10" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -1004,7 +988,19 @@
       <option name="project" value="LOCAL" />
       <updated>1424900904332</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Adding login capabilities on the portal side">
+      <created>1424907260065</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1424907260065</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Merge branch 'web-improvements'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;frontend/src/loader.js&#10;&#9;package.json&#10;">
+      <created>1424907357361</created>
+      <option name="number" value="00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1424907357361</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1032,7 +1028,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2898696" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37412238" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="1285" y="142" width="1264" height="926" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2898696" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="1285" y="142" width="1264" height="926" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37211636" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39899623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1091,8 +1087,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="#0 setting transition between test execution and result" />
-    <MESSAGE value="#0 setting transition between test execution and result - missing ng-animate module" />
     <MESSAGE value="#0 persisting scoring data" />
     <MESSAGE value="#0 starting to retrieve score data" />
     <MESSAGE value="#0 starting to display best results" />
@@ -1116,7 +1110,9 @@
     <MESSAGE value="Working on the 'how it works' view" />
     <MESSAGE value="Adding SVG optimization task. Adding idea setup to git, to be able to retrieve the node tasks afterwards (otherwise it doesn't make any sense to 'share' them)." />
     <MESSAGE value="UI improvements for mobile devices" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI improvements for mobile devices" />
+    <MESSAGE value="Adding login capabilities on the portal side" />
+    <MESSAGE value="Merge branch 'web-improvements'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;frontend/src/loader.js&#10;&#9;package.json&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'web-improvements'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;frontend/src/loader.js&#10;&#9;package.json&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1125,13 +1121,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/crud/read.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="952">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/portal/contact/ContactCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31694916" vertical-offset="0" max-vertical-offset="590">
@@ -1521,8 +1510,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/portal/portal.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8378378" vertical-offset="1326" max-vertical-offset="2244">
+        <state vertical-scroll-proportion="-10.333333" vertical-offset="1326" max-vertical-offset="2244">
           <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2898773" vertical-offset="423" max-vertical-offset="1615">
+          <caret line="36" column="34" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="34" />
           <folding />
         </state>
       </provider>
