@@ -50,7 +50,8 @@
                     };
 
                     scope.getTenantLogo = function () {
-                        return (scope.session && session.tenant.image) || constants.logoPath;
+                        return (scope.session && session.tenant && session.tenant.image) ||
+                                constants.logoPath;
                     };
 
                     pubSub.subscribe('logout', function () {

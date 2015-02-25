@@ -20,7 +20,7 @@ menzit.controller('AppCtrl', ['$rootScope', '$scope', '$state',
 
         function setCurrentStateStyleClasses(currentState) {
             stateName = currentState.name.replace(/\./g, "-");
-            stateGroupId = (currentState.data) ? currentState.data.groupId.replace(/\./g, "-")
+            stateGroupId = (currentState.data) ? 'state-' + currentState.data.groupId.replace(/\./g, "-")
                 : '';
         }
     }]);

@@ -29,7 +29,7 @@ function responseWithErrorControl(res, err, data) {
 
 var acceptedRoutes = [
         '/', '/home', '/how-it-works', '/contact',
-        '/test', '/categories', '/categories/:categoryId/test'],
+        '/test', '/play', '/play/:categoryId/test'],
     acceptedLoggedRoutes = [
         '/review', '/review/:questionId',
         '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId',

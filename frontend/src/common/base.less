@@ -28,14 +28,12 @@ body, a {
 /* MICRO CLEARFIX HACK */
 .cf { zoom:1; &:after {clear:both; content:"";display:table;} &:before {content:"";display:table;}}
 
-[ui-view].root {
+.root .main-content {
   .offsettedHeight(-@menu-height);
   .big-padding;
-}
 
-@media only screen and (max-width: @mobile-width-detection) {
-  [ui-view].root {
-    .padding;
+  @media only screen and (max-width: @mobile-width-detection) {
+      .padding;
   }
 }
 
@@ -107,6 +105,24 @@ h1:first-child,
 h2:first-child,
 h3:first-child {
   margin-top: 0;
+}
+
+h1 {
+  @media only screen and (max-width: @mobile-width-detection) {
+    font-size: 150%;
+  }
+}
+
+h2 {
+  @media only screen and (max-width: @mobile-width-detection) {
+    font-size: 135%;
+  }
+}
+
+h3 {
+  @media only screen and (max-width: @mobile-width-detection) {
+    font-size: 120%;
+  }
 }
 
 .warning {

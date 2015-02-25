@@ -326,14 +326,16 @@ angular.module("usersAdmin.html", []).run(["$templateCache", function($templateC
 
 angular.module("app.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app.html",
-    "<div menu></div>\n" +
-    "<div ui-view ng-class=\"getRootStyleClasses()\"></div>");
+    "<div ng-class=\"getRootStyleClasses()\">\n" +
+    "    <div menu></div>\n" +
+    "    <div ui-view class=\"main-content\"></div>\n" +
+    "</div>");
 }]);
 
 angular.module("categories.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("categories.html",
-    "<div class=\"categories-view\">\n" +
-    "    <h1>Select category</h1>\n" +
+    "<div>\n" +
+    "    <h1>Select a category to play with</h1>\n" +
     "    <div class=\"category l-1-3\" ng-repeat=\"category in categories\" truncate\n" +
     "         ng-click=\"launchTest(category)\"\n" +
     "         ng-style=\"getBackgroundImageStyle(category)\">\n" +
@@ -401,7 +403,8 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
     "             ng-style=\"getBackgroundImageStyle(answer)\"\n" +
     "             ng-click=\"setAnswer(question, $index)\">\n" +
     "            <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
-    "            <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\">\n" +
+    "            <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\"\n" +
+    "                ng-class=\"{ 'has-explanation': answer.explanation }\">\n" +
     "                <icon ng-class=\"{ 'ok-icon': answer.validAssert,  'fail-icon': answer.invalidAssert }\"></icon>\n" +
     "            </div>\n" +
     "            <div class=\"title\">{{answer.title}}</div>\n" +
