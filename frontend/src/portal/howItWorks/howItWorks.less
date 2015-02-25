@@ -4,8 +4,24 @@
 
 .how-it-works-image {
   max-width: 100%;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    margin-top: 2 * @gutter;
+  }
 }
 
 .how-it-works-concept {
   margin-bottom: 2 * @big-gutter;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    margin-bottom: @big-gutter;
+  }
+}
+
+.how-it-works-concept-image {
+  float: left;
+}
+
+.how-it-works-concept-text {
+  float: right;
 }

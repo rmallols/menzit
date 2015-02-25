@@ -642,7 +642,7 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "    <div class=\"content\">\n" +
     "        <div class=\"main\">\n" +
     "            <div class=\"title\">\n" +
-    "                <h1>Learn never have been so easy...</h1>\n" +
+    "                <h1>Learning has never been so easy...</h1>\n" +
     "            </div>\n" +
     "            <div class=\"media\">\n" +
     "                <img src=\"/src/portal/home/main.svg\" />\n" +
@@ -683,13 +683,13 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"l-row how-it-works-concept\">\n" +
-    "        <div class=\"l-1-2\">\n" +
-    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/play.svg\" />\n" +
-    "        </div>\n" +
-    "        <div class=\"l-1-2\">\n" +
+    "        <div class=\"l-1-2 how-it-works-concept-text\">\n" +
     "            <h2>2. Learn while playing</h2>\n" +
     "            Improve your skills in a funny way<br/><br/>\n" +
     "            Answer questions related to the topic you selected.\n" +
+    "        </div>\n" +
+    "        <div class=\"l-1-2 how-it-works-concept-image\">\n" +
+    "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/play.svg\" />\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"l-row how-it-works-concept\">\n" +
@@ -713,12 +713,17 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "                <img src=\"/src/portal/logo.svg\" />\n" +
     "            </a>\n" +
     "        </div>\n" +
-    "        <div class=\"header-menu\">\n" +
+    "        <div class=\"header-menu\" ng-class=\"{ 'header-menu-mobile-visible': visibleMobileMenu }\">\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.home\" ng-class=\"getActiveClass('portal.home')\">Home</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"app.categories\" target=\"_blank\">Play!</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.howItWorks\" ng-class=\"getActiveClass('portal.howItWorks')\">How it works</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.contact\" ng-class=\"getActiveClass('portal.contact')\">Contact</a>\n" +
     "            <a class=\"header-menu-link\" href=\"#\">Sign in</a>\n" +
+    "        </div>\n" +
+    "        <div class=\"header-menu-mobile-toggle\">\n" +
+    "            <button class=\"dark-theme\" ng-click=\"visibleMobileMenu = ( visibleMobileMenu !== true )\">\n" +
+    "                <icon class=\"menu-icon\"></icon>\n" +
+    "            </button>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div ui-view ng-class=\"getPageStyleClass()\"></div>\n" +

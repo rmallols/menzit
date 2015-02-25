@@ -1,6 +1,7 @@
 'use strict';
 
-menzit.controller('PortalCtrl', ['$scope', '$state', function ($scope, $state) {
+menzit.controller('PortalCtrl', ['$rootScope', '$scope', '$state',
+    function ($rootScope, $scope, $state) {
 
     $scope.getActiveClass = function (targetState) {
         return {
@@ -13,4 +14,8 @@ menzit.controller('PortalCtrl', ['$scope', '$state', function ($scope, $state) {
         pageStyleClass[$state.current.name.replace(/\./, '-')] = true;
         return pageStyleClass;
     };
+
+    $rootScope.$on('$stateChangeSuccess', function () {
+       $scope.visibleMobileMenu = false;
+    });
 }]);

@@ -5,6 +5,10 @@
   padding: @big-gutter 2 * @big-gutter;
   max-width: 1140px;
   margin: 0 auto;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    padding: @gutter;
+  }
 }
 
 .portal {
@@ -31,6 +35,7 @@
   .darken-theme;
   padding-top: 0;
   padding-bottom: 0;
+  position: relative;
   height: @header-height;
 }
 
@@ -42,10 +47,36 @@
   img {
     height: 100%;
   }
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    padding: @gutter / 2 0;
+  }
 }
 
 .header-menu {
   float: right;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.header-menu-mobile-visible {
+  display: block;
+}
+
+.header-menu-mobile-toggle {
+  .portal-padding;
+  display: none;
+  float: right;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    display: block;
+  }
 }
 
 .header-menu-link {
@@ -53,6 +84,12 @@
   float: left;
   padding: 2.5 * @gutter @gutter;
   text-decoration: none;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    .darken-theme;
+    padding: @gutter;
+    width: 100%;
+  }
 }
 
 .header-menu-link.active {
@@ -69,4 +106,8 @@
   height: @footer-height;
   text-align: center;
   font-size: 80%;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    font-size: 60%;
+  }
 }
