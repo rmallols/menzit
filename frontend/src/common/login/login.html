@@ -1,0 +1,23 @@
+<div dialog title="Login" mz-if="visible" class="login">
+    <form ng-submit="login()">
+        <div class="l-row">
+            <input class="user" ng-model="credentials.userName" type="text"
+                   placeholder="Username" autofocus/>
+        </div>
+        <div class="l-row">
+            <input class="password" ng-model="credentials.password" type="password"
+                   placeholder="Password"/>
+        </div>
+        <div class="l-row">
+            <div class="l-1-2 l-fixed">
+                Remember?
+            </div>
+            <div class="l-1-2 l-fixed">
+                <input class="login-checkbox" ng-model="credentials.remember" type="checkbox" />
+            </div>
+        </div>
+        <div class="l-row">
+            <button class="important">Login</button>
+        </div>
+    </form>
+</div>

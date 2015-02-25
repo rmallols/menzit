@@ -19,11 +19,6 @@
     color: @blue;
   }
 
-  input, textarea {
-    background-color: white;
-    color: @font-color;
-  }
-
   [ui-view] {
     .offsettedMinHeight(-@header-height - @footer-height);
     .dark-theme;
@@ -79,7 +74,8 @@
   }
 }
 
-.header-menu-link {
+.header-menu-link,
+.header-menu-text {
   display: block;
   float: left;
   padding: 2.5 * @gutter @gutter;
@@ -98,6 +94,24 @@
 
 .header-menu-link:not(.active) {
   color: white;
+}
+
+.header-menu-logged-user {
+  float: left;
+
+  @media only screen and (max-width: @mobile-width-detection) {
+    .darken-theme;
+    width: 100%;
+
+    & > * {
+      width: auto;
+    }
+  }
+}
+
+.header-menu-link-current-user {
+  padding-right: 0;
+  color: @grey-5;
 }
 
 .footer {

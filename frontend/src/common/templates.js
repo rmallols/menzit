@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'login.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -326,7 +326,7 @@ angular.module("usersAdmin.html", []).run(["$templateCache", function($templateC
 
 angular.module("app.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app.html",
-    "<div ng-class=\"getRootStyleClasses()\">\n" +
+    "<div ng-class=\"getPageStyleClasses()\">\n" +
     "    <div menu></div>\n" +
     "    <div ui-view class=\"main-content\"></div>\n" +
     "</div>");
@@ -448,17 +448,7 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
     "    <button ng-click=\"toggleActiveMenuPanel()\" ng-if=\"session\">\n" +
     "        <icon class=\"menu-icon\"></icon>\n" +
     "    </button>\n" +
-    "    <div dialog title=\"Login\" mz-if=\"showLogin\">\n" +
-    "        <form ng-submit=\"login()\">\n" +
-    "            <input class=\"user\" ng-model=\"credentials.userName\" type=\"text\"\n" +
-    "                   placeholder=\"Username\" autofocus/>\n" +
-    "            <input class=\"password\" ng-model=\"credentials.password\" type=\"password\"\n" +
-    "                   placeholder=\"Password\"/>\n" +
-    "            Remember?\n" +
-    "            <input class=\"remember\" ng-model=\"credentials.remember\" type=\"checkbox\" />\n" +
-    "            <button class=\"important\">Login</button>\n" +
-    "        </form>\n" +
-    "    </div>\n" +
+    "    <login visible=\"isLoginVisible\"></login>\n" +
     "</div>\n" +
     "");
 }]);
@@ -578,6 +568,33 @@ angular.module("test.html", []).run(["$templateCache", function($templateCache) 
     "         ng-include=\"'question.html'\" ng-animate></div>\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestFinished\" ng-controller=\"ResultsCtrl\"\n" +
     "         ng-include=\"'results.html'\" ng-animate></div>\n" +
+    "</div>");
+}]);
+
+angular.module("login.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("login.html",
+    "<div dialog title=\"Login\" mz-if=\"visible\" class=\"login\">\n" +
+    "    <form ng-submit=\"login()\">\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <input class=\"user\" ng-model=\"credentials.userName\" type=\"text\"\n" +
+    "                   placeholder=\"Username\" autofocus/>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <input class=\"password\" ng-model=\"credentials.password\" type=\"password\"\n" +
+    "                   placeholder=\"Password\"/>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 l-fixed\">\n" +
+    "                Remember?\n" +
+    "            </div>\n" +
+    "            <div class=\"l-1-2 l-fixed\">\n" +
+    "                <input class=\"login-checkbox\" ng-model=\"credentials.remember\" type=\"checkbox\" />\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-row\">\n" +
+    "            <button class=\"important\">Login</button>\n" +
+    "        </div>\n" +
+    "    </form>\n" +
     "</div>");
 }]);
 
@@ -709,7 +726,7 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
 
 angular.module("portal.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("portal.html",
-    "<div class=\"portal\">\n" +
+    "<div class=\"portal\" ng-class=\"getPageStyleClass()\">\n" +
     "    <div class=\"header\">\n" +
     "        <div class=\"header-logo\">\n" +
     "            <a ui-sref=\"portal.home\">\n" +
@@ -721,7 +738,11 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "            <a class=\"header-menu-link\" ui-sref=\"app.categories\" target=\"_blank\">Play!</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.howItWorks\" ng-class=\"getActiveClass('portal.howItWorks')\">How it works</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.contact\" ng-class=\"getActiveClass('portal.contact')\">Contact</a>\n" +
-    "            <a class=\"header-menu-link\" href=\"#\">Sign in</a>\n" +
+    "            <a class=\"header-menu-link\" href=\"#\" ng-click=\"showLoginDialog()\" ng-if=\"!session\">Log in</a>\n" +
+    "            <div class=\"header-menu-logged-user\" ng-if=\"session\">\n" +
+    "                <div class=\"header-menu-text header-menu-link-current-user\">Hi, {{getUserName(session)}}</div>\n" +
+    "                <a class=\"header-menu-link\" href=\"#\" ng-click=\"logout()\">[Logout]</a>\n" +
+    "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"header-menu-mobile-toggle\">\n" +
     "            <button class=\"dark-theme\" ng-click=\"visibleMobileMenu = ( visibleMobileMenu !== true )\">\n" +
@@ -729,7 +750,8 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "            </button>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div ui-view ng-class=\"getPageStyleClass()\"></div>\n" +
+    "    <login visible=\"isLoginVisible\"></login>\n" +
+    "    <div ui-view></div>\n" +
     "    <div class=\"footer\">Copyright © 2015 menzit. All rights reserved.</div>\n" +
     "</div>");
 }]);

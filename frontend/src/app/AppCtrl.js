@@ -10,7 +10,7 @@ menzit.controller('AppCtrl', ['$rootScope', '$scope', '$state',
             setCurrentStateStyleClasses(toState);
         });
 
-        $scope.getRootStyleClasses = function () {
+        $scope.getPageStyleClasses = function () {
             var rootStyleClasses = {};
             rootStyleClasses.root = true;
             rootStyleClasses[stateName] = true;
