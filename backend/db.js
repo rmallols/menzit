@@ -10,7 +10,6 @@ module.exports = {
             mongoDbService = mongoDb.MongoClient,
             connectionUrl = this._getConnectionUrl(dbId);
         mongoDbService.connect(connectionUrl, function (err, db) {
-            console.log('connected!', err, db);
             callback(err, db);
         });
     },

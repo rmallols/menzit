@@ -7,8 +7,10 @@ app.controller('CategoryAddAdminCtrl', ['$scope', '$state', 'http',
             tests: []
         };
         $scope.submit = function () {
-            http.post('/rest/categories/', $scope.category).then(function () {
-                $state.go('app.admin.categories');
+            $scope.uploadRequestFn().then(function () {
+                http.post('/rest/categories/', $scope.category).then(function () {
+                    $state.go('app.admin.categories');
+                });
             });
         };
     }]);

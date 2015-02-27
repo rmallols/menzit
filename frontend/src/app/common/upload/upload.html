@@ -1,18 +1,12 @@
-<div class="upload-view cf">
-    <input type="file" />
+<form enctype="multipart/form-data" method="post" class="upload-view cf">
+    <input type="file" file-model="selectedFile"/>
     <div class="upload-button cf">
-        <button class="add-image" ng-click="addImage()">Select</button>
-        <div class="upload-button-output" ng-if="hasBeenUpload">
-            <button class="delete-image" ng-click="delete()">
+        <div class="upload-button-output" ng-if="media.id || base64">
+            <button class="delete-image" ng-click="remove()">
                 <icon class="close-icon"></icon>
             </button>
-            <img ng-src="{{ngModel}}" />
+            <img ng-src="/media/{{media.id}}?rnd={{refreshToken}}" ng-if="media.id && !base64" />
+            <img ng-src="{{base64}}" ng-if="base64" />
         </div>
     </div>
-    <div class="upload-url cf">
-        <input ng-model="uploadUrl" ng-change="setUploadUrl()" placeholder="Please enter the image URL" />
-        <div class="upload-url-output" ng-if="uploadUrl">
-            <img ng-src="{{uploadUrl}}" />
-        </div>
-    </div>
-</div>
+</form>

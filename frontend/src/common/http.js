@@ -31,17 +31,17 @@ menzit.service('http', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
     }
 
-    function post(url, data) {
+    function post(url, data, headers) {
         var deferred = $q.defer();
-        $http.post(url, data).then(function (response) {
+        $http.post(url, data, headers).then(function (response) {
             deferred.resolve(response.data);
         });
         return deferred.promise;
     }
 
-    function put(url, data) {
+    function put(url, data, headers) {
         var deferred = $q.defer();
-        $http.put(url, data).then(function (response) {
+        $http.put(url, data, headers).then(function (response) {
             deferred.resolve(response.data);
         });
         return deferred.promise;

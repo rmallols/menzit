@@ -5,13 +5,14 @@ var db = require('../db');
 module.exports = {
 
     update: function (documentId, collectionId, data, session, callback) {
-        var self = this;
+        var self = this,
+            normalizedData = self._getNormalizedModel(data);
         this._addUpdateSignature(data, session);
         db.connect(function (err, dbCon) {
             dbCon.collection(collectionId).update({_id: db.getNormalizedId(documentId)},
-                {$set: self._getNormalizedModel(data)},
-                function () {
-                    callback({});
+                {$set: normalizedData}, function (err) {
+                    normalizedData._id = documentId;
+                    callback(normalizedData);
                 });
         });
     },

@@ -24,6 +24,7 @@ getScript(vendorPath + '/angularJs/angular-sanitize.min.js');
 getScript(vendorPath + '/angularJs/angular-animate.min.js');
 getScript(vendorPath + '/NProgress/nprogress.js');
 getScript(vendorPath + '/ngTagsInput/ng-tags-input.min.js');
+getScript(vendorPath + '/form/jquery.form.min.js');
 
 //Common src resources
 getStyleSheet(srcPath + '/loader.less');

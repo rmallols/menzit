@@ -10,6 +10,7 @@ var express = require('express'),
     remove = require('./crud/delete'),
     session = require('./session'),
     communication = require('./communication'),
+    media = require('./media'),
     decorator = require('./crud/decorator/decorator');
 
 
@@ -157,6 +158,36 @@ app.get('/admin', function (req, res) {
 app.post('/rest/contact', function (req, res) {
     communication.contact(req, function (err, data) {
         responseWithErrorControl(res, err, data);
+    });
+});
+
+app.post('/rest/media', function (req, res) {
+    media.create(req.files, req.session, function (err, data) {
+        responseWithErrorControl(res, err, data);
+    });
+});
+
+app.post('/rest/media/:mediaId', function (req, res) {
+    media.update(req.params.mediaId, req.files, req.session, function (err, data) {
+        responseWithErrorControl(res, err, data);
+    });
+});
+
+app.get('/media/:documentId', function (req, res) {
+    read.findOne(req.params.documentId, 'media', function (content) {
+        if(content) {
+            //Try to get the file name from the URL in order to keep the document name once it's going to be downloaded
+            // Otherwise, take it from database
+            var filename = req.params.name || content.name, buffer;
+            //noinspection JSUnresolvedFunction
+            res.attachment(filename);
+            res.header("Content-Type", content.mime);
+            //noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
+            buffer = new Buffer(content.data.toString('base64'), "base64");
+            res.end(buffer, 'base64');
+        } else {
+            res.end(null);
+        }
     });
 });
 
