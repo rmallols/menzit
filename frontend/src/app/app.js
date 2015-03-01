@@ -77,9 +77,9 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
     $urlRouterProvider.otherwise("/");
 }]);
 
-app.run(['$rootScope', function ($rootScope) {
-
-    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {
+app.run(['$rootScope', 'browser', function ($rootScope, browser) {
+    $rootScope.userAgent = browser.getUA();
+    $rootScope.$on('$stateChangeSuccess', function (event, toState) {
         $rootScope.pageTitle = toState.pageTitle + ' | menzit';
     });
 }]);

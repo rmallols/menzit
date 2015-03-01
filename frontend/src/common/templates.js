@@ -600,15 +600,13 @@ angular.module("login.html", []).run(["$templateCache", function($templateCache)
 
 angular.module("index.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("index.html",
-    "<html ng-app=\"menzit\">\n" +
-    "\n" +
+    "<html ng-app=\"menzit\" class=\"ua-{{userAgent}}\">\n" +
     "    <head>\n" +
     "        <title ng-bind=\"pageTitle\"></title>\n" +
     "        <meta name=\"viewport\" content=\"width=device-width\" />\n" +
     "        <link rel=\"icon\" type=\"image/png\" href=\"/src/common/favicon.png\">\n" +
     "        <script src=\"/src/loader.js\" type=\"text/javascript\"></script>\n" +
     "    </head>\n" +
-    "\n" +
     "    <body>\n" +
     "        <div ui-view></div>\n" +
     "    </body>\n" +
@@ -735,7 +733,7 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "        </div>\n" +
     "        <div class=\"header-menu\" ng-class=\"{ 'header-menu-mobile-visible': visibleMobileMenu }\">\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.home\" ng-class=\"getActiveClass('portal.home')\">Home</a>\n" +
-    "            <a class=\"header-menu-link\" ui-sref=\"app.categories\" target=\"_blank\">Play!</a>\n" +
+    "            <a class=\"header-menu-link\" ui-sref=\"app.categories\">Play!</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.howItWorks\" ng-class=\"getActiveClass('portal.howItWorks')\">How it works</a>\n" +
     "            <a class=\"header-menu-link\" ui-sref=\"portal.contact\" ng-class=\"getActiveClass('portal.contact')\">Contact</a>\n" +
     "            <a class=\"header-menu-link\" href=\"#\" ng-click=\"showLoginDialog()\" ng-if=\"!session\">Log in</a>\n" +

@@ -18,6 +18,7 @@ body {
   background-color: @dark;
   font-family: balsamiq;
   font-size: @font-size;
+  overflow-x: hidden;
 }
 
 body, a {
@@ -26,6 +27,10 @@ body, a {
 
 /* MICRO CLEARFIX HACK */
 .cf { zoom:1; &:after {clear:both; content:"";display:table;} &:before {content:"";display:table;}}
+
+.root {
+  height: 100%;
+}
 
 .root .main-content {
   .offsettedHeight(-@menu-height);
@@ -219,7 +224,7 @@ h3 {
 }
 
 //OFFSETTED DIMENSIONS
-.offsettedWidth(@offset: 0px, @width:100%){ width: -webkit-calc(@width+~"+"@offset) !important; }
+.offsettedWidth(@offset: 0px, @width:100%){ width: -webkit-calc(@width+~"+"@offset) !important; width: -o-calc(@width + ~" + "@offset) !important; width: calc(@width + ~" + "@offset) !important; width: -webkit-calc(@width + ~" + "@offset) !important; }
 .offsettedHeight(@offset: 0px, @height:100%){ height: -moz-calc(@height + ~" + "@offset) !important; height: -o-calc(@height + ~" + "@offset) !important; height: calc(@height + ~" + "@offset) !important; height: -webkit-calc(@height + ~" + "@offset) !important; }
 .offsettedMinHeight(@offset: 0px, @height:100%){ min-height: -moz-calc(@height + ~" + "@offset) !important; min-height: -o-calc(@height + ~" + "@offset) !important; min-height: calc(@height + ~" + "@offset) !important; min-height: -webkit-calc(@height + ~" + "@offset) !important; }
 .offsettedMaxHeight(@offset: 0px, @height:100%){ max-height: -moz-calc(@height + ~" + "@offset) !important; max-height: -o-calc(@height + ~" + "@offset) !important; max-height: calc(@height + ~" + "@offset) !important; max-height: -webkit-calc(@height + ~" + "@offset) !important; }

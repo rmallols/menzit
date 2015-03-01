@@ -41,10 +41,15 @@
 
   img {
     height: 100%;
+    width: 250px;
   }
 
   @media only screen and (max-width: @mobile-width-detection) {
     padding: @gutter / 2 0;
+  }
+
+  .ua-firefox & {
+    width: 200px;
   }
 }
 

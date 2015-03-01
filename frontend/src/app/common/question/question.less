@@ -1,6 +1,7 @@
 .question-view {
   @question-height: 120px;
   @question-margin-bottom: @gutter;
+  height: 100%;
 
   .question {
     .centered;
@@ -12,9 +13,10 @@
     text-align: center;
     font-size: 250%;
     width: 100%;
-    padding-left: 10%;
+    padding-right: 100px;
     background-color: @darken;
     position: relative;
+    line-height: 1.2;
 
     &.has-background-image {
       background-repeat: no-repeat;
@@ -33,7 +35,6 @@
         font-size: 80%;
       }
     }
-
 
     @media only screen and (max-width: @mobile-width-detection) {
       font-size: 180%;
