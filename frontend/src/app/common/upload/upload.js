@@ -75,7 +75,7 @@ app.directive('upload', ['$q', '$timeout', 'http', function ($q, $timeout, http)
                 scope.media._id = (media && media[0]) ? media[0]._id : undefined;
                 $timeout(function () { //TODO: issue #9
                     deferred.resolve(media);
-                }, 500);
+                }, 1000);
             }
 
             function onSubmitError(deferred) {
