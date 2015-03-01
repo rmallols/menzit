@@ -6,8 +6,10 @@ app.controller('TenantEditCtrl', ['$scope', '$state', '$q', 'http', 'tenant',
         $scope.tenant = tenant;
         $scope.submit = function () {
             var tenantRestUrl = '/rest/tenants/' + $state.params.tenantId;
-            http.put(tenantRestUrl, $scope.tenant).then(function () {
-                $state.go('app.admin.tenants');
+            $scope.uploadRequestFn().then(function () {
+                http.put(tenantRestUrl, $scope.tenant).then(function () {
+                    $state.go('app.admin.tenants');
+                });
             });
         };
     }]);

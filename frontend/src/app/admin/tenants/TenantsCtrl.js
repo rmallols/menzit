@@ -19,8 +19,12 @@ app.controller('TenantsCtrl', ['$rootScope', '$scope', '$state', 'http',
 
         $scope.delete = function () {
             http.delete('/rest/tenants/' + $scope.tenantToBeDeleted._id).then(function () {
+                var mediaId =  $scope.tenantToBeDeleted.media && $scope.tenantToBeDeleted.media._id;
                 $scope.tenantToBeDeleted = null;
                 loadTenants();
+                if(mediaId) {
+                    http.delete('/rest/media/' + mediaId);
+                }
             });
         };
 

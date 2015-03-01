@@ -188,7 +188,7 @@ angular.module("tenant.html", []).run(["$templateCache", function($templateCache
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-3 input-label\">Image</div>\n" +
     "        <div class=\"l-2-3\">\n" +
-    "            <input ng-model=\"tenant.image\" upload />\n" +
+    "            <upload ng-model=\"tenant.media\" on-submit-request=\"uploadRequestFn\"></upload>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
