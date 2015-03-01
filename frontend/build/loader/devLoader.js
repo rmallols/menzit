@@ -24,7 +24,6 @@ getScript(vendorPath + '/angularJs/angular-sanitize.min.js');
 getScript(vendorPath + '/angularJs/angular-animate.min.js');
 getScript(vendorPath + '/NProgress/nprogress.js');
 getScript(vendorPath + '/ngTagsInput/ng-tags-input.min.js');
-getScript(vendorPath + '/form/jquery.form.min.js');
 
 //Common src resources
 getStyleSheet(srcPath + '/loader.less');
@@ -50,6 +49,7 @@ getScript(srcPath + '/app/app.js');
 getScript(srcPath + '/app/AppCtrl.js');
 getScript(srcPath + '/app/common/question/BaseQuestionCtrl.js');
 getScript(srcPath + '/app/common/upload/upload.js');
+getScript(srcPath + '/app/common/upload/fileModel.js');
 getScript(srcPath + '/app/common/title/title.js');
 getScript(srcPath + '/app/common/truncate/truncate.js');
 getScript(srcPath + '/app/common/audio/audio.js');

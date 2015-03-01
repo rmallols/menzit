@@ -10,8 +10,10 @@ app.controller('UserAddAdminCtrl', ['$scope', '$state', 'http', 'constants',
         };
 
         $scope.submit = function () {
-            http.post('/rest/users/', $scope.user).then(function () {
-                $state.go('app.admin.users');
+            $scope.uploadRequestFn().then(function () {
+                http.post('/rest/users/', $scope.user).then(function () {
+                    $state.go('app.admin.users');
+                });
             });
         };
     }]);

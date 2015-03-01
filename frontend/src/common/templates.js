@@ -83,7 +83,9 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "            </div>\n" +
     "            <div class=\"l-row\">\n" +
     "                <div class=\"l-1-4 input-label\">Image</div>\n" +
-    "                <div class=\"l-3-4\"><input ng-model=\"test.question.image\" upload /></div>\n" +
+    "                <div class=\"l-3-4\">\n" +
+    "                    <upload ng-model=\"test.question.media\" on-submit-request=\"uploadQuestionRequestFn\"></upload>\n" +
+    "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <div>\n" +
@@ -102,7 +104,9 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "                </div>\n" +
     "                <div class=\"l-row\">\n" +
     "                    <div class=\"l-1-4 input-label\">Image</div>\n" +
-    "                    <div class=\"l-3-4\"><input ng-model=\"answer.image\" upload /></div>\n" +
+    "                    <div class=\"l-3-4\">\n" +
+    "                        <upload ng-model=\"answer.media\" on-submit-request=\"uploadAnswerRequestFns[$index]\"></upload>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "                <div class=\"l-row select-correct\">\n" +
     "                    <button ng-click=\"$parent.correctOptionIndex = $index\">Mark as correct answer</button>\n" +
@@ -283,7 +287,9 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "    <div class=\"l-1-2\">\n" +
     "        <div class=\"l-row\">\n" +
     "            <div class=\"l-1-2 input-label\">Image</div>\n" +
-    "            <div class=\"l-1-2\"><input ng-model=\"user.image\" upload /></div>\n" +
+    "            <div class=\"l-1-2\">\n" +
+    "                <upload ng-model=\"user.media\" on-submit-request=\"uploadRequestFn\"></upload>\n" +
+    "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -392,7 +398,7 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
     "<div class=\"question-view\">\n" +
     "    <div class=\"question\"\n" +
     "         ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
-    "         ng-style=\"getBackgroundImageStyle(question.question.image)\">\n" +
+    "         ng-style=\"getBackgroundMediaStyle(question.question.media)\">\n" +
     "        {{question.question.text}}\n" +
     "        <div audio=\"question.question.text\"></div>\n" +
     "    </div>\n" +
@@ -400,7 +406,7 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
     "        <div ng-repeat=\"answer in question.answers\"\n" +
     "             class=\"answer l-answer-{{question.answers.length}}\"\n" +
     "             ng-class=\"getAnswerStyleClasses(answer)\"\n" +
-    "             ng-style=\"getBackgroundImageStyle(answer)\"\n" +
+    "             ng-style=\"getBackgroundMediaStyle(answer)\"\n" +
     "             ng-click=\"setAnswer(question, $index)\">\n" +
     "            <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
     "            <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\"\n" +
@@ -454,7 +460,7 @@ angular.module("menuPanel.html", []).run(["$templateCache", function($templateCa
     "    <div class=\"menu-panel\" ng-class=\"{ 'is-active': isActive }\">\n" +
     "        <a ui-sref=\"app.admin.editUser({ userId: session._id, current: 'current' })\" class=\"menu-panel-item menu-current-user cf\"\n" +
     "           ng-class=\"isActiveItem('current')\">\n" +
-    "            <img class=\"menu-current-user-icon menu-panel-item-icon\" ng-src=\"{{session.image}}\" />\n" +
+    "            <img class=\"menu-current-user-icon menu-panel-item-icon\" ng-src=\"/media/{{session.media._id}}\" />\n" +
     "            <h4 class=\"menu-panel-item-title\">{{getUserName(session)}}</h4>\n" +
     "        </a>\n" +
     "        <hr class=\"menu-panel-separator\"/>\n" +

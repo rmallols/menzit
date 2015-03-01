@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('upload', ['$q', 'http', function ($q, http) {
+app.directive('upload', ['$q', '$timeout', 'http', function ($q, $timeout, http) {
     return  {
         replace: true,
         templateUrl: 'upload.html',
@@ -73,7 +73,9 @@ app.directive('upload', ['$q', 'http', function ($q, http) {
             function onSubmitSuccess(media, deferred) {
                 refreshToken();
                 scope.media._id = (media && media[0]) ? media[0]._id : undefined;
-                deferred.resolve(media);
+                $timeout(function () { //TODO: issue #9
+                    deferred.resolve(media);
+                }, 500);
             }
 
             function onSubmitError(deferred) {

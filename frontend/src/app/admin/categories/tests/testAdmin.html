@@ -13,7 +13,9 @@
             </div>
             <div class="l-row">
                 <div class="l-1-4 input-label">Image</div>
-                <div class="l-3-4"><input ng-model="test.question.image" upload /></div>
+                <div class="l-3-4">
+                    <upload ng-model="test.question.media" on-submit-request="uploadQuestionRequestFn"></upload>
+                </div>
             </div>
         </div>
         <div>
@@ -32,7 +34,9 @@
                 </div>
                 <div class="l-row">
                     <div class="l-1-4 input-label">Image</div>
-                    <div class="l-3-4"><input ng-model="answer.image" upload /></div>
+                    <div class="l-3-4">
+                        <upload ng-model="answer.media" on-submit-request="uploadAnswerRequestFns[$index]"></upload>
+                    </div>
                 </div>
                 <div class="l-row select-correct">
                     <button ng-click="$parent.correctOptionIndex = $index">Mark as correct answer</button>

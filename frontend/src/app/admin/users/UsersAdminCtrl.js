@@ -19,8 +19,12 @@ app.controller('UsersAdminCtrl', ['$scope', '$state', 'http',
 
     $scope.delete = function () {
         http.delete('/rest/users/' + $scope.userToBeDeleted._id).then(function () {
+            var mediaId =  $scope.userToBeDeleted.media && $scope.userToBeDeleted.media._id;
             $scope.userToBeDeleted = null;
             loadUsers();
+            if(mediaId) {
+                http.delete('/rest/media/' + mediaId);
+            }
         });
     };
 

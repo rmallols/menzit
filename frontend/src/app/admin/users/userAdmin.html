@@ -51,7 +51,9 @@
     <div class="l-1-2">
         <div class="l-row">
             <div class="l-1-2 input-label">Image</div>
-            <div class="l-1-2"><input ng-model="user.image" upload /></div>
+            <div class="l-1-2">
+                <upload ng-model="user.media" on-submit-request="uploadRequestFn"></upload>
+            </div>
         </div>
     </div>
 </div>

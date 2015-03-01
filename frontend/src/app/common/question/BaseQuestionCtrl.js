@@ -4,14 +4,14 @@ app.controller('BaseQuestionCtrl', ['$scope', 'http', function ($scope, http) {
 
     $scope.answerCodes = ['A', 'B', 'C', 'D'];
 
-    $scope.getBackgroundImageStyle = function (answer) {
-        var backgroundImage = answer && answer.image;
-        return (backgroundImage) ? { 'background-image' : 'url(' + backgroundImage + ')' } : {};
+    $scope.getBackgroundMediaStyle = function (answer) {
+        var backgroundImage = answer && answer.media && answer.media._id;
+        return (backgroundImage) ? { 'background-image' : 'url(/media/' + backgroundImage + ')' } : {};
     };
 
     $scope.getQuestionStyleClasses = function (question) {
         return {
-            'has-background-image': question && question.image
+            'has-background-image': question && question.media && question.media._id
         };
     };
 
@@ -20,7 +20,7 @@ app.controller('BaseQuestionCtrl', ['$scope', 'http', function ($scope, http) {
             'valid-assert': answer.validAssert,
             'invalid-assert': answer.invalidAssert,
             'has-text' : answer.title,
-            'has-background-image': answer.image
+            'has-background-image': answer.media && answer.media._id
         };
     };
 

@@ -34,7 +34,7 @@
                     };
 
                     scope.getTenantLogo = function () {
-                        return (scope.session && session.tenant && session.tenant.image) ||
+                        return (scope.session && session.tenant && session.tenant.media && session.tenant.media._id) ||
                                 constants.logoPath;
                     };
 

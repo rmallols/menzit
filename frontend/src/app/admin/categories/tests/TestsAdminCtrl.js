@@ -24,8 +24,9 @@ app.controller('TestsAdminCtrl', ['$scope', '$state', 'http', 'category',
 
         $scope.delete = function () {
             http.delete('/rest/tests/' + $scope.testToBeDeleted._id).then(function () {
-                $scope.testToBeDeleted = null;
                 loadTests();
+                deleteMedia();
+                $scope.testToBeDeleted = null;
             });
         };
 
@@ -34,5 +35,21 @@ app.controller('TestsAdminCtrl', ['$scope', '$state', 'http', 'category',
             http.get(endpoint).then(function (tests) {
                 $scope.tests = tests;
             });
+        }
+
+        function deleteMedia() {
+            var mediaId =   $scope.testToBeDeleted.question.media &&
+                            $scope.testToBeDeleted.question.media._id;
+            submitDeleteMedia(mediaId);
+            angular.forEach($scope.testToBeDeleted.answers, function (answer) {
+                mediaId = answer.media && answer.media._id;
+                submitDeleteMedia(mediaId);
+            });
+        }
+
+        function submitDeleteMedia(mediaId) {
+            if(mediaId) {
+                http.delete('/rest/media/' + mediaId);
+            }
         }
     }]);

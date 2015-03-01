@@ -3,7 +3,7 @@
     <div class="menu-panel" ng-class="{ 'is-active': isActive }">
         <a ui-sref="app.admin.editUser({ userId: session._id, current: 'current' })" class="menu-panel-item menu-current-user cf"
            ng-class="isActiveItem('current')">
-            <img class="menu-current-user-icon menu-panel-item-icon" ng-src="{{session.image}}" />
+            <img class="menu-current-user-icon menu-panel-item-icon" ng-src="/media/{{session.media._id}}" />
             <h4 class="menu-panel-item-title">{{getUserName(session)}}</h4>
         </a>
         <hr class="menu-panel-separator"/>

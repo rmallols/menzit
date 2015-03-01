@@ -1,7 +1,7 @@
 <div class="question-view">
     <div class="question"
          ng-class="getQuestionStyleClasses(question.question)"
-         ng-style="getBackgroundImageStyle(question.question.image)">
+         ng-style="getBackgroundMediaStyle(question.question.media)">
         {{question.question.text}}
         <div audio="question.question.text"></div>
     </div>
@@ -9,7 +9,7 @@
         <div ng-repeat="answer in question.answers"
              class="answer l-answer-{{question.answers.length}}"
              ng-class="getAnswerStyleClasses(answer)"
-             ng-style="getBackgroundImageStyle(answer)"
+             ng-style="getBackgroundMediaStyle(answer)"
              ng-click="setAnswer(question, $index)">
             <div class="option"><div class="text">{{answerCodes[$index]}}</div></div>
             <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark"

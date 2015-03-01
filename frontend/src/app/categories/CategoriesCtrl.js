@@ -11,7 +11,7 @@ app.controller('CategoriesCtrl', ['$scope', '$state', 'http', function($scope, $
     };
 
     $scope.getBackgroundImageStyle = function (category) {
-        var backgroundImage = category.image;
-        return (backgroundImage) ? { 'background-image' : 'url(' + backgroundImage + ')' } : {};
+        var backgroundImage = category.media && category.media._id;
+        return (backgroundImage) ? { 'background-image' : 'url(/media/' + backgroundImage + ')' } : {};
     };
 }]);
