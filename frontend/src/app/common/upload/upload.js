@@ -23,6 +23,8 @@ app.directive('upload', ['$q', 'http', function ($q, http) {
                     reader = new FileReader();
                     reader.onload = (function () {
                         return function (e) {
+                            scope.toBeUpdated = true;
+                            scope.toBeDeleted = false;
                             scope.base64 = e.target.result;
                             scope.$apply();
                         };
@@ -40,16 +42,42 @@ app.directive('upload', ['$q', 'http', function ($q, http) {
 
             function submit(uploadUrl, fileDescriptor) {
                 var deferred = $q.defer();
-                http.post(uploadUrl, fileDescriptor, getSubmitHeaders())
-                    .then(function (media) {
-                        scope.base64 = null;
-                        refreshToken();
-                        scope.media.id = media[0]._id;
-                        deferred.resolve(media);
-                    }).catch(function () {
-                        deferred.reject();
-                    });
+                cUDSubit(uploadUrl, fileDescriptor).then(function (media) {
+                    onSubmitSuccess(media, deferred);
+                }).catch(function () {
+                    onSubmitError(deferred);
+                });
                 return deferred.promise;
+            }
+
+            function cUDSubit(uploadUrl, fileDescriptor) {
+                if(!scope.media._id && fileDescriptor && !scope.toBeDeleted) { //The media doesn't exist yet
+                    return http.post(uploadUrl, fileDescriptor, getSubmitHeaders());
+                } else if(scope.media._id) { //The media already exists
+                    return cUDSubitExistingMedia(uploadUrl, fileDescriptor);
+                } else { //Nothing has been actually changed
+                    return $q.when([scope.media]);
+                }
+            }
+
+            function cUDSubitExistingMedia(uploadUrl, fileDescriptor) {
+                if(scope.toBeDeleted) { //The existing media has been marked to be removed
+                    return http.delete(uploadUrl);
+                } else if(scope.toBeUpdated) { //The existing media has been marked to be updated
+                    return http.put(uploadUrl, fileDescriptor, getSubmitHeaders());
+                } else { //Nothing has been actually changed
+                    return $q.when([scope.media]);
+                }
+            }
+
+            function onSubmitSuccess(media, deferred) {
+                refreshToken();
+                scope.media._id = (media && media[0]) ? media[0]._id : undefined;
+                deferred.resolve(media);
+            }
+
+            function onSubmitError(deferred) {
+                deferred.reject();
             }
 
             function refreshToken() {
@@ -58,19 +86,15 @@ app.directive('upload', ['$q', 'http', function ($q, http) {
 
             scope.onSubmitRequest = function () {
                 var file = scope.selectedFile,
-                    uploadUrl = '/rest/media/' + (scope.media.id || ''),
-                    fileDescriptor = new FormData();
-                if(file) {
-                    fileDescriptor.append('file', file);
-                    return submit(uploadUrl, fileDescriptor);
-                } else {
-                    return $q.when();
-                }
+                    uploadUrl = '/rest/media/' + (scope.media._id || ''),
+                fileDescriptor = new FormData();
+                fileDescriptor.append('file', file);
+                return submit(uploadUrl, (file) ? fileDescriptor : null);
             };
 
             scope.remove = function () {
-                scope.media.id = null;
-                scope.base64 = null;
+                scope.toBeDeleted = true;
+                scope.toBeUpdated = false;
                 inputElement.val('');
             };
         }

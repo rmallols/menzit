@@ -1,12 +1,12 @@
-<form enctype="multipart/form-data" method="post" class="upload-view cf">
+<div class="upload-view cf">
     <input type="file" file-model="selectedFile"/>
     <div class="upload-button cf">
-        <div class="upload-button-output" ng-if="media.id || base64">
+        <div class="upload-button-output" ng-if="(media._id || base64) && !toBeDeleted">
             <button class="delete-image" ng-click="remove()">
                 <icon class="close-icon"></icon>
             </button>
-            <img ng-src="/media/{{media.id}}?rnd={{refreshToken}}" ng-if="media.id && !base64" />
+            <img ng-src="/media/{{media._id}}?rnd={{refreshToken}}" ng-if="media._id && !base64" />
             <img ng-src="{{base64}}" ng-if="base64" />
         </div>
     </div>
-</form>
+</div>

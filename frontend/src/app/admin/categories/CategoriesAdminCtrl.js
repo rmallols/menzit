@@ -23,8 +23,12 @@ app.controller('CategoriesAdminCtrl', ['$scope', '$state', 'http',
 
         $scope.delete = function () {
             http.delete('/rest/categories/' + $scope.categoryToBeDeleted._id).then(function () {
+                var mediaId = $scope.categoryToBeDeleted.media && $scope.categoryToBeDeleted.media._id;
                 $scope.categoryToBeDeleted = null;
                 loadCategories();
+                if(mediaId) {
+                    http.delete('/rest/media/' + mediaId);
+                }
             });
         };
 

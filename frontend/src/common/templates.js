@@ -59,7 +59,7 @@ angular.module("categoryAdmin.html", []).run(["$templateCache", function($templa
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-2 input-label\">Image</div>\n" +
     "        <div class=\"l-1-2\">\n" +
-    "            <upload ng-model=\"category.image\" on-submit-request=\"uploadRequestFn\"></upload>\n" +
+    "            <upload ng-model=\"category.media\" on-submit-request=\"uploadRequestFn\"></upload>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -416,18 +416,18 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
 
 angular.module("upload.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("upload.html",
-    "<form enctype=\"multipart/form-data\" method=\"post\" class=\"upload-view cf\">\n" +
+    "<div class=\"upload-view cf\">\n" +
     "    <input type=\"file\" file-model=\"selectedFile\"/>\n" +
     "    <div class=\"upload-button cf\">\n" +
-    "        <div class=\"upload-button-output\" ng-if=\"media.id || base64\">\n" +
+    "        <div class=\"upload-button-output\" ng-if=\"(media._id || base64) && !toBeDeleted\">\n" +
     "            <button class=\"delete-image\" ng-click=\"remove()\">\n" +
     "                <icon class=\"close-icon\"></icon>\n" +
     "            </button>\n" +
-    "            <img ng-src=\"/media/{{media.id}}?rnd={{refreshToken}}\" ng-if=\"media.id && !base64\" />\n" +
+    "            <img ng-src=\"/media/{{media._id}}?rnd={{refreshToken}}\" ng-if=\"media._id && !base64\" />\n" +
     "            <img ng-src=\"{{base64}}\" ng-if=\"base64\" />\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</form>");
+    "</div>");
 }]);
 
 angular.module("menu.html", []).run(["$templateCache", function($templateCache) {

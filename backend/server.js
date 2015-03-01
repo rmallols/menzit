@@ -167,7 +167,7 @@ app.post('/rest/media', function (req, res) {
     });
 });
 
-app.post('/rest/media/:mediaId', function (req, res) {
+app.put('/rest/media/:mediaId', function (req, res) {
     media.update(req.params.mediaId, req.files, req.session, function (err, data) {
         responseWithErrorControl(res, err, data);
     });
