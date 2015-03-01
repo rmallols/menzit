@@ -150,7 +150,9 @@
         &.has-explanation {
 
           icon {
-            margin-top: -50px;
+            @media only screen and (max-width: @mobile-width-detection) {
+              font-size: 50%;
+            }
           }
         }
 
@@ -162,12 +164,6 @@
             font-size: 700%;
           }
         }
-
-        @media only screen and (max-width: @mobile-width-detection) {
-          icon {
-            font-size: 70%;
-          }
-        }
       }
 
       .title {
@@ -176,7 +172,7 @@
         height: 100%;
 
         @media only screen and (max-width: @mobile-width-detection) {
-          font-size: 120%;
+          font-size: 140% !important;
         }
       }
 
@@ -193,7 +189,7 @@
         line-height: 1;
 
         @media only screen and (max-width: @mobile-width-detection) {
-          font-size: 140%;
+          font-size: 140% !important;
         }
       }
 
@@ -250,7 +246,7 @@
 
         .explanation {
           .text-over-background;
-          height: 20%;
+          height: 35%;
           color: @red;
           top: 0;
         }
