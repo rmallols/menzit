@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1339a3d6-bff5-481c-a57c-27809f034a88" name="Default" comment="Improving UI on Firefox and IE">
-      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\css.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\src.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\vendor.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/howItWorks/category.svg" afterPath="$PROJECT_DIR$/frontend/src/portal/howItWorks/category.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/howItWorks/improve.svg" afterPath="$PROJECT_DIR$/frontend/src/portal/howItWorks/improve.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/howItWorks/play.svg" afterPath="$PROJECT_DIR$/frontend/src/portal/howItWorks/play.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.less" afterPath="$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/loader.js" afterPath="$PROJECT_DIR$/frontend/src/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+    <list default="true" id="1339a3d6-bff5-481c-a57c-27809f034a88" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dev.iws" />
@@ -60,8 +51,8 @@
       <file leaf-file-name="howItWorks.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="629">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.6238532" vertical-offset="0" max-vertical-offset="561">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1033,7 +1024,13 @@
       <option name="project" value="LOCAL" />
       <updated>1425253844788</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Improving SVG icons on IE">
+      <created>1425254745064</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1425254745064</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1058,9 +1055,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2898696" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2898696" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37412238" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="1285" y="142" width="1264" height="926" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37211636" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39899623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1073,7 +1070,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25474682" sideWeight="0.49928057" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37412238" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37412238" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1120,7 +1117,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="#0 clean up" />
     <MESSAGE value="#0 checking in heroku resources" />
     <MESSAGE value="#0 pointing to remote database" />
     <MESSAGE value="#0 blocking access to admin area for non logged users" />
@@ -1145,7 +1141,8 @@
     <MESSAGE value="Improving the UI for text + image question&#10;Increased the threshold for the upload action, to reduce the possibility of having problems on a remote env" />
     <MESSAGE value="adding UI improvements. Fixing the scrolling problem on some mobile devices." />
     <MESSAGE value="Improving UI on Firefox and IE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improving UI on Firefox and IE" />
+    <MESSAGE value="Improving SVG icons on IE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improving SVG icons on IE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1556,8 +1553,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="629">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.6238532" vertical-offset="0" max-vertical-offset="561">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
