@@ -50,6 +50,10 @@
         to { width: 100%;  height: @score-height-mobile; }
       }
     }
+
+    .ua-ie & {
+      width: 50%;
+    }
   }
 
   .best-results {
@@ -117,11 +121,19 @@
       .offsettedHeight(-(@actions-height + @score-height-mobile));
       width: 100%;
     }
+
+    .ua-ie & {
+      display: block !important;
+    }
   }
 
   .actions {
     .centered;
     clear: left;
     height: @actions-height;
+
+    .ua-ie & {
+      display: block !important;
+    }
   }
 }

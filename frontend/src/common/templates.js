@@ -543,7 +543,7 @@ angular.module("results.html", []).run(["$templateCache", function($templateCach
     "        <div class=\"title\">Your score is</div>\n" +
     "        <div class=\"value\">{{score}}</div>\n" +
     "    </div>\n" +
-    "    <div class=\"best-results\" ng-if=\"showBestResults\">\n" +
+    "    <div class=\"best-results\" ng-show=\"showBestResults\">\n" +
     "        <h2 class=\"title\">Best results on this test</h2>\n" +
     "        <div class=\"scrolling-area\">\n" +
     "            <div class=\"best-result\" ng-repeat=\"bestResult in bestResults\"\n" +
@@ -554,7 +554,7 @@ angular.module("results.html", []).run(["$templateCache", function($templateCach
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"actions\" ng-if=\"showBestResults\">\n" +
+    "    <div class=\"actions\" ng-show=\"showBestResults\">\n" +
     "        <button ng-click=\"repeatTest()\" class=\"important\">Repeat again</button>\n" +
     "        <button ng-click=\"goToHome()\">Go to home</button>\n" +
     "    </div>\n" +

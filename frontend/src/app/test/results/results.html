@@ -3,7 +3,7 @@
         <div class="title">Your score is</div>
         <div class="value">{{score}}</div>
     </div>
-    <div class="best-results" ng-if="showBestResults">
+    <div class="best-results" ng-show="showBestResults">
         <h2 class="title">Best results on this test</h2>
         <div class="scrolling-area">
             <div class="best-result" ng-repeat="bestResult in bestResults"
@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    <div class="actions" ng-if="showBestResults">
+    <div class="actions" ng-show="showBestResults">
         <button ng-click="repeatTest()" class="important">Repeat again</button>
         <button ng-click="goToHome()">Go to home</button>
     </div>

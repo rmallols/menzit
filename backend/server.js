@@ -162,6 +162,7 @@ app.post('/rest/contact', function (req, res) {
 });
 
 app.post('/rest/media', function (req, res) {
+    console.log('aha', req.body)
     media.create(req.files, req.session, function (err, data) {
         responseWithErrorControl(res, err, data);
     });

@@ -1,8 +1,8 @@
 'use strict';
 
 app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q',
-    '$stateParams', 'http', 'pubSub',
-    function ($scope, $state, $timeout, $interval, $q, $stateParams, http, pubSub) {
+    '$stateParams', 'http', 'pubSub', 'browser',
+    function ($scope, $state, $timeout, $interval, $q, $stateParams, http, pubSub, browser) {
 
         var scoreUpdatedSub, updateScoreIntervalFn, currentResult;
 
@@ -50,12 +50,19 @@ app.controller('ResultsCtrl', ['$scope', '$state', '$timeout', '$interval', '$q'
                         $scope.score += 1;
                     } else {
                         $interval.cancel(updateScoreIntervalFn);
-                        $timeout(function () {
-                            $scope.showBestResults = true;
-                        }, 3000);
+                        showBestResults();
                     }
                 }, 5);
             }, 3500);
+        }
+
+        function showBestResults() {
+            //TODO: #11 Fix problem with the score results on IE11
+            if(!browser.isIE()) {
+                $timeout(function () {
+                    $scope.showBestResults = true;
+                }, 3000);
+            }
         }
 
         function saveScore(score) {
