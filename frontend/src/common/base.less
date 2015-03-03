@@ -1,6 +1,9 @@
 @font-face {
-  font-family: mz;
-  src: url('/src/common/mz.ttf');
+  //fonts converted from ttf to woff and (optimized) ttf:
+  //http://www.fontsquirrel.com/tools/webfont-generator
+  font-family: 'mz';
+  src:  url('/src/common/mz.woff') format('woff'), /* Modern Browsers */
+        url('/src/common/mz.ttf') format('truetype') /* Safari, Android, iOS */;
 }
 
 @font-face {

@@ -18,12 +18,20 @@
     }
 
     -webkit-animation: move-score .6s;
+    -moz-animation: move-score .6s;
+    -ms-animation: move-score .6s;
     animation: move-score .6s;
     -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     -webkit-animation-delay: 3s;
+    -moz-animation-delay: 3s;
+    -ms-animation-delay: 3s;
     animation-delay: 3s;
     @-webkit-keyframes move-score { .move-score; }
+    @-moz-keyframes move-score { .move-score; }
+    @-ms-keyframes move-score { .move-score; }
     @keyframes move-score { .move-score; }
 
     .move-score {
@@ -33,6 +41,8 @@
 
     @media only screen and (max-width: @mobile-width-detection) {
       @-webkit-keyframes move-score { .move-score-mobile; }
+      @-moz-keyframes move-score { .move-score-mobile; }
+      @-ms-keyframes move-score { .move-score-mobile; }
       @keyframes move-score { .move-score-mobile; }
 
       .move-score-mobile {
