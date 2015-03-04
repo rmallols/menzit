@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1339a3d6-bff5-481c-a57c-27809f034a88" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/base.less" afterPath="$PROJECT_DIR$/frontend/src/common/base.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/dialog/dialog.less" afterPath="$PROJECT_DIR$/frontend/src/app/common/dialog/dialog.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/layout.less" afterPath="$PROJECT_DIR$/frontend/src/common/layout.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/login/login.less" afterPath="$PROJECT_DIR$/frontend/src/common/login/login.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/question/question.less" afterPath="$PROJECT_DIR$/frontend/src/app/common/question/question.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/home/home.html" afterPath="$PROJECT_DIR$/frontend/src/portal/home/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/home/home.less" afterPath="$PROJECT_DIR$/frontend/src/portal/home/home.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.html" afterPath="$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/templates.js" afterPath="$PROJECT_DIR$/frontend/src/common/templates.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dev.iws" />
@@ -33,51 +32,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dialog.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/dialog/dialog.less">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/portal/home/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6666665" vertical-offset="136" max-vertical-offset="1224">
-              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+            <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="612">
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.less" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/common/login/login.less">
+      <file leaf-file-name="howItWorks.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="629">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="663">
+              <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/common/layout.less">
+      <file leaf-file-name="constants.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/common/constants.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="2142">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/common/base.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="4182">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="question.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/question/question.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4705882" vertical-offset="571" max-vertical-offset="5389">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="42" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.4864865" vertical-offset="0" max-vertical-offset="629">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -101,9 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/app/common/upload/upload.less" />
-        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryAddAdminCtrl.js" />
-        <option value="$PROJECT_DIR$/backend/crud/update.js" />
         <option value="$PROJECT_DIR$/backend/media.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryEditAdminCtrl.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/upload/upload.html" />
@@ -131,7 +107,6 @@
         <option value="$PROJECT_DIR$/frontend/src/app/common/question/BaseQuestionCtrl.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/categories/categories.less" />
         <option value="$PROJECT_DIR$/frontend/src/app/app.js" />
-        <option value="$PROJECT_DIR$/frontend/src/portal/home/home.less" />
         <option value="$PROJECT_DIR$/frontend/src/app/menu/panel/menuPanel.less" />
         <option value="$PROJECT_DIR$/frontend/src/portal/portal.html" />
         <option value="$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.less" />
@@ -152,6 +127,10 @@
         <option value="$PROJECT_DIR$/frontend/src/common/base.less" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/dialog/dialog.less" />
         <option value="$PROJECT_DIR$/frontend/src/common/login/login.less" />
+        <option value="$PROJECT_DIR$/frontend/src/portal/home/home.html" />
+        <option value="$PROJECT_DIR$/frontend/src/portal/home/home.less" />
+        <option value="$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.html" />
+        <option value="$PROJECT_DIR$/frontend/src/common/constants.less" />
       </list>
     </option>
   </component>
@@ -524,7 +503,7 @@
       <recent name="C:\menzit\dev\frontend\src\app\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.[DEV]">
+  <component name="RunManager" selected="Node.js.Heroku log">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" uri="http://localhost:63342/">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -1035,7 +1014,13 @@
       <option name="project" value="LOCAL" />
       <updated>1425495857962</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Improving UI on mobile devices (login and question view)">
+      <created>1425498062819</created>
+      <option name="number" value="00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1425498062819</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1122,7 +1107,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="#0 started to check tenant visibility depending on user privileges" />
     <MESSAGE value="#0 started to add autocomplete support" />
     <MESSAGE value="#0 finished autocomplete support on tenants setup" />
     <MESSAGE value="#0 solved problem with accepted invalid usernames" />
@@ -1147,7 +1131,8 @@
     <MESSAGE value="Supporting results view on IE" />
     <MESSAGE value="Fixed problem with the logo width on mobile devices" />
     <MESSAGE value="Adding Google analytics tracking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Google analytics tracking" />
+    <MESSAGE value="Improving UI on mobile devices (login and question view)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improving UI on mobile devices (login and question view)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1156,27 +1141,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/users/userAdmin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.1923075" vertical-offset="417" max-vertical-offset="1105">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/users/UserAddAdminCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/users/UserEditAdminCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/users/UsersAdminCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7701342" vertical-offset="0" max-vertical-offset="697">
@@ -1258,6 +1222,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1071">
           <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1338,14 +1303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/portal/home/home.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1547">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/menu/panel/menuPanel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05304212" vertical-offset="0" max-vertical-offset="731">
@@ -1378,14 +1335,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="561">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="561">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1491,7 +1440,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/common/layout.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="2142">
+        <state vertical-scroll-proportion="0.27027026" vertical-offset="0" max-vertical-offset="2142">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
           <folding />
         </state>
@@ -1505,17 +1454,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/common/base.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="4182">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/common/question/question.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4705882" vertical-offset="571" max-vertical-offset="5389">
+        <state vertical-scroll-proportion="0.11923689" vertical-offset="571" max-vertical-offset="5389">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="42" selection-end-column="7" />
           <folding />
         </state>
@@ -1523,8 +1464,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/common/login/login.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="629">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.21621622" vertical-offset="0" max-vertical-offset="629">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/portal/home/home.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35135135" vertical-offset="918" max-vertical-offset="1547">
+          <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3783784" vertical-offset="0" max-vertical-offset="629">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/portal/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="612">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/common/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33116883" vertical-offset="0" max-vertical-offset="4182">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="663">
+          <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/common/constants.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4864865" vertical-offset="0" max-vertical-offset="629">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>
       </provider>

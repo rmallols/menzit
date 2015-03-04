@@ -674,12 +674,14 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "                <div class=\"l-1-2 secondary-column secondary-learn\">\n" +
     "                    <h1>Learn</h1>\n" +
     "                    <img class=\"secondary-column-image\" src=\"/src/portal/home/learn.svg\" />\n" +
-    "                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut orci a nunc convallis pretium at nec eros.\n" +
+    "                    With Menzit you can easily get new concepts of multiple categories.<br/><br/>\n" +
+    "                    We will recommend you what to train according to your interests and skills!\n" +
     "                </div>\n" +
     "                <div class=\"l-1-2 secondary-column secondary-play\">\n" +
     "                    <h1>Play!</h1>\n" +
     "                    <img class=\"secondary-column-image\" src=\"/src/portal/home/play.svg\" />\n" +
-    "                    Ut ac arcu dui. Ut cursus tempus eros in aliquet. Morbi vitae adipiscing mauris. Sed gravida accumsan suscipit.\n" +
+    "                    Select a topic an play by answering different questions about it.<br/><br/>\n" +
+    "                    Then you get a score, so you can compare your skills with your friends!\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -693,8 +695,9 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
     "    <div class=\"l-row how-it-works-concept\">\n" +
     "        <div class=\"l-1-2\">\n" +
     "            <h2>1. Select a category</h2>\n" +
-    "            Choose a topic of your motivation.<br/><br/>\n" +
-    "            We have lots of different subjects to allow you to concentrate on your interests.\n" +
+    "            Choose a topic which motivates you.<br/><br/>\n" +
+    "            We have lots of different subjects to allow you to concentrate on your interests.<br/><br/>\n" +
+    "            Let's play!\n" +
     "        </div>\n" +
     "        <div class=\"l-1-2\">\n" +
     "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/category.svg\" />\n" +
@@ -703,8 +706,9 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
     "    <div class=\"l-row how-it-works-concept\">\n" +
     "        <div class=\"l-1-2 how-it-works-concept-text\">\n" +
     "            <h2>2. Learn while playing</h2>\n" +
-    "            Improve your skills in a funny way<br/><br/>\n" +
-    "            Answer questions related to the topic you selected.\n" +
+    "            Improve your skills in a funny way.<br/><br/>\n" +
+    "            Answer questions related to the topic you selected.<br/><br/>\n" +
+    "            Check those questions you struggle with whenever you want!\n" +
     "        </div>\n" +
     "        <div class=\"l-1-2 how-it-works-concept-image\">\n" +
     "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/play.svg\" />\n" +
@@ -713,7 +717,8 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
     "    <div class=\"l-row how-it-works-concept\">\n" +
     "        <div class=\"l-1-2\">\n" +
     "            <h2>3. Compare with friends and improve</h2>\n" +
-    "            Check your score\n" +
+    "            At the end of each test you will get a score</br></br>\n" +
+    "            Compare it with your friends and improve your skills by reviewing the important questions afterwards.\n" +
     "        </div>\n" +
     "        <div class=\"l-1-2\">\n" +
     "            <img class=\"how-it-works-image\" src=\"/src/portal/howItWorks/improve.svg\" />\n" +
