@@ -35,6 +35,7 @@ getScript(srcPath + '/common/session.js');
 getScript(srcPath + '/common/pubSub.js');
 getScript(srcPath + '/common/loading.js');
 getScript(srcPath + '/common/browser.js');
+getScript(srcPath + '/common/analytics.js');
 getScript(srcPath + '/common/login/login.js');
 
 //Business logic src resources
