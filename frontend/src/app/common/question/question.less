@@ -1,5 +1,6 @@
 .question-view {
   @question-height: 120px;
+  @question-height-mobile: 70px;
   @question-margin-bottom: @gutter;
   height: 100%;
 
@@ -24,8 +25,8 @@
     }
 
     .audio {
-      height: @question-height / 2;
       position: absolute;
+      height: @question-height / 2;
       top: @question-height / 4;
       right: @question-height / 4;
 
@@ -34,10 +35,19 @@
         height: 100%;
         font-size: 80%;
       }
+
+      @media only screen and (max-width: @mobile-width-detection) {
+        height: @question-height-mobile / 2;
+        top: @question-height-mobile / 4;
+        right: @question-height-mobile / 4;
+      }
     }
 
     @media only screen and (max-width: @mobile-width-detection) {
-      font-size: 180%;
+      .padding;
+      padding-right: 80px;
+      height: @question-height-mobile;
+      font-size: 120%;
     }
   }
 
@@ -173,7 +183,8 @@
         height: 100%;
 
         @media only screen and (max-width: @mobile-width-detection) {
-          font-size: 140% !important;
+          font-size: 100% !important;
+          line-height: 1;
         }
       }
 
@@ -190,7 +201,7 @@
         line-height: 1;
 
         @media only screen and (max-width: @mobile-width-detection) {
-          font-size: 140% !important;
+          font-size: 100% !important;
         }
       }
 
@@ -288,12 +299,14 @@
           margin-top: 0;
         }
       }
+
+      @media only screen and (max-width: @mobile-width-detection) {
+        .padding;
+      }
     }
 
     @media only screen and (max-width: @mobile-width-detection) {
-      .answer {
-        .padding;
-      }
+      .offsettedHeight(-(@question-height-mobile + @question-margin-bottom));
     }
   }
 }
