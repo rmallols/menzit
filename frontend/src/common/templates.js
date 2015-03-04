@@ -440,7 +440,9 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
   $templateCache.put("menu.html",
     "<div class=\"menu-view\">\n" +
     "    <div class=\"menu-tenant\">\n" +
-    "        <img class=\"menu-tenant-logo\" ng-src=\"{{getTenantLogo()}}\" />\n" +
+    "        <a ui-sref=\"app.categories\">\n" +
+    "            <img class=\"menu-tenant-logo\" ng-src=\"{{getTenantLogo()}}\" />\n" +
+    "        </a>\n" +
     "    </div>\n" +
     "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
     "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
@@ -705,7 +707,7 @@ angular.module("howItWorks.html", []).run(["$templateCache", function($templateC
     "    </div>\n" +
     "    <div class=\"l-row how-it-works-concept\">\n" +
     "        <div class=\"l-1-2 how-it-works-concept-text\">\n" +
-    "            <h2>2. Learn while playing</h2>\n" +
+    "            <h2>2. Play and learn</h2>\n" +
     "            Improve your skills in a funny way.<br/><br/>\n" +
     "            Answer questions related to the topic you selected.<br/><br/>\n" +
     "            Check those questions you struggle with whenever you want!\n" +

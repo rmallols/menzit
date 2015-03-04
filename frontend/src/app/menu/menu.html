@@ -1,6 +1,8 @@
 <div class="menu-view">
     <div class="menu-tenant">
-        <img class="menu-tenant-logo" ng-src="{{getTenantLogo()}}" />
+        <a ui-sref="app.categories">
+            <img class="menu-tenant-logo" ng-src="{{getTenantLogo()}}" />
+        </a>
     </div>
     <div ng-include="'testData.html'" ng-controller="TestDataCtrl"></div>
     <menu-panel is-active="isPanelActive"></menu-panel>
