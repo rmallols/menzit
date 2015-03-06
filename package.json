@@ -6,8 +6,8 @@
     "node": "0.10.26",
     "npm": "1.4.3"
   },
-  "timestamp": 1425672615112,
-  "env": "test",
+  "timestamp": 1425672666918,
+  "env": "dev",
   "db": {
     "dev": {
       "host": "127.0.0.1",
@@ -19,7 +19,7 @@
       "host": "ds063449.mongolab.com",
       "port": "63449",
       "user": "menzit",
-      "password": "menzit"
+      "password": "Richondo!"
     }
   },
   "dependencies": {
