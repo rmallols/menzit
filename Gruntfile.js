@@ -207,3 +207,4 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',
         'optimizeSvg', 'compileLess', 'githubPush', 'herokuPush', 'dev']);
 };
+
