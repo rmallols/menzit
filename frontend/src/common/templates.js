@@ -662,7 +662,7 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "    <div class=\"content\">\n" +
     "        <div class=\"main\">\n" +
     "            <div class=\"title\">\n" +
-    "                <h1>Learning has never been so easy</h1>\n" +
+    "                <h1>Learning has never been so easy!</h1>\n" +
     "            </div>\n" +
     "            <div class=\"media\">\n" +
     "                <img src=\"/src/portal/home/main.svg\" />\n" +
