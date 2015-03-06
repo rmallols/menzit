@@ -92,8 +92,8 @@
       <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9203125" vertical-offset="2981" max-vertical-offset="3672">
-              <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.9203125" vertical-offset="2947" max-vertical-offset="3638">
+              <caret line="208" column="2" selection-start-line="208" selection-start-column="2" selection-end-line="208" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -1109,7 +1109,13 @@
       <option name="project" value="LOCAL" />
       <updated>1425675349661</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Updating database passwords">
+      <created>1425675781024</created>
+      <option name="number" value="00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1425675781024</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1589,8 +1595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9203125" vertical-offset="2981" max-vertical-offset="3672">
-          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9203125" vertical-offset="2947" max-vertical-offset="3638">
+          <caret line="208" column="2" selection-start-line="208" selection-start-column="2" selection-end-line="208" selection-end-column="2" />
           <folding />
         </state>
       </provider>
