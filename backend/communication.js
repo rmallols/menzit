@@ -20,11 +20,22 @@ function sendEmail(emailSetup, server, callback) {
 
 function getContactSetup(from, to, subject, text) {
     return {
-        text:       text,
         from:       from,
         to:         to.title + ' <' + to.email + '>',
-        subject:    subject
+        subject:    subject,
+        text:       text,
+        attachment: [
+            { data: text, alternative: true }
+        ]
     };
+}
+
+function getFormattedSubject(subject) {
+    return '[ Contact request ] ' + subject;
+}
+
+function getFormattedText(from, text) {
+    return '<a href="mailto:' + from + '">' + from + '</a> says:<br/><br/><em>' + text + '</em>';
 }
 
 function contact(req, callback) {
@@ -33,7 +44,9 @@ function contact(req, callback) {
             toSetup = response.email.to,
             server  = getServer(fromSetup.user, fromSetup.password, fromSetup.host),
             contact = req.body,
-            contactSetup = getContactSetup(contact.email, toSetup, contact.subject, contact.text);
+            subject = getFormattedSubject(contact.subject),
+            text = getFormattedText(contact.email, contact.text),
+            contactSetup = getContactSetup(contact.email, toSetup, subject, text);
         sendEmail(contactSetup, server, callback);
     });
 }
