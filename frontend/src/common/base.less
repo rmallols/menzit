@@ -142,6 +142,11 @@ h3 {
   color: @red;
 }
 
+//LISTS
+li {
+  margin-bottom: 10px;
+}
+
 //MESSAGING
 .msg {
   .padding;
@@ -194,11 +199,19 @@ h3 {
 .dark-theme {
   background-color: @dark;
   color: @font-color;
+
+  &.half-background-opacity {
+    background-color: fade(@dark, 70%);
+  }
 }
 
 .darken-theme {
   background-color: @darken;
   color: @font-color;
+
+  &.half-background-opacity {
+    background-color: fade(@darken, 70%);
+  }
 }
 
 //BORDER

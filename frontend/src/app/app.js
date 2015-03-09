@@ -18,6 +18,20 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
             }
         })
 
+        .state('app.pageNotFound', {
+            url: '/page-not-found',
+            templateUrl: "pageNotFound.html",
+            controller: 'PageNotFoundCtrl',
+            pageTitle: 'Page not found :('
+        })
+
+        .state('app.browserNotSupported', {
+            url: '/browser-not-supported',
+            templateUrl: "browserNotSupported.html",
+            controller: 'BrowserNotSupportedCtrl',
+            pageTitle: 'Browser not supported :('
+        })
+
         .state('app.categories', {
             url: "/play",
             templateUrl: "categories.html",

@@ -106,7 +106,9 @@ module.exports = function (grunt) {
                 command:    'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal && ' +
                             'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/home && ' +
                             'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/howItWorks && ' +
-                            'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/contact',
+                            'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/contact' +
+                            'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/common/pageNotFound' +
+                            'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/common/browserNotSupported',
                 options: { stdout: true }}
         },
         watch: {

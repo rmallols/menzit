@@ -6,7 +6,7 @@
     </div>
     <div ng-include="'testData.html'" ng-controller="TestDataCtrl"></div>
     <menu-panel is-active="isPanelActive"></menu-panel>
-    <button ng-click="showLoginDialog()" ng-if="!session">Login</button>
+    <button class="menu-login-button" ng-click="showLoginDialog()" ng-if="!session">Login</button>
     <button ng-click="toggleActiveMenuPanel()" ng-if="session">
         <icon class="menu-icon"></icon>
     </button>

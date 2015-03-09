@@ -1,0 +1,35 @@
+.app-browser-not-supported {
+
+  .menu-login-button {
+    display: none;
+  }
+
+  .main-content {
+    .portal-padding;
+    .offsettedMinHeight(-@header-height - @footer-height);
+    background-image: url('/src/common/browserNotSupported/browserNotSupported.svg');
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% auto;
+
+    .title {
+      text-align: center;
+    }
+
+    .supported-device-type {
+      .list-item;
+      .half-background-opacity;
+      float: left;
+      height: auto;
+      width: 48%;
+    }
+
+    .supported-device-type-mobile-tablet {
+      margin-right: 2%;
+    }
+
+    .supported-device-type-desktop {
+      margin-left: 2%;
+    }
+  }
+}

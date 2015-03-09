@@ -11,8 +11,8 @@ var express = require('express'),
     session = require('./session'),
     communication = require('./communication'),
     media = require('./media'),
+    browser = require('./browser'),
     decorator = require('./crud/decorator/decorator');
-
 
 app.use(express.bodyParser());
 app.use(express.cookieParser());
@@ -30,7 +30,8 @@ function responseWithErrorControl(res, err, data) {
 
 var acceptedRoutes = [
         '/', '/home', '/how-it-works', '/contact',
-        '/test', '/play', '/play/:categoryId/test'],
+        '/test', '/play', '/play/:categoryId/test',
+        '/page-not-found', '/browser-not-supported'],
     acceptedLoggedRoutes = [
         '/review', '/review/:questionId',
         '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId',
@@ -40,7 +41,12 @@ var acceptedRoutes = [
         '/admin/users', '/admin/users/add', '/admin/users/edit/:userId', '/admin/users/edit/:userId/current'];
 
 app.get(acceptedRoutes, function (req, res) {
-    goToIndex(res);
+    var browserNotSupportedUrl = '/browser-not-supported';
+    if(browser.isSupported(req) || browser.getCurrentUrl(req) === browserNotSupportedUrl) {
+        goToIndex(res);
+    } else {
+        res.redirect(browserNotSupportedUrl);
+    }
 });
 
 app.get('/admin/tenants/', function (req, res) {
@@ -246,7 +252,7 @@ app.delete('/rest/:collectionId/:documentId', function (req, res) {
 /* END CRUD HANDLING */
 
 app.get('*', function (req, res) {
-    res.send('Page not found, go to <a href="/">index</a>', 404);
+    res.redirect('/page-not-found');
 });
 
 var port = process.env.PORT || 3000;

@@ -19,8 +19,13 @@ menzit.controller('AppCtrl', ['$rootScope', '$scope', '$state',
         };
 
         function setCurrentStateStyleClasses(currentState) {
-            stateName = currentState.name.replace(/\./g, "-");
-            stateGroupId = (currentState.data) ? 'state-' + currentState.data.groupId.replace(/\./g, "-")
+            stateName = normaliseFormat(currentState.name);
+            stateGroupId = (currentState.data) ? 'state-' + normaliseFormat(currentState.data.groupId)
                 : '';
+        }
+
+        function normaliseFormat(string) {
+            return string.replace(/\./g, "-")
+                .replace(/([a-z][A-Z])/g, function (g) { return g[0] + '-' + g[1].toLowerCase(); });
         }
     }]);

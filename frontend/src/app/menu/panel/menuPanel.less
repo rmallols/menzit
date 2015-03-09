@@ -3,23 +3,16 @@
   .darken-theme;
   .offsettedHeight(-@menu-height);
   .transition(right @speed);
-  position: absolute;
+  position: fixed;
   width: @menu-panel-width;
   right: -@menu-panel-width;
   bottom: 0;
   z-index: 1;
   overflow-y: auto;
-
-  @media only screen and (max-width: @mobile-width-detection) {
-    display: none;
-  }
 }
 
 .menu-panel.is-active {
   right: 0;
-  @media only screen and (max-width: @mobile-width-detection) {
-    display: block;
-  }
 }
 
 .menu-current-user {

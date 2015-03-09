@@ -37,6 +37,8 @@ getScript(srcPath + '/common/loading.js');
 getScript(srcPath + '/common/browser.js');
 getScript(srcPath + '/common/analytics.js');
 getScript(srcPath + '/common/login/login.js');
+getScript(srcPath + '/common/pageNotFound/pageNotFoundCtrl.js');
+getScript(srcPath + '/common/browserNotSupported/browserNotSupportedCtrl.js');
 
 //Business logic src resources
 //PORTAL

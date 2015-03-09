@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'login.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -446,7 +446,7 @@ angular.module("menu.html", []).run(["$templateCache", function($templateCache) 
     "    </div>\n" +
     "    <div ng-include=\"'testData.html'\" ng-controller=\"TestDataCtrl\"></div>\n" +
     "    <menu-panel is-active=\"isPanelActive\"></menu-panel>\n" +
-    "    <button ng-click=\"showLoginDialog()\" ng-if=\"!session\">Login</button>\n" +
+    "    <button class=\"menu-login-button\" ng-click=\"showLoginDialog()\" ng-if=\"!session\">Login</button>\n" +
     "    <button ng-click=\"toggleActiveMenuPanel()\" ng-if=\"session\">\n" +
     "        <icon class=\"menu-icon\"></icon>\n" +
     "    </button>\n" +
@@ -573,6 +573,33 @@ angular.module("test.html", []).run(["$templateCache", function($templateCache) 
     "</div>");
 }]);
 
+angular.module("browserNotSupported.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("browserNotSupported.html",
+    "<div class=\"title\">\n" +
+    "    <h1>Ooops...your browser is not a menzit's friend :(</h1>\n" +
+    "    <p>menzit uses cutting edge technologies to provide the sexiest user experience possible.</p>\n" +
+    "    <p>Your browser doesn't support some of those technologies, BUT we can still help you!</p>\n" +
+    "    <p>Try using one of the following browsers, you will experience a better (and safer) browsing experience!</p>\n" +
+    "</div>\n" +
+    "<div class=\"supported-device-type supported-device-type-mobile-tablet\">\n" +
+    "    <h2>On Tablet / Mobile</h2>\n" +
+    "    <ul>\n" +
+    "        <li>Google Chrome</li>\n" +
+    "        <li>Safari</li>\n" +
+    "    </ul>\n" +
+    "</div>\n" +
+    "<div class=\"supported-device-type supported-device-type-desktop\">\n" +
+    "    <h2>On Desktop</h2>\n" +
+    "    <ul>\n" +
+    "        <li>Google Chrome</li>\n" +
+    "        <li>Safari</li>\n" +
+    "        <li>Firefox</li>\n" +
+    "        <li>Internet Explorer >= 10</li>\n" +
+    "    </ul>\n" +
+    "</div>\n" +
+    "");
+}]);
+
 angular.module("login.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("login.html",
     "<div dialog title=\"Login\" mz-if=\"visible\" class=\"login\">\n" +
@@ -597,6 +624,17 @@ angular.module("login.html", []).run(["$templateCache", function($templateCache)
     "            <button class=\"important\">Login</button>\n" +
     "        </div>\n" +
     "    </form>\n" +
+    "</div>");
+}]);
+
+angular.module("pageNotFound.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("pageNotFound.html",
+    "<div class=\"title\">\n" +
+    "    <h1>Ooops...we didn't found the page you were looking for :(</h1>\n" +
+    "    <p>\n" +
+    "        Sorry, this page doesn't exist. To continue playing with menzit, go to the\n" +
+    "        <a ui-sref=\"portal.home\">home page</a>\n" +
+    "    </p>\n" +
     "</div>");
 }]);
 
