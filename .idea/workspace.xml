@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1339a3d6-bff5-481c-a57c-27809f034a88" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupported.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFound.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupported.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupported.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupportedCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFound.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFound.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFoundCtrl.js" />
-      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\css.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\src.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\vendor.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/AppCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/app/AppCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/app.js" afterPath="$PROJECT_DIR$/frontend/src/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/base.less" afterPath="$PROJECT_DIR$/frontend/src/common/base.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/constants.less" afterPath="$PROJECT_DIR$/frontend/src/common/constants.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" afterPath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/loader.js" afterPath="$PROJECT_DIR$/frontend/src/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/loader.less" afterPath="$PROJECT_DIR$/frontend/src/loader.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.html" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/menu/panel/menuPanel.less" afterPath="$PROJECT_DIR$/frontend/src/app/menu/panel/menuPanel.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/server.js" afterPath="$PROJECT_DIR$/backend/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/templates.js" afterPath="$PROJECT_DIR$/frontend/src/common/templates.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupportedCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupportedCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dev.iws" />
@@ -86,8 +62,8 @@
       <file leaf-file-name="pageNotFound.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFound.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26941362" vertical-offset="0" max-vertical-offset="631">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.36956522" vertical-offset="0" max-vertical-offset="690">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -144,7 +120,6 @@
         <option value="$PROJECT_DIR$/backend/communication.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupported.js" />
         <option value="$PROJECT_DIR$/frontend/src/portal/howItWorks/howItWorks.html" />
-        <option value="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupportedCtrl.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/constants.less" />
         <option value="$PROJECT_DIR$/frontend/src/app/menu/panel/menuPanel.less" />
         <option value="$PROJECT_DIR$/backend/browser.js" />
@@ -162,6 +137,7 @@
         <option value="$PROJECT_DIR$/backend/server.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFound.html" />
         <option value="$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFound.less" />
+        <option value="$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupportedCtrl.js" />
       </list>
     </option>
   </component>
@@ -449,6 +425,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="browserNotSupported" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -574,7 +576,7 @@
       <recent name="C:\menzit\dev\frontend\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.[DEV]">
+  <component name="RunManager" selected="Node.js.[TEST]">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" uri="http://localhost:63342/">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -1157,7 +1159,13 @@
       <option name="project" value="LOCAL" />
       <updated>1425686476734</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="First version of the browser not supported and page not found views">
+      <created>1425931549359</created>
+      <option name="number" value="00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1425931549360</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1182,9 +1190,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28786358" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28786358" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37211636" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="1285" y="142" width="1264" height="926" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37211636" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39899623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1192,15 +1200,15 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.255538" sideWeight="0.5007194" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25474682" sideWeight="0.49928057" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22868606" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22868606" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1244,7 +1252,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Adding SVG optimization task. Adding idea setup to git, to be able to retrieve the node tasks afterwards (otherwise it doesn't make any sense to 'share' them)." />
     <MESSAGE value="UI improvements for mobile devices" />
     <MESSAGE value="Adding the SVG optimization task to the deployment chain" />
     <MESSAGE value="Merge branch 'web-improvements'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;" />
@@ -1269,7 +1276,8 @@
     <MESSAGE value="Updating database passwords v2" />
     <MESSAGE value="Updating database passwords v3" />
     <MESSAGE value="Improving the contact message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improving the contact message" />
+    <MESSAGE value="First version of the browser not supported and page not found views" />
+    <option name="LAST_COMMIT_MESSAGE" value="First version of the browser not supported and page not found views" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1487,14 +1495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupportedCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/app.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="741">
@@ -1654,10 +1654,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/common/browserNotSupported/browserNotSupportedCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09970675" vertical-offset="0" max-vertical-offset="682">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/common/pageNotFound/pageNotFound.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26941362" vertical-offset="0" max-vertical-offset="631">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.36956522" vertical-offset="0" max-vertical-offset="690">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding />
         </state>
       </provider>
