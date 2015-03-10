@@ -1,9 +1,18 @@
+//TODO #12 Normalize font size across portal and app
 .login-checkbox {
   width: 24px;
   height: 24px;
   margin: -1px 0px 0px -30px;
 
+  .portal & {
+    margin: 4px 0px 0px 12px;
+  }
+
   @media only screen and (max-width: @mobile-width-detection) {
     margin-left: -12px;
+
+    .portal & {
+      margin-left: 32px;
+    }
   }
 }
