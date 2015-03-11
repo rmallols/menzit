@@ -64,8 +64,8 @@ function invite(req, callback) {
         subject = 'You have been invited to join menzit';
         fs.readFile(__dirname + '/mailTemplates/invite.html', function (err, buffer) {
             var templateModel = {
-                foo: 'bla',
-                mor: 'test'
+                tenant: 'This is a sample tenant',
+                userId: '53cecc392dc4ad8e9f5792c1'
             };
 
             var text = buffer.toString('utf8');
