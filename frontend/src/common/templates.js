@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -198,6 +198,23 @@ angular.module("tenant.html", []).run(["$templateCache", function($templateCache
     "</div>");
 }]);
 
+angular.module("tenantInvite.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("tenantInvite.html",
+    "<h1>Invite users</h1>\n" +
+    "<p>Add a comma separated list of users who will have access to your menzit's group.</p>\n" +
+    "<p><textarea ng-model=\"users\" ng-change=\"parseUsers(users)\" autofocus></textarea></p>\n" +
+    "<p class=\"cf\">\n" +
+    "    <button ng-click=\"submit(usersList, isListValid)\" class=\"float-right\" ng-disabled=\"!users\">\n" +
+    "        Send invitation\n" +
+    "    </button>\n" +
+    "</p>\n" +
+    "<p>\n" +
+    "    <div class=\"msg msg-error\" ng-show=\"showError\">\n" +
+    "        The list of emails you attached is not valid. Please review it and try again afterwards.\n" +
+    "    </div>\n" +
+    "</p>");
+}]);
+
 angular.module("tenants.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("tenants.html",
     "<div class=\"tenants-view\">\n" +
@@ -218,6 +235,7 @@ angular.module("tenants.html", []).run(["$templateCache", function($templateCach
     "            <button>\n" +
     "                <icon class=\"down-icon\"></icon>\n" +
     "            </button>\n" +
+    "            <button ng-click=\"invite(tenant)\" class=\"important\">Invite users</button>\n" +
     "            <button ng-click=\"edit(tenant)\">Edit</button>\n" +
     "            <button class=\"delete\" ng-click=\"confirmDelete(tenant)\">Delete</button>\n" +
     "        </div>\n" +

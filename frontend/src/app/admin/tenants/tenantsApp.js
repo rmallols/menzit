@@ -3,6 +3,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider
+
         .state('app.admin.tenants', {
             url: "/tenants",
             templateUrl: "tenants.html",
@@ -11,7 +12,9 @@ app.config(function ($stateProvider) {
             data: {
                 groupId: 'adminTenants'
             }
-        }).state('app.admin.addTenant', {
+        })
+
+        .state('app.admin.addTenant', {
             url: "/tenants/add",
             templateUrl: "tenant.html",
             controller: 'TenantAddCtrl',
@@ -19,11 +22,28 @@ app.config(function ($stateProvider) {
             data: {
                 groupId: 'adminTenants'
             }
-        }).state('app.admin.editTenant', {
+        })
+
+        .state('app.admin.editTenant', {
             url: "/tenants/edit/:tenantId",
             templateUrl: "tenant.html",
             controller: 'TenantEditCtrl',
             pageTitle: 'Edit tenant',
+            resolve: {
+                tenant: ['$stateParams', 'http', function ($stateParams, http) {
+                    return http.get('/rest/tenants/' + $stateParams.tenantId);
+                }]
+            },
+            data: {
+                groupId: 'adminTenants'
+            }
+        })
+
+        .state('app.admin.inviteToTenant', {
+            url: "/tenants/invite/:tenantId",
+            templateUrl: "tenantInvite.html",
+            controller: 'TenantInviteCtrl',
+            pageTitle: 'Invite users',
             resolve: {
                 tenant: ['$stateParams', 'http', function ($stateParams, http) {
                     return http.get('/rest/tenants/' + $stateParams.tenantId);

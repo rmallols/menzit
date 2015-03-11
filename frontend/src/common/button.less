@@ -16,6 +16,12 @@ button {
   background-position: auto auto;
   background-size: 30px 30px;
 
+  &[disabled] {
+    pointer-events: none;
+    cursor: default;
+    opacity: .7;
+  }
+
   &:first-of-type {
     margin-left: 0;
   }

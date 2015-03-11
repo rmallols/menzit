@@ -1,0 +1,13 @@
+<h1>Invite users</h1>
+<p>Add a comma separated list of users who will have access to your menzit's group.</p>
+<p><textarea ng-model="users" ng-change="parseUsers(users)" autofocus></textarea></p>
+<p class="cf">
+    <button ng-click="submit(usersList, isListValid)" class="float-right" ng-disabled="!users">
+        Send invitation
+    </button>
+</p>
+<p>
+    <div class="msg msg-error" ng-show="showError">
+        The list of emails you attached is not valid. Please review it and try again afterwards.
+    </div>
+</p>

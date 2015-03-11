@@ -9,6 +9,10 @@ app.controller('TenantsCtrl', ['$rootScope', '$scope', '$state', 'http',
             $state.go('app.admin.addTenant');
         };
 
+        $scope.invite = function (tenant) {
+            $state.go('app.admin.inviteToTenant', { tenantId: tenant._id });
+        };
+
         $scope.edit = function (tenant) {
             $state.go('app.admin.editTenant', { tenantId: tenant._id });
         };

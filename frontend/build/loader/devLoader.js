@@ -79,6 +79,7 @@ getScript(srcPath + '/app/admin/tenants/tenantsApp.js');
 getScript(srcPath + '/app/admin/tenants/TenantsCtrl.js');
 getScript(srcPath + '/app/admin/tenants/TenantAddCtrl.js');
 getScript(srcPath + '/app/admin/tenants/TenantEditCtrl.js');
+getScript(srcPath + '/app/admin/tenants/TenantInviteCtrl.js');
 getScript(srcPath + '/app/admin/categories/categoriesApp.js');
 getScript(srcPath + '/app/admin/categories/CategoriesAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/CategoryAddAdminCtrl.js');

@@ -34,7 +34,7 @@ var acceptedRoutes = [
         '/page-not-found', '/browser-not-supported'],
     acceptedLoggedRoutes = [
         '/review', '/review/:questionId',
-        '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId',
+        '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId', '/admin/tenants/invite/:tenantId',
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
         '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
         '/admin/categories/:categoryId/tests/edit/:testId',
@@ -163,6 +163,12 @@ app.get('/admin', function (req, res) {
 
 app.post('/rest/contact', function (req, res) {
     communication.contact(req, function (err, data) {
+        responseWithErrorControl(res, err, data);
+    });
+});
+
+app.post('/rest/invite', function (req, res) {
+    communication.invite(req, function (err, data) {
         responseWithErrorControl(res, err, data);
     });
 });
