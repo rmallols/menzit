@@ -38,7 +38,7 @@ var acceptedRoutes = [
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
         '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
         '/admin/categories/:categoryId/tests/edit/:testId',
-        '/admin/users', '/admin/users/add', '/admin/users/edit/:userId', '/admin/users/edit/:userId/current'];
+        '/admin/users', '/admin/users/add', '/admin/users/edit/:userId', '/admin/users/edit/:userId/current', '/admin/users/edit/:userId/activate'];
 
 app.get(acceptedRoutes, function (req, res) {
     var browserNotSupportedUrl = '/browser-not-supported';

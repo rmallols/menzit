@@ -252,25 +252,32 @@ angular.module("tenants.html", []).run(["$templateCache", function($templateCach
 
 angular.module("userAdmin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("userAdmin.html",
-    "<div class=\"user-view\">\n" +
+    "<form class=\"user-view cf\" name=\"userForm\">\n" +
     "    <div class=\"l-row\">\n" +
-    "        <h1 class=\"float-left\">{{title}}</h1>\n" +
+    "        <div  class=\"float-left\">\n" +
+    "            <h1>{{title}}</h1>\n" +
+    "            <p ng-if=\"description\">{{description}}</p>\n" +
+    "        </div>\n" +
     "        <div class=\"float-right\">\n" +
-    "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
+    "            <button class=\"important\" ng-click=\"userForm.$valid && submit()\">Save</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"l-1-2\">\n" +
     "        <div class=\"l-row\">\n" +
     "            <div class=\"l-1-2 input-label\">First name</div>\n" +
-    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.firstName\"/></div>\n" +
+    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.firstName\" required/></div>\n" +
     "        </div>\n" +
     "        <div class=\"l-row\">\n" +
     "            <div class=\"l-1-2 input-label\">Last name</div>\n" +
     "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.lastName\"/></div>\n" +
     "        </div>\n" +
     "        <div class=\"l-row\">\n" +
+    "            <div class=\"l-1-2 input-label\">Email</div>\n" +
+    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.email\" required/></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"l-row\">\n" +
     "            <div class=\"l-1-2 input-label\">Username</div>\n" +
-    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.userName\"/></div>\n" +
+    "            <div class=\"l-1-2\"><input type=\"text\" ng-model=\"user.userName\" required/></div>\n" +
     "        </div>\n" +
     "        <div class=\"l-row\">\n" +
     "            <div class=\"l-1-2 input-label\">Password</div>\n" +
@@ -281,16 +288,16 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "                   class=\"input-label text-align-left display-inline-block\">\n" +
     "                    Change\n" +
     "                </a>\n" +
-    "                <input type=\"password\" ng-show=\"!showForceChangePasswordLink\" ng-model=\"user.password\"/>\n" +
+    "                <input type=\"password\" ng-if=\"!showForceChangePasswordLink\" ng-model=\"user.password\" required/>\n" +
     "            </div>\n" +
     "        </div>\n" +
-    "        <div class=\"l-row\">\n" +
+    "        <div class=\"l-row\" ng-if=\"hideAdminOptions !== true\">\n" +
     "            <div class=\"l-1-2 input-label\">Role</div>\n" +
     "            <div class=\"l-1-2\">\n" +
     "                <select ng-model=\"user.role\" ng-options=\"role._id as role.name for role in roles\"></select>\n" +
     "            </div>\n" +
     "        </div>\n" +
-    "        <div class=\"l-row\">\n" +
+    "        <div class=\"l-row\" ng-if=\"hideAdminOptions !== true\">\n" +
     "            <div class=\"l-1-2 input-label\">Tenant</div>\n" +
     "            <div class=\"l-1-2\">\n" +
     "                <div auto-complete\n" +
@@ -310,7 +317,7 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>\n" +
+    "</form>\n" +
     "");
 }]);
 

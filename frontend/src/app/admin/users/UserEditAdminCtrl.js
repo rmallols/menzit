@@ -7,6 +7,7 @@ app.controller('UserEditAdminCtrl', ['$scope', '$state', 'http', 'user', 'consta
         $scope.user = user;
         $scope.roles = constants.roles;
         $scope.showForceChangePasswordLink = true;
+        $scope.hideAdminOptions = $state.params.current !== '';
 
         $scope.submit = function () {
             $scope.uploadRequestFn().then(function () {

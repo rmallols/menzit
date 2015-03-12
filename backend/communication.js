@@ -2,31 +2,33 @@
 
 var email = require('emailjs'),
     fs = require("fs"),
+    session = require('./session'),
+    create = require('./crud/create'),
     read = require('./crud/read');
 
 function getServer(user, password, host) {
     return email.server.connect({
-        user:       user,
-        password:   password,
-        host:       host,
-        ssl:        true
+        user: user,
+        password: password,
+        host: host,
+        ssl: true
     });
 }
 
 function sendEmail(emailSetup, server, callback) {
-    server.send(emailSetup, function(err, message) {
+    server.send(emailSetup, function (err, message) {
         callback(err, message);
     });
 }
 
 function getEmailSetup(from, to, subject, text) {
     return {
-        from:       from,
-        to:         to,
-        subject:    subject,
-        text:       text,
+        from: from,
+        to: to,
+        subject: subject,
+        text: text,
         attachment: [
-            { data: text, alternative: true }
+            {data: text, alternative: true}
         ]
     };
 }
@@ -44,7 +46,7 @@ function setupAndSendEmail(from, to, subject, text, callback) {
         var fromSetup = response.email.from,
             finalFrom = from || fromSetup.user,
             finalTo = to || response.email.to,
-            server  = getServer(fromSetup.user, fromSetup.password, fromSetup.host),
+            server = getServer(fromSetup.user, fromSetup.password, fromSetup.host),
             emailSetup = getEmailSetup(finalFrom, finalTo, subject, text);
         sendEmail(emailSetup, server, callback);
     });
@@ -58,30 +60,46 @@ function contact(req, callback) {
     setupAndSendEmail(email, null, subject, text, callback);
 }
 
+function getInterpolatedTemplate(buffer, userId, tenantName) {
+    var text = buffer.toString('utf8'),
+    templateModel = {
+        tenant: tenantName,
+        userId: userId
+    };
+    Object.keys(templateModel).forEach(function (key) {
+        text = text.replace(new RegExp('{{' + key + '}}', 'i'), templateModel[key]);
+    });
+    return text;
+}
+
+function createUser(req, email, callback) {
+    var body = { email: email };
+    create.create('users', body, req.session, function (response) {
+        callback(response);
+    });
+}
+
+function setupAndSendInterpolatedEmail(req, newUserId, email, templateBuffer, callback) {
+    var userId = newUserId,
+        tenantName =  session.getSession(req).tenant.name,
+        subject = 'You have been invited to join menzit',
+        interpolatedText = getInterpolatedTemplate(templateBuffer, userId, tenantName);
+    setupAndSendEmail(null, email, subject, interpolatedText, callback);
+}
+
 function invite(req, callback) {
-    var usersList = req.body.usersList,
-        counter = 0,
-        subject = 'You have been invited to join menzit';
-        fs.readFile(__dirname + '/mailTemplates/invite.html', function (err, buffer) {
-            var templateModel = {
-                tenant: 'This is a sample tenant',
-                userId: '53cecc392dc4ad8e9f5792c1'
-            };
-
-            var text = buffer.toString('utf8');
-            for(var key in templateModel) {
-                text = text.replace( new RegExp('{{' + key  + '}}', 'i'), templateModel[key] );
-            }
-
-            usersList.forEach(function (user) {
-                setupAndSendEmail(null, user, subject, text, function () {
-                    counter++;
-                    if(counter === usersList.length) {
+    var usersList = req.body.usersList, counter = 0;
+    fs.readFile(__dirname + '/mailTemplates/invite.html', function (err, buffer) {
+        usersList.forEach(function (email) {
+            createUser(req, email, function (newUser) {
+                setupAndSendInterpolatedEmail(req, newUser._id, email, buffer, function () {
+                    if (++counter === usersList.length) {
                         callback();
                     }
                 });
             });
         });
+    });
 }
 
 module.exports = {

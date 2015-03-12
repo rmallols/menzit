@@ -1,22 +1,29 @@
-<div class="user-view">
+<form class="user-view cf" name="userForm">
     <div class="l-row">
-        <h1 class="float-left">{{title}}</h1>
+        <div  class="float-left">
+            <h1>{{title}}</h1>
+            <p ng-if="description">{{description}}</p>
+        </div>
         <div class="float-right">
-            <button class="important" ng-click="submit()">Save</button>
+            <button class="important" ng-click="userForm.$valid && submit()">Save</button>
         </div>
     </div>
     <div class="l-1-2">
         <div class="l-row">
             <div class="l-1-2 input-label">First name</div>
-            <div class="l-1-2"><input type="text" ng-model="user.firstName"/></div>
+            <div class="l-1-2"><input type="text" ng-model="user.firstName" required/></div>
         </div>
         <div class="l-row">
             <div class="l-1-2 input-label">Last name</div>
             <div class="l-1-2"><input type="text" ng-model="user.lastName"/></div>
         </div>
         <div class="l-row">
+            <div class="l-1-2 input-label">Email</div>
+            <div class="l-1-2"><input type="text" ng-model="user.email" required/></div>
+        </div>
+        <div class="l-row">
             <div class="l-1-2 input-label">Username</div>
-            <div class="l-1-2"><input type="text" ng-model="user.userName"/></div>
+            <div class="l-1-2"><input type="text" ng-model="user.userName" required/></div>
         </div>
         <div class="l-row">
             <div class="l-1-2 input-label">Password</div>
@@ -27,16 +34,16 @@
                    class="input-label text-align-left display-inline-block">
                     Change
                 </a>
-                <input type="password" ng-show="!showForceChangePasswordLink" ng-model="user.password"/>
+                <input type="password" ng-if="!showForceChangePasswordLink" ng-model="user.password" required/>
             </div>
         </div>
-        <div class="l-row">
+        <div class="l-row" ng-if="hideAdminOptions !== true">
             <div class="l-1-2 input-label">Role</div>
             <div class="l-1-2">
                 <select ng-model="user.role" ng-options="role._id as role.name for role in roles"></select>
             </div>
         </div>
-        <div class="l-row">
+        <div class="l-row" ng-if="hideAdminOptions !== true">
             <div class="l-1-2 input-label">Tenant</div>
             <div class="l-1-2">
                 <div auto-complete
@@ -56,4 +63,4 @@
             </div>
         </div>
     </div>
-</div>
+</form>

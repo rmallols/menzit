@@ -93,4 +93,5 @@ getScript(srcPath + '/app/admin/users/usersApp.js');
 getScript(srcPath + '/app/admin/users/UsersAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserEditAdminCtrl.js');
+getScript(srcPath + '/app/admin/users/UserActivateAdminCtrl.js');
 getScript(vendorPath + '/less/less.min.js');

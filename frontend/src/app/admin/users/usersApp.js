@@ -3,6 +3,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider
+
         .state('app.admin.users', {
             url: "/users",
             templateUrl: "usersAdmin.html",
@@ -12,6 +13,7 @@ app.config(function ($stateProvider) {
                 groupId: 'adminUsers'
             }
         })
+
         .state('app.admin.addUser', {
             url: "/users/add",
             templateUrl: "userAdmin.html",
@@ -21,6 +23,19 @@ app.config(function ($stateProvider) {
                 groupId: 'adminUsers'
             }
         })
+
+        .state('app.admin.activateUser', {
+            url: "/users/edit/:userId/activate",
+            templateUrl: "userAdmin.html",
+            controller: 'UserActivateAdminCtrl',
+            pageTitle: 'Activate user',
+            resolve: {
+                user: ['$stateParams', 'http', function ($stateParams, http) {
+                    return http.get('/rest/users/' + $stateParams.userId);
+                }]
+            }
+        })
+
         .state('app.admin.editUser', {
             url: "/users/edit/:userId/{current}",
             templateUrl: "userAdmin.html",
