@@ -73,7 +73,12 @@ function getInterpolatedTemplate(buffer, userId, tenantName) {
 }
 
 function createUser(req, email, callback) {
-    var body = { email: email };
+    var tenantId = session.getSession(req).tenant._id,
+        body = {
+            email: email,
+            role: 0,
+            tenantId: tenantId
+        };
     create.create('users', body, req.session, function (response) {
         callback(response);
     });
