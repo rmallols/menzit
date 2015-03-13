@@ -169,6 +169,15 @@ module.exports = function (grunt) {
                     "<%= distFolder %>/css.css": "<%= srcFolder %>/loader.less"
                 }
             }
+        },
+        bower: {
+            install: {
+               options: {
+                   targetDir: '<%= vendorFolder %>/tmp',
+                   cleanBowerDir: true,
+                   cleanTargetDir: true
+               }
+            }
         }
     });
 
@@ -184,6 +193,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-svg2ttf');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-bower-task');
 
     grunt.registerTask('updateTtf', ['svg2ttf', 'copy:ttf', 'clean:ttf']);
     grunt.registerTask('runJshint', ['jshint']);

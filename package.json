@@ -6,8 +6,8 @@
     "node": "0.10.26",
     "npm": "1.4.3"
   },
-  "timestamp": 1426275833473,
-  "env": "test",
+  "timestamp": 1426275862576,
+  "env": "dev",
   "db": {
     "dev": {
       "host": "127.0.0.1",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "grunt": "^0.4.1",
+    "grunt-bower-task": "^0.4.0",
     "grunt-bumpup": "^0.6.1",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.5.0",
