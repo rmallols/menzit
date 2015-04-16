@@ -65,7 +65,7 @@ module.exports = function (grunt) {
             options: {
                 mangle: false, //reduce names of local variables to (usually) single-letters.
                 report: 'min',
-                banner: '/* Minified js files! <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                banner: '/* Minified js files! <%= grunt.template.today("yyyy-mm-dd") %> */\\n'
             },
             src: {
                 files: {
@@ -102,6 +102,30 @@ module.exports = function (grunt) {
             githubPush: { command: 'git push', options: { stdout: true } },
             herokuPush: { command: 'git push heroku master', options: { stdout: true } },
             herokuLog: { command: 'heroku logs --tail', options: { stdout: true } },
+            saveLastLocalDBBackup: {
+                command: 'rename C:\\menzit\\dbBackup\\local\\last %random%',
+                options: { stdout: true }
+            },
+            saveLastRemoteDBBackup: {
+                command: 'rename C:\\menzit\\dbBackup\\remote\\last %random%',
+                options: { stdout: true }
+            },
+            backupLocalDB: {
+                command: '"C:\\Program Files\\MongoDB 2.6 Standard\\bin\\mongodump" -h <%= pkg.db.dev.host %>:<%= pkg.db.dev.port %> -o C:\\menzit\\dbBackup\\local\\last -db menzit',
+                options: { stdout: true }
+            },
+            backupRemoteDB: {
+                command: '"C:\\Program Files\\MongoDB 2.6 Standard\\bin\\mongodump" -h <%= pkg.db.test.host %>:<%= pkg.db.test.port %> -o C:\\menzit\\dbBackup\\remote\\last -u <%= pkg.db.test.user %> -p <%= pkg.db.test.password %> -db menzit',
+                options: { stdout: true }
+            },
+            migrateDevToTestDB: {
+                command: '"C:\\Program Files\\MongoDB 2.6 Standard\\bin\\mongorestore" -h <%= pkg.db.test.host %>:<%= pkg.db.test.port %> -u <%= pkg.db.test.user %> -p <%= pkg.db.test.password %> -db menzit --drop C:\\menzit\\dbBackup\\local\\last\\menzit',
+                options: { stdout: true }
+            },
+            migrateTestToDevDB: {
+                command: '"C:\\Program Files\\MongoDB 2.6 Standard\\bin\\mongorestore" -h <%= pkg.db.dev.host %>:<%= pkg.db.dev.port %> -db menzit --drop C:\\menzit\\dbBackup\\remote\\last\\menzit',
+                options: { stdout: true }
+            },
             optimizeSvg: {
                 command:    'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal && ' +
                             'node node_modules/svgo/bin/svgo -f <%= srcFolder %>/portal/home && ' +
@@ -214,6 +238,8 @@ module.exports = function (grunt) {
     grunt.registerTask('setProdLoader', ['copy:prodLoader']);
     grunt.registerTask('optimizeJs', ['concat', 'uglify']);
     grunt.registerTask('optimizeSvg', ['shell:optimizeSvg']);
+    grunt.registerTask('migrateDevToTestDB', ['shell:saveLastRemoteDBBackup', 'shell:backupRemoteDB', 'shell:migrateDevToTestDB']);
+    grunt.registerTask('migrateTestToDevDB', ['shell:saveLastLocalDBBackup', 'shell:backupLocalDB', 'shell:migrateTestToDevDB']);
 
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',
