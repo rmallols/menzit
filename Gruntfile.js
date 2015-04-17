@@ -14,7 +14,10 @@ module.exports = function (grunt) {
                 src: ['from']
             },
             deleteCssDependencies: {
-                src: ['<%=vendorFolder %>/tmp/**/*.css']
+                src: ['<%=vendorFolder %>/**/*.css']
+            },
+            deleteVersionedLess: {
+                src: ['<%=vendorFolder %>/less/less-*.js']
             }
         },
         jshint: {
@@ -174,11 +177,20 @@ module.exports = function (grunt) {
             },
             convertCssDependenciesToLess: {
                 expand: true,
-                cwd: '<%= vendorFolder %>/tmp/',
+                cwd: '<%= vendorFolder %>',
                 src: ['**/*.css'],
-                dest: '<%= vendorFolder %>/tmp/',
+                dest: '<%= vendorFolder %>',
                 rename: function(dest, src) {
                     return dest + src.substring(0, src.indexOf('.css')) + '.less';
+                }
+            },
+            removeVersionFromLess: {
+                expand: true,
+                cwd: '<%= vendorFolder %>/less',
+                src: ['./less-*.js'],
+                dest: '<%= vendorFolder %>/less',
+                rename: function(dest) {
+                    return dest + '/less.js';
                 }
             }
         },
@@ -209,7 +221,7 @@ module.exports = function (grunt) {
         bower: {
             install: {
                options: {
-                   targetDir: '<%= vendorFolder %>/tmp',
+                   targetDir: '<%= vendorFolder %>',
                    cleanBowerDir: true,
                    cleanTargetDir: true
                }
@@ -230,7 +242,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-bower-task');
-    grunt.loadNpmTasks('grunt-rename');
 
     grunt.registerTask('updateTtf', ['svg2ttf', 'copy:ttf', 'clean:ttf']);
     grunt.registerTask('runJshint', ['jshint']);
@@ -253,7 +264,8 @@ module.exports = function (grunt) {
     grunt.registerTask('optimizeSvg', ['shell:optimizeSvg']);
     grunt.registerTask('migrateDevToTestDB', ['shell:saveLastRemoteDBBackup', 'shell:backupRemoteDB', 'shell:migrateDevToTestDB']);
     grunt.registerTask('migrateTestToDevDB', ['shell:saveLastLocalDBBackup', 'shell:backupLocalDB', 'shell:migrateTestToDevDB']);
-    grunt.registerTask('refreshDependencies', ['bower'])
+    grunt.registerTask('refreshDependencies', ['bower', 'copy:convertCssDependenciesToLess',
+        'copy:removeVersionFromLess', 'clean:deleteCssDependencies', 'clean:deleteVersionedLess']);
 
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',

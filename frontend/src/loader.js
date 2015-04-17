@@ -14,16 +14,16 @@ function getStyleSheet(url) {
 var srcPath = '/src', vendorPath = '/vendor/';
 
 //External libraries
-getScript(vendorPath + '/pubSub/pubSub.js');
-getScript(vendorPath + '/jQuery/jquery.min.js');
-getScript(vendorPath + '/jQuery/powerTip/jquery.powertip.min.js');
-getScript(vendorPath + '/jQuery/dotdotdot/jquery.dotdotdot.min.js');
-getScript(vendorPath + '/angularJs/angular.min.js');
-getScript(vendorPath + '/angularJs/angular-ui-router.min.js');
-getScript(vendorPath + '/angularJs/angular-sanitize.min.js');
-getScript(vendorPath + '/angularJs/angular-animate.min.js');
-getScript(vendorPath + '/NProgress/nprogress.js');
-getScript(vendorPath + '/ngTagsInput/ng-tags-input.min.js');
+getScript(vendorPath + '/pubsub-js/pubsub.js');
+getScript(vendorPath + '/jquery/jquery.js');
+getScript(vendorPath + '/jquery-powertip-dist/jquery.powertip.js');
+getScript(vendorPath + '/jQuery.dotdotdot/jquery.dotdotdot.js');
+getScript(vendorPath + '/angular/angular.js');
+getScript(vendorPath + '/angular-ui-router/angular-ui-router.js');
+getScript(vendorPath + '/angular-sanitize/angular-sanitize.js');
+getScript(vendorPath + '/angular-animate/angular-animate.js');
+getScript(vendorPath + '/nprogress/nprogress.js');
+getScript(vendorPath + '/ng-tags-input/ng-tags-input.min.js');
 
 //Common src resources
 getStyleSheet(srcPath + '/loader.less');
@@ -94,4 +94,4 @@ getScript(srcPath + '/app/admin/users/UsersAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserEditAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserActivateAdminCtrl.js');
-getScript(vendorPath + '/less/less.min.js');
+getScript(vendorPath + '/less/less.js');

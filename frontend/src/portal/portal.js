@@ -2,8 +2,13 @@
 
 var portal = angular.module('portal', ['ui.router']);
 
-portal.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
-    $locationProvider.html5Mode(true);
+portal.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
+function ($locationProvider, $stateProvider, $urlRouterProvider) {
+
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 
     $stateProvider
 
@@ -34,4 +39,4 @@ portal.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
         });
 
     $urlRouterProvider.otherwise("/");
-});
+}]);
