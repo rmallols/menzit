@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                         '<%= vendorFolder %>/angular/angular.js',
                         '<%= vendorFolder %>/angular-ui-router/angular-ui-router.js',
                         '<%= vendorFolder %>/angular-sanitize/angular-sanitize.js',
-                        '<%= vendorFolder %>/angular/angular-animate.js',
+                        '<%= vendorFolder %>/angular-animate/angular-animate.js',
                         '<%= vendorFolder %>/nprogress/nprogress.js',
                         '<%= vendorFolder %>/ng-tags-input/ng-tags-input.min.js'
                     ]
