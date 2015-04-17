@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1339a3d6-bff5-481c-a57c-27809f034a88" name="Default" comment="" />
+    <list default="true" id="1339a3d6-bff5-481c-a57c-27809f034a88" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\css.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\src.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\menzit\dev\frontend\dist\vendor.min.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" afterPath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/loader.js" afterPath="$PROJECT_DIR$/frontend/src/loader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="dev.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="npm-debug.log" />
@@ -38,11 +46,33 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/portal/home/home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.10240964" vertical-offset="0" max-vertical-offset="664">
-                  <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+                <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="612">
+                  <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="nprogress.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/vendor/nprogress/nprogress.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8194">
+                  <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="devLoader.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/frontend/build/loader/devLoader.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.5565217" vertical-offset="1044" max-vertical-offset="1734">
+                  <caret line="84" column="62" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
                   <folding />
                 </state>
               </provider>
@@ -114,20 +144,20 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="loader.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="loader.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/loader.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.4285715" vertical-offset="0" max-vertical-offset="374">
-                  <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+                <state vertical-scroll-proportion="0.6404834" vertical-offset="1072" max-vertical-offset="1734">
+                  <caret line="88" column="71" selection-start-line="88" selection-start-column="71" selection-end-line="88" selection-end-column="71" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="loader.less" pinned="false" current-in-tab="true">
+          <file leaf-file-name="loader.less" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/loader.less">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.40963855" vertical-offset="0" max-vertical-offset="782">
+                <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="782">
                   <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
                   <folding />
                 </state>
@@ -166,7 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/common/analytics.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/question/question.less" />
         <option value="$PROJECT_DIR$/frontend/src/common/layout.less" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/dialog/dialog.less" />
@@ -197,7 +226,6 @@
         <option value="$PROJECT_DIR$/backend/mailTemplates/hello.jade" />
         <option value="$PROJECT_DIR$/backend/mailTemplates/invite.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/users/UserActivationAdminCtrl.js" />
-        <option value="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/users/usersApp.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/users/userAdmin.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/users/UserEditAdminCtrl.js" />
@@ -205,7 +233,6 @@
         <option value="$PROJECT_DIR$/backend/communication.js" />
         <option value="$PROJECT_DIR$/backend/server.js" />
         <option value="$PROJECT_DIR$/backend/crud/decorator/incorrectAnswers.js" />
-        <option value="$PROJECT_DIR$/frontend/src/loader.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/frontend/build/tests/unit/karma.conf.js" />
         <option value="$PROJECT_DIR$/frontend/vendor/jquery-powertip-dist/jquery.powertip.less" />
@@ -217,6 +244,9 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/frontend/src/portal/home/home.html" />
+        <option value="$PROJECT_DIR$/frontend/vendor/nprogress/nprogress.js" />
+        <option value="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
+        <option value="$PROJECT_DIR$/frontend/src/loader.js" />
       </list>
     </option>
   </component>
@@ -781,7 +811,7 @@
       <recent name="C:\menzit\dev\frontend\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.[TEST]">
+  <component name="RunManager" selected="Node.js.[DEV]">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" uri="http://localhost:63342/">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -1687,13 +1717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/build/loader/devLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84977907" vertical-offset="1038" max-vertical-offset="1734">
-          <caret line="95" column="50" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/tenants/tenantInvite.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21633086" vertical-offset="0" max-vertical-offset="943">
@@ -1782,14 +1805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/loader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4285715" vertical-offset="0" max-vertical-offset="374">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/build/tests/unit/karma.conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1326">
@@ -1802,7 +1817,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/loader.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40963855" vertical-offset="0" max-vertical-offset="782">
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="782">
           <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
           <folding />
         </state>
@@ -1866,14 +1881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/dist/vendor.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36041358" vertical-offset="194338" max-vertical-offset="733533">
-          <caret line="11446" column="19" selection-start-line="11446" selection-start-column="12" selection-end-line="11446" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.821428" vertical-offset="549" max-vertical-offset="4726">
@@ -1884,8 +1891,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/portal/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10240964" vertical-offset="0" max-vertical-offset="664">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="612">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/vendor/nprogress/nprogress.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8194">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6404834" vertical-offset="1072" max-vertical-offset="1734">
+          <caret line="88" column="71" selection-start-line="88" selection-start-column="71" selection-end-line="88" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/build/loader/devLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5565217" vertical-offset="1044" max-vertical-offset="1734">
+          <caret line="84" column="62" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
           <folding />
         </state>
       </provider>
