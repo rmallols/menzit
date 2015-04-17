@@ -12,6 +12,9 @@ module.exports = function (grunt) {
             },
             ttf: {
                 src: ['from']
+            },
+            deleteCssDependencies: {
+                src: ['<%=vendorFolder %>/tmp/**/*.css']
             }
         },
         jshint: {
@@ -168,6 +171,15 @@ module.exports = function (grunt) {
                 src: '<%= buildFolder %>/loader/prodLoader.js',
                 dest: '<%= srcFolder %>/loader.js',
                 filter: 'isFile'
+            },
+            convertCssDependenciesToLess: {
+                expand: true,
+                cwd: '<%= vendorFolder %>/tmp/',
+                src: ['**/*.css'],
+                dest: '<%= vendorFolder %>/tmp/',
+                rename: function(dest, src) {
+                    return dest + src.substring(0, src.indexOf('.css')) + '.less';
+                }
             }
         },
         svg2ttf: {
@@ -218,6 +230,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-bower-task');
+    grunt.loadNpmTasks('grunt-rename');
 
     grunt.registerTask('updateTtf', ['svg2ttf', 'copy:ttf', 'clean:ttf']);
     grunt.registerTask('runJshint', ['jshint']);
@@ -240,6 +253,7 @@ module.exports = function (grunt) {
     grunt.registerTask('optimizeSvg', ['shell:optimizeSvg']);
     grunt.registerTask('migrateDevToTestDB', ['shell:saveLastRemoteDBBackup', 'shell:backupRemoteDB', 'shell:migrateDevToTestDB']);
     grunt.registerTask('migrateTestToDevDB', ['shell:saveLastLocalDBBackup', 'shell:backupLocalDB', 'shell:migrateTestToDevDB']);
+    grunt.registerTask('refreshDependencies', ['bower'])
 
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',

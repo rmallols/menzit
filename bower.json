@@ -20,6 +20,7 @@
     "jquery-powertip-dist": "~1.2",
     "trunk8": "~1.3",
     "less": "~1.7",
+    "less-prefixer": "",
     "ng-tags-input": "2.1",
     "nprogress": "~0.1",
     "pubsub-js": "~1.5"
