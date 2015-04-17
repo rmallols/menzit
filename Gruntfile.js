@@ -264,7 +264,7 @@ module.exports = function (grunt) {
     grunt.registerTask('optimizeSvg', ['shell:optimizeSvg']);
     grunt.registerTask('migrateDevToTestDB', ['shell:saveLastRemoteDBBackup', 'shell:backupRemoteDB', 'shell:migrateDevToTestDB']);
     grunt.registerTask('migrateTestToDevDB', ['shell:saveLastLocalDBBackup', 'shell:backupLocalDB', 'shell:migrateTestToDevDB']);
-    grunt.registerTask('refreshDependencies', ['bower', 'copy:convertCssDependenciesToLess',
+    grunt.registerTask('buildDependencies', ['bower', 'copy:convertCssDependenciesToLess',
         'copy:removeVersionFromLess', 'clean:deleteCssDependencies', 'clean:deleteVersionedLess']);
 
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
