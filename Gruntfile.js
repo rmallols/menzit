@@ -53,16 +53,16 @@ module.exports = function (grunt) {
             vendor: {
                 files: {
                     '<%= distFolder %>vendor.min.js': [
-                        '<%= vendorFolder %>/pubSub/pubSub.js',
-                        '<%= vendorFolder %>/jQuery/jquery.min.js',
-                        '<%= vendorFolder %>/jQuery/powerTip/jquery.powertip.min.js',
-                        '<%= vendorFolder %>/jQuery/dotdotdot/jquery.dotdotdot.min.js',
-                        '<%= vendorFolder %>/angularJs/angular.min.js',
-                        '<%= vendorFolder %>/angularJs/angular-ui-router.min.js',
-                        '<%= vendorFolder %>/angularJs/angular-sanitize.min.js',
-                        '<%= vendorFolder %>/angularJs/angular-animate.min.js',
-                        '<%= vendorFolder %>/NProgress/nprogress.js',
-                        '<%= vendorFolder %>/ngTagsInput/ng-tags-input.min.js'
+                        '<%= vendorFolder %>/pubsub-js/pubsub.js',
+                        '<%= vendorFolder %>/jquery/jquery.js',
+                        '<%= vendorFolder %>/jquery-powertip-dist/jquery.powertip.js',
+                        '<%= vendorFolder %>/jQuery.dotdotdot/jquery.dotdotdot.js',
+                        '<%= vendorFolder %>/angular/angular.js',
+                        '<%= vendorFolder %>/angular-ui-router/angular-ui-router.js',
+                        '<%= vendorFolder %>/angular-sanitize/angular-sanitize.js',
+                        '<%= vendorFolder %>/angular/angular-animate.js',
+                        '<%= vendorFolder %>/nprogress/nprogress.js',
+                        '<%= vendorFolder %>/ng-tags-input/ng-tags-input.min.js'
                     ]
                 }
             }

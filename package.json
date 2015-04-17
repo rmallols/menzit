@@ -6,8 +6,8 @@
     "node": "0.10.26",
     "npm": "1.4.3"
   },
-  "timestamp": 1429308485315,
-  "env": "test",
+  "timestamp": 1429308509419,
+  "env": "dev",
   "db": {
     "dev": {
       "host": "127.0.0.1",
@@ -52,8 +52,5 @@
     "protractor": "^0.13.0",
     "supervisor": "^0.5.7",
     "svgo": "^0.5.0"
-  },
-  "scripts": {
-    "postinstall": "grunt buildDependencies"
   }
 }
