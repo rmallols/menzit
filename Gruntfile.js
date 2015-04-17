@@ -71,7 +71,7 @@ module.exports = function (grunt) {
             options: {
                 mangle: false, //reduce names of local variables to (usually) single-letters.
                 report: 'min',
-                banner: '/* Minified js files! <%= grunt.template.today("yyyy-mm-dd") %> */\\n'
+                banner: ''
             },
             src: {
                 files: {
