@@ -38,7 +38,7 @@ module.exports = {
             options.projection = {};
         }
         if (!options.sort) {
-            options.sort = {};
+            options.sort = { 'create.date': -1 };
         }
         if (!options.pageSize) {
             options.pageSize = 0;
