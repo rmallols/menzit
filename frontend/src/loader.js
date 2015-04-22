@@ -24,6 +24,7 @@ getScript(vendorPath + '/angular-sanitize/angular-sanitize.js');
 getScript(vendorPath + '/angular-animate/angular-animate.js');
 getScript(vendorPath + '/nprogress/nprogress.js');
 getScript(vendorPath + '/ng-tags-input/ng-tags-input.min.js');
+getScript(vendorPath + '/js-imagediff/imagediff.js');
 
 //Common src resources
 getStyleSheet(srcPath + '/loader.less');
@@ -37,6 +38,8 @@ getScript(srcPath + '/common/loading.js');
 getScript(srcPath + '/common/browser.js');
 getScript(srcPath + '/common/analytics.js');
 getScript(srcPath + '/common/login/login.js');
+getScript(srcPath + '/common/audio/graph.js');
+getScript(srcPath + '/common/audio/diff.js');
 getScript(srcPath + '/common/pageNotFound/pageNotFoundCtrl.js');
 getScript(srcPath + '/common/browserNotSupported/browserNotSupportedCtrl.js');
 

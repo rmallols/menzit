@@ -203,6 +203,37 @@ app.get('/media/:documentId', function (req, res) {
     });
 });
 
+app.get('/audio', function (req, res) {
+
+    var http = require('http');
+    var options = {
+        host: 'tts-api.com',
+        port: 80,
+        path: '/tts.mp3?q=hello',
+        headers: {
+            //'Accept': '*/*',
+            //'Accept-Encoding': 'identity;q=1, *;q=0'
+        }
+    };
+
+    http.get('http://tts-api.com/tts.mp3?q=' + req.query.q, function(resp1){
+
+        http.get(resp1.headers.location, function (resp) {
+            var chunks = [];
+            resp.on('data', function(chunk){
+                chunks.push(chunk);
+            });
+            resp.on('end', function() {
+                var body = Buffer.concat(chunks);
+                res.set({'Content-Type': 'audio/mpeg'});
+                res.send(body);
+            });
+        });
+    }).on("error", function(e){
+        //console.log("Got error: " + e.message);
+    });
+});
+
 /* CRUD HANDLING */
 app.get('/rest/:collectionId', function (req, res) {
     var collectionId = req.params.collectionId;
@@ -266,5 +297,5 @@ server.listen(port, function () {
 });
 
 function goToIndex(res) {
-    res.send(fs.readFileSync(__dirname + '/../frontend/src/index.html').toString());
+    res.send(fs.readFileSync(__dirname + '/../frontend/src/test.html').toString());
 }

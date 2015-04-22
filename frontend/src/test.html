@@ -1,0 +1,66 @@
+<html ng-app="menzit">
+<head>
+
+    <link rel="icon" type="image/png" href="/src/common/favicon.png">
+    <script src="/src/loader.js" type="text/javascript"></script>
+    <script src="/src/common/audio/recorder.js" type="text/javascript"></script>
+    <script src="/src/common/audio/jquery.voice.js" type="text/javascript"></script>
+    <script src="/src/common/audio/record.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        menzit.controller('test', ['$scope', '$q', '$sce', 'record', 'graph', 'diff',
+        function ($scope, $q, $sce, record, graph, diff) {
+
+            $scope.graphs = [];
+
+            function trustSrc(src) {
+                return $sce.trustAsResourceUrl(src);
+            }
+
+            $scope.play = function () {
+                record.play().then(function (recordedUrl) {
+                    console.log('the recorded url is', recordedUrl);
+                    $q.all([
+                        graph.loadMusic(recordedUrl),
+//                        graph.loadMusic('/audio?q=house'),
+//                        graph.loadMusic('/audio?q=give me poison today'),
+                    ]).then(function (responses) {
+                        responses.forEach(function (response) {
+                            $scope.graphs.push({url: trustSrc(response.url), src: response.src});
+                        });
+                        setTimeout(function () {
+                            diff.calc();
+                        }, 0);
+                    });
+                });
+            }
+        }]);
+
+        //https://subinsb.com/html5-record-mic-voice
+    </script>
+</head>
+
+<body ng-controller="test">
+
+<audio controls src="" id="audio"></audio>
+<div style="margin:10px;">
+    <a class="button" id="record">Record</a>
+    <a class="button disabled one" id="stop">Reset</a>
+    <a class="button disabled one" id="play" ng-click="play()">Play</a>
+    <a class="button disabled one" id="download">Download</a>
+</div>
+
+<br/><br/><br/>
+<div ng-repeat="graph in graphs">
+    <audio controls>
+        <source src="{{graph.url}}" type="audio/mpeg">
+    </audio>
+    <img src="{{graph.src}}" id="image-{{$index}}"/>
+</div>
+<div id="diff">
+    The diff is:<br/>
+</div>
+</body>
+
+</html>

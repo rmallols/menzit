@@ -22,7 +22,8 @@
     "less-prefixer": "",
     "ng-tags-input": "2.1",
     "nprogress": "~0.1",
-    "pubsub-js": "~1.5"
+    "pubsub-js": "~1.5",
+    "js-imagediff": "~1.0.4"
   },
   "ignore": [
     "**/.*",
