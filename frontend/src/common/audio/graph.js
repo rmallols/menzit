@@ -5,8 +5,6 @@ menzit.factory('graph', ['$q', function ($q) {
 
     if (!AudioContext) alert('This site cannot be run in your Browser. Try a recent Chrome or Firefox. ');
 
-    var currentBuffer = null;
-
     // CANVAS
     var canvasWidth = 512, canvasHeight = 120;
 
@@ -34,10 +32,8 @@ menzit.factory('graph', ['$q', function ($q) {
                 if (req.status == 200) {
                     audioContext.decodeAudioData(req.response,
                         function (buffer) {
-                            console.log('GOT', req.response, buffer);
-                            currentBuffer = buffer;
-                            displayBuffer(newCanvas, context, buffer, url);
-                            deferred.resolve({ src: newCanvas.toDataURL("image/png"), url: url });
+                            var imageSize = displayBuffer(newCanvas, context, buffer, url);
+                            deferred.resolve({ src: newCanvas.toDataURL("image/png"), url: url, size: imageSize });
                         }, onDecodeError);
                 } else {
                     alert('error during the load.Wrong url or cross origin issue', req.status);
@@ -57,7 +53,7 @@ menzit.factory('graph', ['$q', function ($q) {
     function displayBuffer(newCanvas, context, buff, url) {
         var leftChannel = buff.getChannelData(0); // Float32Array describing left channel
         var lineOpacity = canvasWidth / leftChannel.length;
-        var noiseThreeshold = 2;
+        var noiseThreeshold = 1.5;
         context.save();
         context.fillStyle = '#000';
         context.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -74,8 +70,9 @@ menzit.factory('graph', ['$q', function ($q) {
             }
         }
 
-
-        for(var j = 0; j < normalisedLeftChannel.length; j++) {
+        var totalLength = normalisedLeftChannel.length;
+        var firstHalf = 0, secondHalf = 0;
+        for(var j = 0; j < totalLength; j++) {
             // on which line do we get ?
             var x = Math.floor(canvasWidth * j / normalisedLeftChannel.length);
             var y = normalisedLeftChannel[j] * canvasHeight / 2;
@@ -83,10 +80,19 @@ menzit.factory('graph', ['$q', function ($q) {
             context.moveTo(x, 0);
             context.lineTo(x + 1, y);
             context.stroke();
+
+
+            if(j === Math.floor(totalLength / 2)) {
+                firstHalf = newCanvas.toDataURL("image/png").length
+            } else if(j === normalisedLeftChannel.length - 1) {
+                secondHalf = newCanvas.toDataURL("image/png").length - firstHalf;
+
+            }
         }
 
         context.restore();
-        console.log('done', newCanvas.toDataURL("image/png").length, leftChannel);
+
+        return [firstHalf, secondHalf];
     }
 
     function createCanvas(w, h) {

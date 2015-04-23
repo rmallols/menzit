@@ -10,32 +10,74 @@
     <script type="text/javascript">
 
         menzit.controller('test', ['$scope', '$q', '$sce', 'record', 'graph', 'diff',
-        function ($scope, $q, $sce, record, graph, diff) {
+            function ($scope, $q, $sce, record, graph, diff) {
 
-            $scope.graphs = [];
+//                graph.loadMusic('/audio?q=hello world').then(function (response) {
+//                    $scope.graphs.push({
+//                        url: trustSrc(response.url),
+//                        src: response.src
+//                    });
+//                });
 
-            function trustSrc(src) {
-                return $sce.trustAsResourceUrl(src);
-            }
+                function trustSrc(src) {
+                    return $sce.trustAsResourceUrl(src);
+                }
 
-            $scope.play = function () {
-                record.play().then(function (recordedUrl) {
-                    console.log('the recorded url is', recordedUrl);
-                    $q.all([
-                        graph.loadMusic(recordedUrl),
-//                        graph.loadMusic('/audio?q=house'),
+                $scope.play = function () {
+                    record.play().then(function (recordedUrl) {
+                        $scope.graphs = [];
+
+                        $q.all([
+                            graph.loadMusic(recordedUrl),
+                        graph.loadMusic('/audio?q=chocolate'),
 //                        graph.loadMusic('/audio?q=give me poison today'),
-                    ]).then(function (responses) {
-                        responses.forEach(function (response) {
-                            $scope.graphs.push({url: trustSrc(response.url), src: response.src});
+                        ]).then(function (responses) {
+                            responses.forEach(function (response) {
+                                $scope.graphs.push({
+                                    url: trustSrc(response.url),
+                                    src: response.src,
+                                    size: response.size
+                                });
+                            });
+                            setTimeout(function () {
+                                $scope.diffSize = diff.calc();
+                                $scope.$apply();
+                            }, 0);
+
+                            $scope.isOk = function (sourceImageSizeBlocks, fingerprintImageSizeBlocks, diffSize) {
+                                var isOk = true;
+                                sourceImageSizeBlocks.forEach(function (sourceImageSizeBlock, $index) {
+                                    if(!compareBlock(sourceImageSizeBlock, fingerprintImageSizeBlocks[$index])) {
+                                        isOk = false;
+                                    }
+                                });
+                                return isOk;
+                            }
+
+                            function compareBlock(blockA, blockB) {
+                                var imageDiff, blockAThreshold, blockBThreshold;
+                                imageDiff = blockA - blockB;
+                                imageDiff = (diff < 0) ? -imageDiff : imageDiff;
+                                blockAThreshold = imageDiff / blockA < 0.3;
+                                blockBThreshold = imageDiff / blockB < 0.3;
+                                console.log(blockAThreshold, blockBThreshold, imageDiff)
+                                return blockAThreshold && blockBThreshold;
+
+//                                var sourceDiff, sourceImageThreshold, fingerprintImageThreshold, diffThreshold;
+//                                sourceDiff = sourceImageSize - fingerprintImageSize;
+//                                sourceDiff = (diff < 0) ? -sourceDiff : sourceDiff;
+//                                sourceImageThreshold = sourceDiff / sourceImageSize < 0.2;
+//                                fingerprintImageThreshold = sourceDiff / fingerprintImageSize < 0.2;
+//                                diffThreshold = sourceDiff / diffSize < 0.2;
+//                                console.log(sourceImageThreshold, fingerprintImageThreshold, diffThreshold, sourceImageSize, fingerprintImageSize, diffSize)
+//                                return sourceImageThreshold && fingerprintImageThreshold && diffThreshold;
+                            }
+
+
                         });
-                        setTimeout(function () {
-                            diff.calc();
-                        }, 0);
                     });
-                });
-            }
-        }]);
+                }
+            }]);
 
         //https://subinsb.com/html5-record-mic-voice
     </script>
@@ -52,14 +94,16 @@
 </div>
 
 <br/><br/><br/>
+
 <div ng-repeat="graph in graphs">
     <audio controls>
         <source src="{{graph.url}}" type="audio/mpeg">
     </audio>
+    The size is: {{graph.size}}
     <img src="{{graph.src}}" id="image-{{$index}}"/>
 </div>
 <div id="diff">
-    The diff is:<br/>
+    The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{diffSize}} - {{isOk(graphs[0].size, graphs[1].size, diffSize)}}<br/>
 </div>
 </body>
 

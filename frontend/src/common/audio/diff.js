@@ -25,7 +25,7 @@ menzit.service('diff', [function () {
             context.putImageData(diff, 0, 0);
             // Add the canvas element to the container.
             diffWrapper.appendChild(canvas);
-            console.log('the diff es', canvas.toDataURL("image/png").length)
+            return canvas.toDataURL("image/png").length;
         }
     }
 

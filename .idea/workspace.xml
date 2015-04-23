@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59fcbef8-4a29-4291-bd35-2e854ba8a875" name="MP3 tests" comment="Testing audio...">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/audio/diff.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/audio/graph.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/audio/jquery.voice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/audio/record.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/audio/recorder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/common/audio/recorderWorker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/app.js" afterPath="$PROJECT_DIR$/frontend/src/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" afterPath="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/index.js" afterPath="$PROJECT_DIR$/frontend/src/common/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/loader.js" afterPath="$PROJECT_DIR$/frontend/src/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/server.js" afterPath="$PROJECT_DIR$/backend/server.js" />
+    <list default="true" id="59fcbef8-4a29-4291-bd35-2e854ba8a875" name="MP3 tests" comment="First version of the accuracy detector">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/audio/diff.js" afterPath="$PROJECT_DIR$/frontend/src/common/audio/diff.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/audio/graph.js" afterPath="$PROJECT_DIR$/frontend/src/common/audio/graph.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/test.html" afterPath="$PROJECT_DIR$/frontend/src/test.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="dd6f867a-359e-4803-a198-504bc3b08296" name="Review gap" comment="">
@@ -58,18 +47,18 @@
       <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bower.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="697">
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="697">
               <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847" vertical-offset="204" max-vertical-offset="1207">
-              <caret line="39" column="52" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.470229" vertical-offset="202" max-vertical-offset="1955">
+              <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -80,7 +69,7 @@
       <file leaf-file-name="jquery.voice.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/jquery.voice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="170">
               <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
               <folding />
             </state>
@@ -90,7 +79,7 @@
       <file leaf-file-name="record.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/record.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.392857" vertical-offset="102" max-vertical-offset="799">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="799">
               <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
               <folding />
             </state>
@@ -100,18 +89,18 @@
       <file leaf-file-name="recorder.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/recorder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1598">
               <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="graph.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19171779" vertical-offset="878" max-vertical-offset="1819">
-              <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+            <state vertical-scroll-proportion="24.892857" vertical-offset="1292" max-vertical-offset="1921">
+              <caret line="35" column="111" selection-start-line="35" selection-start-column="102" selection-end-line="35" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -120,8 +109,8 @@
       <file leaf-file-name="diff.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/diff.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="680">
+              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -198,14 +187,14 @@
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
-        <option value="$PROJECT_DIR$/frontend/src/common/audio/diff.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/audio/jquery.voice.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/audio/recorder.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/app.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/audio/record.js" />
-        <option value="$PROJECT_DIR$/frontend/src/test.html" />
+        <option value="$PROJECT_DIR$/frontend/src/common/audio/diff.js" />
         <option value="$PROJECT_DIR$/frontend/src/common/audio/graph.js" />
+        <option value="$PROJECT_DIR$/frontend/src/test.html" />
       </list>
     </option>
   </component>
@@ -564,16 +553,20 @@
       <recent name="C:\menzit\dev\frontend\vendor\ngTagsInput" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.[DEV]">
+  <component name="RunManager" selected="Node.js.Start node.js server">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" uri="http://localhost:63342/">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -581,10 +574,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -607,8 +596,8 @@
       <envs />
       <method />
     </configuration>
-    <list size="14">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+    <list size="15">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.Refresh dependencies" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.Start MongoDb" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.Check code quality" />
       <item index="3" class="java.lang.String" itemvalue="Node.js.Start node.js server" />
@@ -622,6 +611,7 @@
       <item index="11" class="java.lang.String" itemvalue="Node.js.Optimize SVG" />
       <item index="12" class="java.lang.String" itemvalue="Node.js.Migrate Dev To Test DB" />
       <item index="13" class="java.lang.String" itemvalue="Node.js.Migrate Test To Dev DB" />
+      <item index="14" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -656,7 +646,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="59fcbef8-4a29-4291-bd35-2e854ba8a875" name="MP3 tests" comment="" />
-      <changelist id="" name="Default" comment="" />
       <changelist id="dd6f867a-359e-4803-a198-504bc3b08296" name="Review gap" comment="" />
       <created>1405715986443</created>
       <option name="number" value="Default" />
@@ -1352,7 +1341,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429723715588</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Testing audio...">
+      <created>1429745952858</created>
+      <option name="number" value="00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1429745952858</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1379,26 +1374,26 @@
     <frame x="0" y="0" width="1280" height="1080" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2898696" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4774323" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="1285" y="142" width="1264" height="926" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37111333" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39899623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.255538" sideWeight="0.5007194" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971373" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971373" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2888666" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4774323" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="1285" y="142" width="1264" height="926" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27531645" sideWeight="0.49928057" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4774323" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27531645" sideWeight="0.49928057" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39899623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38114342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.255538" sideWeight="0.5007194" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971373" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37111333" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971373" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1417,9 +1412,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18908228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1439,7 +1434,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="First version of the browser not supported and page not found views" />
     <MESSAGE value="Testing push action from a different environment" />
     <MESSAGE value="Changed checkox positioning depending on the context (portal or app)" />
     <MESSAGE value="Prototyping the first version of the invitation mechanism" />
@@ -1462,9 +1456,10 @@
     <MESSAGE value="Sorting by default by creation date DESC" />
     <MESSAGE value="Restoring dev resources" />
     <MESSAGE value="Pushing local resources after deploying to test" />
-    <MESSAGE value="Testing audio..." />
     <MESSAGE value="Dev resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dev resources" />
+    <MESSAGE value="Testing audio..." />
+    <MESSAGE value="First version of the accuracy detector" />
+    <option name="LAST_COMMIT_MESSAGE" value="First version of the accuracy detector" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1694,7 +1689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1715,7 +1709,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="697">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="697">
           <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding />
         </state>
@@ -1725,7 +1719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1156">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1733,7 +1726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1741,7 +1733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33282208" vertical-offset="837" max-vertical-offset="1768">
           <caret line="62" column="5" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1749,7 +1740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30712008" vertical-offset="0" max-vertical-offset="1785">
           <caret line="17" column="31" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1757,7 +1747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.103975534" vertical-offset="0" max-vertical-offset="654">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1765,7 +1754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.50877196" vertical-offset="0" max-vertical-offset="2312">
           <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1801,36 +1789,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847" vertical-offset="204" max-vertical-offset="1207">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/record.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.392857" vertical-offset="102" max-vertical-offset="799">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/recorder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
           <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/diff.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1843,11 +1805,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/diff.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="680">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/record.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="799">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/common/audio/graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19171779" vertical-offset="878" max-vertical-offset="1819">
-          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        <state vertical-scroll-proportion="24.892857" vertical-offset="1292" max-vertical-offset="1921">
+          <caret line="35" column="111" selection-start-line="35" selection-start-column="102" selection-end-line="35" selection-end-column="111" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.470229" vertical-offset="202" max-vertical-offset="1955">
+          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
