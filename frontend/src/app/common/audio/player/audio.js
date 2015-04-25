@@ -10,21 +10,13 @@ app.directive('audio', ['$sce', function ($sce) {
         },
         link: function (scope, element) {
 
+            scope.normalizedAudio = $sce.trustAsResourceUrl(scope.audio);
+
             scope.play = function () {
                 var audioElement = element.find('audio')[0];
                 audioElement.pause();
                 audioElement.load();
                 audioElement.play();
-            };
-
-            scope.getAudioSrc = function (audio) {
-                var encodedAudio, endpoint;
-                if(audio) {
-                    encodedAudio = encodeURIComponent(audio.toLowerCase());
-                    endpoint = 'http://tts-api.com/tts.mp3';
-                    return $sce.trustAsResourceUrl(endpoint + '?q=' + encodedAudio);
-                }
-                return '';
             };
         }
     };

@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'autoComplete.html', 'dialog.html', 'question.html', 'upload.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'test.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -59,7 +59,7 @@ angular.module("categoryAdmin.html", []).run(["$templateCache", function($templa
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-2 input-label\">Image</div>\n" +
     "        <div class=\"l-1-2\">\n" +
-    "            <upload ng-model=\"category.media\" on-submit-request=\"uploadRequestFn\"></upload>\n" +
+    "            <image-upload ng-model=\"category.media\" on-submit-request=\"uploadRequestFn\"></image-upload>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -84,7 +84,7 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "            <div class=\"l-row\">\n" +
     "                <div class=\"l-1-4 input-label\">Image</div>\n" +
     "                <div class=\"l-3-4\">\n" +
-    "                    <upload ng-model=\"test.question.media\" on-submit-request=\"uploadQuestionRequestFn\"></upload>\n" +
+    "                    <image-upload ng-model=\"test.question.media\" on-submit-request=\"uploadQuestionRequestFn\"></image-upload>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -105,7 +105,7 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "                <div class=\"l-row\">\n" +
     "                    <div class=\"l-1-4 input-label\">Image</div>\n" +
     "                    <div class=\"l-3-4\">\n" +
-    "                        <upload ng-model=\"answer.media\" on-submit-request=\"uploadAnswerRequestFns[$index]\"></upload>\n" +
+    "                        <image-upload ng-model=\"answer.media\" on-submit-request=\"uploadAnswerRequestFns[$index]\"></image-upload>\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "                <div class=\"l-row select-correct\">\n" +
@@ -192,7 +192,7 @@ angular.module("tenant.html", []).run(["$templateCache", function($templateCache
     "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-3 input-label\">Image</div>\n" +
     "        <div class=\"l-2-3\">\n" +
-    "            <upload ng-model=\"tenant.media\" on-submit-request=\"uploadRequestFn\"></upload>\n" +
+    "            <image-upload ng-model=\"tenant.media\" on-submit-request=\"uploadRequestFn\"></image-upload>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
@@ -313,7 +313,7 @@ angular.module("userAdmin.html", []).run(["$templateCache", function($templateCa
     "        <div class=\"l-row\">\n" +
     "            <div class=\"l-1-2 input-label\">Image</div>\n" +
     "            <div class=\"l-1-2\">\n" +
-    "                <upload ng-model=\"user.media\" on-submit-request=\"uploadRequestFn\"></upload>\n" +
+    "                <image-upload ng-model=\"user.media\" on-submit-request=\"uploadRequestFn\"></image-upload>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -381,9 +381,25 @@ angular.module("audio.html", []).run(["$templateCache", function($templateCache)
     "    <button ng-click=\"play()\" class=\"big audio-button\">\n" +
     "        <icon class=\"mic-icon\"></icon>\n" +
     "    </button>\n" +
-    "    <audio controls class=\"audio-player\" ng-if=\"audio\">\n" +
-    "        <source ng-src=\"{{getAudioSrc(audio)}}\" type=\"audio/mp3\">\n" +
+    "    <audio controls class=\"audio-player\" ng-if=\"normalizedAudio\">\n" +
+    "        <source src=\"{{normalizedAudio}}\" type=\"audio/wav\">\n" +
     "    </audio>\n" +
+    "</div>");
+}]);
+
+angular.module("audioUpload.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("audioUpload.html",
+    "<div class=\"image-upload-view cf\">\n" +
+    "    Audio:\n" +
+    "    <select ng-model=\"selectedAudioOption\"\n" +
+    "            ng-class=\"{ 'select-audio-option-collapsed': selectedAudioOption === 1 }\"\n" +
+    "            ng-options=\"audioOption.value as audioOption.text for audioOption in audioOptions\">\n" +
+    "    </select>\n" +
+    "    <div class=\"button-group\" ng-if=\"selectedAudioOption === 1\">\n" +
+    "        <button ng-click=\"startRecording()\" ng-show=\"!recording\">Record audio</button>\n" +
+    "        <button ng-click=\"stopRecording()\" ng-show=\"recording\">Stop recording</button>\n" +
+    "        <div audio=\"recordedAudio\" ng-if=\"recordedAudio && !recording\"></div>\n" +
+    "    </div>\n" +
     "</div>");
 }]);
 
@@ -418,6 +434,22 @@ angular.module("dialog.html", []).run(["$templateCache", function($templateCache
     "</div>");
 }]);
 
+angular.module("imageUpload.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("imageUpload.html",
+    "<div class=\"image-upload-view cf\">\n" +
+    "    <input type=\"file\" file-model=\"selectedFile\"/>\n" +
+    "    <div class=\"upload-button cf\">\n" +
+    "        <div class=\"upload-button-output\" ng-if=\"(media._id || base64) && !toBeDeleted\">\n" +
+    "            <button class=\"delete-image\" ng-click=\"remove()\">\n" +
+    "                <icon class=\"close-icon\"></icon>\n" +
+    "            </button>\n" +
+    "            <img ng-src=\"/media/{{media._id}}?rnd={{refreshToken}}\" ng-if=\"media._id && !base64\" />\n" +
+    "            <img ng-src=\"{{base64}}\" ng-if=\"base64\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
+}]);
+
 angular.module("question.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("question.html",
     "<div class=\"question-view\">\n" +
@@ -440,22 +472,6 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
     "            </div>\n" +
     "            <div class=\"title\">{{answer.title}}</div>\n" +
     "            <div class=\"explanation\">{{answer.explanation}}</div>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "</div>");
-}]);
-
-angular.module("upload.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("upload.html",
-    "<div class=\"upload-view cf\">\n" +
-    "    <input type=\"file\" file-model=\"selectedFile\"/>\n" +
-    "    <div class=\"upload-button cf\">\n" +
-    "        <div class=\"upload-button-output\" ng-if=\"(media._id || base64) && !toBeDeleted\">\n" +
-    "            <button class=\"delete-image\" ng-click=\"remove()\">\n" +
-    "                <icon class=\"close-icon\"></icon>\n" +
-    "            </button>\n" +
-    "            <img ng-src=\"/media/{{media._id}}?rnd={{refreshToken}}\" ng-if=\"media._id && !base64\" />\n" +
-    "            <img ng-src=\"{{base64}}\" ng-if=\"base64\" />\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
@@ -822,4 +838,85 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "    <div ui-view></div>\n" +
     "    <div class=\"footer\">Copyright © 2015 menzit. All rights reserved.</div>\n" +
     "</div>");
+}]);
+
+angular.module("test.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("test.html",
+    "<html ng-app=\"menzit\">\n" +
+    "<head>\n" +
+    "\n" +
+    "    <link rel=\"icon\" type=\"image/png\" href=\"/src/common/favicon.png\">\n" +
+    "    <script src=\"/src/loader.js\" type=\"text/javascript\"></script>\n" +
+    "\n" +
+    "    <script type=\"text/javascript\">\n" +
+    "\n" +
+    "        menzit.controller('test', ['$scope', '$q', 'record', 'graph',\n" +
+    "            function ($scope, $q, record, graph) {\n" +
+    "\n" +
+    "                $scope.graphs = [];\n" +
+    "\n" +
+    "                var maxY;\n" +
+    "\n" +
+    "                graph.loadMusic('/audio?q=vegetables').then(function (response) {\n" +
+    "                    $scope.graphs.push({\n" +
+    "                        size: response.size\n" +
+    "                    });\n" +
+    "                    maxY = response.maxY;\n" +
+    "                });\n" +
+    "\n" +
+    "                $scope.record = function () {\n" +
+    "                    record.record();\n" +
+    "                };\n" +
+    "\n" +
+    "                $scope.addRecorded = function () {\n" +
+    "\n" +
+    "                    record.get().then(function (recordedUrl) {\n" +
+    "\n" +
+    "                        graph.loadMusic(recordedUrl, maxY).then(function (response) {\n" +
+    "                            $scope.graphs.push({\n" +
+    "                                size: response.size\n" +
+    "                            });\n" +
+    "\n" +
+    "                            $scope.isOk = isOk($scope.graphs[0].size, $scope.graphs[1].size);\n" +
+    "                        });\n" +
+    "                    });\n" +
+    "                };\n" +
+    "\n" +
+    "                function isOk(sourceImageSizeBlocks, fingerprintImageSizeBlocks) {\n" +
+    "                    var isOk = true;\n" +
+    "                    sourceImageSizeBlocks.forEach(function (sourceImageSizeBlock, $index) {\n" +
+    "                        if(!compareBlock(sourceImageSizeBlock, fingerprintImageSizeBlocks[$index])) {\n" +
+    "                            isOk = false;\n" +
+    "                        }\n" +
+    "                    });\n" +
+    "                    return isOk;\n" +
+    "                }\n" +
+    "\n" +
+    "                function compareBlock(blockA, blockB) {\n" +
+    "                    var imageDiff, blockAThreshold, blockBThreshold;\n" +
+    "                    imageDiff = blockA - blockB;\n" +
+    "                    imageDiff = (imageDiff < 0) ? -imageDiff : imageDiff;\n" +
+    "                    blockAThreshold = imageDiff / blockA < 0.3;\n" +
+    "                    blockBThreshold = imageDiff / blockB < 0.3;\n" +
+    "                    return blockAThreshold && blockBThreshold;\n" +
+    "                }\n" +
+    "            }]);\n" +
+    "    </script>\n" +
+    "</head>\n" +
+    "\n" +
+    "<body ng-controller=\"test\">\n" +
+    "\n" +
+    "    <audio-upload></audio-upload>\n" +
+    "\n" +
+    "    <div style=\"margin:10px;\">\n" +
+    "        <a class=\"button\" id=\"record\" ng-click=\"record()\">Record</a>\n" +
+    "        <a class=\"button disabled one\" id=\"play\" ng-click=\"addRecorded()\">Add recorded</a>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div id=\"diff\">\n" +
+    "        The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>\n" +
+    "    </div>\n" +
+    "</body>\n" +
+    "\n" +
+    "</html>");
 }]);

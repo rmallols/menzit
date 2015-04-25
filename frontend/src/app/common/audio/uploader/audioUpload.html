@@ -1,0 +1,12 @@
+<div class="image-upload-view cf">
+    Audio:
+    <select ng-model="selectedAudioOption"
+            ng-class="{ 'select-audio-option-collapsed': selectedAudioOption === 1 }"
+            ng-options="audioOption.value as audioOption.text for audioOption in audioOptions">
+    </select>
+    <div class="button-group" ng-if="selectedAudioOption === 1">
+        <button ng-click="startRecording()" ng-show="!recording">Record audio</button>
+        <button ng-click="stopRecording()" ng-show="recording">Stop recording</button>
+        <div audio="recordedAudio" ng-if="recordedAudio && !recording"></div>
+    </div>
+</div>

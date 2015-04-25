@@ -1,9 +1,9 @@
 'use strict';
 
-app.directive('upload', ['$q', '$timeout', 'http', function ($q, $timeout, http) {
+app.directive('imageUpload', ['$q', '$timeout', 'http', function ($q, $timeout, http) {
     return  {
         replace: true,
-        templateUrl: 'upload.html',
+        templateUrl: 'imageUpload.html',
         scope: {
             media: '=ngModel',
             onSubmitRequest: '='

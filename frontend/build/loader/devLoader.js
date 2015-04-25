@@ -11,23 +11,13 @@ function getStyleSheet(url) {
     document.write('<link type="text/css" href="' + url + '" rel="stylesheet' + rel + '" />');
 }
 
-var srcPath = '/src', vendorPath = '/vendor/';
+var srcPath = '/src', distPath = '/dist/';
 
-//External libraries
-getScript(vendorPath + '/pubsub-js/pubsub.js');
-getScript(vendorPath + '/jquery/jquery.js');
-getScript(vendorPath + '/jquery-powertip-dist/jquery.powertip.js');
-getScript(vendorPath + '/jQuery.dotdotdot/jquery.dotdotdot.js');
-getScript(vendorPath + '/angular/angular.js');
-getScript(vendorPath + '/angular-ui-router/angular-ui-router.js');
-getScript(vendorPath + '/angular-sanitize/angular-sanitize.js');
-getScript(vendorPath + '/angular-animate/angular-animate.js');
-getScript(vendorPath + '/nprogress/nprogress.js');
-getScript(vendorPath + '/ng-tags-input/ng-tags-input.min.js');
-getScript(vendorPath + '/js-imagediff/imagediff.js');
+//Vendor resources
+getStyleSheet(distPath + '/css.css');
+getScript(distPath + '/vendor.min.js');
 
 //Common src resources
-getStyleSheet(srcPath + '/loader.less');
 getScript(srcPath + '/common/index.js');
 getScript(srcPath + '/common/constants.js');
 getScript(srcPath + '/common/templates.js');
@@ -38,8 +28,6 @@ getScript(srcPath + '/common/loading.js');
 getScript(srcPath + '/common/browser.js');
 getScript(srcPath + '/common/analytics.js');
 getScript(srcPath + '/common/login/login.js');
-getScript(srcPath + '/common/audio/graph.js');
-getScript(srcPath + '/common/audio/diff.js');
 getScript(srcPath + '/common/pageNotFound/pageNotFoundCtrl.js');
 getScript(srcPath + '/common/browserNotSupported/browserNotSupportedCtrl.js');
 
@@ -55,11 +43,17 @@ getScript(srcPath + '/portal/contact/ContactCtrl.js');
 getScript(srcPath + '/app/app.js');
 getScript(srcPath + '/app/AppCtrl.js');
 getScript(srcPath + '/app/common/question/BaseQuestionCtrl.js');
-getScript(srcPath + '/app/common/upload/upload.js');
-getScript(srcPath + '/app/common/upload/fileModel.js');
+getScript(srcPath + '/app/common/image/upload.js');
+getScript(srcPath + '/app/common/image/fileModel.js');
 getScript(srcPath + '/app/common/title/title.js');
 getScript(srcPath + '/app/common/truncate/truncate.js');
-getScript(srcPath + '/app/common/audio/audio.js');
+getScript(srcPath + '/app/common/audio/player/audio.js');
+getScript(srcPath + '/app/common/audio/uploader/graph.js');
+getScript(srcPath + '/app/common/audio/uploader/jquery.voice.js');
+getScript(srcPath + '/app/common/audio/uploader/record.js');
+getScript(srcPath + '/app/common/audio/uploader/recorder.js');
+getScript(srcPath + '/app/common/audio/uploader/recorderWorker.js');
+getScript(srcPath + '/app/common/audio/uploader/upload.js');
 getScript(srcPath + '/app/common/autoComplete/autoComplete.js');
 //Menu
 getScript(srcPath + '/app/menu/menu.js');
@@ -97,4 +91,3 @@ getScript(srcPath + '/app/admin/users/UsersAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserEditAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserActivateAdminCtrl.js');
-getScript(vendorPath + '/less/less.js');

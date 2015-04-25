@@ -48,7 +48,7 @@
     <option passfail="false" />
     <option phantom="false" />
     <option plusplus="false" />
-    <option predef="menzit, portal, app, angular, jshint, require, module, PubSub, NProgress" />
+    <option predef="menzit, portal, app, angular, jshint, require, module, PubSub, NProgress, jQuery" />
     <option proto="false" />
     <option prototypejs="false" />
     <option quotmark="false" />
@@ -69,4 +69,3 @@
     <option yui="false" />
   </component>
 </project>
-

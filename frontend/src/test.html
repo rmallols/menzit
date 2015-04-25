@@ -3,108 +3,75 @@
 
     <link rel="icon" type="image/png" href="/src/common/favicon.png">
     <script src="/src/loader.js" type="text/javascript"></script>
-    <script src="/src/common/audio/recorder.js" type="text/javascript"></script>
-    <script src="/src/common/audio/jquery.voice.js" type="text/javascript"></script>
-    <script src="/src/common/audio/record.js" type="text/javascript"></script>
 
     <script type="text/javascript">
 
-        menzit.controller('test', ['$scope', '$q', '$sce', 'record', 'graph', 'diff',
-            function ($scope, $q, $sce, record, graph, diff) {
+        menzit.controller('test', ['$scope', '$q', 'record', 'graph',
+            function ($scope, $q, record, graph) {
 
-//                graph.loadMusic('/audio?q=hello world').then(function (response) {
-//                    $scope.graphs.push({
-//                        url: trustSrc(response.url),
-//                        src: response.src
-//                    });
-//                });
+                $scope.graphs = [];
 
-                function trustSrc(src) {
-                    return $sce.trustAsResourceUrl(src);
-                }
+                var maxY;
 
-                $scope.play = function () {
-                    record.play().then(function (recordedUrl) {
-                        $scope.graphs = [];
+                graph.loadMusic('/audio?q=vegetables').then(function (response) {
+                    $scope.graphs.push({
+                        size: response.size
+                    });
+                    maxY = response.maxY;
+                });
 
-                        $q.all([
-                            graph.loadMusic(recordedUrl),
-                        graph.loadMusic('/audio?q=chocolate'),
-//                        graph.loadMusic('/audio?q=give me poison today'),
-                        ]).then(function (responses) {
-                            responses.forEach(function (response) {
-                                $scope.graphs.push({
-                                    url: trustSrc(response.url),
-                                    src: response.src,
-                                    size: response.size
-                                });
+                $scope.record = function () {
+                    record.record();
+                };
+
+                $scope.addRecorded = function () {
+
+                    record.get().then(function (recordedUrl) {
+
+                        graph.loadMusic(recordedUrl, maxY).then(function (response) {
+                            $scope.graphs.push({
+                                size: response.size
                             });
-                            setTimeout(function () {
-                                $scope.diffSize = diff.calc();
-                                $scope.$apply();
-                            }, 0);
 
-                            $scope.isOk = function (sourceImageSizeBlocks, fingerprintImageSizeBlocks, diffSize) {
-                                var isOk = true;
-                                sourceImageSizeBlocks.forEach(function (sourceImageSizeBlock, $index) {
-                                    if(!compareBlock(sourceImageSizeBlock, fingerprintImageSizeBlocks[$index])) {
-                                        isOk = false;
-                                    }
-                                });
-                                return isOk;
-                            }
-
-                            function compareBlock(blockA, blockB) {
-                                var imageDiff, blockAThreshold, blockBThreshold;
-                                imageDiff = blockA - blockB;
-                                imageDiff = (diff < 0) ? -imageDiff : imageDiff;
-                                blockAThreshold = imageDiff / blockA < 0.3;
-                                blockBThreshold = imageDiff / blockB < 0.3;
-                                console.log(blockAThreshold, blockBThreshold, imageDiff)
-                                return blockAThreshold && blockBThreshold;
-
-//                                var sourceDiff, sourceImageThreshold, fingerprintImageThreshold, diffThreshold;
-//                                sourceDiff = sourceImageSize - fingerprintImageSize;
-//                                sourceDiff = (diff < 0) ? -sourceDiff : sourceDiff;
-//                                sourceImageThreshold = sourceDiff / sourceImageSize < 0.2;
-//                                fingerprintImageThreshold = sourceDiff / fingerprintImageSize < 0.2;
-//                                diffThreshold = sourceDiff / diffSize < 0.2;
-//                                console.log(sourceImageThreshold, fingerprintImageThreshold, diffThreshold, sourceImageSize, fingerprintImageSize, diffSize)
-//                                return sourceImageThreshold && fingerprintImageThreshold && diffThreshold;
-                            }
-
-
+                            $scope.isOk = isOk($scope.graphs[0].size, $scope.graphs[1].size);
                         });
                     });
+                };
+
+                function isOk(sourceImageSizeBlocks, fingerprintImageSizeBlocks) {
+                    var isOk = true;
+                    sourceImageSizeBlocks.forEach(function (sourceImageSizeBlock, $index) {
+                        if(!compareBlock(sourceImageSizeBlock, fingerprintImageSizeBlocks[$index])) {
+                            isOk = false;
+                        }
+                    });
+                    return isOk;
+                }
+
+                function compareBlock(blockA, blockB) {
+                    var imageDiff, blockAThreshold, blockBThreshold;
+                    imageDiff = blockA - blockB;
+                    imageDiff = (imageDiff < 0) ? -imageDiff : imageDiff;
+                    blockAThreshold = imageDiff / blockA < 0.3;
+                    blockBThreshold = imageDiff / blockB < 0.3;
+                    return blockAThreshold && blockBThreshold;
                 }
             }]);
-
-        //https://subinsb.com/html5-record-mic-voice
     </script>
 </head>
 
 <body ng-controller="test">
 
-<audio controls src="" id="audio"></audio>
-<div style="margin:10px;">
-    <a class="button" id="record">Record</a>
-    <a class="button disabled one" id="stop">Reset</a>
-    <a class="button disabled one" id="play" ng-click="play()">Play</a>
-    <a class="button disabled one" id="download">Download</a>
-</div>
+    <audio-upload></audio-upload>
 
-<br/><br/><br/>
+    <div style="margin:10px;">
+        <a class="button" id="record" ng-click="record()">Record</a>
+        <a class="button disabled one" id="play" ng-click="addRecorded()">Add recorded</a>
+    </div>
 
-<div ng-repeat="graph in graphs">
-    <audio controls>
-        <source src="{{graph.url}}" type="audio/mpeg">
-    </audio>
-    The size is: {{graph.size}}
-    <img src="{{graph.src}}" id="image-{{$index}}"/>
-</div>
-<div id="diff">
-    The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{diffSize}} - {{isOk(graphs[0].size, graphs[1].size, diffSize)}}<br/>
-</div>
+    <div id="diff">
+        The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>
+    </div>
 </body>
 
 </html>

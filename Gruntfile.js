@@ -149,6 +149,13 @@ module.exports = function (grunt) {
                     spawn: false
                 }
             },
+            less: {
+                files: ['<%= srcFolder %>/**/*.less'],
+                tasks: ['compileLess'],
+                options: {
+                    spawn: false
+                }
+            },
             ttf: {
                 files: ['<%= srcFolder %>/common/mz.svg'],
                 tasks: ['updateTtf'],
@@ -261,13 +268,14 @@ module.exports = function (grunt) {
     grunt.registerTask('setDevLoader', ['copy:devLoader']);
     grunt.registerTask('setProdLoader', ['copy:prodLoader']);
     grunt.registerTask('optimizeJs', ['concat', 'uglify']);
+    grunt.registerTask('optimizeVendorJs', ['concat:vendor', 'uglify:vendor']);
     grunt.registerTask('optimizeSvg', ['shell:optimizeSvg']);
     grunt.registerTask('migrateDevToTestDB', ['shell:saveLastRemoteDBBackup', 'shell:backupLocalDB', 'shell:backupRemoteDB', 'shell:migrateDevToTestDB']);
     grunt.registerTask('migrateTestToDevDB', ['shell:saveLastLocalDBBackup', 'shell:backupLocalDB', 'shell:backupRemoteDB', 'shell:migrateTestToDevDB']);
     grunt.registerTask('buildDependencies', ['bower', 'copy:convertCssDependenciesToLess',
-        'copy:removeVersionFromLess', 'clean:deleteCssDependencies', 'clean:deleteVersionedLess']);
+        'copy:removeVersionFromLess', 'clean:deleteCssDependencies', 'clean:deleteVersionedLess', 'optimizeVendorJs']);
 
-    grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader']);
-    grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'optimizeJs',
+    grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader', 'buildDependencies', 'compileLess']);
+    grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'buildDependencies', 'optimizeJs', 'compileLess',
         'optimizeSvg', 'compileLess', 'githubPush', 'herokuPush', 'dev', 'githubPush']);
 };

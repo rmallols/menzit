@@ -14,7 +14,7 @@
             <div class="l-row">
                 <div class="l-1-4 input-label">Image</div>
                 <div class="l-3-4">
-                    <upload ng-model="test.question.media" on-submit-request="uploadQuestionRequestFn"></upload>
+                    <image-upload ng-model="test.question.media" on-submit-request="uploadQuestionRequestFn"></image-upload>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <div class="l-row">
                     <div class="l-1-4 input-label">Image</div>
                     <div class="l-3-4">
-                        <upload ng-model="answer.media" on-submit-request="uploadAnswerRequestFns[$index]"></upload>
+                        <image-upload ng-model="answer.media" on-submit-request="uploadAnswerRequestFns[$index]"></image-upload>
                     </div>
                 </div>
                 <div class="l-row select-correct">

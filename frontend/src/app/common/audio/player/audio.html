@@ -2,7 +2,7 @@
     <button ng-click="play()" class="big audio-button">
         <icon class="mic-icon"></icon>
     </button>
-    <audio controls class="audio-player" ng-if="audio">
-        <source ng-src="{{getAudioSrc(audio)}}" type="audio/mp3">
+    <audio controls class="audio-player" ng-if="normalizedAudio">
+        <source src="{{normalizedAudio}}" type="audio/wav">
     </audio>
 </div>
