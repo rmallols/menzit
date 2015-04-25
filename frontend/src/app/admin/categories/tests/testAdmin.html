@@ -17,7 +17,14 @@
                     <image-upload ng-model="test.question.media" on-submit-request="uploadQuestionRequestFn"></image-upload>
                 </div>
             </div>
+            <div class="l-row">
+                <div class="l-1-4 input-label">Audio</div>
+                <div class="l-3-4">
+                    <audio-upload></audio-upload>
+                </div>
+            </div>
         </div>
+    </div>
         <div>
             <div class="test-answer l-1-2 cf" ng-repeat="answer in test.answers"
                  ng-class="{ 'correct-option': $parent.correctOptionIndex === $index }">

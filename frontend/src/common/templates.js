@@ -87,7 +87,14 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "                    <image-upload ng-model=\"test.question.media\" on-submit-request=\"uploadQuestionRequestFn\"></image-upload>\n" +
     "                </div>\n" +
     "            </div>\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <div class=\"l-1-4 input-label\">Audio</div>\n" +
+    "                <div class=\"l-3-4\">\n" +
+    "                    <audio-upload></audio-upload>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
     "        </div>\n" +
+    "    </div>\n" +
     "        <div>\n" +
     "            <div class=\"test-answer l-1-2 cf\" ng-repeat=\"answer in test.answers\"\n" +
     "                 ng-class=\"{ 'correct-option': $parent.correctOptionIndex === $index }\">\n" +
@@ -389,8 +396,7 @@ angular.module("audio.html", []).run(["$templateCache", function($templateCache)
 
 angular.module("audioUpload.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("audioUpload.html",
-    "<div class=\"image-upload-view cf\">\n" +
-    "    Audio:\n" +
+    "<div class=\"audio-upload-view cf\">\n" +
     "    <select ng-model=\"selectedAudioOption\"\n" +
     "            ng-class=\"{ 'select-audio-option-collapsed': selectedAudioOption === 1 }\"\n" +
     "            ng-options=\"audioOption.value as audioOption.text for audioOption in audioOptions\">\n" +

@@ -297,5 +297,5 @@ server.listen(port, function () {
 });
 
 function goToIndex(res) {
-    res.send(fs.readFileSync(__dirname + '/../frontend/src/test.html').toString());
+    res.send(fs.readFileSync(__dirname + '/../frontend/src/index.html').toString());
 }
