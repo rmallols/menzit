@@ -7,20 +7,22 @@ app.controller('TestEditAdminCtrl', ['$scope', '$state', 'http', 'test', 'testAd
         $scope.test = test;
         $scope.test.answers = testAdmin.getNormalizedInputAnswers($scope.test.answers);
         $scope.uploadAnswerRequestFns = new Array(4);
-        angular.forEach($scope.test.answers, function(answer, $index) {
-            if(answer.isCorrect) {
+        angular.forEach($scope.test.answers, function (answer, $index) {
+            if (answer.isCorrect) {
                 $scope.correctOptionIndex = $index;
             }
         });
 
         $scope.submit = function () {
-            $scope.uploadQuestionRequestFn().then(function () {
-                angular.forEach($scope.uploadAnswerRequestFns, function (uploadAnswerRequestFn, $index) {
-                    uploadAnswerRequestFn().then(function () {
-                        if($index === $scope.uploadAnswerRequestFns.length - 1) {
-                            setupData();
-                            submitMetaData();
-                        }
+            $scope.uploadImageQuestionRequestFn().then(function () {
+                $scope.uploadAudioQuestionRequestFn().then(function () {
+                    angular.forEach($scope.uploadAnswerRequestFns, function (uploadAnswerRequestFn, $index) {
+                        uploadAnswerRequestFn().then(function () {
+                            if ($index === $scope.uploadAnswerRequestFns.length - 1) {
+                                setupData();
+                                submitMetaData();
+                            }
+                        });
                     });
                 });
             });
@@ -28,7 +30,7 @@ app.controller('TestEditAdminCtrl', ['$scope', '$state', 'http', 'test', 'testAd
 
         function setupData() {
             $scope.test.answers = testAdmin.getNormalizedOutputAnswers($scope.test.answers);
-            angular.forEach($scope.test.answers, function(answer, $index) {
+            angular.forEach($scope.test.answers, function (answer, $index) {
                 answer.isCorrect = $index === Number($scope.correctOptionIndex);
             });
         }

@@ -1,11 +1,19 @@
 <div class="audio-upload-view cf">
     <select ng-model="selectedAudioOption"
-            ng-class="{ 'select-audio-option-collapsed': selectedAudioOption === 1 }"
+            ng-class="{'select-audio-by-machine': selectedAudioOption === 0, 'select-audio-by-human': selectedAudioOption === 1}"
+            ng-change="onSelectedAudioOptionChange(selectedAudioOption)"
             ng-options="audioOption.value as audioOption.text for audioOption in audioOptions">
     </select>
-    <div class="button-group" ng-if="selectedAudioOption === 1">
-        <button ng-click="startRecording()" ng-show="!recording">Record audio</button>
+    <div class="button-group" ng-if="selectedAudioOption === 0 || selectedAudioOption === 1">
+        <button ng-click="startRecording()" ng-show="!recording && selectedAudioOption === 1">Record audio</button>
         <button ng-click="stopRecording()" ng-show="recording">Stop recording</button>
-        <div audio="recordedAudio" ng-if="recordedAudio && !recording"></div>
+        <div audio="media._id"
+             type="url"
+             ng-if="media._id && !recordedAudio.base64 && !recordedAudio && !recording"
+             before-play="reEvaluateExternalAudio()"></div>
+        <div audio="recordedAudio.base64"
+             type="inline"
+             ng-if="recordedAudio.base64 && (selectedAudioOption === 0 || (recordedAudio && !recording))"
+             before-play="reEvaluateExternalAudio()"></div>
     </div>
 </div>

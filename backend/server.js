@@ -4,6 +4,7 @@ var express = require('express'),
     fs = require('fs'),
     app = express(),
     server = require('http').createServer(app),
+    http = require('http'),
     create = require('./crud/create'),
     read = require('./crud/read'),
     update = require('./crud/update'),
@@ -203,30 +204,44 @@ app.get('/media/:documentId', function (req, res) {
     });
 });
 
-app.get('/audio', function (req, res) {
+app.post('/rest/audio', function (req, res) {
+    media.create(req.body, req.session, function (err, data) {
+        responseWithErrorControl(res, err, data);
+    });
+});
 
-    var http = require('http');
-    var options = {
-        host: 'tts-api.com',
-        port: 80,
-        path: '/tts.mp3?q=hello',
-        headers: {
-            //'Accept': '*/*',
-            //'Accept-Encoding': 'identity;q=1, *;q=0'
+app.put('/rest/audio/:mediaId', function (req, res) {
+    media.update(req.params.mediaId, req.body, req.session, function (err, data) {
+        responseWithErrorControl(res, err, data);
+    });
+});
+
+app.delete('/rest/audio/:mediaId', function (req, res) {
+    remove.remove(req.params.mediaId, 'media', function (data) {
+        responseWithErrorControl(res, null, data);
+    });
+});
+
+app.get('/audio/:documentId', function (req, res) {
+    read.findOne(req.params.documentId, 'media', function (content) {
+        if(content) {
+            res.send(content);
+        } else {
+            res.send(null);
         }
-    };
+    });
+});
 
+app.get('/rest/external-audio', function (req, res) {
     http.get('http://tts-api.com/tts.mp3?q=' + req.query.q, function(resp1){
-
-        http.get(resp1.headers.location, function (resp) {
+        http.get(resp1.headers.location, function (resp2) {
             var chunks = [];
-            resp.on('data', function(chunk){
+            resp2.on('data', function(chunk){
                 chunks.push(chunk);
             });
-            resp.on('end', function() {
+            resp2.on('end', function() {
                 var body = Buffer.concat(chunks);
-                res.set({'Content-Type': 'audio/mpeg'});
-                res.send(body);
+                res.send({ data: 'data:audio/wav;base64,' + body.toString('base64')});
             });
         });
     }).on("error", function(e){

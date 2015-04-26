@@ -84,13 +84,16 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "            <div class=\"l-row\">\n" +
     "                <div class=\"l-1-4 input-label\">Image</div>\n" +
     "                <div class=\"l-3-4\">\n" +
-    "                    <image-upload ng-model=\"test.question.media\" on-submit-request=\"uploadQuestionRequestFn\"></image-upload>\n" +
+    "                    <image-upload ng-model=\"test.question.media\" on-submit-request=\"uploadImageQuestionRequestFn\"></image-upload>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"l-row\">\n" +
     "                <div class=\"l-1-4 input-label\">Audio</div>\n" +
     "                <div class=\"l-3-4\">\n" +
-    "                    <audio-upload></audio-upload>\n" +
+    "                    <audio-upload ng-model=\"test.question.audio\"\n" +
+    "                                  on-submit-request=\"uploadAudioQuestionRequestFn\"\n" +
+    "                                  source-text=\"test.question.text\">\n" +
+    "                    </audio-upload>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -388,8 +391,8 @@ angular.module("audio.html", []).run(["$templateCache", function($templateCache)
     "    <button ng-click=\"play()\" class=\"big audio-button\">\n" +
     "        <icon class=\"mic-icon\"></icon>\n" +
     "    </button>\n" +
-    "    <audio controls class=\"audio-player\" ng-if=\"normalizedAudio\">\n" +
-    "        <source src=\"{{normalizedAudio}}\" type=\"audio/wav\">\n" +
+    "    <audio controls class=\"audio-player\">\n" +
+    "        <source type=\"audio/wav\">\n" +
     "    </audio>\n" +
     "</div>");
 }]);
@@ -398,13 +401,21 @@ angular.module("audioUpload.html", []).run(["$templateCache", function($template
   $templateCache.put("audioUpload.html",
     "<div class=\"audio-upload-view cf\">\n" +
     "    <select ng-model=\"selectedAudioOption\"\n" +
-    "            ng-class=\"{ 'select-audio-option-collapsed': selectedAudioOption === 1 }\"\n" +
+    "            ng-class=\"{'select-audio-by-machine': selectedAudioOption === 0, 'select-audio-by-human': selectedAudioOption === 1}\"\n" +
+    "            ng-change=\"onSelectedAudioOptionChange(selectedAudioOption)\"\n" +
     "            ng-options=\"audioOption.value as audioOption.text for audioOption in audioOptions\">\n" +
     "    </select>\n" +
-    "    <div class=\"button-group\" ng-if=\"selectedAudioOption === 1\">\n" +
-    "        <button ng-click=\"startRecording()\" ng-show=\"!recording\">Record audio</button>\n" +
+    "    <div class=\"button-group\" ng-if=\"selectedAudioOption === 0 || selectedAudioOption === 1\">\n" +
+    "        <button ng-click=\"startRecording()\" ng-show=\"!recording && selectedAudioOption === 1\">Record audio</button>\n" +
     "        <button ng-click=\"stopRecording()\" ng-show=\"recording\">Stop recording</button>\n" +
-    "        <div audio=\"recordedAudio\" ng-if=\"recordedAudio && !recording\"></div>\n" +
+    "        <div audio=\"media._id\"\n" +
+    "             type=\"url\"\n" +
+    "             ng-if=\"media._id && !recordedAudio.base64 && !recordedAudio && !recording\"\n" +
+    "             before-play=\"reEvaluateExternalAudio()\"></div>\n" +
+    "        <div audio=\"recordedAudio.base64\"\n" +
+    "             type=\"inline\"\n" +
+    "             ng-if=\"recordedAudio.base64 && (selectedAudioOption === 0 || (recordedAudio && !recording))\"\n" +
+    "             before-play=\"reEvaluateExternalAudio()\"></div>\n" +
     "    </div>\n" +
     "</div>");
 }]);
@@ -697,8 +708,11 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "    <body>\n" +
     "        <div ui-view></div>\n" +
     "    </body>\n" +
+    "</html>\n" +
     "\n" +
-    "</html>");
+    "\n" +
+    "\n" +
+    "");
 }]);
 
 angular.module("contact.html", []).run(["$templateCache", function($templateCache) {

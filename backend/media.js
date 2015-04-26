@@ -30,19 +30,33 @@ function manageMedia (documentId, files, session, callback) {
 }
 
 function uploadFile(documentId, file, session, callback) {
-    readFile(file.path, function (err, data) {
-        var saveObj = {
-            data    : data,
-            name   : file.name,
-            size   : file.size,
-            mime   : file.mime
+    var fileInfo;
+    if(file && file.path && typeof file.path === 'string') {
+        readFile(file.path, function (err, data) {
+            performUpload(documentId, data, file, session, callback);
+        });
+    } else {
+        fileInfo = {
+            name: null,
+            size: null,
+            mime: null
         };
-        if (documentId) { //Overwrite existing media
-            updateExistingFile(documentId, saveObj, session, callback);
-        } else { //Create new media
-            createNewFile(saveObj, session, callback);
-        }
-    });
+        performUpload(documentId, file, fileInfo, session, callback);
+    }
+}
+
+function performUpload(documentId, data, file, session, callback) {
+    var saveObj = {
+        data    : data,
+        name   : file.name,
+        size   : file.size,
+        mime   : file.mime
+    };
+    if (documentId) { //Overwrite existing media
+        updateExistingFile(documentId, saveObj, session, callback);
+    } else { //Create new media
+        createNewFile(saveObj, session, callback);
+    }
 }
 
 function onUploadedMedia(media, saveObj, callback) {

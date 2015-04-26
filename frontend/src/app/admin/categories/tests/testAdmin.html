@@ -14,13 +14,16 @@
             <div class="l-row">
                 <div class="l-1-4 input-label">Image</div>
                 <div class="l-3-4">
-                    <image-upload ng-model="test.question.media" on-submit-request="uploadQuestionRequestFn"></image-upload>
+                    <image-upload ng-model="test.question.media" on-submit-request="uploadImageQuestionRequestFn"></image-upload>
                 </div>
             </div>
             <div class="l-row">
                 <div class="l-1-4 input-label">Audio</div>
                 <div class="l-3-4">
-                    <audio-upload></audio-upload>
+                    <audio-upload ng-model="test.question.audio"
+                                  on-submit-request="uploadAudioQuestionRequestFn"
+                                  source-text="test.question.text">
+                    </audio-upload>
                 </div>
             </div>
         </div>

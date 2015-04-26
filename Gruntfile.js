@@ -102,7 +102,8 @@ module.exports = function (grunt) {
                 options: { stdout: true }
             },
             startProtractor: { command: '.\\node_modules\\.bin\\protractor .\\frontend\\build\\e2e\\customConf.js', options: { stdout: true } },
-            startMongo: { command: '"' + grunt.option('path') + '"', options: { async: true, stdout: true }},
+            startNode: { command: '"C:\\Program Files (x86)\\nodejs\\node.exe" node_modules\\supervisor\\lib\\cli-wrapper.js --exec "C:\\Program Files (x86)\\nodejs\\node.exe" --no-restart-on exit backend\\server.js', options: { stdout: true } },
+            startMongo: { command: '"' + grunt.option('mongo-path') + '"', options: { async: true, stdout: true }},
             githubAdd: { command: 'git add .', options: { stdout: true } },
             githubCommit: { command: 'git commit -m "#0 prod update"', options: { stdout: true } },
             githubPush: { command: 'git push', options: { stdout: true } },
@@ -233,6 +234,14 @@ module.exports = function (grunt) {
                    cleanTargetDir: true
                }
             }
+        },
+        concurrent: {
+            options: {
+                logConcurrentOutput: true
+            },
+            setupDevEnv: {
+                tasks: ['watch:templates', 'watch:less', 'watch:ttf', 'startMongo', 'startNode']
+            }
         }
     });
 
@@ -249,12 +258,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-bower-task');
+    grunt.loadNpmTasks('grunt-concurrent');
 
     grunt.registerTask('updateTtf', ['svg2ttf', 'copy:ttf', 'clean:ttf']);
     grunt.registerTask('runJshint', ['jshint']);
     grunt.registerTask('startKarma', ['karma:watch']);
     grunt.registerTask('startSelenium', ['shell:startSelenium']);
     grunt.registerTask('startProtractor', ['shell:startProtractor']);
+    grunt.registerTask('startNode', ['shell:startNode']);
     grunt.registerTask('startMongo', ['shell:startMongo']);
     grunt.registerTask('setDevDb', ['bumpup:build:dev']);
     grunt.registerTask('setTestDb', ['bumpup:build:test']);
@@ -274,7 +285,7 @@ module.exports = function (grunt) {
     grunt.registerTask('migrateTestToDevDB', ['shell:saveLastLocalDBBackup', 'shell:backupLocalDB', 'shell:backupRemoteDB', 'shell:migrateTestToDevDB']);
     grunt.registerTask('buildDependencies', ['bower', 'copy:convertCssDependenciesToLess',
         'copy:removeVersionFromLess', 'clean:deleteCssDependencies', 'clean:deleteVersionedLess', 'optimizeVendorJs']);
-
+    grunt.registerTask('setupDevEnv', ['concurrent:setupDevEnv']);
     grunt.registerTask('dev', ['setDevDb', 'cleanDist', 'setDevLoader', 'buildDependencies', 'compileLess']);
     grunt.registerTask('test', ['setTestDb', 'cleanDist', 'setProdLoader', 'buildDependencies', 'optimizeJs', 'compileLess',
         'optimizeSvg', 'compileLess', 'githubPush', 'herokuPush', 'dev', 'githubPush']);
