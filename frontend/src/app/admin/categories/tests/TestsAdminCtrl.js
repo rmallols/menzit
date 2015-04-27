@@ -25,7 +25,8 @@ app.controller('TestsAdminCtrl', ['$scope', '$state', 'http', 'category',
         $scope.delete = function () {
             http.delete('/rest/tests/' + $scope.testToBeDeleted._id).then(function () {
                 loadTests();
-                deleteMedia();
+                deleteImages();
+                deleteAudios();
                 $scope.testToBeDeleted = null;
             });
         };
@@ -37,13 +38,23 @@ app.controller('TestsAdminCtrl', ['$scope', '$state', 'http', 'category',
             });
         }
 
-        function deleteMedia() {
-            var mediaId =   $scope.testToBeDeleted.question.media &&
+        function deleteImages() {
+            var imageId =   $scope.testToBeDeleted.question.media &&
                             $scope.testToBeDeleted.question.media._id;
-            submitDeleteMedia(mediaId);
+            submitDeleteMedia(imageId);
             angular.forEach($scope.testToBeDeleted.answers, function (answer) {
-                mediaId = answer.media && answer.media._id;
-                submitDeleteMedia(mediaId);
+                imageId = answer.media && answer.media._id;
+                submitDeleteMedia(imageId);
+            });
+        }
+
+        function deleteAudios() {
+            var audioId =   $scope.testToBeDeleted.question.audio &&
+                            $scope.testToBeDeleted.question.audio._id;
+            submitDeleteMedia(audioId);
+            angular.forEach($scope.testToBeDeleted.answers, function (answer) {
+                audioId = answer.audioId && answer.audioId._id;
+                submitDeleteMedia(audioId);
             });
         }
 

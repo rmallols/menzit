@@ -1,25 +1,41 @@
 .audio-upload-view {
 
-  @machine-button-group-width: 80px;
-  @human-button-group-width: 200px;
+  @machine-button-group-width: 60px;
+  @human-button-group-width: 205px;
 
-  .select-audio-by-machine {
-    .offsettedWidth(-@machine-button-group-width);
+  select {
     float: left;
-  }
-
-  .select-audio-by-human {
-    .offsettedWidth(-@human-button-group-width);
-    float: left;
+    width: 100%;
   }
 
   .button-group {
     float: left;
-    width: @human-button-group-width;
+
+    button {
+      margin: 0 0 0 (@gutter / 2);
+      float: right;
+    }
   }
 
-  button {
-    margin: 0 0 0 (@gutter / 2);
-    float: right;
+  &.select-audio-by-machine {
+
+    select {
+      .offsettedWidth(-@machine-button-group-width);
+    }
+
+    .button-group {
+      width: @machine-button-group-width;
+    }
+  }
+
+  &.select-audio-by-human {
+
+    select {
+      .offsettedWidth(-@human-button-group-width);
+    }
+
+    .button-group {
+      width: @human-button-group-width;
+    }
   }
 }

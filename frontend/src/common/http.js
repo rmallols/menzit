@@ -6,14 +6,16 @@ menzit.config(['$httpProvider', function ($httpProvider) {
     //$httpProvider.defaults.cache = true;
 
     // alternatively, register the interceptor via an anonymous factory
-    $httpProvider.interceptors.push(['loading', function(loading) {
+    $httpProvider.interceptors.push(['loading', 'pubSub', function(loading, pubSub) {
         return {
             'request': function(config) {
                 loading.start();
+                pubSub.publish('onHttpRequest');
                 return config;
             },
 
             'response': function(response) {
+                pubSub.publish('onHttpResponse');
                 loading.done();
                 return response;
             }

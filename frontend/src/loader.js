@@ -21,6 +21,7 @@ getScript(distPath + '/vendor.min.js');
 getScript(srcPath + '/common/index.js');
 getScript(srcPath + '/common/constants.js');
 getScript(srcPath + '/common/templates.js');
+getScript(srcPath + '/common/button.js');
 getScript(srcPath + '/common/http.js');
 getScript(srcPath + '/common/session.js');
 getScript(srcPath + '/common/pubSub.js');

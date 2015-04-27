@@ -388,7 +388,7 @@ angular.module("categories.html", []).run(["$templateCache", function($templateC
 angular.module("audio.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("audio.html",
     "<div class=\"audio\">\n" +
-    "    <button ng-click=\"play()\" class=\"big audio-button\">\n" +
+    "    <button ng-click=\"play()\" class=\"big audio-button\" ng-disabled=\"ngDisabled\">\n" +
     "        <icon class=\"mic-icon\"></icon>\n" +
     "    </button>\n" +
     "    <audio controls class=\"audio-player\">\n" +
@@ -399,23 +399,20 @@ angular.module("audio.html", []).run(["$templateCache", function($templateCache)
 
 angular.module("audioUpload.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("audioUpload.html",
-    "<div class=\"audio-upload-view cf\">\n" +
+    "<div class=\"audio-upload-view cf\"\n" +
+    "     ng-class=\"{'select-audio-by-machine': selectedAudioOption === 0, 'select-audio-by-human': selectedAudioOption === 1}\">\n" +
     "    <select ng-model=\"selectedAudioOption\"\n" +
-    "            ng-class=\"{'select-audio-by-machine': selectedAudioOption === 0, 'select-audio-by-human': selectedAudioOption === 1}\"\n" +
     "            ng-change=\"onSelectedAudioOptionChange(selectedAudioOption)\"\n" +
     "            ng-options=\"audioOption.value as audioOption.text for audioOption in audioOptions\">\n" +
     "    </select>\n" +
     "    <div class=\"button-group\" ng-if=\"selectedAudioOption === 0 || selectedAudioOption === 1\">\n" +
-    "        <button ng-click=\"startRecording()\" ng-show=\"!recording && selectedAudioOption === 1\">Record audio</button>\n" +
-    "        <button ng-click=\"stopRecording()\" ng-show=\"recording\">Stop recording</button>\n" +
-    "        <div audio=\"media._id\"\n" +
-    "             type=\"url\"\n" +
-    "             ng-if=\"media._id && !recordedAudio.base64 && !recordedAudio && !recording\"\n" +
-    "             before-play=\"reEvaluateExternalAudio()\"></div>\n" +
     "        <div audio=\"recordedAudio.base64\"\n" +
     "             type=\"inline\"\n" +
-    "             ng-if=\"recordedAudio.base64 && (selectedAudioOption === 0 || (recordedAudio && !recording))\"\n" +
-    "             before-play=\"reEvaluateExternalAudio()\"></div>\n" +
+    "             ng-disabled=\"recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)\"\n" +
+    "             before-play=\"processAudioBeforePlay()\">\n" +
+    "         </div>\n" +
+    "        <button ng-click=\"startRecording()\" ng-show=\"!recording && selectedAudioOption === 1\">Record audio</button>\n" +
+    "        <button ng-click=\"stopRecording()\" ng-show=\"recording\">Stop recording</button>\n" +
     "    </div>\n" +
     "</div>");
 }]);

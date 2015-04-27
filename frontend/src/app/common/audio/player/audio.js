@@ -7,6 +7,7 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
         replace: true,
         scope: {
             audio: '=',
+            ngDisabled: '=',
             beforePlay: '&',
             type: '@'
         },
@@ -40,7 +41,7 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
                 var beforePlayHandler = scope.beforePlay();
                 if(beforePlayHandler) {
                     beforePlayHandler.then(function () {
-                        setAudioSrc(base64Data);
+                        setAudioSrc(scope.audio);
                         play();
                     });
                 } else {
