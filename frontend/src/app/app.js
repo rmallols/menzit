@@ -45,10 +45,20 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
                 }
             })
 
-            .state('app.test', {
-                url: "/play/:categoryId/test",
-                templateUrl: "test.html",
-                controller: 'TestCtrl',
+            .state('app.test-quiz', {
+                url: "/play/:categoryId/quiz",
+                templateUrl: "testQuiz.html",
+                controller: 'TestQuizCtrl',
+                pageTitle: 'Running a test',
+                data: {
+                    groupId: 'categories'
+                }
+            })
+
+            .state('app.test-speech', {
+                url: "/play/:categoryId/speech",
+                templateUrl: "testSpeech.html",
+                controller: 'TestSpeechCtrl',
                 pageTitle: 'Running a test',
                 data: {
                     groupId: 'categories'

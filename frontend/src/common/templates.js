@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'testQuiz.html', 'testSpeech.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -618,14 +618,19 @@ angular.module("results.html", []).run(["$templateCache", function($templateCach
     "</div>");
 }]);
 
-angular.module("test.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("test.html",
+angular.module("testQuiz.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("testQuiz.html",
     "<div class=\"test-view\">\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestInProgress\" ng-controller=\"QuestionsCtrl\"\n" +
     "         ng-include=\"'question.html'\" ng-animate></div>\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestFinished\" ng-controller=\"ResultsCtrl\"\n" +
     "         ng-include=\"'results.html'\" ng-animate></div>\n" +
     "</div>");
+}]);
+
+angular.module("testSpeech.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("testSpeech.html",
+    "<div>Hello speech</div>");
 }]);
 
 angular.module("browserNotSupported.html", []).run(["$templateCache", function($templateCache) {

@@ -68,7 +68,8 @@ getScript(srcPath + '/app/categories/CategoriesCtrl.js');
 getScript(srcPath + '/app/review/ReviewCtrl.js');
 getScript(srcPath + '/app/review/question/ReviewQuestionCtrl.js');
 //Test page
-getScript(srcPath + '/app/test/TestCtrl.js');
+getScript(srcPath + '/app/test/TestQuizCtrl.js');
+getScript(srcPath + '/app/test/TestSpeechCtrl.js');
 getScript(srcPath + '/app/test/questions/QuestionsCtrl.js');
 getScript(srcPath + '/app/test/results/ResultsCtrl.js');
 //Admin pages

@@ -1,10 +1,10 @@
 'use strict';
 
-app.controller('TestCtrl', ['$scope', '$timeout', 'pubSub', function ($scope, $timeout, pubSub) {
+app.controller('TestQuizCtrl', ['$scope', '$timeout', 'pubSub', function ($scope, $timeout, pubSub) {
 
     $scope.isTestInProgress = true;
 
-    var scoreUpdatedSub = pubSub.subscribe('testFinished', function (msg, data) {
+    var scoreUpdatedSub = pubSub.subscribe('testFinished', function () {
         finishTest();
     });
 

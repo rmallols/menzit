@@ -31,7 +31,7 @@ function responseWithErrorControl(res, err, data) {
 
 var acceptedRoutes = [
         '/', '/home', '/how-it-works', '/contact',
-        '/test', '/play', '/play/:categoryId/test',
+        '/test', '/play', '/play/:categoryId/quiz', '/play/:categoryId/speech',
         '/page-not-found', '/browser-not-supported'],
     acceptedLoggedRoutes = [
         '/review', '/review/:questionId',
