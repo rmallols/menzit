@@ -15,15 +15,11 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
 
             var base64Data;
 
-            if(scope.type === 'url') {
-                http.get('/audio/' + scope.audio).then(function (response) {
-                    base64Data = response.data;
-                    setAudioSrc(base64Data);
-                });
-            } else if(scope.type === 'inline') {
-                base64Data = scope.audio;
-                setAudioSrc(base64Data);
-            }
+            scope.$watch('audio', function (audio) {
+                if(audio) {
+                    manageAudioSource(audio, scope.type);
+                }
+            });
 
             function setAudioSrc(inlineAudio) {
                 var sourceElement = element.find('source')[0];
@@ -35,6 +31,26 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
                 audioElement.pause();
                 audioElement.load();
                 audioElement.play();
+            }
+
+            function manageAudioSource(audio, type) {
+                if(type === 'url') {
+                    manageAudioSourceFromUrl(audio);
+                } else if(type === 'inline') {
+                    manageAudioSourceFromBase64(audio);
+                }
+            }
+
+            function manageAudioSourceFromUrl(audio) {
+                http.get('/audio/' + audio).then(function (response) {
+                    base64Data = response.data;
+                    setAudioSrc(base64Data);
+                });
+            }
+
+            function manageAudioSourceFromBase64(audio) {
+                base64Data = audio;
+                setAudioSrc(base64Data);
             }
 
             scope.play = function () {

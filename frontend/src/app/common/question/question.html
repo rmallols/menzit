@@ -3,7 +3,7 @@
          ng-class="getQuestionStyleClasses(question.question)"
          ng-style="getBackgroundMediaStyle(question.question.media)">
         {{question.question.text}}
-        <div audio="question.question.text"></div>
+        <div audio="question.question.audio._id" type="url"></div>
     </div>
     <div class="answers-container">
         <div ng-repeat="answer in question.answers"

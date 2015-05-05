@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'test.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'test.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -471,7 +471,7 @@ angular.module("question.html", []).run(["$templateCache", function($templateCac
     "         ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
     "         ng-style=\"getBackgroundMediaStyle(question.question.media)\">\n" +
     "        {{question.question.text}}\n" +
-    "        <div audio=\"question.question.text\"></div>\n" +
+    "        <div audio=\"question.question.audio._id\" type=\"url\"></div>\n" +
     "    </div>\n" +
     "    <div class=\"answers-container\">\n" +
     "        <div ng-repeat=\"answer in question.answers\"\n" +
@@ -857,8 +857,8 @@ angular.module("portal.html", []).run(["$templateCache", function($templateCache
     "</div>");
 }]);
 
-angular.module("test.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("test.html",
+angular.module("testAudio.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("testAudio.html",
     "<html ng-app=\"menzit\">\n" +
     "<head>\n" +
     "\n" +
