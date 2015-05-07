@@ -38,6 +38,7 @@ var acceptedRoutes = [
         '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId', '/admin/tenants/invite/:tenantId',
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
         '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
+        '/admin/categories/:categoryId/tests/speech/add', '/admin/categories/:categoryId/tests/speech/edit/:categoryId',
         '/admin/categories/:categoryId/tests/edit/:testId',
         '/admin/users', '/admin/users/add', '/admin/users/edit/:userId', '/admin/users/edit/:userId/current', '/admin/users/edit/:userId/activate'];
 
@@ -312,5 +313,5 @@ server.listen(port, function () {
 });
 
 function goToIndex(res) {
-    res.send(fs.readFileSync(__dirname + '/../frontend/src/index.html').toString());
+    res.send(fs.readFileSync(__dirname + '/../frontend/src/testAudio.html').toString());
 }

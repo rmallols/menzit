@@ -1,0 +1,21 @@
+<div class="test-question cf">
+    <div class="l-row">
+        <div class="l-1-4 input-label">Question</div>
+        <div class="l-3-4"><input type="text" ng-model="question.text"/></div>
+    </div>
+    <div class="l-row">
+        <div class="l-1-4 input-label">Image</div>
+        <div class="l-3-4">
+            <image-upload ng-model="question.media" on-submit-request="onSubmitImageRequestFn"></image-upload>
+        </div>
+    </div>
+    <div class="l-row">
+        <div class="l-1-4 input-label">Audio</div>
+        <div class="l-3-4">
+            <audio-upload ng-model="question.audio"
+                          on-submit-request="onSubmitAudioRequestFn"
+                          source-text="question.text">
+            </audio-upload>
+        </div>
+    </div>
+</div>

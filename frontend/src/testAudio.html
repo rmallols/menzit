@@ -13,12 +13,12 @@
 
                 var maxY;
 
-                graph.loadMusic('/audio?q=vegetables').then(function (response) {
-                    $scope.graphs.push({
-                        size: response.size
-                    });
-                    maxY = response.maxY;
-                });
+//                graph.loadMusic('/rest/external-audio?q=vegetables').then(function (response) {
+//                    $scope.graphs.push({
+//                        size: response.size
+//                    });
+//                    maxY = response.maxY;
+//                });
 
                 $scope.record = function () {
                     record.record();
@@ -27,8 +27,8 @@
                 $scope.addRecorded = function () {
 
                     record.get().then(function (recordedUrl) {
-
-                        graph.loadMusic(recordedUrl, maxY).then(function (response) {
+console.log(recordedUrl);
+                        graph.loadMusic(recordedUrl.blob, maxY).then(function (response) {
                             $scope.graphs.push({
                                 size: response.size
                             });
@@ -62,11 +62,19 @@
 
 <body ng-controller="test">
 
-    <audio-upload></audio-upload>
-
     <div style="margin:10px;">
         <a class="button" id="record" ng-click="record()">Record</a>
         <a class="button disabled one" id="play" ng-click="addRecorded()">Add recorded</a>
+    </div>
+
+    <br/><br/><br/>
+
+    <div ng-repeat="graph in graphs">
+        <audio controls>
+            <source src="{{graph.url}}" type="audio/mpeg">
+        </audio>
+        The size is: {{graph.size}}
+        <img src="{{graph.src}}" id="image-{{$index}}"/>
     </div>
 
     <div id="diff">

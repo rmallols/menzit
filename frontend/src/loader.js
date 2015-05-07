@@ -69,7 +69,7 @@ getScript(srcPath + '/app/review/ReviewCtrl.js');
 getScript(srcPath + '/app/review/question/ReviewQuestionCtrl.js');
 //Test page
 getScript(srcPath + '/app/test/TestQuizCtrl.js');
-getScript(srcPath + '/app/test/TestSpeechCtrl.js');
+getScript(srcPath + '/app/test/speech/TestSpeechCtrl.js');
 getScript(srcPath + '/app/test/questions/QuestionsCtrl.js');
 getScript(srcPath + '/app/test/results/ResultsCtrl.js');
 //Admin pages
@@ -88,6 +88,9 @@ getScript(srcPath + '/app/admin/categories/tests/TestsAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/tests/TestAddAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/tests/TestEditAdminCtrl.js');
 getScript(srcPath + '/app/admin/categories/tests/testAdmin.js');
+getScript(srcPath + '/app/admin/categories/tests/speech/SpeechTestAddAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/tests/speech/SpeechTestEditAdminCtrl.js');
+getScript(srcPath + '/app/admin/categories/tests/question/questionAdmin.js');
 getScript(srcPath + '/app/admin/users/usersApp.js');
 getScript(srcPath + '/app/admin/users/UsersAdminCtrl.js');
 getScript(srcPath + '/app/admin/users/UserAddAdminCtrl.js');

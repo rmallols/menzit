@@ -1,0 +1,10 @@
+<audio-upload></audio-upload>
+
+<div style="margin:10px;">
+    <a class="button" id="record" ng-click="record()">Record</a>
+    <a class="button disabled one" id="play" ng-click="addRecorded()">Add recorded</a>
+</div>
+
+<div id="diff">
+    The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>
+</div>

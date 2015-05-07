@@ -13,8 +13,7 @@ module.exports = {
             today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
             filter = {
                 query: { $and: [
-                    { 'create.authorId': session.getSession(request)._id },
-                    { 'update.date': {"$lt": today} }]
+                    { 'create.authorId': session.getSession(request)._id }]
                 },
                 sort: { totalIncorrectAnswers: -1 }
             };

@@ -1,6 +1,10 @@
 'use strict';
 menzit.value('constants', {
     logoPath: '/src/portal/logo.svg',
+    testTypes: [
+        { _id: 'quiz', name: 'Quiz' },
+        { _id: 'speech', name: 'Speech' }
+    ],
     roles: [
         { _id: 0, name: 'Plain user' },
         { _id: 1, name: 'Admin user' },

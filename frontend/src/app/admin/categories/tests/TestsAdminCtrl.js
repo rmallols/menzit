@@ -8,11 +8,11 @@ app.controller('TestsAdminCtrl', ['$scope', '$state', 'http', 'category',
         $scope.category = category;
 
         $scope.add = function () {
-            $state.go('app.admin.addTest', { categoryId: $state.params.categoryId });
+            $state.go('app.admin.add-' + $scope.category.type + 'Test', { categoryId: $state.params.categoryId });
         };
 
         $scope.edit = function (test) {
-            $state.go('app.admin.editTest', {
+            $state.go('app.admin.edit-' + $scope.category.type + 'Test', {
                 testId: test._id,
                 categoryId: $state.params.categoryId
             });

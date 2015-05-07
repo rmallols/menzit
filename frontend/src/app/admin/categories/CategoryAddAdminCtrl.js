@@ -1,9 +1,11 @@
 'use strict';
 
-app.controller('CategoryAddAdminCtrl', ['$scope', '$state', 'http',
-    function ($scope, $state, http) {
+app.controller('CategoryAddAdminCtrl', ['$scope', '$state', 'http', 'constants',
+    function ($scope, $state, http, constants) {
         $scope.title = 'Add category';
+        $scope.types = constants.testTypes;
         $scope.category = {
+            type: $scope.types[0]._id,
             tests: []
         };
         $scope.submit = function () {

@@ -11,6 +11,13 @@
         <div class="l-2-3"><input type="text" ng-model="category.title"/></div>
     </div>
     <div class="cf">
+        <div class="l-1-3 input-label">Type</div>
+        <div class="l-2-3">
+            <select ng-model="category.type" ng-disabled="category._id"
+                    ng-options="type._id as type.name for type in types"></select>
+        </div>
+    </div>
+    <div class="cf">
         <div class="l-1-2 input-label">Image</div>
         <div class="l-1-2">
             <image-upload ng-model="category.media" on-submit-request="uploadRequestFn"></image-upload>

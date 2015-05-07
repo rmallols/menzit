@@ -1,0 +1,15 @@
+<div class="test-view">
+    <div class="cf">
+        <h1 class="float-left">{{title}}</h1>
+
+        <div class="float-right">
+            <button class="important" ng-click="submit()">Save</button>
+        </div>
+    </div>
+    <div class="cf">
+        <div question-admin="test.question"
+             on-submit-image-request-fn="uploadImageQuestionRequestFn"
+             on-submit-audio-request-fn="uploadAudioQuestionRequestFn">
+        </div>
+    </div>
+</div>

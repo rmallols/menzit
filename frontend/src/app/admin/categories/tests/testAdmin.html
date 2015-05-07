@@ -1,57 +1,44 @@
 <div class="test-view">
     <div class="cf">
         <h1 class="float-left">{{title}}</h1>
+
         <div class="float-right">
             <button class="important" ng-click="submit()">Save</button>
         </div>
     </div>
     <div class="cf">
-        <div class="test-question cf">
+        <div question-admin="test.question"
+             on-submit-image-request-fn="uploadImageQuestionRequestFn"
+             on-submit-audio-request-fn="uploadAudioQuestionRequestFn">
+         </div>
+    </div>
+    <div>
+        <div class="test-answer l-1-2 cf" ng-repeat="answer in test.answers"
+             ng-class="{ 'correct-option': $parent.correctOptionIndex === $index }">
             <div class="l-row">
-                <div class="l-1-4 input-label">Question</div>
-                <div class="l-3-4"><input type="text" ng-model="test.question.text"/></div>
+                <div class="l-1-4 input-label">Answer {{$index + 1}}</div>
+                <div class="l-3-4"><input type="text" ng-model="answer.title"/></div>
+            </div>
+            <div class="l-row">
+                <div class="l-1-4 input-label">Explanation</div>
+                <div class="l-3-4">
+                    <input type="text" ng-model="answer.explanation"
+                           ng-disabled="$index == $parent.correctOptionIndex"/>
+                </div>
             </div>
             <div class="l-row">
                 <div class="l-1-4 input-label">Image</div>
                 <div class="l-3-4">
-                    <image-upload ng-model="test.question.media" on-submit-request="uploadImageQuestionRequestFn"></image-upload>
+                    <image-upload ng-model="answer.media"
+                                  on-submit-request="uploadAnswerRequestFns[$index]"></image-upload>
                 </div>
             </div>
-            <div class="l-row">
-                <div class="l-1-4 input-label">Audio</div>
-                <div class="l-3-4">
-                    <audio-upload ng-model="test.question.audio"
-                                  on-submit-request="uploadAudioQuestionRequestFn"
-                                  source-text="test.question.text">
-                    </audio-upload>
-                </div>
+            <div class="l-row select-correct">
+                <button ng-click="$parent.correctOptionIndex = $index">Mark as correct
+                    answer
+                </button>
             </div>
         </div>
     </div>
-        <div>
-            <div class="test-answer l-1-2 cf" ng-repeat="answer in test.answers"
-                 ng-class="{ 'correct-option': $parent.correctOptionIndex === $index }">
-                <div class="l-row">
-                    <div class="l-1-4 input-label">Answer {{$index + 1}}</div>
-                    <div class="l-3-4"><input type="text" ng-model="answer.title"/></div>
-                </div>
-                <div class="l-row">
-                    <div class="l-1-4 input-label">Explanation</div>
-                    <div class="l-3-4">
-                        <input type="text" ng-model="answer.explanation"
-                               ng-disabled="$index == $parent.correctOptionIndex"/>
-                    </div>
-                </div>
-                <div class="l-row">
-                    <div class="l-1-4 input-label">Image</div>
-                    <div class="l-3-4">
-                        <image-upload ng-model="answer.media" on-submit-request="uploadAnswerRequestFns[$index]"></image-upload>
-                    </div>
-                </div>
-                <div class="l-row select-correct">
-                    <button ng-click="$parent.correctOptionIndex = $index">Mark as correct answer</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </div>

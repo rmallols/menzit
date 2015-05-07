@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'testQuiz.html', 'testSpeech.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'questionAdmin.html', 'speechTestAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'testSpeech.html', 'testQuiz.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -57,6 +57,13 @@ angular.module("categoryAdmin.html", []).run(["$templateCache", function($templa
     "        <div class=\"l-2-3\"><input type=\"text\" ng-model=\"category.title\"/></div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
+    "        <div class=\"l-1-3 input-label\">Type</div>\n" +
+    "        <div class=\"l-2-3\">\n" +
+    "            <select ng-model=\"category.type\" ng-disabled=\"category._id\"\n" +
+    "                    ng-options=\"type._id as type.name for type in types\"></select>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
     "        <div class=\"l-1-2 input-label\">Image</div>\n" +
     "        <div class=\"l-1-2\">\n" +
     "            <image-upload ng-model=\"category.media\" on-submit-request=\"uploadRequestFn\"></image-upload>\n" +
@@ -66,64 +73,95 @@ angular.module("categoryAdmin.html", []).run(["$templateCache", function($templa
     "");
 }]);
 
-angular.module("testAdmin.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("testAdmin.html",
+angular.module("questionAdmin.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("questionAdmin.html",
+    "<div class=\"test-question cf\">\n" +
+    "    <div class=\"l-row\">\n" +
+    "        <div class=\"l-1-4 input-label\">Question</div>\n" +
+    "        <div class=\"l-3-4\"><input type=\"text\" ng-model=\"question.text\"/></div>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-row\">\n" +
+    "        <div class=\"l-1-4 input-label\">Image</div>\n" +
+    "        <div class=\"l-3-4\">\n" +
+    "            <image-upload ng-model=\"question.media\" on-submit-request=\"onSubmitImageRequestFn\"></image-upload>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"l-row\">\n" +
+    "        <div class=\"l-1-4 input-label\">Audio</div>\n" +
+    "        <div class=\"l-3-4\">\n" +
+    "            <audio-upload ng-model=\"question.audio\"\n" +
+    "                          on-submit-request=\"onSubmitAudioRequestFn\"\n" +
+    "                          source-text=\"question.text\">\n" +
+    "            </audio-upload>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
+}]);
+
+angular.module("speechTestAdmin.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("speechTestAdmin.html",
     "<div class=\"test-view\">\n" +
     "    <div class=\"cf\">\n" +
     "        <h1 class=\"float-left\">{{title}}</h1>\n" +
+    "\n" +
     "        <div class=\"float-right\">\n" +
     "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"cf\">\n" +
-    "        <div class=\"test-question cf\">\n" +
+    "        <div question-admin=\"test.question\"\n" +
+    "             on-submit-image-request-fn=\"uploadImageQuestionRequestFn\"\n" +
+    "             on-submit-audio-request-fn=\"uploadAudioQuestionRequestFn\">\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
+}]);
+
+angular.module("testAdmin.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("testAdmin.html",
+    "<div class=\"test-view\">\n" +
+    "    <div class=\"cf\">\n" +
+    "        <h1 class=\"float-left\">{{title}}</h1>\n" +
+    "\n" +
+    "        <div class=\"float-right\">\n" +
+    "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
+    "        <div question-admin=\"test.question\"\n" +
+    "             on-submit-image-request-fn=\"uploadImageQuestionRequestFn\"\n" +
+    "             on-submit-audio-request-fn=\"uploadAudioQuestionRequestFn\">\n" +
+    "         </div>\n" +
+    "    </div>\n" +
+    "    <div>\n" +
+    "        <div class=\"test-answer l-1-2 cf\" ng-repeat=\"answer in test.answers\"\n" +
+    "             ng-class=\"{ 'correct-option': $parent.correctOptionIndex === $index }\">\n" +
     "            <div class=\"l-row\">\n" +
-    "                <div class=\"l-1-4 input-label\">Question</div>\n" +
-    "                <div class=\"l-3-4\"><input type=\"text\" ng-model=\"test.question.text\"/></div>\n" +
+    "                <div class=\"l-1-4 input-label\">Answer {{$index + 1}}</div>\n" +
+    "                <div class=\"l-3-4\"><input type=\"text\" ng-model=\"answer.title\"/></div>\n" +
+    "            </div>\n" +
+    "            <div class=\"l-row\">\n" +
+    "                <div class=\"l-1-4 input-label\">Explanation</div>\n" +
+    "                <div class=\"l-3-4\">\n" +
+    "                    <input type=\"text\" ng-model=\"answer.explanation\"\n" +
+    "                           ng-disabled=\"$index == $parent.correctOptionIndex\"/>\n" +
+    "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"l-row\">\n" +
     "                <div class=\"l-1-4 input-label\">Image</div>\n" +
     "                <div class=\"l-3-4\">\n" +
-    "                    <image-upload ng-model=\"test.question.media\" on-submit-request=\"uploadImageQuestionRequestFn\"></image-upload>\n" +
+    "                    <image-upload ng-model=\"answer.media\"\n" +
+    "                                  on-submit-request=\"uploadAnswerRequestFns[$index]\"></image-upload>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "            <div class=\"l-row\">\n" +
-    "                <div class=\"l-1-4 input-label\">Audio</div>\n" +
-    "                <div class=\"l-3-4\">\n" +
-    "                    <audio-upload ng-model=\"test.question.audio\"\n" +
-    "                                  on-submit-request=\"uploadAudioQuestionRequestFn\"\n" +
-    "                                  source-text=\"test.question.text\">\n" +
-    "                    </audio-upload>\n" +
-    "                </div>\n" +
+    "            <div class=\"l-row select-correct\">\n" +
+    "                <button ng-click=\"$parent.correctOptionIndex = $index\">Mark as correct\n" +
+    "                    answer\n" +
+    "                </button>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "        <div>\n" +
-    "            <div class=\"test-answer l-1-2 cf\" ng-repeat=\"answer in test.answers\"\n" +
-    "                 ng-class=\"{ 'correct-option': $parent.correctOptionIndex === $index }\">\n" +
-    "                <div class=\"l-row\">\n" +
-    "                    <div class=\"l-1-4 input-label\">Answer {{$index + 1}}</div>\n" +
-    "                    <div class=\"l-3-4\"><input type=\"text\" ng-model=\"answer.title\"/></div>\n" +
-    "                </div>\n" +
-    "                <div class=\"l-row\">\n" +
-    "                    <div class=\"l-1-4 input-label\">Explanation</div>\n" +
-    "                    <div class=\"l-3-4\">\n" +
-    "                        <input type=\"text\" ng-model=\"answer.explanation\"\n" +
-    "                               ng-disabled=\"$index == $parent.correctOptionIndex\"/>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "                <div class=\"l-row\">\n" +
-    "                    <div class=\"l-1-4 input-label\">Image</div>\n" +
-    "                    <div class=\"l-3-4\">\n" +
-    "                        <image-upload ng-model=\"answer.media\" on-submit-request=\"uploadAnswerRequestFns[$index]\"></image-upload>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "                <div class=\"l-row select-correct\">\n" +
-    "                    <button ng-click=\"$parent.correctOptionIndex = $index\">Mark as correct answer</button>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
+    "</div>\n" +
     "</div>\n" +
     "");
 }]);
@@ -618,6 +656,20 @@ angular.module("results.html", []).run(["$templateCache", function($templateCach
     "</div>");
 }]);
 
+angular.module("testSpeech.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("testSpeech.html",
+    "<audio-upload></audio-upload>\n" +
+    "\n" +
+    "<div style=\"margin:10px;\">\n" +
+    "    <a class=\"button\" id=\"record\" ng-click=\"record()\">Record</a>\n" +
+    "    <a class=\"button disabled one\" id=\"play\" ng-click=\"addRecorded()\">Add recorded</a>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div id=\"diff\">\n" +
+    "    The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>\n" +
+    "</div>");
+}]);
+
 angular.module("testQuiz.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("testQuiz.html",
     "<div class=\"test-view\">\n" +
@@ -626,11 +678,6 @@ angular.module("testQuiz.html", []).run(["$templateCache", function($templateCac
     "    <div class=\"fade-animation\" ng-show=\"isTestFinished\" ng-controller=\"ResultsCtrl\"\n" +
     "         ng-include=\"'results.html'\" ng-animate></div>\n" +
     "</div>");
-}]);
-
-angular.module("testSpeech.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("testSpeech.html",
-    "<div>Hello speech</div>");
 }]);
 
 angular.module("browserNotSupported.html", []).run(["$templateCache", function($templateCache) {
@@ -879,12 +926,12 @@ angular.module("testAudio.html", []).run(["$templateCache", function($templateCa
     "\n" +
     "                var maxY;\n" +
     "\n" +
-    "                graph.loadMusic('/audio?q=vegetables').then(function (response) {\n" +
-    "                    $scope.graphs.push({\n" +
-    "                        size: response.size\n" +
-    "                    });\n" +
-    "                    maxY = response.maxY;\n" +
-    "                });\n" +
+    "//                graph.loadMusic('/rest/external-audio?q=vegetables').then(function (response) {\n" +
+    "//                    $scope.graphs.push({\n" +
+    "//                        size: response.size\n" +
+    "//                    });\n" +
+    "//                    maxY = response.maxY;\n" +
+    "//                });\n" +
     "\n" +
     "                $scope.record = function () {\n" +
     "                    record.record();\n" +
@@ -893,8 +940,8 @@ angular.module("testAudio.html", []).run(["$templateCache", function($templateCa
     "                $scope.addRecorded = function () {\n" +
     "\n" +
     "                    record.get().then(function (recordedUrl) {\n" +
-    "\n" +
-    "                        graph.loadMusic(recordedUrl, maxY).then(function (response) {\n" +
+    "console.log(recordedUrl);\n" +
+    "                        graph.loadMusic(recordedUrl.blob, maxY).then(function (response) {\n" +
     "                            $scope.graphs.push({\n" +
     "                                size: response.size\n" +
     "                            });\n" +
@@ -928,11 +975,19 @@ angular.module("testAudio.html", []).run(["$templateCache", function($templateCa
     "\n" +
     "<body ng-controller=\"test\">\n" +
     "\n" +
-    "    <audio-upload></audio-upload>\n" +
-    "\n" +
     "    <div style=\"margin:10px;\">\n" +
     "        <a class=\"button\" id=\"record\" ng-click=\"record()\">Record</a>\n" +
     "        <a class=\"button disabled one\" id=\"play\" ng-click=\"addRecorded()\">Add recorded</a>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <br/><br/><br/>\n" +
+    "\n" +
+    "    <div ng-repeat=\"graph in graphs\">\n" +
+    "        <audio controls>\n" +
+    "            <source src=\"{{graph.url}}\" type=\"audio/mpeg\">\n" +
+    "        </audio>\n" +
+    "        The size is: {{graph.size}}\n" +
+    "        <img src=\"{{graph.src}}\" id=\"image-{{$index}}\"/>\n" +
     "    </div>\n" +
     "\n" +
     "    <div id=\"diff\">\n" +
