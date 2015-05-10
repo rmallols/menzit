@@ -658,7 +658,11 @@ angular.module("results.html", []).run(["$templateCache", function($templateCach
 
 angular.module("testSpeech.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("testSpeech.html",
-    "<audio-upload></audio-upload>\n" +
+    "<div audio=\"recordedAudio\"\n" +
+    "     type=\"inline\"\n" +
+    "     ng-disabled=\"recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)\"\n" +
+    "     before-play=\"processAudioBeforePlay()\">\n" +
+    "</div>\n" +
     "\n" +
     "<div style=\"margin:10px;\">\n" +
     "    <a class=\"button\" id=\"record\" ng-click=\"record()\">Record</a>\n" +
@@ -926,12 +930,12 @@ angular.module("testAudio.html", []).run(["$templateCache", function($templateCa
     "\n" +
     "                var maxY;\n" +
     "\n" +
-    "//                graph.loadMusic('/rest/external-audio?q=vegetables').then(function (response) {\n" +
-    "//                    $scope.graphs.push({\n" +
-    "//                        size: response.size\n" +
-    "//                    });\n" +
-    "//                    maxY = response.maxY;\n" +
-    "//                });\n" +
+    "                graph.loadMusic('/rest/external-audio?q=vegetables').then(function (response) {\n" +
+    "                    $scope.graphs.push({\n" +
+    "                        size: response.size\n" +
+    "                    });\n" +
+    "                    maxY = response.maxY;\n" +
+    "                });\n" +
     "\n" +
     "                $scope.record = function () {\n" +
     "                    record.record();\n" +
@@ -941,7 +945,7 @@ angular.module("testAudio.html", []).run(["$templateCache", function($templateCa
     "\n" +
     "                    record.get().then(function (recordedUrl) {\n" +
     "console.log(recordedUrl);\n" +
-    "                        graph.loadMusic(recordedUrl.blob, maxY).then(function (response) {\n" +
+    "                        graph.loadMusic(recordedUrl.base64, maxY).then(function (response) {\n" +
     "                            $scope.graphs.push({\n" +
     "                                size: response.size\n" +
     "                            });\n" +

@@ -155,7 +155,7 @@ app.directive('audioUpload', ['$q', '$timeout', 'http', 'record', function ($q, 
 
             function getManualAudio() {
                 var deferred = $q.defer();
-                http.get('/audio/' + scope.media._id).then(function (response) {
+                http.get('/rest/audio/' + scope.media._id).then(function (response) {
                     setRecordedAudio(response.data);
                     $timeout(function () {
                         deferred.resolve();

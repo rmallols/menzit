@@ -1,4 +1,8 @@
-<audio-upload></audio-upload>
+<div audio="recordedAudio"
+     type="inline"
+     ng-disabled="recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)"
+     before-play="processAudioBeforePlay()">
+</div>
 
 <div style="margin:10px;">
     <a class="button" id="record" ng-click="record()">Record</a>

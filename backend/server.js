@@ -205,6 +205,16 @@ app.get('/media/:documentId', function (req, res) {
     });
 });
 
+app.get('/rest/audio/:documentId', function (req, res) {
+    read.findOne(req.params.documentId, 'media', function (content) {
+        if(content) {
+            res.send(content);
+        } else {
+            res.send(null);
+        }
+    });
+});
+
 app.post('/rest/audio', function (req, res) {
     media.create(req.body, req.session, function (err, data) {
         responseWithErrorControl(res, err, data);
@@ -220,16 +230,6 @@ app.put('/rest/audio/:mediaId', function (req, res) {
 app.delete('/rest/audio/:mediaId', function (req, res) {
     remove.remove(req.params.mediaId, 'media', function (data) {
         responseWithErrorControl(res, null, data);
-    });
-});
-
-app.get('/audio/:documentId', function (req, res) {
-    read.findOne(req.params.documentId, 'media', function (content) {
-        if(content) {
-            res.send(content);
-        } else {
-            res.send(null);
-        }
     });
 });
 
@@ -313,5 +313,5 @@ server.listen(port, function () {
 });
 
 function goToIndex(res) {
-    res.send(fs.readFileSync(__dirname + '/../frontend/src/testAudio.html').toString());
+    res.send(fs.readFileSync(__dirname + '/../frontend/src/index.html').toString());
 }

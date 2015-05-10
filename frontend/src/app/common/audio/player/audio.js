@@ -42,7 +42,7 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
             }
 
             function manageAudioSourceFromUrl(audio) {
-                http.get('/audio/' + audio).then(function (response) {
+                http.get('/rest/audio/' + audio).then(function (response) {
                     base64Data = response.data;
                     setAudioSrc(base64Data);
                 });

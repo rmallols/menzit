@@ -13,12 +13,12 @@
 
                 var maxY;
 
-//                graph.loadMusic('/rest/external-audio?q=vegetables').then(function (response) {
-//                    $scope.graphs.push({
-//                        size: response.size
-//                    });
-//                    maxY = response.maxY;
-//                });
+                graph.loadMusic('/rest/external-audio?q=vegetables').then(function (response) {
+                    $scope.graphs.push({
+                        size: response.size
+                    });
+                    maxY = response.maxY;
+                });
 
                 $scope.record = function () {
                     record.record();
@@ -28,7 +28,7 @@
 
                     record.get().then(function (recordedUrl) {
 console.log(recordedUrl);
-                        graph.loadMusic(recordedUrl.blob, maxY).then(function (response) {
+                        graph.loadMusic(recordedUrl.base64, maxY).then(function (response) {
                             $scope.graphs.push({
                                 size: response.size
                             });
