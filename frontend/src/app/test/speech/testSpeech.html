@@ -12,3 +12,9 @@
 <div id="diff">
     The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>
 </div>
+
+
+
+        <div class="recording-button" ng-class="{ recording: isRecording}" ng-click="toggleRecording()"></div>
+        <div class="recording-button-effect-1" ng-class="{ recording: isRecording}"></div>
+        <div class="recording-button-effect-2" ng-class="{ recording: isRecording}"></div>

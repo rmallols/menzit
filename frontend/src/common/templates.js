@@ -671,7 +671,13 @@ angular.module("testSpeech.html", []).run(["$templateCache", function($templateC
     "\n" +
     "<div id=\"diff\">\n" +
     "    The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>\n" +
-    "</div>");
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"recording-button\" ng-class=\"{ recording: isRecording}\" ng-click=\"toggleRecording()\"></div>\n" +
+    "        <div class=\"recording-button-effect-1\" ng-class=\"{ recording: isRecording}\"></div>\n" +
+    "        <div class=\"recording-button-effect-2\" ng-class=\"{ recording: isRecording}\"></div>");
 }]);
 
 angular.module("testQuiz.html", []).run(["$templateCache", function($templateCache) {
