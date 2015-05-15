@@ -1,20 +1,6 @@
-<div audio="recordedAudio"
-     type="inline"
-     ng-disabled="recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)"
-     before-play="processAudioBeforePlay()">
+<div class="test-view">
+    <div class="fade-animation" ng-show="isTestInProgress" ng-controller="QuestionsSpeechCtrl"
+         ng-include="'speechQuestion.html'" ng-animate></div>
+    <div class="fade-animation" ng-show="isTestFinished" ng-controller="ResultsCtrl"
+         ng-include="'results.html'" ng-animate></div>
 </div>
-
-<div style="margin:10px;">
-    <a class="button" id="record" ng-click="record()">Record</a>
-    <a class="button disabled one" id="play" ng-click="addRecorded()">Add recorded</a>
-</div>
-
-<div id="diff">
-    The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>
-</div>
-
-
-
-        <div class="recording-button" ng-class="{ recording: isRecording}" ng-click="toggleRecording()"></div>
-        <div class="recording-button-effect-1" ng-class="{ recording: isRecording}"></div>
-        <div class="recording-button-effect-2" ng-class="{ recording: isRecording}"></div>

@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('TestQuizCtrl', ['$scope', '$timeout', 'pubSub', function ($scope, $timeout, pubSub) {
+app.controller('BaseTestCtrl', ['$scope', '$timeout', 'pubSub', function ($scope, $timeout, pubSub) {
 
     $scope.isTestInProgress = true;
 

@@ -5,6 +5,8 @@ app.factory('graph', ['$sce', '$q', function ($sce, $q) {
 
     if (!AudioContext) alert('This site cannot be run in your Browser. Try a recent Chrome or Firefox. ');
 
+    var audioContext = new AudioContext();
+
     // CANVAS
     var canvasWidth = 512, canvasHeight = 120;
 
@@ -12,7 +14,6 @@ app.factory('graph', ['$sce', '$q', function ($sce, $q) {
     function loadMusic(url, maxY) {
         var deferred = $q.defer();
 
-        var audioContext = new AudioContext();
 
         var newCanvas = createCanvas(canvasWidth, canvasHeight);
         var context = newCanvas.getContext('2d');

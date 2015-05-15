@@ -1,15 +1,15 @@
 <div class="question-view">
     <div class="question"
          ng-class="getQuestionStyleClasses(question.question)"
-         ng-style="getBackgroundMediaStyle(question.question.media)">
+         ng-style="getBackgroundImageStyle(question.question.media._id)">
         {{question.question.text}}
-        <div audio="question.question.audio._id" type="url"></div>
+        <div audio="question.question.audio._id" type="url" interface-fns="{}"></div>
     </div>
     <div class="answers-container">
         <div ng-repeat="answer in question.answers"
              class="answer l-answer-{{question.answers.length}}"
              ng-class="getAnswerStyleClasses(answer)"
-             ng-style="getBackgroundMediaStyle(answer)"
+             ng-style="getBackgroundImageStyle(answer.media._id)"
              ng-click="setAnswer(question, $index)">
             <div class="option"><div class="text">{{answerCodes[$index]}}</div></div>
             <div ng-if="answer.validAssert || answer.invalidAssert" class="assert-mark"

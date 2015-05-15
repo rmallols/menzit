@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'questionAdmin.html', 'speechTestAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'question.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'results.html', 'testSpeech.html', 'testQuiz.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'questionAdmin.html', 'speechTestAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'quizQuestion.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'testQuiz.html', 'results.html', 'speechQuestion.html', 'testSpeech.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -502,20 +502,20 @@ angular.module("imageUpload.html", []).run(["$templateCache", function($template
     "</div>");
 }]);
 
-angular.module("question.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("question.html",
+angular.module("quizQuestion.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("quizQuestion.html",
     "<div class=\"question-view\">\n" +
     "    <div class=\"question\"\n" +
     "         ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
-    "         ng-style=\"getBackgroundMediaStyle(question.question.media)\">\n" +
+    "         ng-style=\"getBackgroundImageStyle(question.question.media._id)\">\n" +
     "        {{question.question.text}}\n" +
-    "        <div audio=\"question.question.audio._id\" type=\"url\"></div>\n" +
+    "        <div audio=\"question.question.audio._id\" type=\"url\" interface-fns=\"{}\"></div>\n" +
     "    </div>\n" +
     "    <div class=\"answers-container\">\n" +
     "        <div ng-repeat=\"answer in question.answers\"\n" +
     "             class=\"answer l-answer-{{question.answers.length}}\"\n" +
     "             ng-class=\"getAnswerStyleClasses(answer)\"\n" +
-    "             ng-style=\"getBackgroundMediaStyle(answer)\"\n" +
+    "             ng-style=\"getBackgroundImageStyle(answer.media._id)\"\n" +
     "             ng-click=\"setAnswer(question, $index)\">\n" +
     "            <div class=\"option\"><div class=\"text\">{{answerCodes[$index]}}</div></div>\n" +
     "            <div ng-if=\"answer.validAssert || answer.invalidAssert\" class=\"assert-mark\"\n" +
@@ -631,6 +631,16 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
     "</div>");
 }]);
 
+angular.module("testQuiz.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("testQuiz.html",
+    "<div class=\"test-view\">\n" +
+    "    <div class=\"fade-animation\" ng-show=\"isTestInProgress\" ng-controller=\"QuestionsQuizCtrl\"\n" +
+    "         ng-include=\"'quizQuestion.html'\" ng-animate></div>\n" +
+    "    <div class=\"fade-animation\" ng-show=\"isTestFinished\" ng-controller=\"ResultsCtrl\"\n" +
+    "         ng-include=\"'results.html'\" ng-animate></div>\n" +
+    "</div>");
+}]);
+
 angular.module("results.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("results.html",
     "<div class=\"results-view\">\n" +
@@ -656,35 +666,39 @@ angular.module("results.html", []).run(["$templateCache", function($templateCach
     "</div>");
 }]);
 
-angular.module("testSpeech.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("testSpeech.html",
-    "<div audio=\"recordedAudio\"\n" +
-    "     type=\"inline\"\n" +
-    "     ng-disabled=\"recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)\"\n" +
-    "     before-play=\"processAudioBeforePlay()\">\n" +
+angular.module("speechQuestion.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("speechQuestion.html",
+    "<div class=\"recording-wrapper\">\n" +
+    "    <div class=\"recording-button\" ng-class=\"{ recording: isRecording}\"\n" +
+    "         on-touch-start=\"startRecording()\" on-touch-end=\"stopRecording()\"\n" +
+    "         ng-style=\"getBackgroundImageStyle(question.question.media._id)\">\n" +
+    "        <div class=\"recording-button-text\">\n" +
+    "            {{question.question.text}}\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"recording-button-effect\"\n" +
+    "         ng-class=\"{'is-active': isRecording || isSuccess || isError,\n" +
+    "                    'is-recording': isRecording,\n" +
+    "                    'is-success': isSuccess,\n" +
+    "                    'is-error': isError}\"></div>\n" +
     "</div>\n" +
     "\n" +
-    "<div style=\"margin:10px;\">\n" +
-    "    <a class=\"button\" id=\"record\" ng-click=\"record()\">Record</a>\n" +
-    "    <a class=\"button disabled one\" id=\"play\" ng-click=\"addRecorded()\">Add recorded</a>\n" +
-    "</div>\n" +
-    "\n" +
-    "<div id=\"diff\">\n" +
-    "    The diff is: {{graphs[0].size}} - {{graphs[1].size}} - {{isOk}}<br/>\n" +
-    "</div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "        <div class=\"recording-button\" ng-class=\"{ recording: isRecording}\" ng-click=\"toggleRecording()\"></div>\n" +
-    "        <div class=\"recording-button-effect-1\" ng-class=\"{ recording: isRecording}\"></div>\n" +
-    "        <div class=\"recording-button-effect-2\" ng-class=\"{ recording: isRecording}\"></div>");
+    "<div ng-show=\"debug\" style=\"position: absolute; top: 80px; left: 0px; z-index:2;\">\n" +
+    "    <div audio=\"fingerprintRecordedAudio\" type=\"inline\" interface-fns=\"$parent.audioInterfaceFns\"></div>\n" +
+    "    <div ng-if=\"debug\">\n" +
+    "        <img src=\"{{graphs.fingerprint.src}}\"/>\n" +
+    "        <div audio=\"userVoiceRecordedAudio\" type=\"inline\" interface-fns=\"{}\"></div>\n" +
+    "        <img src=\"{{graphs.userVoice.src}}\"/>\n" +
+    "        <div>The diff is: {{graphs.fingerprint.size}} - {{graphs.userVoice.size}} - {{isSuccess}}</div>\n" +
+    "    </div>\n" +
+    "</div>");
 }]);
 
-angular.module("testQuiz.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("testQuiz.html",
+angular.module("testSpeech.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("testSpeech.html",
     "<div class=\"test-view\">\n" +
-    "    <div class=\"fade-animation\" ng-show=\"isTestInProgress\" ng-controller=\"QuestionsCtrl\"\n" +
-    "         ng-include=\"'question.html'\" ng-animate></div>\n" +
+    "    <div class=\"fade-animation\" ng-show=\"isTestInProgress\" ng-controller=\"QuestionsSpeechCtrl\"\n" +
+    "         ng-include=\"'speechQuestion.html'\" ng-animate></div>\n" +
     "    <div class=\"fade-animation\" ng-show=\"isTestFinished\" ng-controller=\"ResultsCtrl\"\n" +
     "         ng-include=\"'results.html'\" ng-animate></div>\n" +
     "</div>");
@@ -950,7 +964,7 @@ angular.module("testAudio.html", []).run(["$templateCache", function($templateCa
     "                $scope.addRecorded = function () {\n" +
     "\n" +
     "                    record.get().then(function (recordedUrl) {\n" +
-    "console.log(recordedUrl);\n" +
+    "\n" +
     "                        graph.loadMusic(recordedUrl.base64, maxY).then(function (response) {\n" +
     "                            $scope.graphs.push({\n" +
     "                                size: response.size\n" +

@@ -8,6 +8,7 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
         scope: {
             audio: '=',
             ngDisabled: '=',
+            interfaceFns: '=',
             beforePlay: '&',
             type: '@'
         },
@@ -20,6 +21,22 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
                     manageAudioSource(audio, scope.type);
                 }
             });
+
+            scope.play = function () {
+                var beforePlayHandler = scope.beforePlay();
+                if(beforePlayHandler) {
+                    beforePlayHandler.then(function () {
+                        setAudioSrc(scope.audio);
+                        play();
+                    });
+                } else {
+                    play();
+                }
+            };
+
+            scope.interfaceFns = {
+                play: scope.play
+            };
 
             function setAudioSrc(inlineAudio) {
                 var sourceElement = element.find('source')[0];
@@ -52,18 +69,6 @@ app.directive('audio', ['$sce', 'http', function ($sce, http) {
                 base64Data = audio;
                 setAudioSrc(base64Data);
             }
-
-            scope.play = function () {
-                var beforePlayHandler = scope.beforePlay();
-                if(beforePlayHandler) {
-                    beforePlayHandler.then(function () {
-                        setAudioSrc(scope.audio);
-                        play();
-                    });
-                } else {
-                    play();
-                }
-            };
         }
     };
 }]);

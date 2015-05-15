@@ -27,7 +27,7 @@
                 $scope.addRecorded = function () {
 
                     record.get().then(function (recordedUrl) {
-console.log(recordedUrl);
+
                         graph.loadMusic(recordedUrl.base64, maxY).then(function (response) {
                             $scope.graphs.push({
                                 size: response.size

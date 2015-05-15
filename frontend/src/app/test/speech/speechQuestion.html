@@ -1,0 +1,24 @@
+<div class="recording-wrapper">
+    <div class="recording-button" ng-class="{ recording: isRecording}"
+         on-touch-start="startRecording()" on-touch-end="stopRecording()"
+         ng-style="getBackgroundImageStyle(question.question.media._id)">
+        <div class="recording-button-text">
+            {{question.question.text}}
+        </div>
+    </div>
+    <div class="recording-button-effect"
+         ng-class="{'is-active': isRecording || isSuccess || isError,
+                    'is-recording': isRecording,
+                    'is-success': isSuccess,
+                    'is-error': isError}"></div>
+</div>
+
+<div ng-show="debug" style="position: absolute; top: 80px; left: 0px; z-index:2;">
+    <div audio="fingerprintRecordedAudio" type="inline" interface-fns="$parent.audioInterfaceFns"></div>
+    <div ng-if="debug">
+        <img src="{{graphs.fingerprint.src}}"/>
+        <div audio="userVoiceRecordedAudio" type="inline" interface-fns="{}"></div>
+        <img src="{{graphs.userVoice.src}}"/>
+        <div>The diff is: {{graphs.fingerprint.size}} - {{graphs.userVoice.size}} - {{isSuccess}}</div>
+    </div>
+</div>

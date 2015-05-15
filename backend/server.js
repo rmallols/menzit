@@ -3,8 +3,9 @@
 var express = require('express'),
     fs = require('fs'),
     app = express(),
-    server = require('http').createServer(app),
     http = require('http'),
+    https = require('https'),
+    pem = require('pem'),
     create = require('./crud/create'),
     read = require('./crud/read'),
     update = require('./crud/update'),
@@ -307,9 +308,17 @@ app.get('*', function (req, res) {
     res.redirect('/page-not-found');
 });
 
-var port = process.env.PORT || 3000;
-server.listen(port, function () {
-    console.log("listening on " + port);
+var port = process.env.PORT || 3000,
+    securePort = 443;
+
+http.createServer(app).listen(port, function () {
+    console.log("listening on HTTP on port " + port);
+});
+
+pem.createCertificate({days:1, selfSigned:true}, function(err, keys){
+    https.createServer({key: keys.serviceKey, cert: keys.certificate}, app).listen(securePort, function () {
+        console.log("listening on HTTPS on port " + securePort);
+    });
 });
 
 function goToIndex(res) {
