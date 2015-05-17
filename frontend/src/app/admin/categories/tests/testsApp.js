@@ -21,8 +21,8 @@ app.config(function ($stateProvider) {
 
         .state('app.admin.add-quizTest', {
             url: "/categories/:categoryId/tests/add",
-            templateUrl: "testAdmin.html",
-            controller: 'TestAddAdminCtrl',
+            templateUrl: "quizTestAdmin.html",
+            controller: 'QuizTestAddAdminCtrl',
             pageTitle: 'Add quiz test',
             data: {
                 groupId: 'adminTests'
@@ -41,8 +41,8 @@ app.config(function ($stateProvider) {
 
         .state('app.admin.edit-quizTest', {
             url: "/categories/:categoryId/tests/edit/:testId",
-            templateUrl: "testAdmin.html",
-            controller: 'TestEditAdminCtrl',
+            templateUrl: "quizTestAdmin.html",
+            controller: 'QuizTestEditAdminCtrl',
             pageTitle: 'Edit quiz test',
             resolve: {
                 test: ['$stateParams', 'http', function ($stateParams, http) {

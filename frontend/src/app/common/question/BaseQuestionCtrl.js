@@ -62,12 +62,11 @@ app.controller('BaseQuestionCtrl', ['$scope', '$timeout', '$state', '$q', 'http'
     }
 
     function setScore() {
-        var maxQuestionScore = 100, factor;
+        var maxQuestionScore = 100;
         if ($scope.score === undefined) {
             $scope.score = 0;
         } else {
-            factor = ($scope.question.answers) ? $scope.question.answers.length : 1;
-            $scope.score += maxQuestionScore - (failedAnswers * Math.ceil(maxQuestionScore / factor));
+            $scope.score += Math.round(maxQuestionScore / (failedAnswers + 1));
         }
         sendScoreEvent();
     }

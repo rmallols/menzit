@@ -1,4 +1,4 @@
-angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'questionAdmin.html', 'speechTestAdmin.html', 'testAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'quizQuestion.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'testQuiz.html', 'results.html', 'speechQuestion.html', 'testSpeech.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
+angular.module('templates-main', ['admin.html', 'categoriesAdmin.html', 'categoryAdmin.html', 'questionAdmin.html', 'quizTestAdmin.html', 'speechTestAdmin.html', 'testsAdmin.html', 'tenant.html', 'tenantInvite.html', 'tenants.html', 'userAdmin.html', 'usersAdmin.html', 'app.html', 'categories.html', 'audio.html', 'audioUpload.html', 'autoComplete.html', 'dialog.html', 'imageUpload.html', 'quizQuestion.html', 'menu.html', 'menuPanel.html', 'testData.html', 'review.html', 'testQuiz.html', 'results.html', 'speechQuestion.html', 'testSpeech.html', 'browserNotSupported.html', 'login.html', 'pageNotFound.html', 'index.html', 'contact.html', 'home.html', 'howItWorks.html', 'portal.html', 'testAudio.html']);
 
 angular.module("admin.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin.html",
@@ -98,27 +98,8 @@ angular.module("questionAdmin.html", []).run(["$templateCache", function($templa
     "</div>");
 }]);
 
-angular.module("speechTestAdmin.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("speechTestAdmin.html",
-    "<div class=\"test-view\">\n" +
-    "    <div class=\"cf\">\n" +
-    "        <h1 class=\"float-left\">{{title}}</h1>\n" +
-    "\n" +
-    "        <div class=\"float-right\">\n" +
-    "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"cf\">\n" +
-    "        <div question-admin=\"test.question\"\n" +
-    "             on-submit-image-request-fn=\"uploadImageQuestionRequestFn\"\n" +
-    "             on-submit-audio-request-fn=\"uploadAudioQuestionRequestFn\">\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "</div>");
-}]);
-
-angular.module("testAdmin.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("testAdmin.html",
+angular.module("quizTestAdmin.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("quizTestAdmin.html",
     "<div class=\"test-view\">\n" +
     "    <div class=\"cf\">\n" +
     "        <h1 class=\"float-left\">{{title}}</h1>\n" +
@@ -164,6 +145,24 @@ angular.module("testAdmin.html", []).run(["$templateCache", function($templateCa
     "</div>\n" +
     "</div>\n" +
     "");
+}]);
+
+angular.module("speechTestAdmin.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("speechTestAdmin.html",
+    "<div class=\"test-view\">\n" +
+    "    <div class=\"cf\">\n" +
+    "        <h1 class=\"float-left\">{{title}}</h1>\n" +
+    "        <div class=\"float-right\">\n" +
+    "            <button class=\"important\" ng-click=\"submit()\">Save</button>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"cf\">\n" +
+    "        <div question-admin=\"test.question\"\n" +
+    "             on-submit-image-request-fn=\"uploadImageQuestionRequestFn\"\n" +
+    "             on-submit-audio-request-fn=\"uploadAudioQuestionRequestFn\">\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
 }]);
 
 angular.module("testsAdmin.html", []).run(["$templateCache", function($templateCache) {
@@ -444,9 +443,8 @@ angular.module("audioUpload.html", []).run(["$templateCache", function($template
     "            ng-options=\"audioOption.value as audioOption.text for audioOption in audioOptions\">\n" +
     "    </select>\n" +
     "    <div class=\"button-group\" ng-if=\"selectedAudioOption === 0 || selectedAudioOption === 1\">\n" +
-    "        <div audio=\"recordedAudio.base64\"\n" +
-    "             type=\"inline\"\n" +
-    "             ng-disabled=\"recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)\"\n" +
+    "        <div audio=\"recordedAudio.base64\" type=\"inline\" interface-fns=\"{}\"\n" +
+    "             ng-disabled=\"!sourceText || recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)\"\n" +
     "             before-play=\"processAudioBeforePlay()\">\n" +
     "         </div>\n" +
     "        <button ng-click=\"startRecording()\" ng-show=\"!recording && selectedAudioOption === 1\">Record audio</button>\n" +

@@ -1,15 +1,17 @@
 'use strict';
 
-app.controller('TestAddAdminCtrl', ['$scope', '$state', 'http', 'testAdmin',
-    function ($scope, $state, http, testAdmin) {
+app.controller('QuizTestEditAdminCtrl', ['$scope', '$state', 'http', 'test', 'testAdmin',
+    function ($scope, $state, http, test, testAdmin) {
 
-        $scope.title = 'Add test';
-        $scope.correctOptionIndex = 0;
+        $scope.title = 'Edit test';
+        $scope.test = test;
+        $scope.test.answers = testAdmin.getNormalizedInputAnswers($scope.test.answers);
         $scope.uploadAnswerRequestFns = new Array(4);
-        $scope.test = {
-            categoryId: $state.params.categoryId,
-            answers: [{}, {}, {}, {}]
-        };
+        angular.forEach($scope.test.answers, function (answer, $index) {
+            if (answer.isCorrect) {
+                $scope.correctOptionIndex = $index;
+            }
+        });
 
         $scope.submit = function () {
             $scope.uploadImageQuestionRequestFn().then(function () {
@@ -34,7 +36,7 @@ app.controller('TestAddAdminCtrl', ['$scope', '$state', 'http', 'testAdmin',
         }
 
         function submitMetaData() {
-            http.post('/rest/tests/', $scope.test).then(function () {
+            http.put('/rest/tests/' + $state.params.testId, $scope.test).then(function () {
                 $state.go('app.admin.tests', {categoryId: $state.params.categoryId});
             });
         }

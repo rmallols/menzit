@@ -5,9 +5,8 @@
             ng-options="audioOption.value as audioOption.text for audioOption in audioOptions">
     </select>
     <div class="button-group" ng-if="selectedAudioOption === 0 || selectedAudioOption === 1">
-        <div audio="recordedAudio.base64"
-             type="inline"
-             ng-disabled="recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)"
+        <div audio="recordedAudio.base64" type="inline" interface-fns="{}"
+             ng-disabled="!sourceText || recording || (!media._id && selectedAudioOption !== 0 && !recordedAudio.base64)"
              before-play="processAudioBeforePlay()">
          </div>
         <button ng-click="startRecording()" ng-show="!recording && selectedAudioOption === 1">Record audio</button>

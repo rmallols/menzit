@@ -58,6 +58,10 @@ app.controller('QuestionsSpeechCtrl', ['$scope', '$controller', '$state', 'recor
         });
     };
 
+    $scope.$watch('question._id', function () {
+        $scope.isSuccess = false;
+    });
+
     function isOk(sourceImageSizeBlocks, fingerprintImageSizeBlocks) {
         var ok = true;
         sourceImageSizeBlocks.forEach(function (sourceImageSizeBlock, $index) {
