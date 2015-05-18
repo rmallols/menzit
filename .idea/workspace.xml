@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59fcbef8-4a29-4291-bd35-2e854ba8a875" name="MP3 tests" comment="First iteration of the multi-question mechanism, improving the scoring system. General refactor of the admin resources.">
+    <list default="true" id="59fcbef8-4a29-4291-bd35-2e854ba8a875" name="MP3 tests" comment="Starting to introduce speech tests in the review area">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryAddAdminCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryAddAdminCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryEditAdminCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryEditAdminCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/test/speech/QuestionsSpeechCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/app/test/speech/QuestionsSpeechCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/audio/player/audio.html" afterPath="$PROJECT_DIR$/frontend/src/app/common/audio/player/audio.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/button.less" afterPath="$PROJECT_DIR$/frontend/src/common/button.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/constants.less" afterPath="$PROJECT_DIR$/frontend/src/common/constants.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/audio/uploader/graph.js" afterPath="$PROJECT_DIR$/frontend/src/app/common/audio/uploader/graph.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/home/home.html" afterPath="$PROJECT_DIR$/frontend/src/portal/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/portal/home/home.less" afterPath="$PROJECT_DIR$/frontend/src/portal/home/home.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/review/ReviewCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/app/review/ReviewCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestAddAdminCtrl.js" afterPath="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestAddAdminCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/constants.js" afterPath="$PROJECT_DIR$/frontend/src/common/constants.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/review/review.html" afterPath="$PROJECT_DIR$/frontend/src/app/review/review.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/test/speech/speechQuestion.html" afterPath="$PROJECT_DIR$/frontend/src/app/test/speech/speechQuestion.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/common/templates.js" afterPath="$PROJECT_DIR$/frontend/src/common/templates.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/test/speech/testSpeech.less" afterPath="$PROJECT_DIR$/frontend/src/app/test/speech/testSpeech.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dev.iws" />
@@ -39,71 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ReviewCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/review/ReviewCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <caret line="2" column="60" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewQuestionCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/review/question/ReviewQuestionCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpeechTestAddAdminCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestAddAdminCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-              <caret line="17" column="56" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuizTestAddAdminCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/quiz/QuizTestAddAdminCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-              <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.142857" vertical-offset="2061" max-vertical-offset="5627">
-              <caret line="133" column="32" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="incorrectAnswers.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/crud/decorator/incorrectAnswers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="review.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/review/review.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="697">
-              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+            <state vertical-scroll-proportion="-6.611111" vertical-offset="0" max-vertical-offset="697">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReviewCtrl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/review/ReviewCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36756757" vertical-offset="0" max-vertical-offset="740">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -127,11 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryEditAdminCtrl.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryAddAdminCtrl.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/categoryAdmin.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/categories/CategoriesCtrl.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/testAdmin.less" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/testAdmin.html" />
         <option value="$PROJECT_DIR$/frontend/src/common/templates.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestAdmin.html" />
@@ -161,7 +103,6 @@
         <option value="$PROJECT_DIR$/frontend/src/app/test/results/results.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/speechTestAdmin.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/audio/uploader/audioUpload.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/quiz/QuizTestAddAdminCtrl.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/quiz/QuizTestEditAdminCtrl.js" />
         <option value="$PROJECT_DIR$/frontend/build/loader/devLoader.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/testsApp.js" />
@@ -176,8 +117,14 @@
         <option value="$PROJECT_DIR$/frontend/src/app/common/audio/player/audio.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/audio/uploader/graph.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/test/speech/speechQuestion.html" />
+        <option value="$PROJECT_DIR$/frontend/src/common/constants.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryAddAdminCtrl.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryEditAdminCtrl.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestAddAdminCtrl.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/admin/categories/tests/quiz/QuizTestAddAdminCtrl.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/test/speech/QuestionsSpeechCtrl.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/review/review.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/review/ReviewCtrl.js" />
       </list>
     </option>
   </component>
@@ -1526,7 +1473,13 @@
       <option name="project" value="LOCAL" />
       <updated>1431734339969</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="Improving the integration of the speech tests">
+      <created>1431987717673</created>
+      <option name="number" value="00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1431987717673</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1561,19 +1514,41 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.255538" sideWeight="0.5007194" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971373" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23705722" sideWeight="0.49928057" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23705722" sideWeight="0.49928057" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3681043" sideWeight="0.49920887" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22968906" sideWeight="0.49920887" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22968906" sideWeight="0.50079113" order="12" side_tool="true" content_ui="tabs" x="1285" y="142" width="1264" height="926" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32698095" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39899623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.255538" sideWeight="0.5007194" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971373" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23705722" sideWeight="0.49928057" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3681043" sideWeight="0.49920887" order="2" side_tool="false" content_ui="tabs" x="8" y="374" width="1264" height="331" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1592,7 +1567,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Removing old dependencies" />
     <MESSAGE value="Updating task name to refresh dependencies" />
     <MESSAGE value="Updating path to vendor dependencies to the minification task" />
     <MESSAGE value="Updating homepage message" />
@@ -1617,7 +1591,8 @@
     <MESSAGE value="Adding first UI setup for the speech mechanism" />
     <MESSAGE value="Deep changes on the new speech based test, already integrated in the /play section" />
     <MESSAGE value="First iteration of the multi-question mechanism, improving the scoring system. General refactor of the admin resources." />
-    <option name="LAST_COMMIT_MESSAGE" value="First iteration of the multi-question mechanism, improving the scoring system. General refactor of the admin resources." />
+    <MESSAGE value="Improving the integration of the speech tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improving the integration of the speech tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1626,41 +1601,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/question/question.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="829" max-vertical-offset="5389">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-less/node_modules/less/test/less/javascript.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8080279" vertical-offset="149" max-vertical-offset="748">
-          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/loader.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03119266" vertical-offset="0" max-vertical-offset="816">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/vendor/less-prefixer/prefixer.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5704" max-vertical-offset="8228">
-          <caret line="362" column="43" selection-start-line="362" selection-start-column="43" selection-end-line="362" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70434785" vertical-offset="513" max-vertical-offset="1088">
-          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/common/analytics.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
@@ -1750,29 +1690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="442">
           <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.25" vertical-offset="0" max-vertical-offset="3009">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/audioUpload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38573745" vertical-offset="0" max-vertical-offset="617">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/player/audio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23794712" vertical-offset="0" max-vertical-offset="1343">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1892,14 +1809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/player/audio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.126193" vertical-offset="0" max-vertical-offset="943">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/test/speech/speechQuestion.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48306012" vertical-offset="0" max-vertical-offset="915">
@@ -1911,82 +1820,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/graph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2346">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/test/speech/QuestionsSpeechCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25292242" vertical-offset="0" max-vertical-offset="1972">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/testsApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47368422" vertical-offset="323" max-vertical-offset="1292">
           <caret line="46" column="14" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/review/review.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="697">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/review/ReviewCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/review/question/ReviewQuestionCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestEditAdminCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22807017" vertical-offset="0" max-vertical-offset="969">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestAddAdminCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <caret line="17" column="56" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/common/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3437014" vertical-offset="0" max-vertical-offset="643">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/quiz/QuizTestAddAdminCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -2007,10 +1844,154 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryAddAdminCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1445271" vertical-offset="0" max-vertical-offset="941">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/CategoryEditAdminCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31578946" vertical-offset="0" max-vertical-offset="969">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/common/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestAddAdminCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10526316" vertical-offset="0" max-vertical-offset="969">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/review/question/ReviewQuestionCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/quiz/QuizTestAddAdminCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21052632" vertical-offset="0" max-vertical-offset="969">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/tests/speech/SpeechTestEditAdminCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22807017" vertical-offset="0" max-vertical-offset="969">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/admin/categories/categoryAdmin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/jquery.voice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10793651" vertical-offset="0" max-vertical-offset="630">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/graph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5054054" vertical-offset="1377" max-vertical-offset="2346">
+          <caret line="103" column="37" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/player/audio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16666667" vertical-offset="0" max-vertical-offset="714">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/player/audio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43648648" vertical-offset="0" max-vertical-offset="1343">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/test/speech/QuestionsSpeechCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63243246" vertical-offset="1232" max-vertical-offset="1972">
+          <caret line="100" column="28" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/crud/decorator/incorrectAnswers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="643">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16081081" vertical-offset="0" max-vertical-offset="740">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38061798" vertical-offset="256" max-vertical-offset="3009">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/record.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22972973" vertical-offset="0" max-vertical-offset="740">
+          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/audio/uploader/audioUpload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26190478" vertical-offset="0" max-vertical-offset="714">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/review/review.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.611111" vertical-offset="0" max-vertical-offset="697">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/review/ReviewCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36756757" vertical-offset="0" max-vertical-offset="740">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
           <folding />
         </state>
       </provider>

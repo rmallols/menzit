@@ -99,7 +99,7 @@ app.controller('QuestionsSpeechCtrl', ['$scope', '$controller', '$state', 'recor
             $scope.isError = true;
             $scope.audioInterfaceFns.play();
             failedAnswers++;
-            $scope.showSolveAction = failedAnswers >= 3;
+            $scope.showSolveAction = failedAnswers >= 2;
         }
 
         function manageDebugInfo(source, response) {

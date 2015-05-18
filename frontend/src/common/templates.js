@@ -616,7 +616,7 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
     "    </div>\n" +
     "    <div class=\"l-1-2\">\n" +
     "        <h3>Quiz questions</h3>\n" +
-    "        <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
+    "        <div class=\"incorrect-answer\" ng-repeat=\"question in quizQuestions\"\n" +
     "             ng-click=\"reviewQuestion(question.question._id)\">\n" +
     "            <div class=\"l-1-6\">\n" +
     "                {{question.question.question.text}} - {{question.question.type}}\n" +
@@ -631,7 +631,7 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
     "    </div>\n" +
     "    <div class=\"l-1-2\">\n" +
     "        <h3>Speech questions</h3>\n" +
-    "        <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
+    "        <div class=\"incorrect-answer\" ng-repeat=\"question in speechQuestions\"\n" +
     "             ng-click=\"reviewQuestion(question.question._id)\">\n" +
     "            <div class=\"l-1-6\">\n" +
     "                {{question.question.question.text}} - {{question.question.type}}\n" +

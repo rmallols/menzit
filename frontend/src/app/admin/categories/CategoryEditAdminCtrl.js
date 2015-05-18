@@ -4,7 +4,10 @@ app.controller('CategoryEditAdminCtrl', ['$scope', '$state', 'http', 'category',
     function ($scope, $state, http, category, constants) {
         $scope.title = 'Edit category';
         $scope.category = category;
-        $scope.types = constants.testTypes;
+        $scope.types = [];
+        angular.forEach(constants.testTypes, function (testType) {
+            $scope.types.push(testType);
+        });
         $scope.submit = function () {
             $scope.uploadRequestFn().then(function () {
                 var categoryRestUrl = '/rest/categories/' + $state.params.categoryId;

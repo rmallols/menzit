@@ -5,7 +5,7 @@
     </div>
     <div class="l-1-2">
         <h3>Quiz questions</h3>
-        <div class="incorrect-answer" ng-repeat="question in questions"
+        <div class="incorrect-answer" ng-repeat="question in quizQuestions"
              ng-click="reviewQuestion(question.question._id)">
             <div class="l-1-6">
                 {{question.question.question.text}} - {{question.question.type}}
@@ -20,7 +20,7 @@
     </div>
     <div class="l-1-2">
         <h3>Speech questions</h3>
-        <div class="incorrect-answer" ng-repeat="question in questions"
+        <div class="incorrect-answer" ng-repeat="question in speechQuestions"
              ng-click="reviewQuestion(question.question._id)">
             <div class="l-1-6">
                 {{question.question.question.text}} - {{question.question.type}}

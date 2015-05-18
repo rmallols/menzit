@@ -1,8 +1,10 @@
 'use strict';
 
-app.controller('ReviewCtrl', ['$scope', '$state', 'questions', function ($scope, $state, questions) {
+app.controller('ReviewCtrl', ['$scope', '$state', 'questions', 'constants',
+    function ($scope, $state, questions, constants) {
 
-    $scope.questions = questions;
+    $scope.quizQuestions = [];
+    $scope.speechQuestions = [];
 
     $scope.getBackgroundImageStyle = function (answer) {
         return {
@@ -13,4 +15,12 @@ app.controller('ReviewCtrl', ['$scope', '$state', 'questions', function ($scope,
     $scope.reviewQuestion = function(questionId) {
         $state.go('app.reviewQuestion', { questionId: questionId });
     };
+
+    questions.forEach( function (question) {
+        if(question.question && question.question.type === constants.testTypes.quiz._id) {
+            $scope.quizQuestions.push(question);
+        } else if(question.question && question.question.type === constants.testTypes.speech._id) {
+            $scope.speechQuestions.push(question);
+        }
+    });
 }]);

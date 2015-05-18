@@ -1,9 +1,10 @@
 'use strict';
-app.controller('SpeechTestAddAdminCtrl', ['$scope', '$state', 'http',
-    function ($scope, $state, http) {
+app.controller('SpeechTestAddAdminCtrl', ['$scope', '$state', 'http', 'constants',
+    function ($scope, $state, http, constants) {
 
         $scope.title = 'Add test';
         $scope.test = {
+            type: constants.testTypes.speech._id,
             categoryId: $state.params.categoryId
         };
 
