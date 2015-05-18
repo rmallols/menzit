@@ -425,7 +425,7 @@ angular.module("categories.html", []).run(["$templateCache", function($templateC
 angular.module("audio.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("audio.html",
     "<div class=\"audio\">\n" +
-    "    <button ng-click=\"play()\" class=\"big audio-button\" ng-disabled=\"ngDisabled\">\n" +
+    "    <button ng-click=\"play()\" class=\"audio-button\" ng-disabled=\"ngDisabled\">\n" +
     "        <icon class=\"mic-icon\"></icon>\n" +
     "    </button>\n" +
     "    <audio controls class=\"audio-player\">\n" +
@@ -614,16 +614,34 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
     "    <div ng-if=\"!questions.length\" class=\"msg msg-info\">\n" +
     "        There aren't more questions to review\n" +
     "    </div>\n" +
-    "    <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
-    "        ng-click=\"reviewQuestion(question.question._id)\">\n" +
-    "        <div class=\"l-1-6\">\n" +
-    "            {{question.question.question.text}}\n" +
+    "    <div class=\"l-1-2\">\n" +
+    "        <h3>Quiz questions</h3>\n" +
+    "        <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
+    "             ng-click=\"reviewQuestion(question.question._id)\">\n" +
+    "            <div class=\"l-1-6\">\n" +
+    "                {{question.question.question.text}} - {{question.question.type}}\n" +
+    "            </div>\n" +
+    "            <div class=\"l-1-6 incorrect-answer-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
+    "                 ng-style=\"getBackgroundImageStyle(question.question.answers[index])\">\n" +
+    "            </div>\n" +
+    "            <div class=\"l-1-6\">\n" +
+    "                {{question.totalIncorrectAnswers}} fails\n" +
+    "            </div>\n" +
     "        </div>\n" +
-    "        <div class=\"l-1-6 incorrect-answer-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
-    "            ng-style=\"getBackgroundImageStyle(question.question.answers[index])\">\n" +
-    "        </div>\n" +
-    "        <div class=\"l-1-6\">\n" +
-    "            {{question.totalIncorrectAnswers}} fails\n" +
+    "    </div>\n" +
+    "    <div class=\"l-1-2\">\n" +
+    "        <h3>Speech questions</h3>\n" +
+    "        <div class=\"incorrect-answer\" ng-repeat=\"question in questions\"\n" +
+    "             ng-click=\"reviewQuestion(question.question._id)\">\n" +
+    "            <div class=\"l-1-6\">\n" +
+    "                {{question.question.question.text}} - {{question.question.type}}\n" +
+    "            </div>\n" +
+    "            <div class=\"l-1-6 incorrect-answer-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
+    "                 ng-style=\"getBackgroundImageStyle(question.question.answers[index])\">\n" +
+    "            </div>\n" +
+    "            <div class=\"l-1-6\">\n" +
+    "                {{question.totalIncorrectAnswers}} fails\n" +
+    "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
@@ -679,6 +697,9 @@ angular.module("speechQuestion.html", []).run(["$templateCache", function($templ
     "                    'is-recording': isRecording,\n" +
     "                    'is-success': isSuccess,\n" +
     "                    'is-error': isError}\"></div>\n" +
+    "    <div class=\"recording-button-solve\">\n" +
+    "        <button ng-if=\"showSolveAction\" ng-click=\"markAsSolved()\" class=\"big\">Solve</button>\n" +
+    "    </div>\n" +
     "</div>\n" +
     "\n" +
     "<div ng-show=\"debug\" style=\"position: absolute; top: 80px; left: 0px; z-index:2;\">\n" +
@@ -838,7 +859,7 @@ angular.module("home.html", []).run(["$templateCache", function($templateCache) 
     "                <img src=\"/src/portal/home/main.svg\" />\n" +
     "            </div>\n" +
     "            <div class=\"action\">\n" +
-    "                <button ui-sref=\"app.categories\">Play!</button>\n" +
+    "                <button ui-sref=\"app.categories\" class=\"big\">Play!</button>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <div class=\"secondary\">\n" +

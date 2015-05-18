@@ -11,6 +11,9 @@
                     'is-recording': isRecording,
                     'is-success': isSuccess,
                     'is-error': isError}"></div>
+    <div class="recording-button-solve">
+        <button ng-if="showSolveAction" ng-click="markAsSolved()" class="big">Solve</button>
+    </div>
 </div>
 
 <div ng-show="debug" style="position: absolute; top: 80px; left: 0px; z-index:2;">

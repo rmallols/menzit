@@ -1,3 +1,8 @@
+'use strict';
+/*
+    TODO: This is an external component that doesn't fit with any development standard
+    Please refactor it to avoid breaking the rules
+*/
 app.factory('graph', ['$sce', '$q', function ($sce, $q) {
 
     // AUDIO CONTEXT
@@ -11,7 +16,7 @@ app.factory('graph', ['$sce', '$q', function ($sce, $q) {
     var canvasWidth = 512, canvasHeight = 120;
 
     // MUSIC LOADER + DECODE
-    function loadMusic(url, maxY) {
+    function loadAudio(url, maxY) {
         var deferred = $q.defer();
 
 
@@ -123,6 +128,6 @@ app.factory('graph', ['$sce', '$q', function ($sce, $q) {
     }
 
     return {
-        loadMusic: loadMusic
-    }
+        loadAudio: loadAudio
+    };
 }])

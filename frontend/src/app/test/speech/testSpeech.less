@@ -6,11 +6,11 @@
     @size: 500px;
     @extended-size: 1.2 * @size;
 
+    .offsettedHeight(-@menu-height);
     position: absolute;
-    top: 0;
+    top: @menu-height;
     left: 0;
     width: 100%;
-    height: 100%;
     margin-top: 100%;
 
     -webkit-animation: show-question 1.3s;
@@ -42,7 +42,6 @@
 
     .base-recording-button {
       .base-recording-button-position;
-      background-color: @blue;
       cursor: pointer;
       width: @size;
       height: @size;
@@ -92,6 +91,14 @@
       &.is-error {
         background-color: @red;
       }
+    }
+
+    .recording-button-solve {
+      .centered;
+      position: relative;
+      top: 50%;
+      margin-top: (@extended-size / 2) + 50px;
+      text-align: center;
     }
   }
 }

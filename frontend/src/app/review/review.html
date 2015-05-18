@@ -3,16 +3,34 @@
     <div ng-if="!questions.length" class="msg msg-info">
         There aren't more questions to review
     </div>
-    <div class="incorrect-answer" ng-repeat="question in questions"
-        ng-click="reviewQuestion(question.question._id)">
-        <div class="l-1-6">
-            {{question.question.question.text}}
+    <div class="l-1-2">
+        <h3>Quiz questions</h3>
+        <div class="incorrect-answer" ng-repeat="question in questions"
+             ng-click="reviewQuestion(question.question._id)">
+            <div class="l-1-6">
+                {{question.question.question.text}} - {{question.question.type}}
+            </div>
+            <div class="l-1-6 incorrect-answer-image" ng-repeat="index in [0,1,2,3]"
+                 ng-style="getBackgroundImageStyle(question.question.answers[index])">
+            </div>
+            <div class="l-1-6">
+                {{question.totalIncorrectAnswers}} fails
+            </div>
         </div>
-        <div class="l-1-6 incorrect-answer-image" ng-repeat="index in [0,1,2,3]"
-            ng-style="getBackgroundImageStyle(question.question.answers[index])">
-        </div>
-        <div class="l-1-6">
-            {{question.totalIncorrectAnswers}} fails
+    </div>
+    <div class="l-1-2">
+        <h3>Speech questions</h3>
+        <div class="incorrect-answer" ng-repeat="question in questions"
+             ng-click="reviewQuestion(question.question._id)">
+            <div class="l-1-6">
+                {{question.question.question.text}} - {{question.question.type}}
+            </div>
+            <div class="l-1-6 incorrect-answer-image" ng-repeat="index in [0,1,2,3]"
+                 ng-style="getBackgroundImageStyle(question.question.answers[index])">
+            </div>
+            <div class="l-1-6">
+                {{question.totalIncorrectAnswers}} fails
+            </div>
         </div>
     </div>
 </div>

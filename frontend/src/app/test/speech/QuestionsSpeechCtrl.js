@@ -3,81 +3,109 @@
 app.controller('QuestionsSpeechCtrl', ['$scope', '$controller', '$state', 'record', 'graph', 'http',
     function ($scope, $controller, $state, record, graph, http) {
 
-    var maxY;
+        var maxY, failedAnswers;
 
-    $scope.graphs = {};
-    $scope.debug = false;
-    $scope.isRecording = false;
+        $controller('BaseQuestionCtrl', {$scope: $scope});
 
-    $controller('BaseQuestionCtrl', { $scope: $scope });
-
-    $scope.initializeTest().then(function () {
-        http.get('/rest/audio/' + $scope.question.question.audio._id).then(function (response) {
-            $scope.fingerprintRecordedAudio = response.data;
-            graph.loadMusic($scope.fingerprintRecordedAudio).then(function (response) {
-                $scope.graphs.fingerprint = {
-                    size: response.size
-                };
-                if($scope.debug) {
-                    $scope.graphs.fingerprint.src = response.src;
-                    $scope.graphs.fingerprint.url = response.url;
-                }
-                maxY = response.maxY;
-            });
-        });
-    });
-
-    $scope.startRecording = function() {
-        $scope.isRecording = true;
-        $scope.isSuccess = false;
-        $scope.isError = false;
-        record.record();
-    };
-
-    $scope.stopRecording = function() {
+        $scope.graphs = {};
+        $scope.debug = false;
         $scope.isRecording = false;
-        record.get().then(function (recordedUrl) {
-            $scope.userVoiceRecordedAudio = recordedUrl.base64;
-            graph.loadMusic(recordedUrl.base64, maxY).then(function (response) {
-                $scope.graphs.userVoice = {
-                    size: response.size
-                };
-                if($scope.debug) {
-                    $scope.graphs.userVoice.src = response.src;
-                    $scope.graphs.userVoice.url = response.url;
-                }
-                if(isOk($scope.graphs.fingerprint.size, $scope.graphs.userVoice.size)) {
-                    $scope.setCorrectAnswer();
-                    $scope.isSuccess = true;
-                } else {
-                    $scope.setIncorrectAnswer($scope.question._id);
-                    $scope.isError = true;
-                    $scope.audioInterfaceFns.play();
-                }
+
+        $scope.initializeTest();
+
+        $scope.startRecording = function () {
+            $scope.isRecording = true;
+            $scope.isSuccess = false;
+            $scope.isError = false;
+            record.record();
+        };
+
+        $scope.stopRecording = function () {
+            $scope.isRecording = false;
+            record.get().then(function (recordedUrl) {
+                $scope.userVoiceRecordedAudio = recordedUrl.base64;
+                graph.loadAudio(recordedUrl.base64, maxY).then(onLoadedUserVoiceAudio);
             });
-        });
-    };
+        };
 
-    $scope.$watch('question._id', function () {
-        $scope.isSuccess = false;
-    });
+        $scope.markAsSolved = function () {
+            $scope.audioInterfaceFns.play();
+            manageSuccessAnswer();
+        };
 
-    function isOk(sourceImageSizeBlocks, fingerprintImageSizeBlocks) {
-        var ok = true;
-        sourceImageSizeBlocks.forEach(function (sourceImageSizeBlock, $index) {
-            if (!compareBlock(sourceImageSizeBlock, fingerprintImageSizeBlocks[$index])) {
-                ok = false;
+        $scope.$watch('question._id', function (newQuestionId, oldQuestionId) {
+            if (newQuestionId !== oldQuestionId) {
+                $scope.isSuccess = false;
+                $scope.showSolveAction = false;
+                failedAnswers = 0;
+                generateFingerprint();
             }
         });
-        return ok;
-    }
 
-    function compareBlock(blockA, blockB) {
-        var imageDiff, blockAThreshold, blockBThreshold, tolerance = 0.3;
-        imageDiff = blockA - blockB;
-        imageDiff = (imageDiff < 0) ? -imageDiff : imageDiff;
-        blockAThreshold = imageDiff / blockA < tolerance;
-        blockBThreshold = imageDiff / blockB < tolerance;
-        return blockAThreshold && blockBThreshold;
-    }
-}]);
+        function generateFingerprint() {
+            http.get('/rest/audio/' + $scope.question.question.audio._id).then(function (response) {
+                $scope.fingerprintRecordedAudio = response.data;
+                graph.loadAudio($scope.fingerprintRecordedAudio).then(onLoadedFingerprintAudio);
+            });
+        }
+
+        function onLoadedFingerprintAudio(response) {
+            $scope.graphs.fingerprint = {
+                size: response.size
+            };
+            manageDebugInfo($scope.graphs.fingerprint, response);
+            maxY = response.maxY;
+        }
+
+        function onLoadedUserVoiceAudio(response) {
+            $scope.graphs.userVoice = {
+                size: response.size
+            };
+            if (isOk($scope.graphs.fingerprint.size, $scope.graphs.userVoice.size)) {
+                manageSuccessAnswer();
+            } else {
+                manageIncorrectAnswer();
+            }
+            manageDebugInfo($scope.graphs.userVoice, response);
+        }
+
+        function isOk(sourceImageSizeBlocks, fingerprintImageSizeBlocks) {
+            var ok = true;
+            sourceImageSizeBlocks.forEach(function (sourceImageSizeBlock, $index) {
+                if (!compareBlock(sourceImageSizeBlock, fingerprintImageSizeBlocks[$index])) {
+                    ok = false;
+                }
+            });
+            return ok;
+        }
+
+        function compareBlock(blockA, blockB) {
+            var imageDiff, blockAThreshold, blockBThreshold, tolerance = 0.3;
+            imageDiff = blockA - blockB;
+            imageDiff = (imageDiff < 0) ? -imageDiff : imageDiff;
+            blockAThreshold = imageDiff / blockA < tolerance;
+            blockBThreshold = imageDiff / blockB < tolerance;
+            return blockAThreshold && blockBThreshold;
+        }
+
+        function manageSuccessAnswer() {
+            $scope.setCorrectAnswer();
+            $scope.isSuccess = true;
+            $scope.isError = false;
+        }
+
+        function manageIncorrectAnswer() {
+            $scope.setIncorrectAnswer($scope.question._id);
+            $scope.isError = true;
+            $scope.audioInterfaceFns.play();
+            failedAnswers++;
+            $scope.showSolveAction = failedAnswers >= 3;
+        }
+
+        function manageDebugInfo(source, response) {
+            if ($scope.debug) {
+                source.src = response.src;
+                source.url = response.url;
+            }
+        }
+    }]);
