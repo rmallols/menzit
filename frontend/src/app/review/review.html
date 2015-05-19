@@ -1,32 +1,40 @@
 <div class="review-view">
     <h1>Questions to review</h1>
-    <div ng-if="!questions.length" class="msg msg-info">
-        There aren't more questions to review
-    </div>
-    <div class="l-1-2">
-        <h3>Quiz questions</h3>
-        <div class="incorrect-answer" ng-repeat="question in quizQuestions"
-             ng-click="reviewQuestion(question.question._id)">
-            <div class="l-1-6">
-                {{question.question.question.text}} - {{question.question.type}}
+    <div class="l-1-2 review-questions-quiz">
+        <h2 class="review-questions-title">
+            <icon class="ok-icon"></icon>
+            <div class="text">Quiz questions</div>
+        </h2>
+        <div ng-if="!quizQuestions.length" class="msg msg-info">
+            There aren't more quiz questions to review
+        </div>
+        <div class="incorrect-question" ng-repeat="question in quizQuestions"
+             ng-click="reviewQuizQuestion(question.question._id)">
+            <div class="l-1-6" truncate>
+                {{question.question.question.text}}
             </div>
-            <div class="l-1-6 incorrect-answer-image" ng-repeat="index in [0,1,2,3]"
-                 ng-style="getBackgroundImageStyle(question.question.answers[index])">
+            <div class="l-1-6 background-image" ng-repeat="index in [0,1,2,3]"
+                 ng-style="getBackgroundImageStyle(question.question.answers[index].media._id)">
             </div>
             <div class="l-1-6">
                 {{question.totalIncorrectAnswers}} fails
             </div>
         </div>
     </div>
-    <div class="l-1-2">
-        <h3>Speech questions</h3>
-        <div class="incorrect-answer" ng-repeat="question in speechQuestions"
-             ng-click="reviewQuestion(question.question._id)">
-            <div class="l-1-6">
-                {{question.question.question.text}} - {{question.question.type}}
-            </div>
-            <div class="l-1-6 incorrect-answer-image" ng-repeat="index in [0,1,2,3]"
-                 ng-style="getBackgroundImageStyle(question.question.answers[index])">
+    <div class="l-1-2 review-questions-speech">
+        <h2 class="review-questions-title">
+            <icon class="mic-icon"></icon>
+            <div class="text">Speech questions</div>
+        </h2>
+        <div ng-if="!speechQuestions.length" class="msg msg-info">
+            There aren't more quiz questions to review
+        </div>
+        <div class="incorrect-question" ng-repeat="question in speechQuestions"
+             ng-click="reviewSpeechQuestion(question.question._id)">
+            <div class="background-image"
+                 ng-style="getBackgroundImageStyle(question.question.question.media._id)"></div>
+            <div class="l-5-6 review-questions-speech-text">
+                {{question.question.question.text}}
             </div>
             <div class="l-1-6">
                 {{question.totalIncorrectAnswers}} fails

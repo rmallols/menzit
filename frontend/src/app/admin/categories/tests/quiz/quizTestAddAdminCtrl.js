@@ -1,12 +1,13 @@
 'use strict';
 
-app.controller('QuizTestAddAdminCtrl', ['$scope', '$state', 'http', 'testAdmin',
-    function ($scope, $state, http, testAdmin) {
+app.controller('QuizTestAddAdminCtrl', ['$scope', '$state', 'http', 'testAdmin', 'constants',
+    function ($scope, $state, http, testAdmin, constants) {
 
         $scope.title = 'Add test';
         $scope.correctOptionIndex = 0;
         $scope.uploadAnswerRequestFns = new Array(4);
         $scope.test = {
+            type: constants.testTypes.quiz._id,
             categoryId: $state.params.categoryId,
             answers: [{}, {}, {}, {}]
         };

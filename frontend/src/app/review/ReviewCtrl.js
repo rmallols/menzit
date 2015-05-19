@@ -3,24 +3,28 @@
 app.controller('ReviewCtrl', ['$scope', '$state', 'questions', 'constants',
     function ($scope, $state, questions, constants) {
 
-    $scope.quizQuestions = [];
-    $scope.speechQuestions = [];
+        $scope.quizQuestions = [];
+        $scope.speechQuestions = [];
 
-    $scope.getBackgroundImageStyle = function (answer) {
-        return {
-            backgroundImage: 'url(' + (answer.media && answer.media._id) + ')'
+        $scope.getBackgroundImageStyle = function (mediaId) {
+            return {
+                backgroundImage: 'url(/media/' + mediaId + ')'
+            };
         };
-    };
 
-    $scope.reviewQuestion = function(questionId) {
-        $state.go('app.reviewQuestion', { questionId: questionId });
-    };
+        $scope.reviewQuizQuestion = function (questionId) {
+            $state.go('app.reviewQuestion-quiz', {questionId: questionId});
+        };
 
-    questions.forEach( function (question) {
-        if(question.question && question.question.type === constants.testTypes.quiz._id) {
-            $scope.quizQuestions.push(question);
-        } else if(question.question && question.question.type === constants.testTypes.speech._id) {
-            $scope.speechQuestions.push(question);
-        }
-    });
-}]);
+        $scope.reviewSpeechQuestion = function (questionId) {
+            $state.go('app.reviewQuestion-speech', {questionId: questionId});
+        };
+
+        questions.forEach(function (question) {
+            if (question.question && question.question.type === constants.testTypes.quiz._id) {
+                $scope.quizQuestions.push(question);
+            } else if (question.question && question.question.type === constants.testTypes.speech._id) {
+                $scope.speechQuestions.push(question);
+            }
+        });
+    }]);

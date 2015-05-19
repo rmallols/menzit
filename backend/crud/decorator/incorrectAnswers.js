@@ -12,9 +12,7 @@ module.exports = {
             now = new Date();
             today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
             filter = {
-                query: { $and: [
-                    { 'create.authorId': session.getSession(request)._id }]
-                },
+                query: {},
                 sort: { totalIncorrectAnswers: -1 }
             };
             callback(filter);

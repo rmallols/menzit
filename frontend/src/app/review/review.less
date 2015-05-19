@@ -1,6 +1,6 @@
 .review-view {
 
-  .incorrect-answer {
+  .incorrect-question {
     .list-item;
 
     cursor: pointer;
@@ -9,9 +9,41 @@
       height: 100%;
       .v-centered;
     }
+  }
 
-    .incorrect-answer-image {
-      background-size: cover;
+  .background-image {
+    background-size: cover;
+  }
+
+  .review-questions-title {
+    .cf;
+    color: @blue;
+    margin: @gutter 0 (2 * @gutter) 0;
+
+    icon {
+      float: left;
+      margin: 1px @gutter 0 0;
+    }
+
+    .text {
+      float: left;
+    }
+  }
+
+  .review-questions-speech {
+    @background-size: @list-item-height - (2 * @gutter);
+
+    .background-image {
+      border-radius: @background-size;
+      width: @background-size;
+      height: @background-size;
+      position: absolute;
+    }
+
+    .review-questions-speech-text {
+      float: left;
+      margin-left: 0;
+      padding-left: @background-size + @gutter;
     }
   }
 }

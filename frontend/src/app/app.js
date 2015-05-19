@@ -80,7 +80,7 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
                 }
             })
 
-            .state('app.reviewQuestion', {
+            .state('app.reviewQuestion-quiz', {
                 url: "/review/:questionId",
                 templateUrl: "quizQuestion.html",
                 controller: 'ReviewQuestionCtrl',

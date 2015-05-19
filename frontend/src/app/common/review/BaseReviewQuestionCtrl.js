@@ -1,12 +1,12 @@
 'use strict';
 
-app.controller('ReviewQuestionCtrl', ['$scope', '$controller', '$timeout', '$state', '$q', 'http', 'question',
-function ($scope, $controller, $timeout, $state, $q, http, question) {
+app.controller('BaseReviewQuestionCtrl', ['$scope', '$controller', '$timeout', '$state', '$q', 'http',
+function ($scope, $controller, $timeout, $state, $q, http) {
 
     $controller('BaseQuestionCtrl', { $scope: $scope });
     $controller('BaseQuizQuestionCtrl', { $scope: $scope });
 
-    setCurrentQuestion(question);
+    setCurrentQuestion($scope.question);
 
     $scope.setCorrectAnswer = function(questionId, answer) {
         answer.validAssert = true;

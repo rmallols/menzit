@@ -611,33 +611,41 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
   $templateCache.put("review.html",
     "<div class=\"review-view\">\n" +
     "    <h1>Questions to review</h1>\n" +
-    "    <div ng-if=\"!questions.length\" class=\"msg msg-info\">\n" +
-    "        There aren't more questions to review\n" +
-    "    </div>\n" +
-    "    <div class=\"l-1-2\">\n" +
-    "        <h3>Quiz questions</h3>\n" +
-    "        <div class=\"incorrect-answer\" ng-repeat=\"question in quizQuestions\"\n" +
-    "             ng-click=\"reviewQuestion(question.question._id)\">\n" +
-    "            <div class=\"l-1-6\">\n" +
-    "                {{question.question.question.text}} - {{question.question.type}}\n" +
+    "    <div class=\"l-1-2 review-questions-quiz\">\n" +
+    "        <h2 class=\"review-questions-title\">\n" +
+    "            <icon class=\"ok-icon\"></icon>\n" +
+    "            <div class=\"text\">Quiz questions</div>\n" +
+    "        </h2>\n" +
+    "        <div ng-if=\"!quizQuestions.length\" class=\"msg msg-info\">\n" +
+    "            There aren't more quiz questions to review\n" +
+    "        </div>\n" +
+    "        <div class=\"incorrect-question\" ng-repeat=\"question in quizQuestions\"\n" +
+    "             ng-click=\"reviewQuizQuestion(question.question._id)\">\n" +
+    "            <div class=\"l-1-6\" truncate>\n" +
+    "                {{question.question.question.text}}\n" +
     "            </div>\n" +
-    "            <div class=\"l-1-6 incorrect-answer-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
-    "                 ng-style=\"getBackgroundImageStyle(question.question.answers[index])\">\n" +
+    "            <div class=\"l-1-6 background-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
+    "                 ng-style=\"getBackgroundImageStyle(question.question.answers[index].media._id)\">\n" +
     "            </div>\n" +
     "            <div class=\"l-1-6\">\n" +
     "                {{question.totalIncorrectAnswers}} fails\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"l-1-2\">\n" +
-    "        <h3>Speech questions</h3>\n" +
-    "        <div class=\"incorrect-answer\" ng-repeat=\"question in speechQuestions\"\n" +
-    "             ng-click=\"reviewQuestion(question.question._id)\">\n" +
-    "            <div class=\"l-1-6\">\n" +
-    "                {{question.question.question.text}} - {{question.question.type}}\n" +
-    "            </div>\n" +
-    "            <div class=\"l-1-6 incorrect-answer-image\" ng-repeat=\"index in [0,1,2,3]\"\n" +
-    "                 ng-style=\"getBackgroundImageStyle(question.question.answers[index])\">\n" +
+    "    <div class=\"l-1-2 review-questions-speech\">\n" +
+    "        <h2 class=\"review-questions-title\">\n" +
+    "            <icon class=\"mic-icon\"></icon>\n" +
+    "            <div class=\"text\">Speech questions</div>\n" +
+    "        </h2>\n" +
+    "        <div ng-if=\"!speechQuestions.length\" class=\"msg msg-info\">\n" +
+    "            There aren't more quiz questions to review\n" +
+    "        </div>\n" +
+    "        <div class=\"incorrect-question\" ng-repeat=\"question in speechQuestions\"\n" +
+    "             ng-click=\"reviewSpeechQuestion(question.question._id)\">\n" +
+    "            <div class=\"background-image\"\n" +
+    "                 ng-style=\"getBackgroundImageStyle(question.question.question.media._id)\"></div>\n" +
+    "            <div class=\"l-5-6 review-questions-speech-text\">\n" +
+    "                {{question.question.question.text}}\n" +
     "            </div>\n" +
     "            <div class=\"l-1-6\">\n" +
     "                {{question.totalIncorrectAnswers}} fails\n" +
