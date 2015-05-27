@@ -35,7 +35,7 @@ var acceptedRoutes = [
         '/test', '/play', '/play/:categoryId/quiz', '/play/:categoryId/speech',
         '/page-not-found', '/browser-not-supported'],
     acceptedLoggedRoutes = [
-        '/review', '/review/:questionId',
+        '/review', '/review/:questionId/quiz', '/review/:questionId/speech',
         '/admin/tenants', '/admin/tenants/add', '/admin/tenants/edit/:tenantId', '/admin/tenants/invite/:tenantId',
         '/admin/categories', '/admin/categories/add', '/admin/categories/edit/:categoryId',
         '/admin/categories/:categoryId/tests', '/admin/categories/:categoryId/tests/add',
@@ -142,7 +142,9 @@ app.post('/rest/incorrectAnswers/:questionId/addCorrect', function (req, res) {
         collectionId = 'incorrectAnswers';
         read.find(collectionId, filter, function (response) {
             var incorrectAnswerCollection = response.length && response[0];
-            if(incorrectAnswerCollection.totalIncorrectAnswers) {
+            console.log('ch', incorrectAnswerCollection, incorrectAnswerCollection.totalIncorrectAnswers)
+            if(incorrectAnswerCollection.totalIncorrectAnswers > 1) {
+                console.log('UPDATING');
                 incorrectAnswerCollection.totalIncorrectAnswers--;
                 update.update(incorrectAnswerCollection._id, collectionId, incorrectAnswerCollection, req.session, function (response) {
                     res.send(response);
@@ -152,6 +154,7 @@ app.post('/rest/incorrectAnswers/:questionId/addCorrect', function (req, res) {
                     questionId: req.params.questionId,
                     totalIncorrectAnswers: 1
                 };
+                console.log('DELETING');
                 remove.remove(incorrectAnswerCollection._id, collectionId, function (response) {
                     res.send(response);
                 });

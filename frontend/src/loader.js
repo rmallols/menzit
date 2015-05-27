@@ -47,6 +47,7 @@ getScript(srcPath + '/app/AppCtrl.js');
 getScript(srcPath + '/app/common/question/BaseTestCtrl.js');
 getScript(srcPath + '/app/common/question/BaseQuestionCtrl.js');
 getScript(srcPath + '/app/common/question/BaseQuizQuestionCtrl.js');
+getScript(srcPath + '/app/common/question/BaseSpeechQuestionCtrl.js');
 getScript(srcPath + '/app/common/review/BaseReviewQuestionCtrl.js');
 getScript(srcPath + '/app/common/image/upload.js');
 getScript(srcPath + '/app/common/image/fileModel.js');
@@ -70,7 +71,8 @@ getScript(srcPath + '/app/common/dialog/dialog.js');
 getScript(srcPath + '/app/categories/CategoriesCtrl.js');
 //Review page
 getScript(srcPath + '/app/review/ReviewCtrl.js');
-getScript(srcPath + '/app/review/ReviewQuestionCtrl.js');
+getScript(srcPath + '/app/review/quiz/ReviewQuestionQuizCtrl.js');
+getScript(srcPath + '/app/review/speech/ReviewQuestionSpeechCtrl.js');
 //Test page
 getScript(srcPath + '/app/test/quiz/TestQuizCtrl.js');
 getScript(srcPath + '/app/test/quiz/QuestionsQuizCtrl.js');

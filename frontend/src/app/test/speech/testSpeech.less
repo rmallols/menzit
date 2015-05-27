@@ -1,16 +1,17 @@
-.app-test-speech {
+.speech-question-view {
   overflow: hidden;
   position: relative;
+  height: 100%;
 
   .recording-wrapper {
     @size: 500px;
     @extended-size: 1.2 * @size;
 
-    .offsettedHeight(-@menu-height);
     position: absolute;
-    top: @menu-height;
+    top: -@menu-height / 2;
     left: 0;
     width: 100%;
+    height: 100%;
     margin-top: 100%;
 
     -webkit-animation: show-question 1.3s;

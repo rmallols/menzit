@@ -81,9 +81,24 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
             })
 
             .state('app.reviewQuestion-quiz', {
-                url: "/review/:questionId",
+                url: "/review/:questionId/quiz",
                 templateUrl: "quizQuestion.html",
-                controller: 'ReviewQuestionCtrl',
+                controller: 'ReviewQuestionQuizCtrl',
+                pageTitle: 'Review a test',
+                resolve: {
+                    question: ['$stateParams', 'http', function ($stateParams, http) {
+                        return http.get('/rest/tests/' + $stateParams.questionId);
+                    }]
+                },
+                data: {
+                    groupId: 'review'
+                }
+            })
+
+            .state('app.reviewQuestion-speech', {
+                url: "/review/:questionId/speech",
+                templateUrl: "speechQuestion.html",
+                controller: 'ReviewQuestionSpeechCtrl',
                 pageTitle: 'Review a test',
                 resolve: {
                     question: ['$stateParams', 'http', function ($stateParams, http) {

@@ -4,17 +4,20 @@ app.controller('BaseReviewQuestionCtrl', ['$scope', '$controller', '$timeout', '
 function ($scope, $controller, $timeout, $state, $q, http) {
 
     $controller('BaseQuestionCtrl', { $scope: $scope });
-    $controller('BaseQuizQuestionCtrl', { $scope: $scope });
 
     setCurrentQuestion($scope.question);
 
     $scope.setCorrectAnswer = function(questionId, answer) {
-        answer.validAssert = true;
+        if(answer) {
+            answer.validAssert = true;
+        }
         http.post('/rest/incorrectAnswers/' + questionId + '/addCorrect').then(manageNextQuestion);
     };
 
     $scope.setIncorrectAnswer = function(questionId, answer) {
-        answer.invalidAssert = (answer.invalidAssert) ? false : !answer.isCorrect;
+        if(answer) {
+            answer.invalidAssert = (answer.invalidAssert) ? false : !answer.isCorrect;
+        }
         http.post('/rest/incorrectAnswers/' + questionId);
     };
 

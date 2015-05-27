@@ -27,7 +27,7 @@
             <div class="text">Speech questions</div>
         </h2>
         <div ng-if="!speechQuestions.length" class="msg msg-info">
-            There aren't more quiz questions to review
+            There aren't more speech questions to review
         </div>
         <div class="incorrect-question" ng-repeat="question in speechQuestions"
              ng-click="reviewSpeechQuestion(question.question._id)">

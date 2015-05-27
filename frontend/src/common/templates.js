@@ -502,7 +502,7 @@ angular.module("imageUpload.html", []).run(["$templateCache", function($template
 
 angular.module("quizQuestion.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("quizQuestion.html",
-    "<div class=\"question-view\">\n" +
+    "<div class=\"quiz-question-view\">\n" +
     "    <div class=\"question\"\n" +
     "         ng-class=\"getQuestionStyleClasses(question.question)\"\n" +
     "         ng-style=\"getBackgroundImageStyle(question.question.media._id)\">\n" +
@@ -638,7 +638,7 @@ angular.module("review.html", []).run(["$templateCache", function($templateCache
     "            <div class=\"text\">Speech questions</div>\n" +
     "        </h2>\n" +
     "        <div ng-if=\"!speechQuestions.length\" class=\"msg msg-info\">\n" +
-    "            There aren't more quiz questions to review\n" +
+    "            There aren't more speech questions to review\n" +
     "        </div>\n" +
     "        <div class=\"incorrect-question\" ng-repeat=\"question in speechQuestions\"\n" +
     "             ng-click=\"reviewSpeechQuestion(question.question._id)\">\n" +
@@ -692,31 +692,33 @@ angular.module("results.html", []).run(["$templateCache", function($templateCach
 
 angular.module("speechQuestion.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("speechQuestion.html",
-    "<div class=\"recording-wrapper\">\n" +
-    "    <div class=\"recording-button\" ng-class=\"{ recording: isRecording}\"\n" +
-    "         on-touch-start=\"startRecording()\" on-touch-end=\"stopRecording()\"\n" +
-    "         ng-style=\"getBackgroundImageStyle(question.question.media._id)\">\n" +
-    "        <div class=\"recording-button-text\">\n" +
-    "            {{question.question.text}}\n" +
+    "<div class=\"speech-question-view\">\n" +
+    "    <div class=\"recording-wrapper\">\n" +
+    "        <div class=\"recording-button\" ng-class=\"{ recording: isRecording}\"\n" +
+    "             on-touch-start=\"startRecording()\" on-touch-end=\"stopRecording()\"\n" +
+    "             ng-style=\"getBackgroundImageStyle(question.question.media._id)\">\n" +
+    "            <div class=\"recording-button-text\">\n" +
+    "                {{question.question.text}}\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"recording-button-effect\"\n" +
+    "             ng-class=\"{'is-active': isRecording || isSuccess || isError,\n" +
+    "                        'is-recording': isRecording,\n" +
+    "                        'is-success': isSuccess,\n" +
+    "                        'is-error': isError}\"></div>\n" +
+    "        <div class=\"recording-button-solve\">\n" +
+    "            <button ng-if=\"showSolveAction\" ng-click=\"markAsSolved()\" class=\"big\">Solve</button>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"recording-button-effect\"\n" +
-    "         ng-class=\"{'is-active': isRecording || isSuccess || isError,\n" +
-    "                    'is-recording': isRecording,\n" +
-    "                    'is-success': isSuccess,\n" +
-    "                    'is-error': isError}\"></div>\n" +
-    "    <div class=\"recording-button-solve\">\n" +
-    "        <button ng-if=\"showSolveAction\" ng-click=\"markAsSolved()\" class=\"big\">Solve</button>\n" +
-    "    </div>\n" +
-    "</div>\n" +
     "\n" +
-    "<div ng-show=\"debug\" style=\"position: absolute; top: 80px; left: 0px; z-index:2;\">\n" +
-    "    <div audio=\"fingerprintRecordedAudio\" type=\"inline\" interface-fns=\"$parent.audioInterfaceFns\"></div>\n" +
-    "    <div ng-if=\"debug\">\n" +
-    "        <img src=\"{{graphs.fingerprint.src}}\"/>\n" +
-    "        <div audio=\"userVoiceRecordedAudio\" type=\"inline\" interface-fns=\"{}\"></div>\n" +
-    "        <img src=\"{{graphs.userVoice.src}}\"/>\n" +
-    "        <div>The diff is: {{graphs.fingerprint.size}} - {{graphs.userVoice.size}} - {{isSuccess}}</div>\n" +
+    "    <div ng-show=\"debug\" style=\"position: absolute; top: 80px; left: 0px; z-index:2;\">\n" +
+    "        <div audio=\"fingerprintRecordedAudio\" type=\"inline\" interface-fns=\"$parent.audioInterfaceFns\"></div>\n" +
+    "        <div ng-if=\"debug\">\n" +
+    "            <img src=\"{{graphs.fingerprint.src}}\"/>\n" +
+    "            <div audio=\"userVoiceRecordedAudio\" type=\"inline\" interface-fns=\"{}\"></div>\n" +
+    "            <img src=\"{{graphs.userVoice.src}}\"/>\n" +
+    "            <div>The diff is: {{graphs.fingerprint.size}} - {{graphs.userVoice.size}} - {{isSuccess}}</div>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>");
 }]);
